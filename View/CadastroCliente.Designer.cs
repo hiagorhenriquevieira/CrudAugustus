@@ -408,11 +408,12 @@ namespace CrudAugustusFashion
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(38, 555);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(388, 55);
             this.button1.TabIndex = 42;
-            this.button1.Text = "button1";
+            this.button1.Text = "Cadastrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -422,13 +423,14 @@ namespace CrudAugustusFashion
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(362, 54);
             this.button2.TabIndex = 43;
-            this.button2.Text = "button2";
+            this.button2.Text = "Limpar";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // FrmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(817, 622);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -469,6 +471,7 @@ namespace CrudAugustusFashion
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FrmCadastroCliente";
             this.Text = "Cadastro de cliente";
             this.Load += new System.EventHandler(this.FrmCadastroCliente_Load);

@@ -9,7 +9,7 @@ namespace CrudAugustusFashion.Model
 {
     class UsuarioModel
     {
-
+        public int Id { get; set; }
         public string NomeCompleto { get; set; }
         public int Cpf { get; set; }
         public string Sexo { get; set; }

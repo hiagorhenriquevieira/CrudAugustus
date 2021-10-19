@@ -8,5 +8,13 @@ C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\CrudAugustusFashion
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.exe
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.pdb
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.FrmCadastroCliente.resources
-C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.CadastroColaborador.resources
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.MdiParentPrincipal.resources
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\Dapper.dll
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\Dapper.FluentMap.dll
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\Dommel.dll
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\Dapper.xml
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\Dapper.FluentMap.xml
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\Dommel.xml
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.csproj.CopyComplete
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.FrmCadastroColaborador.resources

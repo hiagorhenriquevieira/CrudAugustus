@@ -1,7 +1,7 @@
 ﻿
 namespace CrudAugustusFashion.View
 {
-    partial class CadastroColaborador
+    partial class FrmCadastroColaborador
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -62,6 +62,8 @@ namespace CrudAugustusFashion.View
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label19
@@ -88,7 +90,7 @@ namespace CrudAugustusFashion.View
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(256, 469);
+            this.textBox14.Location = new System.Drawing.Point(199, 425);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(137, 29);
             this.textBox14.TabIndex = 91;
@@ -343,7 +345,7 @@ namespace CrudAugustusFashion.View
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(268, 375);
+            this.label10.Location = new System.Drawing.Point(263, 360);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(274, 37);
             this.label10.TabIndex = 95;
@@ -371,7 +373,7 @@ namespace CrudAugustusFashion.View
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(440, 443);
+            this.label18.Location = new System.Drawing.Point(440, 397);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(97, 25);
             this.label18.TabIndex = 98;
@@ -382,7 +384,7 @@ namespace CrudAugustusFashion.View
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(440, 514);
+            this.label20.Location = new System.Drawing.Point(440, 469);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(74, 25);
             this.label20.TabIndex = 99;
@@ -392,7 +394,7 @@ namespace CrudAugustusFashion.View
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(251, 513);
+            this.label21.Location = new System.Drawing.Point(194, 469);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(156, 25);
             this.label21.TabIndex = 100;
@@ -402,7 +404,7 @@ namespace CrudAugustusFashion.View
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(251, 439);
+            this.label22.Location = new System.Drawing.Point(194, 397);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(78, 25);
             this.label22.TabIndex = 101;
@@ -411,7 +413,7 @@ namespace CrudAugustusFashion.View
             // textBox15
             // 
             this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(256, 544);
+            this.textBox15.Location = new System.Drawing.Point(203, 497);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(133, 29);
             this.textBox15.TabIndex = 102;
@@ -419,7 +421,7 @@ namespace CrudAugustusFashion.View
             // textBox16
             // 
             this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.Location = new System.Drawing.Point(445, 469);
+            this.textBox16.Location = new System.Drawing.Point(445, 425);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(137, 29);
             this.textBox16.TabIndex = 103;
@@ -427,16 +429,37 @@ namespace CrudAugustusFashion.View
             // textBox17
             // 
             this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox17.Location = new System.Drawing.Point(445, 542);
+            this.textBox17.Location = new System.Drawing.Point(445, 497);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(137, 29);
             this.textBox17.TabIndex = 104;
             // 
-            // CadastroColaborador
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(42, 562);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(382, 49);
+            this.button1.TabIndex = 105;
+            this.button1.Text = "Cadastrar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(445, 562);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(388, 49);
+            this.button2.TabIndex = 106;
+            this.button2.Text = "Limpar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // FrmCadastroColaborador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(876, 623);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox17);
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.textBox15);
@@ -477,8 +500,8 @@ namespace CrudAugustusFashion.View
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label19);
-            this.Name = "CadastroColaborador";
-            this.Text = "Form1";
+            this.Name = "FrmCadastroColaborador";
+            this.Text = "FrmCadastroColaborador";
             this.Load += new System.EventHandler(this.CadastroColaborador_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -526,5 +549,7 @@ namespace CrudAugustusFashion.View
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

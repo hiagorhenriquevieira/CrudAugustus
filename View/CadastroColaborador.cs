@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CrudAugustusFashion.View
 {
-    public partial class CadastroColaborador : Form
+    public partial class FrmCadastroColaborador : Form
     {
-        public CadastroColaborador()
+        public FrmCadastroColaborador()
         {
             InitializeComponent();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrudAugustusFashion.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -86,5 +87,10 @@ namespace CrudAugustusFashion.View
         {
 
         }
+
+        private void colaboradorToolStripMenuItem_Click(object sender, EventArgs e) => new CadastroColaboradorController().AbrirCadastroColaborador();
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e) => new CadastroClienteController().AbrirCadastroCliente();
+
     }
 }
