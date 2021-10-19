@@ -1,0 +1,12 @@
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.csproj.AssemblyReference.cache
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.Properties.Resources.resources
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.csproj.GenerateResource.cache
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.csproj.CoreCompileInputs.cache
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\CrudAugustusFashion.exe.config
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\CrudAugustusFashion.exe
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\CrudAugustusFashion.pdb
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.exe
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.pdb
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.FrmCadastroCliente.resources
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.CadastroColaborador.resources
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.MdiParentPrincipal.resources
