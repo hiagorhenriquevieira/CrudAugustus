@@ -62,6 +62,7 @@
     <Compile Include="Controller\CadastroColaboradorController.cs" />
     <Compile Include="Controller\CadastroClienteController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
+    <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\ColaboradorModel.cs" />

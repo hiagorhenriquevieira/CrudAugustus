@@ -9,39 +9,45 @@ using System.Windows.Forms;
 
 namespace CrudAugustusFashion.Dao
 {
-    public class ClienteDao
+   public class ColaboradorDao
     {
         ConexaoDao conexao = new ConexaoDao();
-        public void CadastrarCliente(ClienteModel cliente, EnderecoModel endereco, TelefoneModel telefone)
+        public void CadastrarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
         {
+
             var strSqlUsuario = "insert into Usuarios output inserted.IdUsuario values (@nome, @sobreNome, @sexo, @dataNascimento, @cpf, @email)";
-            var strSqlCliente = "insert into Clientes (IdUsuario, ValorLimite, Observacao) values (@IdUsuario, @limiteCompra, @observacao)";
+            var strSqlColaborador = "insert into Colaboradores (IdUsuario, Salario, PorcentagemComissao) values (@IdUsuario, @salario, @porcentagemComissao)";
             var strSqlEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
                "values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
             var strSqlTelefone = "insert into Telefone (IdUsuario, Telefone, DddTelefone, DddCelular, Celular) values (@IdUsuario, @telefone, @dddTelefone, @dddCelular, @celular)";
+            var strSqlContaBancaria = "insert into ContasBancarias (IdColaborador, Conta, Agencia, TipoConta, Banco) values (@IdColaborador, @conta, @agencia, @tipoConta, @banco)";
 
             try
             {
                 using (var con = conexao.conectar())
                 using (var transacao = con.BeginTransaction())
                 {
-                    int id = con.ExecuteScalar<int>(strSqlUsuario, cliente, transacao);
-                    cliente.IdUsuario = id;
+                    int id = con.ExecuteScalar<int>(strSqlUsuario, colaborador, transacao);
+                    colaborador.IdUsuario = id;
 
                     endereco.IdUsuario = id;
 
                     telefone.IdUsuario = id;
+                    
+                    contaBancaria.IdColaborador = id;
 
-                    con.Execute(strSqlCliente, cliente, transacao);
+                    con.Execute(strSqlColaborador, colaborador, transacao);
 
                     con.Execute(strSqlEndereco, endereco, transacao);
 
                     con.Execute(strSqlTelefone, telefone, transacao);
 
+                    con.Execute(strSqlContaBancaria, contaBancaria, transacao);
+
                     transacao.Commit();
                 }
 
-                MessageBox.Show(cliente.IdUsuario.ToString());
+                MessageBox.Show(colaborador.IdUsuario.ToString());
             }
             catch (Exception ex)
             {

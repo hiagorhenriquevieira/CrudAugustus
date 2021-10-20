@@ -28,7 +28,7 @@ namespace CrudAugustusFashion
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
             var cliente = new ClienteModel();
 
