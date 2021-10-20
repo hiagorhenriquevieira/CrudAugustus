@@ -61,12 +61,14 @@
   <ItemGroup>
     <Compile Include="Controller\CadastroColaboradorController.cs" />
     <Compile Include="Controller\CadastroClienteController.cs" />
+    <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
-    <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\ColaboradorModel.cs" />
     <Compile Include="Model\ContaBancariaModel.cs" />
+    <Compile Include="Model\EnderecoModel.cs" />
     <Compile Include="Model\MdiSingletonModel.cs" />
+    <Compile Include="Model\TelefoneModel.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="View\CadastroCliente.cs">
       <SubType>Form</SubType>

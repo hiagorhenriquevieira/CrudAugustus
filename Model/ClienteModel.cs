@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Model
 {
-    class ClienteModel : UsuarioModel
+    public class ClienteModel : UsuarioModel
     {
-        public int Id { get; set; }
-        public int Observacao{ get; set; }
-        public int LimiteCompra { get; set; }
+        public int IdCliente { get; set; }
+        public string Observacao{ get; set; }
+        public decimal LimiteCompra { get; set; }
         
     }
 }

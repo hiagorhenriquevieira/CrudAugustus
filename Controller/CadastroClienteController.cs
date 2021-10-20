@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Controller
 {
-    class CadastroClienteController
+    public class CadastroClienteController
     {
-        public void CadastrarCliente()
+        public void CadastrarCliente(ClienteModel cliente, EnderecoModel endereco, TelefoneModel telefone)
         {
-            
+            new ClienteDao().CadastrarCliente(cliente, endereco, telefone);
         }
         public void AbrirCadastroCliente()
         {

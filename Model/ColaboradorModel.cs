@@ -8,7 +8,7 @@ namespace CrudAugustusFashion.Model
 {
     class ColaboradorModel : UsuarioModel
     {
-        public int Id { get; set; }
+        public int IdColaborador { get; set; }
         public int Salario { get; set; }
         public int PorcentagemComissao { get; set; }
         public ContaBancariaModel Conta { get; set; }
