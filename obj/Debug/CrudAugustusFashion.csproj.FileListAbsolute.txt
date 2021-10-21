@@ -18,3 +18,5 @@ C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\Dapper.FluentMap.xm
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\bin\Debug\Dommel.xml
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.csproj.CopyComplete
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.FrmCadastroColaborador.resources
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.FrmListaCliente.resources
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.FrmListaColaborador.resources

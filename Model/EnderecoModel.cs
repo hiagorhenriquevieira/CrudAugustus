@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Model
 {
-    public class EnderecoModel : UsuarioModel
+    public class EnderecoModel 
     {
+        public int IdUsuario { get; set; }
         public int IdEndereco { get; set; }
         public string Cep { get; set; }
         public string Logradouro { get; set; }

@@ -16,6 +16,8 @@ namespace CrudAugustusFashion.Model
         public string Sexo { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Email { get; set; }
+        public TelefoneModel Telefone { get; set; }
+        public EnderecoModel Endereco { get; set; }
 
     }
 }

@@ -59,11 +59,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDAUGUSTODataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDAUGUSTODataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDAUGUSTODataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDAUGUSTODataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BDAUGUSTODataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDAUGUSTODataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Controller\CadastroColaboradorController.cs" />
     <Compile Include="Controller\CadastroClienteController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
+    <Compile Include="Extencion\NuloOuVazioExtencion.cs" />
+    <Compile Include="Model\ClienteListaModel.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\ColaboradorModel.cs" />
     <Compile Include="Model\ContaBancariaModel.cs" />
@@ -84,6 +101,18 @@
     </Compile>
     <Compile Include="View\CadastroColaborador.Designer.cs">
       <DependentUpon>CadastroColaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ListaCliente.Designer.cs">
+      <DependentUpon>ListaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListaColaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ListaColaborador.Designer.cs">
+      <DependentUpon>ListaColaborador.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MdiParentPrincipal.cs">
       <SubType>Form</SubType>
@@ -106,9 +135,48 @@
     <EmbeddedResource Include="View\CadastroColaborador.resx">
       <DependentUpon>CadastroColaborador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ListaCliente.resx">
+      <DependentUpon>ListaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ListaColaborador.resx">
+      <DependentUpon>ListaColaborador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MdiParentPrincipal.resx">
       <DependentUpon>MdiParentPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BDAUGUSTODataSet.xsc">
+      <DependentUpon>BDAUGUSTODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDAUGUSTODataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDAUGUSTODataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDAUGUSTODataSet.xss">
+      <DependentUpon>BDAUGUSTODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDAUGUSTODataSet1.xsc">
+      <DependentUpon>BDAUGUSTODataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BDAUGUSTODataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDAUGUSTODataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDAUGUSTODataSet1.xss">
+      <DependentUpon>BDAUGUSTODataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BDAUGUSTODataSet2.xsc">
+      <DependentUpon>BDAUGUSTODataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="BDAUGUSTODataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDAUGUSTODataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDAUGUSTODataSet2.xss">
+      <DependentUpon>BDAUGUSTODataSet2.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

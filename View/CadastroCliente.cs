@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Controller;
-
+using CrudAugustusFashion.Extencion;
 
 namespace CrudAugustusFashion
 {
@@ -30,12 +30,27 @@ namespace CrudAugustusFashion
 
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
+            if (txtNome.NuloOuVazio() || txtSobrenome.NuloOuVazio() ||
+                txtCpf.NuloOuVazio() || comboBoxSexo.NuloOuVazio() ||
+                txtCidade.NuloOuVazio() || txtBairro.NuloOuVazio() ||
+                txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() ||
+                txtComplemento.NuloOuVazio() || txtLogradouro.NuloOuVazio() || 
+                txtNumeroResidencia.NuloOuVazio() || dateTimeNascimento.NuloOuVazio() ||
+                txtCelular.NuloOuVazio() || txtEmail.NuloOuVazio() ||
+                txtLimiteCompraPrazo.NuloOuVazio())
+            {
+                MessageBox.Show("Preencha os campos obrigatórios!");
+                return;
+            }
+
+
+
             var cliente = new ClienteModel();
 
             cliente.Nome = txtNome.Text;
             cliente.SobreNome = txtSobrenome.Text;
             cliente.Cpf = txtCpf.Text;
-            cliente.Sexo = txtSexo.Text;
+            cliente.Sexo = comboBoxSexo.Text;
             cliente.DataNascimento = dateTimeNascimento.Value;
             cliente.Email = txtEmail.Text;
             cliente.LimiteCompra = decimal.Parse(txtLimiteCompraPrazo.Text);
@@ -47,16 +62,19 @@ namespace CrudAugustusFashion
             endereco.Bairro = txtComplemento.Text;
             endereco.Logradouro = txtLogradouro.Text;
             endereco.NumeroResidencia = txtNumeroResidencia.Text;
-            endereco.Uf = txtUf.Text;
+            endereco.Uf = comboBoxUf.Text;
             endereco.Complemento = txtComplemento.Text;
 
             var telefone = new TelefoneModel();
-            telefone.Telefone = int.Parse(txtTelefone.Text);
-            telefone.Celular = int.Parse(txtCelular.Text);
-            telefone.DddCelular = int.Parse(txtDddCelular.Text);
-            telefone.DddTelefone = int.Parse(txtDddTelefone.Text);
+            telefone.Telefone = txtTelefone.Text;
+            telefone.Celular = txtCelular.Text;
 
             new CadastroClienteController().CadastrarCliente(cliente, endereco, telefone);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

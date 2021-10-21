@@ -18,7 +18,7 @@ namespace CrudAugustusFashion.Dao
             var strSqlCliente = "insert into Clientes (IdUsuario, ValorLimite, Observacao) values (@IdUsuario, @limiteCompra, @observacao)";
             var strSqlEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
                "values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
-            var strSqlTelefone = "insert into Telefone (IdUsuario, Telefone, DddTelefone, DddCelular, Celular) values (@IdUsuario, @telefone, @dddTelefone, @dddCelular, @celular)";
+            var strSqlTelefone = "insert into Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
 
             try
             {
@@ -41,12 +41,50 @@ namespace CrudAugustusFashion.Dao
                     transacao.Commit();
                 }
 
-                MessageBox.Show(cliente.IdUsuario.ToString());
+                //MessageBox.Show(cliente.IdUsuario.ToString());
+                MessageBox.Show("Cliente cadastrado com sucesso.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public List<ClienteListaModel> ListarClientes()
+        {
+            var sqlSelect = @"select c.IdCliente, u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, 
+                            c.IdUsuario, t.Celular, t.Telefone, 
+                            c.IdUsuario, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
+                            from
+                            Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
+                            inner join Endereco e on c.IdUsuario = e.IdUsuario
+                            inner join Telefone t on c.IdUsuario = t.IdUsuario;";
+
+            try
+            {
+                using (var con = conexao.conectar())
+                {
+                    return con.Query<ClienteListaModel, TelefoneModel, EnderecoModel, ClienteListaModel>(
+                        sqlSelect,
+                        (clienteListaModel, telefoneModel, enderecoModel) => MapearCliente(clienteListaModel, telefoneModel, enderecoModel),
+                        splitOn: "IdUsuario"
+                        ).ToList();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ocorreu um erro ao listar clientes");
+            }
+
+            return new List<ClienteListaModel>();
+        }
+
+        private ClienteListaModel MapearCliente(ClienteListaModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
+        {
+            clienteModel.Telefone = telefoneModel;
+            clienteModel.Endereco = enderecoModel;
+
+            return clienteModel;
         }
     }
 }

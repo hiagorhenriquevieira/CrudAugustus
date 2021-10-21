@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CrudAugustusFashion.View;
 
 namespace CrudAugustusFashion.Controller
 {
@@ -14,11 +15,19 @@ namespace CrudAugustusFashion.Controller
         {
             new ClienteDao().CadastrarCliente(cliente, endereco, telefone);
         }
+
         public void AbrirCadastroCliente()
         {
             var frmCadastroCliente = new FrmCadastroCliente();
             frmCadastroCliente.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmCadastroCliente.Show();
+        }
+
+        public void AbrirListaCliente()
+        {
+            var frmListaCliente = new FrmListaCliente();
+            frmListaCliente.MdiParent = MdiSingletonModel.InstanciarMDI();
+            frmListaCliente.Show();
         }
     }
 }

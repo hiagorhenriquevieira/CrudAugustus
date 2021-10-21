@@ -47,11 +47,9 @@ namespace CrudAugustusFashion
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtSexo = new System.Windows.Forms.TextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.txtCep = new System.Windows.Forms.TextBox();
-            this.txtUf = new System.Windows.Forms.TextBox();
             this.txtComplemento = new System.Windows.Forms.TextBox();
             this.txtLogradouro = new System.Windows.Forms.TextBox();
             this.txtNumeroResidencia = new System.Windows.Forms.TextBox();
@@ -64,16 +62,13 @@ namespace CrudAugustusFashion
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.btnCadastrarCliente = new System.Windows.Forms.Button();
-            this.btnLimpar = new System.Windows.Forms.Button();
             this.txtSobrenome = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txtDddCelular = new System.Windows.Forms.MaskedTextBox();
-            this.txtDddTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.txtLimiteCompraPrazo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxUf = new System.Windows.Forms.ComboBox();
+            this.comboBoxSexo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,7 +215,7 @@ namespace CrudAugustusFashion
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(332, 265);
+            this.label16.Location = new System.Drawing.Point(255, 269);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 25);
             this.label16.TabIndex = 15;
@@ -254,14 +249,6 @@ namespace CrudAugustusFashion
             this.txtNome.TabIndex = 1;
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
-            // txtSexo
-            // 
-            this.txtSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSexo.Location = new System.Drawing.Point(612, 108);
-            this.txtSexo.Name = "txtSexo";
-            this.txtSexo.Size = new System.Drawing.Size(144, 29);
-            this.txtSexo.TabIndex = 4;
-            // 
             // txtCidade
             // 
             this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -286,14 +273,6 @@ namespace CrudAugustusFashion
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(137, 29);
             this.txtCep.TabIndex = 7;
-            // 
-            // txtUf
-            // 
-            this.txtUf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUf.Location = new System.Drawing.Point(612, 168);
-            this.txtUf.Name = "txtUf";
-            this.txtUf.Size = new System.Drawing.Size(144, 29);
-            this.txtUf.TabIndex = 8;
             // 
             // txtComplemento
             // 
@@ -363,7 +342,7 @@ namespace CrudAugustusFashion
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(608, 269);
+            this.label20.Location = new System.Drawing.Point(465, 269);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(87, 25);
             this.label20.TabIndex = 36;
@@ -373,20 +352,20 @@ namespace CrudAugustusFashion
             // 
             this.txtCelular.AccessibleName = "";
             this.txtCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(614, 298);
-            this.txtCelular.Mask = "000000000";
+            this.txtCelular.Location = new System.Drawing.Point(469, 298);
+            this.txtCelular.Mask = "00000000000";
             this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(134, 29);
+            this.txtCelular.Size = new System.Drawing.Size(137, 29);
             this.txtCelular.TabIndex = 16;
             // 
             // txtTelefone
             // 
             this.txtTelefone.AccessibleName = "";
             this.txtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(337, 297);
-            this.txtTelefone.Mask = "0000000";
+            this.txtTelefone.Location = new System.Drawing.Point(260, 298);
+            this.txtTelefone.Mask = "0000000000";
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(129, 29);
+            this.txtTelefone.Size = new System.Drawing.Size(203, 29);
             this.txtTelefone.TabIndex = 14;
             // 
             // txtCpf
@@ -402,23 +381,13 @@ namespace CrudAugustusFashion
             // btnCadastrarCliente
             // 
             this.btnCadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(38, 555);
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(198, 551);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
             this.btnCadastrarCliente.Size = new System.Drawing.Size(388, 55);
             this.btnCadastrarCliente.TabIndex = 20;
             this.btnCadastrarCliente.Text = "Cadastrar";
             this.btnCadastrarCliente.UseVisualStyleBackColor = true;
             this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click);
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(432, 555);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(362, 54);
-            this.btnLimpar.TabIndex = 21;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
             // 
             // txtSobrenome
             // 
@@ -437,46 +406,6 @@ namespace CrudAugustusFashion
             this.label21.Size = new System.Drawing.Size(131, 25);
             this.label21.TabIndex = 45;
             this.label21.Text = "Sobrenome";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(271, 265);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(60, 25);
-            this.label22.TabIndex = 46;
-            this.label22.Text = "DDD";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(547, 269);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(60, 25);
-            this.label23.TabIndex = 47;
-            this.label23.Text = "DDD";
-            // 
-            // txtDddCelular
-            // 
-            this.txtDddCelular.AccessibleName = "";
-            this.txtDddCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDddCelular.Location = new System.Drawing.Point(552, 297);
-            this.txtDddCelular.Mask = "00";
-            this.txtDddCelular.Name = "txtDddCelular";
-            this.txtDddCelular.Size = new System.Drawing.Size(55, 29);
-            this.txtDddCelular.TabIndex = 15;
-            // 
-            // txtDddTelefone
-            // 
-            this.txtDddTelefone.AccessibleName = "";
-            this.txtDddTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDddTelefone.Location = new System.Drawing.Point(275, 297);
-            this.txtDddTelefone.Mask = "000";
-            this.txtDddTelefone.Name = "txtDddTelefone";
-            this.txtDddTelefone.Size = new System.Drawing.Size(55, 29);
-            this.txtDddTelefone.TabIndex = 13;
             // 
             // label24
             // 
@@ -499,11 +428,9 @@ namespace CrudAugustusFashion
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBoxUf);
+            this.groupBox1.Controls.Add(this.comboBoxSexo);
             this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.txtDddTelefone);
-            this.groupBox1.Controls.Add(this.txtDddCelular);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.txtSobrenome);
             this.groupBox1.Controls.Add(this.txtCpf);
@@ -518,11 +445,9 @@ namespace CrudAugustusFashion
             this.groupBox1.Controls.Add(this.txtNumeroResidencia);
             this.groupBox1.Controls.Add(this.txtLogradouro);
             this.groupBox1.Controls.Add(this.txtComplemento);
-            this.groupBox1.Controls.Add(this.txtUf);
             this.groupBox1.Controls.Add(this.txtCep);
             this.groupBox1.Controls.Add(this.txtBairro);
             this.groupBox1.Controls.Add(this.txtCidade);
-            this.groupBox1.Controls.Add(this.txtSexo);
             this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label16);
@@ -545,6 +470,59 @@ namespace CrudAugustusFashion
             this.groupBox1.Size = new System.Drawing.Size(793, 542);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // comboBoxUf
+            // 
+            this.comboBoxUf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxUf.FormattingEnabled = true;
+            this.comboBoxUf.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
+            this.comboBoxUf.Location = new System.Drawing.Point(614, 171);
+            this.comboBoxUf.Name = "comboBoxUf";
+            this.comboBoxUf.Size = new System.Drawing.Size(142, 28);
+            this.comboBoxUf.TabIndex = 8;
+            // 
+            // comboBoxSexo
+            // 
+            this.comboBoxSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSexo.FormattingEnabled = true;
+            this.comboBoxSexo.Items.AddRange(new object[] {
+            "Feminino",
+            "Masculino",
+            "Outros"});
+            this.comboBoxSexo.Location = new System.Drawing.Point(614, 108);
+            this.comboBoxSexo.Name = "comboBoxSexo";
+            this.comboBoxSexo.Size = new System.Drawing.Size(142, 28);
+            this.comboBoxSexo.TabIndex = 4;
             // 
             // FrmCadastroCliente
             // 
@@ -553,7 +531,6 @@ namespace CrudAugustusFashion
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(817, 622);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnCadastrarCliente);
             this.Controls.Add(this.label17);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -588,11 +565,9 @@ namespace CrudAugustusFashion
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtSexo;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.TextBox txtCep;
-        private System.Windows.Forms.TextBox txtUf;
         private System.Windows.Forms.TextBox txtComplemento;
         private System.Windows.Forms.TextBox txtLogradouro;
         private System.Windows.Forms.TextBox txtNumeroResidencia;
@@ -605,16 +580,13 @@ namespace CrudAugustusFashion
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.Button btnCadastrarCliente;
-        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.TextBox txtSobrenome;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.MaskedTextBox txtDddCelular;
-        private System.Windows.Forms.MaskedTextBox txtDddTelefone;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtLimiteCompraPrazo;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBoxSexo;
+        private System.Windows.Forms.ComboBox comboBoxUf;
     }
 }
 

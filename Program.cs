@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CrudAugustusFashion.Model;
+using System;
 using System.Windows.Forms;
-using CrudAugustusFashion.View;
-using CrudAugustusFashion.Model;
 
 namespace CrudAugustusFashion
 {

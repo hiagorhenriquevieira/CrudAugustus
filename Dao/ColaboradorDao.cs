@@ -16,10 +16,10 @@ namespace CrudAugustusFashion.Dao
         {
 
             var strSqlUsuario = "insert into Usuarios output inserted.IdUsuario values (@nome, @sobreNome, @sexo, @dataNascimento, @cpf, @email)";
-            var strSqlColaborador = "insert into Colaboradores (IdUsuario, Salario, PorcentagemComissao) values (@IdUsuario, @salario, @porcentagemComissao)";
+            var strSqlColaborador = "insert into Colaboradores (IdUsuario, Salario, PorcentagemComissao) output inserted.IdColaborador values (@IdUsuario, @salario, @porcentagemComissao)";
             var strSqlEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
                "values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
-            var strSqlTelefone = "insert into Telefone (IdUsuario, Telefone, DddTelefone, DddCelular, Celular) values (@IdUsuario, @telefone, @dddTelefone, @dddCelular, @celular)";
+            var strSqlTelefone = "insert into Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
             var strSqlContaBancaria = "insert into ContasBancarias (IdColaborador, Conta, Agencia, TipoConta, Banco) values (@IdColaborador, @conta, @agencia, @tipoConta, @banco)";
 
             try
@@ -28,15 +28,16 @@ namespace CrudAugustusFashion.Dao
                 using (var transacao = con.BeginTransaction())
                 {
                     int id = con.ExecuteScalar<int>(strSqlUsuario, colaborador, transacao);
+                   
                     colaborador.IdUsuario = id;
 
                     endereco.IdUsuario = id;
 
                     telefone.IdUsuario = id;
                     
-                    contaBancaria.IdColaborador = id;
-
-                    con.Execute(strSqlColaborador, colaborador, transacao);
+                    int idColaborador = con.ExecuteScalar<int>(strSqlColaborador, colaborador, transacao);
+                    
+                    contaBancaria.IdColaborador = idColaborador;
 
                     con.Execute(strSqlEndereco, endereco, transacao);
 
@@ -47,7 +48,8 @@ namespace CrudAugustusFashion.Dao
                     transacao.Commit();
                 }
 
-                MessageBox.Show(colaborador.IdUsuario.ToString());
+                //MessageBox.Show(colaborador.IdUsuario.ToString());
+                MessageBox.Show("Colaborador cadastrado com sucesso.");
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Controller;
+using CrudAugustusFashion.Extencion;
 using CrudAugustusFashion.Model;
 using System;
 using System.Collections.Generic;
@@ -41,14 +42,41 @@ namespace CrudAugustusFashion.View
 
         private void btnCadastrarColaborador_Click(object sender, EventArgs e)
         {
+            if (txtNome.NuloOuVazio() || txtSobrenome.NuloOuVazio() ||
+                txtCpf.NuloOuVazio() || comboBoxSexo.NuloOuVazio() ||
+                txtCidade.NuloOuVazio() || txtBairro.NuloOuVazio() ||
+                txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() ||
+                txtComplemento.NuloOuVazio() || txtLogradouro.NuloOuVazio() ||
+                txtNumeroResidencia.NuloOuVazio() || dateTimeNascimento.NuloOuVazio() ||
+                txtCelular.NuloOuVazio() || txtEmail.NuloOuVazio() ||
+                txtConta.NuloOuVazio() || txtAgencia.NuloOuVazio() ||
+                txtTipoConta.NuloOuVazio() || txtBanco.NuloOuVazio() ||
+                txtSalario.NuloOuVazio() || txtPorcentagemComissao.NuloOuVazio())
+            {
+                MessageBox.Show("Preencha os campos obrigatórios!");
+                return;
+            }
+            //else if (int.TryParse(txtCep.Text))
+            //{
+            //    var str = txtCep.Text.ToCharArray();
+
+            //    foreach (var s in str)
+            //    {
+            //        if (!Char.IsDigit(s))
+            //            return false;
+            //    }
+            //}
+
             var colaborador = new ColaboradorModel();
 
             colaborador.Nome = txtNome.Text;
             colaborador.SobreNome = txtSobrenome.Text;
             colaborador.Cpf = txtCpf.Text;
-            colaborador.Sexo = txtSexo.Text;
+            colaborador.Sexo = comboBoxSexo.Text;
             colaborador.Email = txtEmail.Text;
             colaborador.DataNascimento = dateTimeNascimento.Value;
+            colaborador.Salario = int.Parse(txtSalario.Text);
+            colaborador.PorcentagemComissao = int.Parse(txtPorcentagemComissao.Text);
 
             var endereco = new EnderecoModel();
             endereco.Cep = txtCep.Text;
@@ -56,14 +84,12 @@ namespace CrudAugustusFashion.View
             endereco.Bairro = txtComplemento.Text;
             endereco.Logradouro = txtLogradouro.Text;
             endereco.NumeroResidencia = txtNumeroResidencia.Text;
-            endereco.Uf = txtUf.Text;
+            endereco.Uf = comboBoxUf.Text;
             endereco.Complemento = txtComplemento.Text;
 
             var telefone = new TelefoneModel();
-            telefone.Telefone = int.Parse(txtTelefone.Text);
-            telefone.Celular = int.Parse(txtCelular.Text);
-            telefone.DddCelular = int.Parse(txtDddCelular.Text);
-            telefone.DddTelefone = int.Parse(txtDddTelefone.Text);
+            telefone.Telefone = txtTelefone.Text;
+            telefone.Celular = txtCelular.Text;
 
             var contaBancaria = new ContaBancariaModel();
             contaBancaria.Agencia = int.Parse(txtAgencia.Text);
@@ -77,6 +103,11 @@ namespace CrudAugustusFashion.View
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBanco_TextChanged(object sender, EventArgs e)
         {
 
         }
