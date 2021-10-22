@@ -1,7 +1,9 @@
-﻿using CrudAugustusFashion.Model;
+﻿using CrudAugustusFashion.Controller;
+using CrudAugustusFashion.Model;
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,7 +73,7 @@ namespace CrudAugustusFashion.Dao
                         ).ToList();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ocorreu um erro ao listar clientes");
             }
@@ -86,5 +88,14 @@ namespace CrudAugustusFashion.Dao
 
             return clienteModel;
         }
+
+
+        //public ClienteListaModel SelecionarCliente(IDbConnection conexao, id)
+        //{
+        //    return
+        //}
+
+
     }
+
 }

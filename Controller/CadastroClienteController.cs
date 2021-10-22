@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CrudAugustusFashion.View;
+using CrudAugustusFashion.View.Alteracao;
 
 namespace CrudAugustusFashion.Controller
 {
@@ -28,6 +29,7 @@ namespace CrudAugustusFashion.Controller
             var frmListaCliente = new FrmListaCliente();
             frmListaCliente.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmListaCliente.Show();
-        }
+        } 
+
     }
 }

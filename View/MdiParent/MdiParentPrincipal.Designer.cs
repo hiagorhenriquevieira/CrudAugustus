@@ -93,6 +93,7 @@ namespace CrudAugustusFashion.View
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
             this.listarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.listarToolStripMenuItem.Text = "Listar";
+        
             // 
             // clienteToolStripMenuItem1
             // 

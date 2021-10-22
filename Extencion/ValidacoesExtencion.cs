@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace CrudAugustusFashion.Extencion
 {
-    static class NuloOuVazioExtencion
+    static class ValidacoesExtencion
     {
         public static bool NuloOuVazio(this TextBox textoBox) =>
             string.IsNullOrEmpty(textoBox.Text);
@@ -18,7 +18,18 @@ namespace CrudAugustusFashion.Extencion
         public static bool NuloOuVazio(this ComboBox comboBox) =>
            string.IsNullOrEmpty(comboBox.Text);
 
-        public static bool NuloOuVazio(this DateTimePicker dateTimePicker) =>
-           string.IsNullOrEmpty(dateTimePicker.Text);
+
+        //else if (int.TryParse(txtCep.Text))
+        //{
+        //    var str = txtCep.Text.ToCharArray();
+
+        //    foreach (var s in str)
+        //    {
+        //        if (!Char.IsDigit(s))
+        //            return false;
+        //    }
+        //}
+
+
     }
 }

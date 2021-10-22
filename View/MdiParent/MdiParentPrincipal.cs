@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Controller;
+using CrudAugustusFashion.View.Alteracao;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -93,5 +94,8 @@ namespace CrudAugustusFashion.View
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e) => new CadastroClienteController().AbrirCadastroCliente();
 
         private void clienteToolStripMenuItem1_Click(object sender, EventArgs e) => new CadastroClienteController().AbrirListaCliente();
+
+        
+        
     }
 }

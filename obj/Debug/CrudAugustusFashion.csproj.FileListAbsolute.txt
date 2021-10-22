@@ -20,3 +20,4 @@ C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.FrmCadastroColaborador.resources
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.FrmListaCliente.resources
 C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.FrmListaColaborador.resources
+C:\Users\ESTÁGIO\source\repos\CrudAugustusFashion\obj\Debug\CrudAugustusFashion.View.Alteracao.FrmAlteracaoCliente.resources

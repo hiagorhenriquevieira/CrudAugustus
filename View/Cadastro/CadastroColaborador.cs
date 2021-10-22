@@ -47,7 +47,7 @@ namespace CrudAugustusFashion.View
                 txtCidade.NuloOuVazio() || txtBairro.NuloOuVazio() ||
                 txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() ||
                 txtComplemento.NuloOuVazio() || txtLogradouro.NuloOuVazio() ||
-                txtNumeroResidencia.NuloOuVazio() || dateTimeNascimento.NuloOuVazio() ||
+                txtNumeroResidencia.NuloOuVazio() ||
                 txtCelular.NuloOuVazio() || txtEmail.NuloOuVazio() ||
                 txtConta.NuloOuVazio() || txtAgencia.NuloOuVazio() ||
                 txtTipoConta.NuloOuVazio() || txtBanco.NuloOuVazio() ||
@@ -56,16 +56,7 @@ namespace CrudAugustusFashion.View
                 MessageBox.Show("Preencha os campos obrigatórios!");
                 return;
             }
-            //else if (int.TryParse(txtCep.Text))
-            //{
-            //    var str = txtCep.Text.ToCharArray();
-
-            //    foreach (var s in str)
-            //    {
-            //        if (!Char.IsDigit(s))
-            //            return false;
-            //    }
-            //}
+            
 
             var colaborador = new ColaboradorModel();
 

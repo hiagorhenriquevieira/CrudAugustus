@@ -35,7 +35,7 @@ namespace CrudAugustusFashion
                 txtCidade.NuloOuVazio() || txtBairro.NuloOuVazio() ||
                 txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() ||
                 txtComplemento.NuloOuVazio() || txtLogradouro.NuloOuVazio() || 
-                txtNumeroResidencia.NuloOuVazio() || dateTimeNascimento.NuloOuVazio() ||
+                txtNumeroResidencia.NuloOuVazio() ||
                 txtCelular.NuloOuVazio() || txtEmail.NuloOuVazio() ||
                 txtLimiteCompraPrazo.NuloOuVazio())
             {
