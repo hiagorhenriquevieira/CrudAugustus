@@ -39,12 +39,12 @@ namespace CrudAugustusFashion.View.Alteracao
             comboBoxSexo.Text = _cliente.Sexo;
             txtCpf.Text = _cliente.Cpf;
             txtSobrenome.Text = _cliente.SobreNome;
-            txtLimiteCompraPrazo.Text = _cliente.LimiteCompra;
+            txtLimiteCompraPrazo.Text = _cliente.ValorLimite.ToString();
             txtObservacao.Text = _cliente.Observacao;
             dateTimeNascimento.Value = _cliente.DataNascimento;
             txtEmail.Text = _cliente.Email;
-            txtTelefone = _cliente.Telefone;
-            txtCelular = _cliente.Celular;
+            //maskBoxTelefone = _cliente.Telefone;
+            //maskBoxCelular = _cliente.Celular;
         }
 
         private void FrmAlteracaoCliente_Load(object sender, EventArgs e)
@@ -57,6 +57,11 @@ namespace CrudAugustusFashion.View.Alteracao
         private void btnExcluir_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

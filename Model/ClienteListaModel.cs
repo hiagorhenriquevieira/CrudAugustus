@@ -19,7 +19,7 @@ namespace CrudAugustusFashion.Model
         public int Idade { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Email { get; set; }
-        public  decimal LimiteCompra { get; set; }
+        public decimal ValorLimite { get; set; }
         public string Observacao { get; set; }
 
         public int IdEndereco { get; set; }
@@ -61,15 +61,11 @@ namespace CrudAugustusFashion.Model
         public TelefoneModel Telefone { get; set; }
 
         [DisplayName("Telefone")]
-        public string TelefoneTelefone
-        {
-            get => Telefone.Telefone;
-        }
+        public string TelefoneTelefone => Telefone.Telefone;
+        
         [DisplayName("Celular")]
-        public string TelefoneCelular
-        {
-            get => Telefone.Celular;
-        }
+        public string TelefoneCelular => Telefone.Celular;
+        
         public int IdTelefone { get; set; }
 
         public int IdCelular { get; set; }

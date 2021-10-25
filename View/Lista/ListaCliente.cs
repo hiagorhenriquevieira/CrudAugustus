@@ -71,7 +71,7 @@ namespace CrudAugustusFashion.View
                     IdEndereco = (int)dataGridViewListaClientes.SelectedRows[0].Cells["IdEndereco"].Value,
                     IdUsuario = (int)dataGridViewListaClientes.SelectedRows[0].Cells["IdUsuario"].Value,
                 },
-                LimiteCompra = (decimal)dataGridViewListaClientes.SelectedRows[0].Cells["LimiteCompra"].Value,
+                ValorLimite = (decimal)dataGridViewListaClientes.SelectedRows[0].Cells["ValorLimite"].Value,
                 Observacao = dataGridViewListaClientes.SelectedRows[0].Cells["Observacao"].Value.ToString(),
                 Telefone = new TelefoneModel
                 {

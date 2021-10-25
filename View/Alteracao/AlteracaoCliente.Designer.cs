@@ -30,14 +30,14 @@ namespace CrudAugustusFashion.View.Alteracao
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.maskBoxTelefone = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxUf = new System.Windows.Forms.ComboBox();
             this.comboBoxSexo = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtSobrenome = new System.Windows.Forms.TextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
-            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.txtCelular = new System.Windows.Forms.MaskedTextBox();
+            this.maskBoxCelular = new System.Windows.Forms.MaskedTextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txtObservacao = new System.Windows.Forms.RichTextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -74,14 +74,14 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.maskBoxTelefone);
             this.groupBox1.Controls.Add(this.comboBoxUf);
             this.groupBox1.Controls.Add(this.comboBoxSexo);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.txtSobrenome);
             this.groupBox1.Controls.Add(this.txtCpf);
-            this.groupBox1.Controls.Add(this.txtTelefone);
-            this.groupBox1.Controls.Add(this.txtCelular);
+            this.groupBox1.Controls.Add(this.maskBoxCelular);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.txtObservacao);
             this.groupBox1.Controls.Add(this.label18);
@@ -116,6 +116,17 @@ namespace CrudAugustusFashion.View.Alteracao
             this.groupBox1.Size = new System.Drawing.Size(793, 542);
             this.groupBox1.TabIndex = 53;
             this.groupBox1.TabStop = false;
+            // 
+            // maskBoxTelefone
+            // 
+            this.maskBoxTelefone.AccessibleName = "";
+            this.maskBoxTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskBoxTelefone.Location = new System.Drawing.Point(260, 297);
+            this.maskBoxTelefone.Mask = "000000000";
+            this.maskBoxTelefone.Name = "maskBoxTelefone";
+            this.maskBoxTelefone.Size = new System.Drawing.Size(203, 29);
+            this.maskBoxTelefone.TabIndex = 9;
+            this.maskBoxTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // comboBoxUf
             // 
@@ -207,25 +218,15 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtCpf.Size = new System.Drawing.Size(137, 29);
             this.txtCpf.TabIndex = 3;
             // 
-            // txtTelefone
+            // maskBoxCelular
             // 
-            this.txtTelefone.AccessibleName = "";
-            this.txtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(260, 298);
-            this.txtTelefone.Mask = "0000000000";
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(203, 29);
-            this.txtTelefone.TabIndex = 14;
-            // 
-            // txtCelular
-            // 
-            this.txtCelular.AccessibleName = "";
-            this.txtCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(469, 298);
-            this.txtCelular.Mask = "00000000000";
-            this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(137, 29);
-            this.txtCelular.TabIndex = 16;
+            this.maskBoxCelular.AccessibleName = "";
+            this.maskBoxCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskBoxCelular.Location = new System.Drawing.Point(469, 298);
+            this.maskBoxCelular.Mask = "00000000000";
+            this.maskBoxCelular.Name = "maskBoxCelular";
+            this.maskBoxCelular.Size = new System.Drawing.Size(137, 29);
+            this.maskBoxCelular.TabIndex = 16;
             // 
             // label20
             // 
@@ -549,8 +550,7 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtSobrenome;
         private System.Windows.Forms.MaskedTextBox txtCpf;
-        private System.Windows.Forms.MaskedTextBox txtTelefone;
-        private System.Windows.Forms.MaskedTextBox txtCelular;
+        private System.Windows.Forms.MaskedTextBox maskBoxCelular;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.RichTextBox txtObservacao;
         private System.Windows.Forms.Label label18;
@@ -582,5 +582,6 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAlteracaoCliente;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.MaskedTextBox maskBoxTelefone;
     }
 }

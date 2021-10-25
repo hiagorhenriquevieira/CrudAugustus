@@ -53,13 +53,13 @@ namespace CrudAugustusFashion
             cliente.Sexo = comboBoxSexo.Text;
             cliente.DataNascimento = dateTimeNascimento.Value;
             cliente.Email = txtEmail.Text;
-            cliente.LimiteCompra = decimal.Parse(txtLimiteCompraPrazo.Text);
+            cliente.ValorLimite = decimal.Parse(txtLimiteCompraPrazo.Text);
             cliente.Observacao = txtObservacao.Text;
 
             var endereco = new EnderecoModel();
             endereco.Cep = txtCep.Text;
             endereco.Cidade = txtCidade.Text;
-            endereco.Bairro = txtComplemento.Text;
+            endereco.Bairro = txtBairro.Text;
             endereco.Logradouro = txtLogradouro.Text;
             endereco.NumeroResidencia = txtNumeroResidencia.Text;
             endereco.Uf = comboBoxUf.Text;

@@ -10,7 +10,7 @@ namespace CrudAugustusFashion.Model
     {
         public int IdCliente { get; set; }
         public string Observacao{ get; set; }
-        public decimal LimiteCompra { get; set; }
+        public decimal ValorLimite { get; set; }
         
     }
 }
