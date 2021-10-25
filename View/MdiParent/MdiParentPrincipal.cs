@@ -15,10 +15,13 @@ namespace CrudAugustusFashion.View
     public partial class MdiParentPrincipal : Form
     {
         private int childFormNumber = 0;
-
+        private CadastroColaboradorController _cadastroColaboradorController;
+        private CadastroClienteController _cadastroClienteController;
         public MdiParentPrincipal()
         {
             InitializeComponent();
+            _cadastroColaboradorController = new CadastroColaboradorController();
+            _cadastroClienteController = new CadastroClienteController();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -89,13 +92,15 @@ namespace CrudAugustusFashion.View
 
         }
 
-        private void colaboradorToolStripMenuItem_Click(object sender, EventArgs e) => new CadastroColaboradorController().AbrirCadastroColaborador();
+        private void colaboradorToolStripMenuItem_Click(object sender, EventArgs e) => _cadastroColaboradorController.AbrirCadastroColaborador();
 
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e) => new CadastroClienteController().AbrirCadastroCliente();
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e) => _cadastroClienteController.AbrirCadastroCliente();
 
-        private void clienteToolStripMenuItem1_Click(object sender, EventArgs e) => new CadastroClienteController().AbrirListaCliente();
+        private void clienteToolStripMenuItem1_Click(object sender, EventArgs e) => _cadastroClienteController.AbrirListaCliente();
 
-        
-        
+        private void colaboradorToolStripMenuItem1_Click(object sender, EventArgs e) 
+        {
+            
+        }
     }
 }

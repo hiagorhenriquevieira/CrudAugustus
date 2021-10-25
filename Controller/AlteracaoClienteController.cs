@@ -12,9 +12,9 @@ namespace CrudAugustusFashion.Controller
 {
     class AlteracaoClienteController
     {
-        public void AbrirAlteracaoCliente()
+        public void AbrirAlteracaoCliente(ClienteModel cliente)
         {
-            var frmAlteracaoCliente = new FrmAlteracaoCliente();
+            var frmAlteracaoCliente = new FrmAlteracaoCliente(cliente);
             frmAlteracaoCliente.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmAlteracaoCliente.Show();
 

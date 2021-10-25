@@ -70,6 +70,7 @@ namespace CrudAugustusFashion
             telefone.Celular = txtCelular.Text;
 
             new CadastroClienteController().CadastrarCliente(cliente, endereco, telefone);
+            this.Close();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

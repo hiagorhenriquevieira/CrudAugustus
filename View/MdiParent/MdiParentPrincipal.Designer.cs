@@ -93,7 +93,6 @@ namespace CrudAugustusFashion.View
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
             this.listarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.listarToolStripMenuItem.Text = "Listar";
-        
             // 
             // clienteToolStripMenuItem1
             // 
@@ -107,6 +106,7 @@ namespace CrudAugustusFashion.View
             this.colaboradorToolStripMenuItem1.Name = "colaboradorToolStripMenuItem1";
             this.colaboradorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.colaboradorToolStripMenuItem1.Text = "Colaborador";
+            this.colaboradorToolStripMenuItem1.Click += new System.EventHandler(this.colaboradorToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem
             // 

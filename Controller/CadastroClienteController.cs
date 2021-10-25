@@ -10,11 +10,19 @@ using CrudAugustusFashion.View.Alteracao;
 
 namespace CrudAugustusFashion.Controller
 {
+    
     public class CadastroClienteController
     {
+        private ClienteDao _clienteDao;
+
+        public CadastroClienteController()
+        {
+            _clienteDao = new ClienteDao();
+        }
+
         public void CadastrarCliente(ClienteModel cliente, EnderecoModel endereco, TelefoneModel telefone)
         {
-            new ClienteDao().CadastrarCliente(cliente, endereco, telefone);
+           _clienteDao.CadastrarCliente(cliente, endereco, telefone);
         }
 
         public void AbrirCadastroCliente()
@@ -30,6 +38,6 @@ namespace CrudAugustusFashion.Controller
             frmListaCliente.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmListaCliente.Show();
         } 
-
+        
     }
 }

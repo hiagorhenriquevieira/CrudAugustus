@@ -21,5 +21,11 @@ namespace CrudAugustusFashion.Controller
             frmCadastroColaborador.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmCadastroColaborador.Show();
         }
+        public void AbrirListaColaborador()
+        {
+            var frmListaColaborador = new FrmListaColaborador();
+            frmListaColaborador.MdiParent = MdiSingletonModel.InstanciarMDI();
+            frmListaColaborador.Show();
+        }
     }
 }

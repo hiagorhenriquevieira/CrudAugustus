@@ -7,24 +7,29 @@ using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Model
 {
-    public class ClienteListaModel
+    public class ColaboradorListaModel
     {
-       
         public int IdUsuario { get; set; }
-        public int IdCliente { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }
         public string Cpf { get; set; }
         public string Sexo { get; set; }
-        public int Idade { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Email { get; set; }
-        public  decimal LimiteCompra { get; set; }
-        public string Observacao { get; set; }
+        public int IdColaborador { get; set; }
+        public int Salario { get; set; }
+        public int PorcentagemComissao { get; set; }
+        public ContaBancariaModel ContaBancaria { get; set; }
+        public int IdContaBancaria { get; set; }
+
+        [DisplayName("Conta")]
+        public int ContaBancariaConta => ContaBancaria.Conta;
+        public string ContaBancariaBanco => ContaBancaria.Banco;
+        public string ContaBancariaTipoConta => ContaBancaria.TipoConta;
+        public int ContaBancariaAgencia => ContaBancaria.Agencia;
 
         public int IdEndereco { get; set; }
 
-        [Browsable(false)]
         public EnderecoModel Endereco { get; set; }
 
         [DisplayName("CEP")]
@@ -56,8 +61,7 @@ namespace CrudAugustusFashion.Model
         {
             get => Endereco.Bairro;
         }
-        
-        [Browsable(false)]
+
         public TelefoneModel Telefone { get; set; }
 
         [DisplayName("Telefone")]
@@ -73,5 +77,6 @@ namespace CrudAugustusFashion.Model
         public int IdTelefone { get; set; }
 
         public int IdCelular { get; set; }
+
     }
 }

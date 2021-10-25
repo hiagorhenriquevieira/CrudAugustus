@@ -29,18 +29,19 @@ namespace CrudAugustusFashion.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGrideViewColaboradores = new System.Windows.Forms.DataGridView();
             this.labelListaColaborador = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrideViewColaboradores)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGrideViewColaboradores
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(64, 83);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(650, 248);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGrideViewColaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrideViewColaboradores.Location = new System.Drawing.Point(64, 83);
+            this.dataGrideViewColaboradores.Name = "dataGrideViewColaboradores";
+            this.dataGrideViewColaboradores.Size = new System.Drawing.Size(650, 248);
+            this.dataGrideViewColaboradores.TabIndex = 0;
+            this.dataGrideViewColaboradores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrideViewColaboradores_CellContentClick);
             // 
             // labelListaColaborador
             // 
@@ -58,10 +59,10 @@ namespace CrudAugustusFashion.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelListaColaborador);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGrideViewColaboradores);
             this.Name = "FrmListaColaborador";
-            this.Text = "ListaColaborador";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmListaColaborador_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrideViewColaboradores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -69,7 +70,7 @@ namespace CrudAugustusFashion.View
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGrideViewColaboradores;
         private System.Windows.Forms.Label labelListaColaborador;
     }
 }

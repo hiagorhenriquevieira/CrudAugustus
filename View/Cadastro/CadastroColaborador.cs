@@ -91,6 +91,7 @@ namespace CrudAugustusFashion.View
 
 
             new CadastroColaboradorController().CadastrarColaborador(colaborador, endereco, telefone, contaBancaria);
+            this.Close();
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

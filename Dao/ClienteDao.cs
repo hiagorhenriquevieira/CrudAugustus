@@ -16,29 +16,29 @@ namespace CrudAugustusFashion.Dao
         ConexaoDao conexao = new ConexaoDao();
         public void CadastrarCliente(ClienteModel cliente, EnderecoModel endereco, TelefoneModel telefone)
         {
-            var strSqlUsuario = "insert into Usuarios output inserted.IdUsuario values (@nome, @sobreNome, @sexo, @dataNascimento, @cpf, @email)";
-            var strSqlCliente = "insert into Clientes (IdUsuario, ValorLimite, Observacao) values (@IdUsuario, @limiteCompra, @observacao)";
-            var strSqlEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
+            const string insertUsuario = "insert into Usuarios output inserted.IdUsuario values (@nome, @sobreNome, @cpf, @sexo, @dataNascimento, @email)";
+            const string insertCliente = "insert into Clientes (IdUsuario, ValorLimite, Observacao) values (@IdUsuario, @limiteCompra, @observacao)";
+            const string insertEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
                "values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
-            var strSqlTelefone = "insert into Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
+            const string insertTelefone = "insert into Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
 
             try
             {
-                using (var con = conexao.conectar())
-                using (var transacao = con.BeginTransaction())
+                using (var conexao = this.conexao.conectar())
+                using (var transacao = conexao.BeginTransaction())
                 {
-                    int id = con.ExecuteScalar<int>(strSqlUsuario, cliente, transacao);
+                    int id = conexao.ExecuteScalar<int>(insertUsuario, cliente, transacao);
                     cliente.IdUsuario = id;
 
                     endereco.IdUsuario = id;
 
                     telefone.IdUsuario = id;
 
-                    con.Execute(strSqlCliente, cliente, transacao);
+                    conexao.Execute(insertCliente, cliente, transacao);
 
-                    con.Execute(strSqlEndereco, endereco, transacao);
+                    conexao.Execute(insertEndereco, endereco, transacao);
 
-                    con.Execute(strSqlTelefone, telefone, transacao);
+                    conexao.Execute(insertTelefone, telefone, transacao);
 
                     transacao.Commit();
                 }
@@ -52,11 +52,17 @@ namespace CrudAugustusFashion.Dao
             }
         }
 
+        public void AtualizarCliente(ClienteModel cliente)
+        {
+            
+        }
+
         public List<ClienteListaModel> ListarClientes()
         {
-            var sqlSelect = @"select c.IdCliente, u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, 
-                            c.IdUsuario, t.Celular, t.Telefone, 
-                            c.IdUsuario, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
+            var sqlSelect = @"select c.IdCliente, c.Observacao, c.ValorLimite,
+                            c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                            c.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
+                            c.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
                             from
                             Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
                             inner join Endereco e on c.IdUsuario = e.IdUsuario
@@ -90,10 +96,7 @@ namespace CrudAugustusFashion.Dao
         }
 
 
-        //public ClienteListaModel SelecionarCliente(IDbConnection conexao, id)
-        //{
-        //    return
-        //}
+        
 
 
     }

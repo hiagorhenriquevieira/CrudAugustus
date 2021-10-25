@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CrudAugustusFashion.Dao
 {
-   public class ColaboradorDao
+    public class ColaboradorDao
     {
         ConexaoDao conexao = new ConexaoDao();
         public void CadastrarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
@@ -28,15 +28,15 @@ namespace CrudAugustusFashion.Dao
                 using (var transacao = con.BeginTransaction())
                 {
                     int id = con.ExecuteScalar<int>(strSqlUsuario, colaborador, transacao);
-                   
+
                     colaborador.IdUsuario = id;
 
                     endereco.IdUsuario = id;
 
                     telefone.IdUsuario = id;
-                    
+
                     int idColaborador = con.ExecuteScalar<int>(strSqlColaborador, colaborador, transacao);
-                    
+
                     contaBancaria.IdColaborador = idColaborador;
 
                     con.Execute(strSqlEndereco, endereco, transacao);
@@ -55,6 +55,47 @@ namespace CrudAugustusFashion.Dao
             {
                 MessageBox.Show(ex.Message);
             }
+            
+            //public  List<ColaboradorListaModel> ListarColaboradores()
+            //{
+            //    var sqlSelect = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao
+            //                co.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+            //                co.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
+            //                co.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
+            //                co.IdUsuario, cb.IdContaBancaria, cb.Conta, cb.Agencia, cb.Banco, cb.Tipoconta
+            //                from
+            //                Usuarios u inner join Colaboradores co on u.IdUsuario = co.IdUsuario
+            //                inner join Endereco e on co.IdUsuario = e.IdUsuario
+            //                inner join ContaBancaria cb on co.IdUsuario = cb.IdUsuario
+            //                inner join Telefone t on co.IdUsuario = t.IdUsuario;";
+
+            //    try
+            //    {
+            //        using (var con = conexao.conectar())
+            //        {
+            //            return con.Query<ColaboradorListaModel, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
+            //                sqlSelect,
+            //                (colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearCliente(colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel),
+            //                splitOn: "IdUsuario"
+            //                ).ToList();
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "Ocorreu um erro ao listar clientes");
+            //    }
+
+            //    return new List<ColaboradorListaModel>();
+            //}
+            
+            //private ColaboradorListaModel MapearCliente(ColaboradorListaModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
+            //{
+            //    colaboradorModel.Telefone = telefoneModel;
+            //    colaboradorModel.Endereco = enderecoModel;
+            //    colaboradorModel.ContaBancaria = contaBancaria;
+
+            //    return colaboradorModel;
+            //}
         }
     }
 }
