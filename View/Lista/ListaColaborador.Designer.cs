@@ -31,6 +31,7 @@ namespace CrudAugustusFashion.View
         {
             this.dataGrideViewColaboradores = new System.Windows.Forms.DataGridView();
             this.labelListaColaborador = new System.Windows.Forms.Label();
+            this.btnExibirCadastroColaborador = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrideViewColaboradores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +42,6 @@ namespace CrudAugustusFashion.View
             this.dataGrideViewColaboradores.Name = "dataGrideViewColaboradores";
             this.dataGrideViewColaboradores.Size = new System.Drawing.Size(650, 248);
             this.dataGrideViewColaboradores.TabIndex = 0;
-            this.dataGrideViewColaboradores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrideViewColaboradores_CellContentClick);
             // 
             // labelListaColaborador
             // 
@@ -53,11 +53,22 @@ namespace CrudAugustusFashion.View
             this.labelListaColaborador.TabIndex = 1;
             this.labelListaColaborador.Text = "Lista de Colaboradores";
             // 
+            // btnExibirCadastroColaborador
+            // 
+            this.btnExibirCadastroColaborador.Location = new System.Drawing.Point(201, 369);
+            this.btnExibirCadastroColaborador.Name = "btnExibirCadastroColaborador";
+            this.btnExibirCadastroColaborador.Size = new System.Drawing.Size(286, 54);
+            this.btnExibirCadastroColaborador.TabIndex = 2;
+            this.btnExibirCadastroColaborador.Text = "Exibir Cadastro";
+            this.btnExibirCadastroColaborador.UseVisualStyleBackColor = true;
+            this.btnExibirCadastroColaborador.Click += new System.EventHandler(this.btnExibirCadastroColaborador_Click);
+            // 
             // FrmListaColaborador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExibirCadastroColaborador);
             this.Controls.Add(this.labelListaColaborador);
             this.Controls.Add(this.dataGrideViewColaboradores);
             this.Name = "FrmListaColaborador";
@@ -72,5 +83,6 @@ namespace CrudAugustusFashion.View
 
         private System.Windows.Forms.DataGridView dataGrideViewColaboradores;
         private System.Windows.Forms.Label labelListaColaborador;
+        private System.Windows.Forms.Button btnExibirCadastroColaborador;
     }
 }

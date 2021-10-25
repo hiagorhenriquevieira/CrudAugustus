@@ -43,8 +43,8 @@ namespace CrudAugustusFashion.View.Alteracao
             txtObservacao.Text = _cliente.Observacao;
             dateTimeNascimento.Value = _cliente.DataNascimento;
             txtEmail.Text = _cliente.Email;
-            //maskBoxTelefone = _cliente.Telefone;
-            //maskBoxCelular = _cliente.Celular;
+            maskBoxTelefone.Text = _cliente.Telefone.Telefone;
+            maskBoxCelular.Text = _cliente.Telefone.Celular;
         }
 
         private void FrmAlteracaoCliente_Load(object sender, EventArgs e)

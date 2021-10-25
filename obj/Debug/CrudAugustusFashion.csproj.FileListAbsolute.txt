@@ -48,7 +48,6 @@ C:\Users\Hiagor\Source\Repos\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Alt
 C:\Users\ESTÁGIO\Source\Repos\CloneCrud\obj\Debug\CrudAugustusFashion.csproj.AssemblyReference.cache
 C:\Users\ESTÁGIO\Source\Repos\CloneCrud\obj\Debug\CrudAugustusFashion.Properties.Resources.resources
 C:\Users\ESTÁGIO\Source\Repos\CloneCrud\obj\Debug\CrudAugustusFashion.View.Alteracao.FrmAlteracaoCliente.resources
-C:\Users\ESTÁGIO\Source\Repos\CloneCrud\obj\Debug\CrudAugustusFashion.View.Alteracao.AlteracaoColaboradores.resources
 C:\Users\ESTÁGIO\Source\Repos\CloneCrud\obj\Debug\CrudAugustusFashion.FrmCadastroCliente.resources
 C:\Users\ESTÁGIO\Source\Repos\CloneCrud\obj\Debug\CrudAugustusFashion.View.FrmCadastroColaborador.resources
 C:\Users\ESTÁGIO\Source\Repos\CloneCrud\obj\Debug\CrudAugustusFashion.View.FrmListaCliente.resources
@@ -69,3 +68,4 @@ C:\Users\ESTÁGIO\Source\Repos\CloneCrud\bin\Debug\Dapper.xml
 C:\Users\ESTÁGIO\Source\Repos\CloneCrud\bin\Debug\Dapper.FluentMap.xml
 C:\Users\ESTÁGIO\Source\Repos\CloneCrud\bin\Debug\Dommel.xml
 C:\Users\ESTÁGIO\Source\Repos\CloneCrud\obj\Debug\CrudAugustusFashion.csproj.CopyComplete
+C:\Users\ESTÁGIO\Source\Repos\CloneCrud\obj\Debug\CrudAugustusFashion.View.Alteracao.FrmAlteracaoColaboradores.resources

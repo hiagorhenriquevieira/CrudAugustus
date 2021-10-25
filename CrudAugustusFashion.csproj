@@ -75,6 +75,7 @@
       <DependentUpon>BDAUGUSTODataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Controller\AlteracaoClienteController.cs" />
+    <Compile Include="Controller\AlteracaoColaboradorController.cs" />
     <Compile Include="Controller\CadastroColaboradorController.cs" />
     <Compile Include="Controller\CadastroClienteController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />

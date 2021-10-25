@@ -86,7 +86,7 @@ namespace CrudAugustusFashion.View
             this.txtBanco.MaxLength = 50;
             this.txtBanco.Name = "txtBanco";
             this.txtBanco.Size = new System.Drawing.Size(137, 29);
-            this.txtBanco.TabIndex = 17;
+            this.txtBanco.TabIndex = 16;
             this.txtBanco.TextChanged += new System.EventHandler(this.txtBanco_TextChanged);
             // 
             // txtSalario
@@ -472,7 +472,7 @@ namespace CrudAugustusFashion.View
             this.txtCelular.Mask = "00000000000";
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(163, 29);
-            this.txtCelular.TabIndex = 16;
+            this.txtCelular.TabIndex = 14;
             // 
             // txtTelefone
             // 
@@ -482,7 +482,7 @@ namespace CrudAugustusFashion.View
             this.txtTelefone.Mask = "0000000000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(204, 29);
-            this.txtTelefone.TabIndex = 14;
+            this.txtTelefone.TabIndex = 13;
             // 
             // label27
             // 
@@ -500,7 +500,7 @@ namespace CrudAugustusFashion.View
             this.txtSobrenome.Location = new System.Drawing.Point(280, 84);
             this.txtSobrenome.Name = "txtSobrenome";
             this.txtSobrenome.Size = new System.Drawing.Size(204, 29);
-            this.txtSobrenome.TabIndex = 20;
+            this.txtSobrenome.TabIndex = 2;
             // 
             // txtCpf
             // 
@@ -591,7 +591,7 @@ namespace CrudAugustusFashion.View
             this.comboBoxUf.Location = new System.Drawing.Point(659, 147);
             this.comboBoxUf.Name = "comboBoxUf";
             this.comboBoxUf.Size = new System.Drawing.Size(142, 28);
-            this.comboBoxUf.TabIndex = 122;
+            this.comboBoxUf.TabIndex = 8;
             // 
             // comboBoxSexo
             // 
@@ -605,7 +605,7 @@ namespace CrudAugustusFashion.View
             this.comboBoxSexo.Location = new System.Drawing.Point(659, 84);
             this.comboBoxSexo.Name = "comboBoxSexo";
             this.comboBoxSexo.Size = new System.Drawing.Size(142, 28);
-            this.comboBoxSexo.TabIndex = 120;
+            this.comboBoxSexo.TabIndex = 4;
             // 
             // label14
             // 
@@ -634,7 +634,7 @@ namespace CrudAugustusFashion.View
             this.txtEmail.Location = new System.Drawing.Point(37, 318);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(632, 29);
-            this.txtEmail.TabIndex = 119;
+            this.txtEmail.TabIndex = 15;
             // 
             // label28
             // 

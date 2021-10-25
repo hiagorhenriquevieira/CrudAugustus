@@ -348,11 +348,11 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(253, 30);
+            this.label19.Location = new System.Drawing.Point(181, 31);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(292, 37);
+            this.label19.Size = new System.Drawing.Size(414, 37);
             this.label19.TabIndex = 18;
-            this.label19.Text = "Dados cadastrais:";
+            this.label19.Text = "Dados cadastrais Clientes";
             // 
             // label16
             // 
@@ -533,7 +533,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAlteracaoCliente);
             this.Name = "FrmAlteracaoCliente";
-            this.Text = "Alteração do cliente";
+            this.Text = "Dados Cadastrais Clientes";
             this.Load += new System.EventHandler(this.FrmAlteracaoCliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

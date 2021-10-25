@@ -93,8 +93,12 @@ namespace CrudAugustusFashion.Dao
 
             return clienteModel;
         }
+        
 
+        public void ExcluirClientes()
+        {
 
+        }
         
 
 

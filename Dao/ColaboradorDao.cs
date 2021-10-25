@@ -15,7 +15,7 @@ namespace CrudAugustusFashion.Dao
         public void CadastrarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
         {
 
-            var strSqlUsuario = "insert into Usuarios output inserted.IdUsuario values (@nome, @sobreNome, @sexo, @dataNascimento, @cpf, @email)";
+            var strSqlUsuario = "insert into Usuarios (Nome, SobreNome, Sexo, DataNascimento, Cpf, Email) output inserted.IdUsuario values (@nome, @sobreNome, @sexo, @dataNascimento, @cpf, @email)";
             var strSqlColaborador = "insert into Colaboradores (IdUsuario, Salario, PorcentagemComissao) output inserted.IdColaborador values (@IdUsuario, @salario, @porcentagemComissao)";
             var strSqlEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
                "values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
@@ -55,47 +55,46 @@ namespace CrudAugustusFashion.Dao
             {
                 MessageBox.Show(ex.Message);
             }
-            
-            //public  List<ColaboradorListaModel> ListarColaboradores()
-            //{
-            //    var sqlSelect = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao
-            //                co.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
-            //                co.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
-            //                co.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
-            //                co.IdUsuario, cb.IdContaBancaria, cb.Conta, cb.Agencia, cb.Banco, cb.Tipoconta
-            //                from
-            //                Usuarios u inner join Colaboradores co on u.IdUsuario = co.IdUsuario
-            //                inner join Endereco e on co.IdUsuario = e.IdUsuario
-            //                inner join ContaBancaria cb on co.IdUsuario = cb.IdUsuario
-            //                inner join Telefone t on co.IdUsuario = t.IdUsuario;";
+        }
+        public List<ColaboradorListaModel> ListarColaboradores()
+        {
+            var sqlSelect = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
+                        co.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                        co.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
+                        co.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia,
+                        co.IdUsuario, cb.IdContaBancaria, cb.Conta, cb.Agencia, cb.Banco, cb.Tipoconta
+                        from
+                        Usuarios u inner join Colaboradores co on u.IdUsuario = co.IdUsuario
+                        inner join Endereco e on co.IdUsuario = e.IdUsuario
+                        inner join ContasBancarias cb on co.IdColaborador = cb.IdColaborador
+                        inner join Telefone t on co.IdUsuario = t.IdUsuario;";
 
-            //    try
-            //    {
-            //        using (var con = conexao.conectar())
-            //        {
-            //            return con.Query<ColaboradorListaModel, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
-            //                sqlSelect,
-            //                (colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearCliente(colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel),
-            //                splitOn: "IdUsuario"
-            //                ).ToList();
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message, "Ocorreu um erro ao listar clientes");
-            //    }
+            try
+            {
+                using (var con = conexao.conectar())
+                {
+                    return con.Query<ColaboradorListaModel, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
+                        sqlSelect,
+                        (colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearColaborador(colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel),
+                        splitOn: "IdUsuario"
+                        ).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ocorreu um erro ao listar clientes");
+            }
 
-            //    return new List<ColaboradorListaModel>();
-            //}
-            
-            //private ColaboradorListaModel MapearCliente(ColaboradorListaModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
-            //{
-            //    colaboradorModel.Telefone = telefoneModel;
-            //    colaboradorModel.Endereco = enderecoModel;
-            //    colaboradorModel.ContaBancaria = contaBancaria;
+            return new List<ColaboradorListaModel>();
+        }
 
-            //    return colaboradorModel;
-            //}
+        private ColaboradorListaModel MapearColaborador(ColaboradorListaModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
+        {
+            colaboradorModel.Telefone = telefoneModel;
+            colaboradorModel.Endereco = enderecoModel;
+            colaboradorModel.ContasBancarias = contaBancariaModel;
+
+            return colaboradorModel;
         }
     }
 }

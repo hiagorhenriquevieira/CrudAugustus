@@ -28,23 +28,15 @@ namespace CrudAugustusFashion.View
 
         private void dataGridViewListaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+             
         }
 
         private void btnExibirCadastroCliente_Click(object sender, EventArgs e)
         {
 
-            /* 
-             * passar pro alteracaoClienteController new AlteracaoClienteController().AbrirAlteracaoCliente(cliente);
-             */
-
             var cliente = RetornarClienteDaGrid();
 
-
             new AlteracaoClienteController().AbrirAlteracaoCliente(cliente);
-
-
-
         }
 
         private ClienteModel RetornarClienteDaGrid()

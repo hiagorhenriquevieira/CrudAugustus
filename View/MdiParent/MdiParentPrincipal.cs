@@ -98,9 +98,7 @@ namespace CrudAugustusFashion.View
 
         private void clienteToolStripMenuItem1_Click(object sender, EventArgs e) => _cadastroClienteController.AbrirListaCliente();
 
-        private void colaboradorToolStripMenuItem1_Click(object sender, EventArgs e) 
-        {
-            
-        }
+        private void colaboradorToolStripMenuItem1_Click(object sender, EventArgs e) => _cadastroColaboradorController.AbrirListaColaborador();
+        
     }
 }

@@ -19,17 +19,21 @@ namespace CrudAugustusFashion.Model
         public int IdColaborador { get; set; }
         public int Salario { get; set; }
         public int PorcentagemComissao { get; set; }
-        public ContaBancariaModel ContaBancaria { get; set; }
+
+        public ContaBancariaModel ContasBancarias { get; set; }
         public int IdContaBancaria { get; set; }
 
         [DisplayName("Conta")]
-        public int ContaBancariaConta => ContaBancaria.Conta;
-        public string ContaBancariaBanco => ContaBancaria.Banco;
-        public string ContaBancariaTipoConta => ContaBancaria.TipoConta;
-        public int ContaBancariaAgencia => ContaBancaria.Agencia;
+        public int ContaBancariaConta => ContasBancarias.Conta;
+        [DisplayName("Banco")]
+        public string ContaBancariaBanco => ContasBancarias.Banco;
+        [DisplayName("TipoConta")]
+        public string ContaBancariaTipoConta => ContasBancarias.TipoConta;
+        [DisplayName("Agencia")]
+        public int ContaBancariaAgencia => ContasBancarias.Agencia;
 
         public int IdEndereco { get; set; }
-
+        [Browsable(false)]
         public EnderecoModel Endereco { get; set; }
 
         [DisplayName("CEP")]
@@ -61,7 +65,7 @@ namespace CrudAugustusFashion.Model
         {
             get => Endereco.Bairro;
         }
-
+        [Browsable(false)]
         public TelefoneModel Telefone { get; set; }
 
         [DisplayName("Telefone")]

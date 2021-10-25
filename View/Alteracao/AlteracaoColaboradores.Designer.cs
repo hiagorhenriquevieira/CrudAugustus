@@ -1,7 +1,7 @@
 ﻿
 namespace CrudAugustusFashion.View.Alteracao
 {
-    partial class AlteracaoColaboradores
+    partial class FrmAlteracaoColaboradores
     {
         /// <summary>
         /// Required designer variable.
@@ -44,8 +44,8 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtSobrenome = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.txtCelular = new System.Windows.Forms.MaskedTextBox();
+            this.maskBoxTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.maskBoxCelular = new System.Windows.Forms.MaskedTextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -79,6 +79,8 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label18 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtBanco = new System.Windows.Forms.TextBox();
+            this.btnAlteracaoCliente = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -103,7 +105,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPorcentagemComissao.MaxLength = 3;
             this.txtPorcentagemComissao.Name = "txtPorcentagemComissao";
             this.txtPorcentagemComissao.Size = new System.Drawing.Size(163, 29);
-            this.txtPorcentagemComissao.TabIndex = 21;
+            this.txtPorcentagemComissao.TabIndex = 20;
             // 
             // label17
             // 
@@ -122,7 +124,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtSalario.MaxLength = 15;
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(181, 29);
-            this.txtSalario.TabIndex = 22;
+            this.txtSalario.TabIndex = 21;
             // 
             // label13
             // 
@@ -145,8 +147,8 @@ namespace CrudAugustusFashion.View.Alteracao
             this.groupBox2.Controls.Add(this.txtCpf);
             this.groupBox2.Controls.Add(this.txtSobrenome);
             this.groupBox2.Controls.Add(this.label27);
-            this.groupBox2.Controls.Add(this.txtTelefone);
-            this.groupBox2.Controls.Add(this.txtCelular);
+            this.groupBox2.Controls.Add(this.maskBoxTelefone);
+            this.groupBox2.Controls.Add(this.maskBoxCelular);
             this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.label25);
             this.groupBox2.Controls.Add(this.label26);
@@ -212,7 +214,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.comboBoxUf.Location = new System.Drawing.Point(659, 147);
             this.comboBoxUf.Name = "comboBoxUf";
             this.comboBoxUf.Size = new System.Drawing.Size(142, 28);
-            this.comboBoxUf.TabIndex = 122;
+            this.comboBoxUf.TabIndex = 8;
             // 
             // comboBoxSexo
             // 
@@ -226,7 +228,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.comboBoxSexo.Location = new System.Drawing.Point(659, 84);
             this.comboBoxSexo.Name = "comboBoxSexo";
             this.comboBoxSexo.Size = new System.Drawing.Size(142, 28);
-            this.comboBoxSexo.TabIndex = 120;
+            this.comboBoxSexo.TabIndex = 4;
             // 
             // label14
             // 
@@ -255,7 +257,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtEmail.Location = new System.Drawing.Point(37, 318);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(632, 29);
-            this.txtEmail.TabIndex = 119;
+            this.txtEmail.TabIndex = 15;
             // 
             // label28
             // 
@@ -283,7 +285,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtSobrenome.Location = new System.Drawing.Point(280, 84);
             this.txtSobrenome.Name = "txtSobrenome";
             this.txtSobrenome.Size = new System.Drawing.Size(204, 29);
-            this.txtSobrenome.TabIndex = 20;
+            this.txtSobrenome.TabIndex = 2;
             // 
             // label27
             // 
@@ -295,25 +297,25 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label27.TabIndex = 116;
             this.label27.Text = "Sobrenome";
             // 
-            // txtTelefone
+            // maskBoxTelefone
             // 
-            this.txtTelefone.AccessibleName = "";
-            this.txtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(280, 265);
-            this.txtTelefone.Mask = "0000000000";
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(204, 29);
-            this.txtTelefone.TabIndex = 14;
+            this.maskBoxTelefone.AccessibleName = "";
+            this.maskBoxTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskBoxTelefone.Location = new System.Drawing.Point(280, 265);
+            this.maskBoxTelefone.Mask = "0000000000";
+            this.maskBoxTelefone.Name = "maskBoxTelefone";
+            this.maskBoxTelefone.Size = new System.Drawing.Size(204, 29);
+            this.maskBoxTelefone.TabIndex = 13;
             // 
-            // txtCelular
+            // maskBoxCelular
             // 
-            this.txtCelular.AccessibleName = "";
-            this.txtCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(490, 265);
-            this.txtCelular.Mask = "00000000000";
-            this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(163, 29);
-            this.txtCelular.TabIndex = 16;
+            this.maskBoxCelular.AccessibleName = "";
+            this.maskBoxCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskBoxCelular.Location = new System.Drawing.Point(490, 265);
+            this.maskBoxCelular.Mask = "00000000000";
+            this.maskBoxCelular.Name = "maskBoxCelular";
+            this.maskBoxCelular.Size = new System.Drawing.Size(163, 29);
+            this.maskBoxCelular.TabIndex = 14;
             // 
             // label24
             // 
@@ -528,9 +530,9 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(198, 16);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(402, 37);
+            this.label19.Size = new System.Drawing.Size(523, 37);
             this.label19.TabIndex = 63;
-            this.label19.Text = "Cadastro de Colaborador";
+            this.label19.Text = "Dados Cadastrais Colaboradores";
             // 
             // groupBox1
             // 
@@ -556,7 +558,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtConta.MaxLength = 50;
             this.txtConta.Name = "txtConta";
             this.txtConta.Size = new System.Drawing.Size(137, 29);
-            this.txtConta.TabIndex = 20;
+            this.txtConta.TabIndex = 19;
             // 
             // txtAgencia
             // 
@@ -565,7 +567,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtAgencia.MaxLength = 50;
             this.txtAgencia.Name = "txtAgencia";
             this.txtAgencia.Size = new System.Drawing.Size(137, 29);
-            this.txtAgencia.TabIndex = 18;
+            this.txtAgencia.TabIndex = 17;
             // 
             // txtTipoConta
             // 
@@ -574,7 +576,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtTipoConta.MaxLength = 20;
             this.txtTipoConta.Name = "txtTipoConta";
             this.txtTipoConta.Size = new System.Drawing.Size(133, 29);
-            this.txtTipoConta.TabIndex = 19;
+            this.txtTipoConta.TabIndex = 18;
             // 
             // label22
             // 
@@ -634,18 +636,43 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtBanco.MaxLength = 50;
             this.txtBanco.Name = "txtBanco";
             this.txtBanco.Size = new System.Drawing.Size(137, 29);
-            this.txtBanco.TabIndex = 17;
+            this.txtBanco.TabIndex = 16;
             // 
-            // AlteracaoColaboradores
+            // btnAlteracaoCliente
+            // 
+            this.btnAlteracaoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlteracaoCliente.Location = new System.Drawing.Point(21, 560);
+            this.btnAlteracaoCliente.Name = "btnAlteracaoCliente";
+            this.btnAlteracaoCliente.Size = new System.Drawing.Size(341, 55);
+            this.btnAlteracaoCliente.TabIndex = 22;
+            this.btnAlteracaoCliente.Text = "Alterar";
+            this.btnAlteracaoCliente.UseVisualStyleBackColor = true;
+            this.btnAlteracaoCliente.Click += new System.EventHandler(this.btnAlteracaoCliente_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Location = new System.Drawing.Point(531, 560);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(341, 55);
+            this.btnExcluir.TabIndex = 23;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            // 
+            // FrmAlteracaoColaboradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 561);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(891, 631);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAlteracaoCliente);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AlteracaoColaboradores";
-            this.Text = "AlteracaoColaboradores";
+            this.Name = "FrmAlteracaoColaboradores";
+            this.Text = "Dados Cadastrais Colaboradores";
+            this.Load += new System.EventHandler(this.AlteracaoColaboradores_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -673,8 +700,8 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.TextBox txtSobrenome;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.MaskedTextBox txtTelefone;
-        private System.Windows.Forms.MaskedTextBox txtCelular;
+        private System.Windows.Forms.MaskedTextBox maskBoxTelefone;
+        private System.Windows.Forms.MaskedTextBox maskBoxCelular;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
@@ -708,5 +735,7 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtBanco;
+        private System.Windows.Forms.Button btnAlteracaoCliente;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }
