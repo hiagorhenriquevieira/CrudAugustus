@@ -12,6 +12,12 @@ namespace CrudAugustusFashion.Controller
 {
     class AlteracaoClienteController
     {
+        private  ClienteDao _clienteDao;
+        public AlteracaoClienteController()
+        {
+            _clienteDao = new ClienteDao();
+        }
+
         public void AbrirAlteracaoCliente(ClienteModel cliente)
         {
             var frmAlteracaoCliente = new FrmAlteracaoCliente(cliente);
@@ -19,12 +25,10 @@ namespace CrudAugustusFashion.Controller
             frmAlteracaoCliente.Show();
 
         }
-        public void AlterarCliente()
+
+        internal void AlterarCliente(ClienteModel Cliente, EnderecoModel endereco, TelefoneModel telefone)
         {
-            
+            _clienteDao.AlterarCliente(Cliente, endereco, telefone);
         }
-
-
-        
     }
 }

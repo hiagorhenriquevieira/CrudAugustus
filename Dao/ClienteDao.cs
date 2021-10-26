@@ -51,9 +51,57 @@ namespace CrudAugustusFashion.Dao
             }
         }
 
-        public void AtualizarCliente(ClienteModel cliente)
+        internal void AlterarCliente(ClienteModel cliente, EnderecoModel endereco, TelefoneModel telefone)
         {
-            
+            const string updateUsuario = "update Usuarios (Nome, SobreNome, Cpf, Sexo Email) output updated.IdUsuario values (@nome, @sobreNome, @cpf, @sexo, @email)";
+            const string updateCliente = "update Clientes (IdUsuario, ValorLimite, Observacao) values (@IdUsuario, @valorLimite, @observacao)";
+            const string updateEndereco = "update Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
+            const string updateTelefone = "update Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
+            //var id = cliente;
+            //var sqlUpdate = @"";
+
+            //try
+            //{
+            //    using (var con = new ConexaoDao().conectar())
+            //    {
+            //        con.Query<ClienteListaModel>(sqlUpdate, cliente);
+            //        AlterarCliente(cliente);
+            //         MessageBox.Show("Cliente alterado!");
+
+            //    }
+            //}
+            //catch (Exception excecao)
+            //{
+            //    MessageBox.Show(excecao.Message);
+            //}
+            try
+            {
+                using (var conexao = this.conexao.conectar())
+                using (var transacao = conexao.BeginTransaction())
+                {
+                    int id = conexao.ExecuteScalar<int>(updateUsuario, cliente, transacao);
+                    cliente.IdUsuario = id;
+
+                    endereco.IdUsuario = id;
+
+                    telefone.IdUsuario = id;
+
+                    conexao.Execute(updateCliente, cliente, transacao);
+
+                    conexao.Execute(updateEndereco, endereco, transacao);
+
+                    conexao.Execute(updateTelefone, telefone, transacao);
+
+                    transacao.Commit();
+                }
+
+                //MessageBox.Show(cliente.IdUsuario.ToString());
+                MessageBox.Show("Cliente alterado com sucesso");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public List<ClienteListaModel> ListarClientes()
@@ -93,13 +141,69 @@ namespace CrudAugustusFashion.Dao
 
             return clienteModel;
         }
-        
+
+
+        //public void AlterarCliente(ClienteModel cliente, EnderecoModel endereco, TelefoneModel telefone)
+        //{
+        //    const string updateUsuario = "update Usuarios output updated.IdUsuario values (@nome, @sobreNome, @cpf, @sexo, @dataNascimento, @email)";
+        //    const string updateCliente = "update Clientes (IdUsuario, ValorLimite, Observacao) values (@IdUsuario, @valorLimite, @observacao)";
+        //    const string updateEndereco = "update Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
+        //    const string updateTelefone = "update Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
+        //    //var id = cliente;
+        //    //var sqlUpdate = @"";
+
+        //    //try
+        //    //{
+        //    //    using (var con = new ConexaoDao().conectar())
+        //    //    {
+        //    //        con.Query<ClienteListaModel>(sqlUpdate, cliente);
+        //    //        AlterarCliente(cliente);
+        //    //         MessageBox.Show("Cliente alterado!");
+
+        //    //    }
+        //    //}
+        //    //catch (Exception excecao)
+        //    //{
+        //    //    MessageBox.Show(excecao.Message);
+        //    //}
+        //    try
+        //    {
+        //        using (var conexao = this.conexao.conectar())
+        //        using (var transacao = conexao.BeginTransaction())
+        //        {
+        //            int id = conexao.ExecuteScalar<int>(updateUsuario, cliente, transacao);
+        //            cliente.IdUsuario = id;
+
+        //            endereco.IdUsuario = id;
+
+        //            telefone.IdUsuario = id;
+
+        //            conexao.Execute(updateCliente, cliente, transacao);
+
+        //            conexao.Execute(updateEndereco, endereco, transacao);
+
+        //            conexao.Execute(updateTelefone, telefone, transacao);
+
+        //            transacao.Commit();
+        //        }
+
+        //        //MessageBox.Show(cliente.IdUsuario.ToString());
+        //        MessageBox.Show("Cliente alterado com sucesso");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+
+        //}
+
+
 
         public void ExcluirClientes()
         {
 
         }
-        
+
 
 
     }

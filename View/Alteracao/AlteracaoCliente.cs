@@ -63,5 +63,16 @@ namespace CrudAugustusFashion.View.Alteracao
         {
 
         }
+
+        private void btnAlteracaoCliente_Click(object sender, EventArgs e)
+        {
+            var cliente = new ClienteModel();
+
+            var endereco = new EnderecoModel();
+
+            var telefone = new TelefoneModel();
+
+            new AlteracaoClienteController().AlterarCliente(cliente, endereco, telefone);
+        }
     }
 }

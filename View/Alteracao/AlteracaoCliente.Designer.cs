@@ -511,6 +511,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.btnAlteracaoCliente.TabIndex = 52;
             this.btnAlteracaoCliente.Text = "Alterar";
             this.btnAlteracaoCliente.UseVisualStyleBackColor = true;
+            this.btnAlteracaoCliente.Click += new System.EventHandler(this.btnAlteracaoCliente_Click);
             // 
             // btnExcluir
             // 
