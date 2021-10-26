@@ -49,7 +49,6 @@ namespace CrudAugustusFashion
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtBairro = new System.Windows.Forms.TextBox();
-            this.txtCep = new System.Windows.Forms.TextBox();
             this.txtComplemento = new System.Windows.Forms.TextBox();
             this.txtLogradouro = new System.Windows.Forms.TextBox();
             this.txtNumeroResidencia = new System.Windows.Forms.TextBox();
@@ -69,6 +68,7 @@ namespace CrudAugustusFashion
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxUf = new System.Windows.Forms.ComboBox();
             this.comboBoxSexo = new System.Windows.Forms.ComboBox();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -265,15 +265,6 @@ namespace CrudAugustusFashion
             this.txtBairro.Size = new System.Drawing.Size(204, 29);
             this.txtBairro.TabIndex = 6;
             // 
-            // txtCep
-            // 
-            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCep.Location = new System.Drawing.Point(469, 168);
-            this.txtCep.MaxLength = 8;
-            this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(137, 29);
-            this.txtCep.TabIndex = 7;
-            // 
             // txtComplemento
             // 
             this.txtComplemento.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -428,6 +419,7 @@ namespace CrudAugustusFashion
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCep);
             this.groupBox1.Controls.Add(this.comboBoxUf);
             this.groupBox1.Controls.Add(this.comboBoxSexo);
             this.groupBox1.Controls.Add(this.label24);
@@ -445,7 +437,6 @@ namespace CrudAugustusFashion
             this.groupBox1.Controls.Add(this.txtNumeroResidencia);
             this.groupBox1.Controls.Add(this.txtLogradouro);
             this.groupBox1.Controls.Add(this.txtComplemento);
-            this.groupBox1.Controls.Add(this.txtCep);
             this.groupBox1.Controls.Add(this.txtBairro);
             this.groupBox1.Controls.Add(this.txtCidade);
             this.groupBox1.Controls.Add(this.txtNome);
@@ -468,7 +459,7 @@ namespace CrudAugustusFashion
             this.groupBox1.Location = new System.Drawing.Point(16, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(793, 542);
-            this.groupBox1.TabIndex = 51;
+            this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
@@ -524,6 +515,16 @@ namespace CrudAugustusFashion
             this.comboBoxSexo.Size = new System.Drawing.Size(142, 28);
             this.comboBoxSexo.TabIndex = 4;
             // 
+            // txtCep
+            // 
+            this.txtCep.AccessibleName = "";
+            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCep.Location = new System.Drawing.Point(470, 168);
+            this.txtCep.Mask = "00000000";
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(136, 29);
+            this.txtCep.TabIndex = 7;
+            // 
             // FrmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,7 +568,6 @@ namespace CrudAugustusFashion
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtBairro;
-        private System.Windows.Forms.TextBox txtCep;
         private System.Windows.Forms.TextBox txtComplemento;
         private System.Windows.Forms.TextBox txtLogradouro;
         private System.Windows.Forms.TextBox txtNumeroResidencia;
@@ -587,6 +587,7 @@ namespace CrudAugustusFashion
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxSexo;
         private System.Windows.Forms.ComboBox comboBoxUf;
+        private System.Windows.Forms.MaskedTextBox txtCep;
     }
 }
 

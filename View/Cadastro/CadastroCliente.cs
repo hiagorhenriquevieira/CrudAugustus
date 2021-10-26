@@ -34,7 +34,7 @@ namespace CrudAugustusFashion
                 txtCpf.NuloOuVazio() || comboBoxSexo.NuloOuVazio() ||
                 txtCidade.NuloOuVazio() || txtBairro.NuloOuVazio() ||
                 txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() ||
-                txtComplemento.NuloOuVazio() || txtLogradouro.NuloOuVazio() || 
+                txtComplemento.NuloOuVazio() || txtLogradouro.NuloOuVazio() ||
                 txtNumeroResidencia.NuloOuVazio() ||
                 txtCelular.NuloOuVazio() || txtEmail.NuloOuVazio() ||
                 txtLimiteCompraPrazo.NuloOuVazio())
@@ -42,6 +42,27 @@ namespace CrudAugustusFashion
                 MessageBox.Show("Preencha os campos obrigatórios!");
                 return;
             }
+            else if (txtCpf.ValidarcampoCpf())
+            {
+                MessageBox.Show("Campo cpf invalido.");
+                return;
+            }
+            else if (txtCep.ValidarCampoCep())
+            {
+                MessageBox.Show("Campo cep invalido.");
+                return;
+            }
+            
+            else if (txtCelular.ValidarCampoCelular())
+            {
+                MessageBox.Show("Campo celular invalido.");
+                return;
+            }
+            //else if (txtTelefone.ValidadarCampoTelefone())
+            //{
+            //    MessageBox.Show("Campo telefone invalido.");
+            //    return;
+            //}
 
 
 

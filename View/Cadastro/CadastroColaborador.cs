@@ -56,7 +56,23 @@ namespace CrudAugustusFashion.View
                 MessageBox.Show("Preencha os campos obrigatórios!");
                 return;
             }
-            
+            else if (txtCpf.ValidarcampoCpf())
+            {
+                MessageBox.Show("Campo cpf invalido.");
+                return;
+            }
+            else if (txtCep.ValidarCampoCep())
+            {
+                MessageBox.Show("Campo cep invalido.");
+                return;
+            }
+
+            else if (txtCelular.ValidarCampoCelular())
+            {
+                MessageBox.Show("Campo celular invalido.");
+                return;
+            }
+
 
             var colaborador = new ColaboradorModel();
 

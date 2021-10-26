@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetTopologySuite.Algorithm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,18 +19,33 @@ namespace CrudAugustusFashion.Extencion
         public static bool NuloOuVazio(this ComboBox comboBox) =>
            string.IsNullOrEmpty(comboBox.Text);
 
+        public static bool ValidarcampoCpf(this MaskedTextBox mascaraBox)
+        {
+            if (mascaraBox.TextLength != 11)
+            {
+            }
+            return true;
+        }
 
-        //else if (int.TryParse(txtCep.Text))
-        //{
-        //    var str = txtCep.Text.ToCharArray();
+        public static bool ValidarCampoCep(this MaskedTextBox mascaraBox)
+        {
+            if (mascaraBox.TextLength != 8)
+            {
 
-        //    foreach (var s in str)
-        //    {
-        //        if (!Char.IsDigit(s))
-        //            return false;
-        //    }
-        //}
+            }
+            return true;
+        }
 
 
+
+        public static bool ValidarCampoCelular(this MaskedTextBox mascaraBox)
+        {
+            if (mascaraBox.TextLength != 11) { }
+            return true;
+        }
+        public static bool ValidarCampoNumeroResidencia(this TextBox textoBox)
+        {
+            return true;
+        }
     }
 }
