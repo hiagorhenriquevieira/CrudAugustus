@@ -69,11 +69,15 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label1 = new System.Windows.Forms.Label();
             this.btnAlteracaoCliente = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtIdUsuario);
+            this.groupBox1.Controls.Add(this.txtIdCliente);
             this.groupBox1.Controls.Add(this.maskBoxTelefone);
             this.groupBox1.Controls.Add(this.comboBoxUf);
             this.groupBox1.Controls.Add(this.comboBoxSexo);
@@ -348,7 +352,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(181, 31);
+            this.label19.Location = new System.Drawing.Point(17, 29);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(414, 37);
             this.label19.TabIndex = 18;
@@ -524,6 +528,22 @@ namespace CrudAugustusFashion.View.Alteracao
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Location = new System.Drawing.Point(656, 44);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtIdCliente.TabIndex = 51;
+            this.txtIdCliente.Visible = false;
+            // 
+            // txtIdUsuario
+            // 
+            this.txtIdUsuario.Location = new System.Drawing.Point(507, 44);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtIdUsuario.TabIndex = 52;
+            this.txtIdUsuario.Visible = false;
+            // 
             // FrmAlteracaoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,5 +604,7 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.Button btnAlteracaoCliente;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.MaskedTextBox maskBoxTelefone;
+        private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.TextBox txtIdUsuario;
     }
 }

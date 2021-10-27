@@ -2,13 +2,6 @@
 using CrudAugustusFashion.Extencion;
 using CrudAugustusFashion.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CrudAugustusFashion.View
@@ -46,7 +39,7 @@ namespace CrudAugustusFashion.View
                 txtCpf.NuloOuVazio() || comboBoxSexo.NuloOuVazio() ||
                 txtCidade.NuloOuVazio() || txtBairro.NuloOuVazio() ||
                 txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() ||
-                txtComplemento.NuloOuVazio() || txtLogradouro.NuloOuVazio() ||
+                txtLogradouro.NuloOuVazio() ||
                 txtNumeroResidencia.NuloOuVazio() ||
                 txtCelular.NuloOuVazio() || txtEmail.NuloOuVazio() ||
                 txtConta.NuloOuVazio() || txtAgencia.NuloOuVazio() ||
@@ -56,23 +49,6 @@ namespace CrudAugustusFashion.View
                 MessageBox.Show("Preencha os campos obrigatórios!");
                 return;
             }
-            else if (txtCpf.ValidarcampoCpf())
-            {
-                MessageBox.Show("Campo cpf invalido.");
-                return;
-            }
-            else if (txtCep.ValidarCampoCep())
-            {
-                MessageBox.Show("Campo cep invalido.");
-                return;
-            }
-
-            else if (txtCelular.ValidarCampoCelular())
-            {
-                MessageBox.Show("Campo celular invalido.");
-                return;
-            }
-
 
             var colaborador = new ColaboradorModel();
 

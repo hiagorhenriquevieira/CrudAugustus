@@ -42,7 +42,7 @@ namespace CrudAugustusFashion.Dao
                     transacao.Commit();
                 }
 
-                //MessageBox.Show(cliente.IdUsuario.ToString());
+                
                 MessageBox.Show("Cliente cadastrado com sucesso.");
             }
             catch (Exception ex)
@@ -53,38 +53,21 @@ namespace CrudAugustusFashion.Dao
 
         internal void AlterarCliente(ClienteModel cliente, EnderecoModel endereco, TelefoneModel telefone)
         {
-            const string updateUsuario = "update Usuarios (Nome, SobreNome, Cpf, Sexo Email) output updated.IdUsuario values (@nome, @sobreNome, @cpf, @sexo, @email)";
-            const string updateCliente = "update Clientes (IdUsuario, ValorLimite, Observacao) values (@IdUsuario, @valorLimite, @observacao)";
-            const string updateEndereco = "update Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
-            const string updateTelefone = "update Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
-            //var id = cliente;
-            //var sqlUpdate = @"";
-
-            //try
-            //{
-            //    using (var con = new ConexaoDao().conectar())
-            //    {
-            //        con.Query<ClienteListaModel>(sqlUpdate, cliente);
-            //        AlterarCliente(cliente);
-            //         MessageBox.Show("Cliente alterado!");
-
-            //    }
-            //}
-            //catch (Exception excecao)
-            //{
-            //    MessageBox.Show(excecao.Message);
-            //}
+            const string updateUsuario = "update Usuarios set Nome = @Nome, SobreNome = @SobreNome, Cpf = @Cpf, Sexo = @Sexo, DataNascimento = @DataNascimento, Email = @Email" +
+                " where IdUsuario = @IdUsuario ";
+            const string updateCliente = "update Clientes set ValorLimite = @ValorLimite, Observacao = @Observacao " +
+                "where IdUsuario = @IdUsuario";
+            const string updateEndereco = "update Endereco set Cep = @Cep, Cidade = @Cidade, Logradouro = @Logradouro, Uf = @Uf, Complemento = @Complemento, Bairro = @Bairro, NumeroResidencia = @NumeroResidencia " +
+                "where IdUsuario = @IdUsuario";
+            const string updateTelefone = "update Telefone set Telefone = @Telefone, Celular = @Celular" +
+                " where IdUsuario = @IdUsuario";
+            
             try
             {
                 using (var conexao = this.conexao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
-                    int id = conexao.ExecuteScalar<int>(updateUsuario, cliente, transacao);
-                    cliente.IdUsuario = id;
-
-                    endereco.IdUsuario = id;
-
-                    telefone.IdUsuario = id;
+                    conexao.Execute(updateUsuario, cliente, transacao);
 
                     conexao.Execute(updateCliente, cliente, transacao);
 
@@ -95,7 +78,6 @@ namespace CrudAugustusFashion.Dao
                     transacao.Commit();
                 }
 
-                //MessageBox.Show(cliente.IdUsuario.ToString());
                 MessageBox.Show("Cliente alterado com sucesso");
             }
             catch (Exception ex)
@@ -143,66 +125,21 @@ namespace CrudAugustusFashion.Dao
         }
 
 
-        //public void AlterarCliente(ClienteModel cliente, EnderecoModel endereco, TelefoneModel telefone)
+       
+
+
+
+        //internal void ExcluirClientes(ClienteModel clienteModel, TelefoneModel telefone, EnderecoModel endereco)
         //{
-        //    const string updateUsuario = "update Usuarios output updated.IdUsuario values (@nome, @sobreNome, @cpf, @sexo, @dataNascimento, @email)";
-        //    const string updateCliente = "update Clientes (IdUsuario, ValorLimite, Observacao) values (@IdUsuario, @valorLimite, @observacao)";
-        //    const string updateEndereco = "update Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
-        //    const string updateTelefone = "update Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
-        //    //var id = cliente;
-        //    //var sqlUpdate = @"";
-
-        //    //try
-        //    //{
-        //    //    using (var con = new ConexaoDao().conectar())
-        //    //    {
-        //    //        con.Query<ClienteListaModel>(sqlUpdate, cliente);
-        //    //        AlterarCliente(cliente);
-        //    //         MessageBox.Show("Cliente alterado!");
-
-        //    //    }
-        //    //}
-        //    //catch (Exception excecao)
-        //    //{
-        //    //    MessageBox.Show(excecao.Message);
-        //    //}
-        //    try
-        //    {
-        //        using (var conexao = this.conexao.conectar())
-        //        using (var transacao = conexao.BeginTransaction())
-        //        {
-        //            int id = conexao.ExecuteScalar<int>(updateUsuario, cliente, transacao);
-        //            cliente.IdUsuario = id;
-
-        //            endereco.IdUsuario = id;
-
-        //            telefone.IdUsuario = id;
-
-        //            conexao.Execute(updateCliente, cliente, transacao);
-
-        //            conexao.Execute(updateEndereco, endereco, transacao);
-
-        //            conexao.Execute(updateTelefone, telefone, transacao);
-
-        //            transacao.Commit();
-        //        }
-
-        //        //MessageBox.Show(cliente.IdUsuario.ToString());
-        //        MessageBox.Show("Cliente alterado com sucesso");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-
+        //    const string deleteTelefone = "Delete from Telefone " +
+        //        " where IdUsuario = @IdUsuario";
+        //    const string deleteEndereco = "Delete from Endereco " +
+        //        "where IdUsuario = @IdUsuario";
+        //    const string deleteCliente = "Delete from Clientes " +
+        //        "where IdUsuario = @IdUsuario";
+        //    const string deleteUsuario = "Delete from Usuarios " +
+        //        "where IdUsuario = @IdUsuarios";
         //}
-
-
-
-        public void ExcluirClientes()
-        {
-
-        }
 
 
 

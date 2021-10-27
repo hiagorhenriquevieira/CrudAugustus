@@ -70,18 +70,19 @@ namespace CrudAugustusFashion.View
             this.cadastrarNovoUsuarioToolStripMenuItem.Name = "cadastrarNovoUsuarioToolStripMenuItem";
             this.cadastrarNovoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrarNovoUsuarioToolStripMenuItem.Text = "Cadastrar";
+            this.cadastrarNovoUsuarioToolStripMenuItem.Click += new System.EventHandler(this.cadastrarNovoUsuarioToolStripMenuItem_Click);
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // colaboradorToolStripMenuItem
             // 
             this.colaboradorToolStripMenuItem.Name = "colaboradorToolStripMenuItem";
-            this.colaboradorToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.colaboradorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.colaboradorToolStripMenuItem.Text = "Colaborador";
             this.colaboradorToolStripMenuItem.Click += new System.EventHandler(this.colaboradorToolStripMenuItem_Click);
             // 
@@ -97,14 +98,14 @@ namespace CrudAugustusFashion.View
             // clienteToolStripMenuItem1
             // 
             this.clienteToolStripMenuItem1.Name = "clienteToolStripMenuItem1";
-            this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
             this.clienteToolStripMenuItem1.Text = "Cliente";
             this.clienteToolStripMenuItem1.Click += new System.EventHandler(this.clienteToolStripMenuItem1_Click);
             // 
             // colaboradorToolStripMenuItem1
             // 
             this.colaboradorToolStripMenuItem1.Name = "colaboradorToolStripMenuItem1";
-            this.colaboradorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.colaboradorToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
             this.colaboradorToolStripMenuItem1.Text = "Colaborador";
             this.colaboradorToolStripMenuItem1.Click += new System.EventHandler(this.colaboradorToolStripMenuItem1_Click);
             // 

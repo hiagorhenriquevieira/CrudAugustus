@@ -66,9 +66,9 @@ namespace CrudAugustusFashion
             this.label24 = new System.Windows.Forms.Label();
             this.txtLimiteCompraPrazo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxUf = new System.Windows.Forms.ComboBox();
             this.comboBoxSexo = new System.Windows.Forms.ComboBox();
-            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -463,6 +463,16 @@ namespace CrudAugustusFashion
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtCep
+            // 
+            this.txtCep.AccessibleName = "";
+            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCep.Location = new System.Drawing.Point(470, 168);
+            this.txtCep.Mask = "00000000";
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(136, 29);
+            this.txtCep.TabIndex = 7;
+            // 
             // comboBoxUf
             // 
             this.comboBoxUf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -515,16 +525,6 @@ namespace CrudAugustusFashion
             this.comboBoxSexo.Size = new System.Drawing.Size(142, 28);
             this.comboBoxSexo.TabIndex = 4;
             // 
-            // txtCep
-            // 
-            this.txtCep.AccessibleName = "";
-            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCep.Location = new System.Drawing.Point(470, 168);
-            this.txtCep.Mask = "00000000";
-            this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(136, 29);
-            this.txtCep.TabIndex = 7;
-            // 
             // FrmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -565,7 +565,6 @@ namespace CrudAugustusFashion
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.TextBox txtComplemento;
@@ -588,6 +587,7 @@ namespace CrudAugustusFashion
         private System.Windows.Forms.ComboBox comboBoxSexo;
         private System.Windows.Forms.ComboBox comboBoxUf;
         private System.Windows.Forms.MaskedTextBox txtCep;
+        public System.Windows.Forms.TextBox txtNome;
     }
 }
 

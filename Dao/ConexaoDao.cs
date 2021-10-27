@@ -12,7 +12,7 @@ namespace CrudAugustusFashion.Dao
 
         public ConexaoDao()
         {
-            con.ConnectionString = "Data Source=DESKTOP-NBSNSV6;Initial Catalog=BDAUGUSTO;User ID=sa;Password=123";
+            con.ConnectionString = "Data Source=DESKTOP-IETNHSD;Initial Catalog=BDAUGUSTO;User ID=sa;Password=123";
         }
 
         public SqlConnection conectar()

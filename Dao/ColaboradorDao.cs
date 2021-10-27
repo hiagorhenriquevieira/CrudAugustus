@@ -15,19 +15,19 @@ namespace CrudAugustusFashion.Dao
         public void CadastrarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
         {
 
-            var strSqlUsuario = "insert into Usuarios (Nome, SobreNome, Sexo, DataNascimento, Cpf, Email) output inserted.IdUsuario values (@nome, @sobreNome, @sexo, @dataNascimento, @cpf, @email)";
-            var strSqlColaborador = "insert into Colaboradores (IdUsuario, Salario, PorcentagemComissao) output inserted.IdColaborador values (@IdUsuario, @salario, @porcentagemComissao)";
-            var strSqlEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
+            var insertUsuario = "insert into Usuarios (Nome, SobreNome, Sexo, DataNascimento, Cpf, Email) output inserted.IdUsuario values (@nome, @sobreNome, @sexo, @dataNascimento, @cpf, @email)";
+            var insertColaborador = "insert into Colaboradores (IdUsuario, Salario, PorcentagemComissao) output inserted.IdColaborador values (@IdUsuario, @salario, @porcentagemComissao)";
+            var insertEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
                "values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
-            var strSqlTelefone = "insert into Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
-            var strSqlContaBancaria = "insert into ContasBancarias (IdColaborador, Conta, Agencia, TipoConta, Banco) values (@IdColaborador, @conta, @agencia, @tipoConta, @banco)";
+            var insertTelefone = "insert into Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
+            var insertContaBancaria = "insert into ContasBancarias (IdColaborador, Conta, Agencia, TipoConta, Banco) values (@IdColaborador, @conta, @agencia, @tipoConta, @banco)";
 
             try
             {
                 using (var con = conexao.conectar())
                 using (var transacao = con.BeginTransaction())
                 {
-                    int id = con.ExecuteScalar<int>(strSqlUsuario, colaborador, transacao);
+                    int id = con.ExecuteScalar<int>(insertUsuario, colaborador, transacao);
 
                     colaborador.IdUsuario = id;
 
@@ -35,27 +35,76 @@ namespace CrudAugustusFashion.Dao
 
                     telefone.IdUsuario = id;
 
-                    int idColaborador = con.ExecuteScalar<int>(strSqlColaborador, colaborador, transacao);
+                    int idColaborador = con.ExecuteScalar<int>(insertColaborador, colaborador, transacao);
 
                     contaBancaria.IdColaborador = idColaborador;
 
-                    con.Execute(strSqlEndereco, endereco, transacao);
+                    con.Execute(insertEndereco, endereco, transacao);
 
-                    con.Execute(strSqlTelefone, telefone, transacao);
+                    con.Execute(insertTelefone, telefone, transacao);
 
-                    con.Execute(strSqlContaBancaria, contaBancaria, transacao);
+                    con.Execute(insertContaBancaria, contaBancaria, transacao);
 
                     transacao.Commit();
                 }
 
-                //MessageBox.Show(colaborador.IdUsuario.ToString());
+                
                 MessageBox.Show("Colaborador cadastrado com sucesso.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DialogResult dialogResult = MessageBox.Show(ex.Message);
             }
         }
+
+        internal void AlterarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
+        {
+            var updateUsuario = "update Usuarios set Nome = @Nome, SobreNome = @SobreNome, Cpf = @Cpf, Sexo = @Sexo, DataNascimento = @DataNascimento, Email = @Email" +
+                " where IdUsuario = @IdUsuario ";
+            var updateColaborador = "update Colaboradores set Salario = @Salario, PorcentagemComissao = @PorcentagemComissao " +
+                "where IdColaborador = @IdUsuario";
+            var updateEndereco = "update Endereco set Cep = @Cep, Cidade = @Cidade, Logradouro = @Logradouro, Uf = @Uf, Complemento = @Complemento, Bairro = @Bairro, NumeroResidencia = @NumeroResidencia " +
+                "where IdEndereco = @IdUsuario";
+            var updateTelefone = "update Telefone set Telefone = @Telefone, Celular = @Celular" +
+                " where IdTelefone = @IdUsuario";
+            var updateContasBancarias = "update ContasBancarias set Conta = @Conta, Agencia = @Agencia, TipoConta = @TipoConta, Banco = @Banco where IdContaBancaria = @IdColaborador ";
+
+            try
+            {
+                using (var con = conexao.conectar())
+                using (var transacao = con.BeginTransaction())
+                {
+                    int id = con.ExecuteScalar<int>(updateUsuario, colaborador, transacao);
+
+                    colaborador.IdUsuario = id;
+
+                    endereco.IdUsuario = id;
+
+                    telefone.IdUsuario = id;
+
+                    int idColaborador = con.ExecuteScalar<int>(updateColaborador, colaborador, transacao);
+
+                    contaBancaria.IdColaborador = idColaborador;
+
+                    con.Execute(updateEndereco, endereco, transacao);
+
+                    con.Execute(updateTelefone, telefone, transacao);
+
+                    con.Execute(updateContasBancarias, contaBancaria, transacao);
+
+                    transacao.Commit();
+                }
+
+                
+                MessageBox.Show("Colaborador alterado com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                DialogResult dialogResult = MessageBox.Show(ex.Message);
+            }
+        }
+
+
         public List<ColaboradorListaModel> ListarColaboradores()
         {
             var sqlSelect = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,

@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Controller;
-using CrudAugustusFashion.Extencion;
+using CrudAugustusFashion.Validacoes;
 
 namespace CrudAugustusFashion
 {
@@ -30,11 +30,10 @@ namespace CrudAugustusFashion
 
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
-            if (txtNome.NuloOuVazio() || txtSobrenome.NuloOuVazio() ||
+            if (txtNome.NuloOuVazio() || txtNome.Text.ValidarStrings() || txtSobrenome.NuloOuVazio() ||
                 txtCpf.NuloOuVazio() || comboBoxSexo.NuloOuVazio() ||
                 txtCidade.NuloOuVazio() || txtBairro.NuloOuVazio() ||
-                txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() ||
-                txtComplemento.NuloOuVazio() || txtLogradouro.NuloOuVazio() ||
+                txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() || txtLogradouro.NuloOuVazio() ||
                 txtNumeroResidencia.NuloOuVazio() ||
                 txtCelular.NuloOuVazio() || txtEmail.NuloOuVazio() ||
                 txtLimiteCompraPrazo.NuloOuVazio())
@@ -42,28 +41,22 @@ namespace CrudAugustusFashion
                 MessageBox.Show("Preencha os campos obrigatórios!");
                 return;
             }
-            else if (txtCpf.ValidarcampoCpf())
+            else if (txtNome.Text.ValidarStrings() || txtSobrenome.Text.ValidarStrings() ||
+                txtCidade.Text.ValidarStrings())
             {
-                MessageBox.Show("Campo cpf invalido.");
+                MessageBox.Show("Um dos campos contem caracteres não permitidos" +
+                    " (Nome, Sobrenome, Cidade) " +
+                    " Verifique os campos");
                 return;
             }
-            else if (txtCep.ValidarCampoCep())
+            else if (txtLimiteCompraPrazo.Text.ValidarApenasNumeros()|| 
+                    txtNumeroResidencia.Text.ValidarApenasNumeros())
             {
-                MessageBox.Show("Campo cep invalido.");
+                MessageBox.Show("Um dos campos contem caracteres não permitidos\n9+" +
+                    "(Limite de compra a prazo, Numero\n" +
+                    "Verifique os campos");
                 return;
-            }
-            
-            else if (txtCelular.ValidarCampoCelular())
-            {
-                MessageBox.Show("Campo celular invalido.");
-                return;
-            }
-            //else if (txtTelefone.ValidadarCampoTelefone())
-            //{
-            //    MessageBox.Show("Campo telefone invalido.");
-            //    return;
-            //}
-
+            };
 
 
             var cliente = new ClienteModel();
@@ -98,5 +91,14 @@ namespace CrudAugustusFashion
         {
 
         }
+
+        //private void ValidarCamposDeCadastro()
+        //{
+        //    if (txtNome.NuloOuVazio() || txtNome.Text.ValidarStrings())
+        //    {
+        //        MessageBox.Show("Campo -Nome- invalido ");
+        //            return;
+        //    }
+        //}
     }
 }

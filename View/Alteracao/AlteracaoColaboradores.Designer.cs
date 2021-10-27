@@ -35,6 +35,8 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtIdColaborador = new System.Windows.Forms.TextBox();
+            this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.comboBoxUf = new System.Windows.Forms.ComboBox();
             this.comboBoxSexo = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -138,6 +140,8 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtIdColaborador);
+            this.groupBox2.Controls.Add(this.txtIdUsuario);
             this.groupBox2.Controls.Add(this.comboBoxUf);
             this.groupBox2.Controls.Add(this.comboBoxSexo);
             this.groupBox2.Controls.Add(this.label14);
@@ -177,6 +181,22 @@ namespace CrudAugustusFashion.View.Alteracao
             this.groupBox2.Size = new System.Drawing.Size(852, 353);
             this.groupBox2.TabIndex = 120;
             this.groupBox2.TabStop = false;
+            // 
+            // txtIdColaborador
+            // 
+            this.txtIdColaborador.Location = new System.Drawing.Point(725, 31);
+            this.txtIdColaborador.Name = "txtIdColaborador";
+            this.txtIdColaborador.Size = new System.Drawing.Size(100, 20);
+            this.txtIdColaborador.TabIndex = 125;
+            this.txtIdColaborador.Visible = false;
+            // 
+            // txtIdUsuario
+            // 
+            this.txtIdUsuario.Location = new System.Drawing.Point(619, 31);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtIdUsuario.TabIndex = 124;
+            this.txtIdUsuario.Visible = false;
             // 
             // comboBoxUf
             // 
@@ -528,7 +548,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(198, 16);
+            this.label19.Location = new System.Drawing.Point(55, 16);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(523, 37);
             this.label19.TabIndex = 63;
@@ -671,7 +691,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmAlteracaoColaboradores";
-            this.Text = "Dados Cadastrais Colaboradores";
+            this.Text = "Dados cadastrais colaboradores";
             this.Load += new System.EventHandler(this.AlteracaoColaboradores_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -737,5 +757,7 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.TextBox txtBanco;
         private System.Windows.Forms.Button btnAlteracaoCliente;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.TextBox txtIdColaborador;
+        private System.Windows.Forms.TextBox txtIdUsuario;
     }
 }

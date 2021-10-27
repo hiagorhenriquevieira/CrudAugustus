@@ -1,4 +1,5 @@
-﻿using CrudAugustusFashion.Dao;
+﻿using CrudAugustusFashion.Controller;
+using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
 using System;
 using System.Collections.Generic;
@@ -29,11 +30,46 @@ namespace CrudAugustusFashion.View.Alteracao
 
         private void btnAlteracaoCliente_Click(object sender, EventArgs e)
         {
+            var colaborador = new ColaboradorModel();
+            colaborador.IdColaborador = int.Parse(txtIdColaborador.Text);
+            colaborador.IdUsuario = int.Parse(txtIdUsuario.Text);
+            colaborador.Nome = txtNome.Text;
+            colaborador.SobreNome = txtSobrenome.Text;
+            colaborador.Cpf = txtCpf.Text;
+            colaborador.Sexo = comboBoxSexo.Text;
+            colaborador.DataNascimento = dateTimeNascimento.Value;
+            colaborador.Email = txtEmail.Text;
+            colaborador.Salario = int.Parse(txtSalario.Text);
+            colaborador.PorcentagemComissao = int.Parse(txtPorcentagemComissao.Text);
 
+            
+
+            var endereco = new EnderecoModel();
+            endereco.Cidade = txtCidade.Text;
+            endereco.Bairro = txtBairro.Text;
+            endereco.Cep = txtCep.Text;
+            endereco.Complemento = txtComplemento.Text;
+            endereco.Logradouro = txtLogradouro.Text;
+            endereco.NumeroResidencia = txtNumeroResidencia.Text;
+
+            var telefone = new TelefoneModel();
+            telefone.Celular = maskBoxCelular.Text;
+            telefone.Telefone = maskBoxTelefone.Text;
+
+            var contaBancaria = new ContaBancariaModel();
+            contaBancaria.Conta = int.Parse(txtConta.Text);
+            contaBancaria.Agencia = int.Parse(txtAgencia.Text);
+            contaBancaria.TipoConta = txtTipoConta.Text;
+            contaBancaria.Banco = txtBanco.Text;
+
+
+            new AlteracaoColaboradorController().AlterarColaborador(colaborador, endereco, telefone, contaBancaria);
         }
 
         private void PreencherCamposComConsultores()
         {
+            txtIdColaborador.Text = _colaboradorModel.IdColaborador.ToString();
+            txtIdUsuario.Text = _colaboradorModel.IdUsuario.ToString();
             txtNome.Text = _colaboradorModel.Nome;
             txtLogradouro.Text = _colaboradorModel.Endereco.Logradouro;
             txtBairro.Text = _colaboradorModel.Endereco.Bairro;

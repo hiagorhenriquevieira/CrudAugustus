@@ -28,6 +28,8 @@ namespace CrudAugustusFashion.View.Alteracao
 
         private void PreencherCamposComCliente()
         {
+            txtIdUsuario.Text = _cliente.IdUsuario.ToString();
+            txtIdCliente.Text = _cliente.IdCliente.ToString();
             txtNome.Text = _cliente.Nome;
             txtLogradouro.Text = _cliente.Endereco.Logradouro;
             txtBairro.Text = _cliente.Endereco.Bairro;
@@ -67,10 +69,30 @@ namespace CrudAugustusFashion.View.Alteracao
         private void btnAlteracaoCliente_Click(object sender, EventArgs e)
         {
             var cliente = new ClienteModel();
+            cliente.IdCliente = int.Parse(txtIdCliente.Text);
+            cliente.IdUsuario = int.Parse(txtIdUsuario.Text);
+            cliente.Nome = txtNome.Text;
+            cliente.SobreNome = txtSobrenome.Text;
+            cliente.Cpf = txtCpf.Text;
+            cliente.Sexo = comboBoxSexo.Text;
+            cliente.DataNascimento = dateTimeNascimento.Value;
+            cliente.Email = txtEmail.Text;
+            cliente.ValorLimite = int.Parse(txtLimiteCompraPrazo.Text);
 
             var endereco = new EnderecoModel();
+            endereco.IdUsuario = int.Parse(txtIdUsuario.Text);
+            endereco.Cidade = txtCidade.Text;
+            endereco.Bairro = txtBairro.Text;
+            endereco.Cep = txtCep.Text;
+            endereco.Uf = comboBoxUf.Text;
+            endereco.Complemento = txtComplemento.Text;
+            endereco.Logradouro = txtLogradouro.Text;
+            endereco.NumeroResidencia = txtNumeroResidencia.Text;
 
             var telefone = new TelefoneModel();
+            telefone.IdUsuario = int.Parse(txtIdUsuario.Text);
+            telefone.Celular = maskBoxCelular.Text;
+            telefone.Telefone = maskBoxTelefone.Text;
 
             new AlteracaoClienteController().AlterarCliente(cliente, endereco, telefone);
         }

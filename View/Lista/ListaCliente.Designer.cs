@@ -51,7 +51,10 @@ namespace CrudAugustusFashion.View
             // 
             this.dataGridViewListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListaClientes.Location = new System.Drawing.Point(12, 77);
+            this.dataGridViewListaClientes.MultiSelect = false;
             this.dataGridViewListaClientes.Name = "dataGridViewListaClientes";
+            this.dataGridViewListaClientes.ReadOnly = true;
+            this.dataGridViewListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewListaClientes.Size = new System.Drawing.Size(1112, 403);
             this.dataGridViewListaClientes.TabIndex = 0;
             this.dataGridViewListaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListaClientes_CellContentClick);

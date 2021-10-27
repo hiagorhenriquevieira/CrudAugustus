@@ -1,4 +1,5 @@
-﻿using CrudAugustusFashion.Model;
+﻿using CrudAugustusFashion.Dao;
+using CrudAugustusFashion.Model;
 using CrudAugustusFashion.View.Alteracao;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,25 @@ using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Controller
 {
-    class AlteracaoColaboradorController
+   public class AlteracaoColaboradorController
     {
-        
+        private ColaboradorDao _colaboradorDao;
+
+        public AlteracaoColaboradorController()
+        {
+            _colaboradorDao = new ColaboradorDao();
+        }
         public void AbrirAlteracaoColaboradores(ColaboradorModel colaboradores)
         {
         var frmAlteracaoColaboradores = new FrmAlteracaoColaboradores(colaboradores);
         frmAlteracaoColaboradores.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmAlteracaoColaboradores.Show();
         }
+
+        internal void AlterarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
+        {
+            _colaboradorDao.AlterarColaborador(colaborador, endereco, telefone, contaBancaria);
+        }
     }
+    
 }
