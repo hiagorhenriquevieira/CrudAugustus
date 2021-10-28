@@ -30,36 +30,10 @@ namespace CrudAugustusFashion
 
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
-            if (txtNome.NuloOuVazio() || txtNome.Text.ValidarApenasLetras() || txtSobrenome.NuloOuVazio() ||
-                txtCpf.NuloOuVazio() || comboBoxSexo.NuloOuVazio() ||
-                txtCidade.NuloOuVazio() || txtBairro.NuloOuVazio() ||
-                txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() || txtLogradouro.NuloOuVazio() ||
-                txtNumeroResidencia.NuloOuVazio() ||
-                txtCelular.NuloOuVazio() || txtEmail.NuloOuVazio() ||
-                txtLimiteCompraPrazo.NuloOuVazio())
+            
+            if (ValidarCamposDeCadastro())
             {
-                MessageBox.Show("Preencha os campos obrigatórios!");
-                return;
-            }
-            else if (txtNome.Text.ValidarApenasLetras() || txtSobrenome.Text.ValidarApenasLetras() ||
-                txtCidade.Text.ValidarApenasLetras())
-            {
-                MessageBox.Show("Um dos campos contem caracteres não permitidos" +
-                    " (Nome, Sobrenome, Cidade) " +
-                    " Verifique os campos");
-                return;
-            }
-            else if (txtLimiteCompraPrazo.Text.ValidarApenasNumeros()|| 
-                    txtNumeroResidencia.Text.ValidarApenasNumeros())
-            {
-                MessageBox.Show("Um dos campos contem caracteres não permitidos\n9+" +
-                    "(Limite de compra a prazo, Numero\n" +
-                    "Verifique os campos");
-                return;
-            };
-
-
-            var cliente = new ClienteModel();
+                var cliente = new ClienteModel();
 
             cliente.Nome = txtNome.Text;
             cliente.SobreNome = txtSobrenome.Text;
@@ -85,6 +59,9 @@ namespace CrudAugustusFashion
 
             new CadastroClienteController().CadastrarCliente(cliente, endereco, telefone);
             this.Close();
+
+            }
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -92,32 +69,79 @@ namespace CrudAugustusFashion
 
         }
 
-        private void ValidarCamposDeCadastro()
+        private bool ValidarCamposDeCadastro()
         {
             if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNome.Text))
             {
                 MessageBox.Show("Campo -Nome- invalido ");
-                return;
-            }else if(ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtSobrenome.Text))
+                return false;
+            }
+            else if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtSobrenome.Text))
             {
                 MessageBox.Show("Campo -Sobrenome- invalido ");
-                return;
-            }else if (ValidacoesExtencion.ValidarCpf(txtCpf.Text))
+                return false;
+            }
+            else if (!ValidacoesExtencion.ValidarCpf(txtCpf.Text))
             {
                 MessageBox.Show("Campo - Cpf- Invalido");
-                return;
-            }else if ()
-            
-            
-            
-            
-            
+                return false;
+            }
+            else if (ValidacoesExtencion.NuloOuVazio(comboBoxSexo))
+            {
+                MessageBox.Show("Campo -Sexo- invalido");
+                return false;
+            }
             else if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtCidade.Text))
             {
-                MessageBox.Show("Campo -Cidade- invalido ");
-                return;
+                MessageBox.Show("Campo -Cidade- invalido");
+                return false;
             }
-        
+            else if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtBairro.Text))
+            {
+                MessageBox.Show("Campo -Bairro- invalido");
+                return false;
+            }
+            else if (!ValidacoesExtencion.ValidarCep(txtCep.Text))
+            {
+                MessageBox.Show("Campo -Cep- invalido");
+                return false;
+            }
+            else if (ValidacoesExtencion.NuloOuVazio(comboBoxUf))
+            {
+                MessageBox.Show("Campo -Uf- invalido");
+                return false;
+            }
+            else if (ValidacoesExtencion.NuloOuVazio(txtLogradouro))
+            {
+                MessageBox.Show("Campo -Logradouro- invalido");
+                return false;
+            }
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtNumeroResidencia.Text))
+            {
+                MessageBox.Show("Campo -Numero- invalido");
+                return false;
+            }
+            else if (!ValidacoesExtencion.ValidarTelefone(txtTelefone.Text))
+            {
+                MessageBox.Show("Campo -Telefone- invalido");
+                return false;
+            }
+            else if (!ValidacoesExtencion.ValidarCelular(txtCelular.Text))
+            {
+                MessageBox.Show("Campo -Celular- invalido");
+                return false;
+            }
+            else if (!ValidacoesExtencion.ValidarEmail(txtEmail.Text))
+            {
+                MessageBox.Show("Campo -Email- invalido");
+                return false;
+            }
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtLimiteCompraPrazo.Text))
+            {
+                MessageBox.Show("Campo -Limite de compra a prazo- invalido");
+                return false;
+            }
+            return true;
         }
     }
 }

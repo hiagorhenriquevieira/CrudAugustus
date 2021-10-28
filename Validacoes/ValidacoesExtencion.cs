@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace CrudAugustusFashion.Validacoes
 {
-    static class ValidacoesExtencion
+    public static class ValidacoesExtencion
     {
         public static bool NuloOuVazio(this TextBox textoBox) =>
             string.IsNullOrEmpty(textoBox.Text);
@@ -24,13 +24,25 @@ namespace CrudAugustusFashion.Validacoes
             new Regex(@"^[a-zA-Z]+$").Match(texto).Success;
 
         public static bool ValidarEmail(this string email) => 
-            new Regex(@"^[a-zA-Z0-9._-]+[@][a-z]+[.][a-zA-Z]{2},{3}").Match(email).Success;
+            new Regex(@"^[a-zA-Z0-9._-]+[@][a-z]+[.]([a-zA-Z]{2,3})+$").Match(email).Success;
 
         public static bool ValidarCpf(this string cpf) => 
             new Regex(@"^[0-9]{11}$").Match(cpf).Success;
 
+        public static bool ValidarCep(this string cep) =>
+            new Regex(@"^[0-9]{8}$").Match(cep).Success;
 
-        
+        public static bool ValidarTelefone(this string telefone) =>
+            new Regex(@"^[0-9]{10}$").Match(telefone).Success;
+
+        public static bool ValidarCelular(this string celular) =>
+            new Regex(@"^[0-9]{11}$").Match(celular).Success;
+
+
+
+
+
+
     }
 
     
