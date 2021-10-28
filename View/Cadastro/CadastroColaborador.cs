@@ -1,5 +1,5 @@
 ﻿using CrudAugustusFashion.Controller;
-using CrudAugustusFashion.Extencion;
+using CrudAugustusFashion.Validacoes;
 using CrudAugustusFashion.Model;
 using System;
 using System.Windows.Forms;

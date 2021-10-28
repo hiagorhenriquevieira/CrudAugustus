@@ -97,7 +97,8 @@
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
-    <Compile Include="Extencion\ValidacoesExtencion.cs" />
+    <Compile Include="Validacoes\ValidacoesCadastros.cs" />
+    <Compile Include="Validacoes\ValidacoesExtencion.cs" />
     <Compile Include="Model\ClienteListaModel.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\ColaboradorListaModel.cs" />

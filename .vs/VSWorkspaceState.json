@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\View",
+    "\\View\\Cadastro"
   ],
-  "SelectedNode": "\\CrudAugustusFashion.sln",
+  "SelectedNode": "\\View\\Cadastro\\CadastroCliente.cs",
   "PreviewInSolutionExplorer": false
 }

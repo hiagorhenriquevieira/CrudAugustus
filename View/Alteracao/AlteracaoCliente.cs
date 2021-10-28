@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Model;
-using CrudAugustusFashion.Extencion;
+using CrudAugustusFashion.Validacoes;
 
 namespace CrudAugustusFashion.View.Alteracao
 {

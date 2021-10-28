@@ -30,7 +30,7 @@ namespace CrudAugustusFashion
 
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
-            if (txtNome.NuloOuVazio() || txtNome.Text.ValidarStrings() || txtSobrenome.NuloOuVazio() ||
+            if (txtNome.NuloOuVazio() || txtNome.Text.ValidarApenasLetras() || txtSobrenome.NuloOuVazio() ||
                 txtCpf.NuloOuVazio() || comboBoxSexo.NuloOuVazio() ||
                 txtCidade.NuloOuVazio() || txtBairro.NuloOuVazio() ||
                 txtCep.NuloOuVazio() || comboBoxUf.NuloOuVazio() || txtLogradouro.NuloOuVazio() ||
@@ -41,8 +41,8 @@ namespace CrudAugustusFashion
                 MessageBox.Show("Preencha os campos obrigatórios!");
                 return;
             }
-            else if (txtNome.Text.ValidarStrings() || txtSobrenome.Text.ValidarStrings() ||
-                txtCidade.Text.ValidarStrings())
+            else if (txtNome.Text.ValidarApenasLetras() || txtSobrenome.Text.ValidarApenasLetras() ||
+                txtCidade.Text.ValidarApenasLetras())
             {
                 MessageBox.Show("Um dos campos contem caracteres não permitidos" +
                     " (Nome, Sobrenome, Cidade) " +
@@ -92,13 +92,32 @@ namespace CrudAugustusFashion
 
         }
 
-        //private void ValidarCamposDeCadastro()
-        //{
-        //    if (txtNome.NuloOuVazio() || txtNome.Text.ValidarStrings())
-        //    {
-        //        MessageBox.Show("Campo -Nome- invalido ");
-        //            return;
-        //    }
-        //}
+        private void ValidarCamposDeCadastro()
+        {
+            if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNome.Text))
+            {
+                MessageBox.Show("Campo -Nome- invalido ");
+                return;
+            }else if(ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtSobrenome.Text))
+            {
+                MessageBox.Show("Campo -Sobrenome- invalido ");
+                return;
+            }else if (ValidacoesExtencion.ValidarCpf(txtCpf.Text))
+            {
+                MessageBox.Show("Campo - Cpf- Invalido");
+                return;
+            }else if ()
+            
+            
+            
+            
+            
+            else if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtCidade.Text))
+            {
+                MessageBox.Show("Campo -Cidade- invalido ");
+                return;
+            }
+        
+        }
     }
 }
