@@ -108,12 +108,11 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(ex.Message);
             }
 
-            //return new List<ClienteListaModel>();
+            
         }
 
         private ClienteListaModel MapearCliente(ClienteListaModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
         {
-            
             clienteModel.Endereco = enderecoModel;
             return clienteModel;
         }
@@ -158,14 +157,33 @@ namespace CrudAugustusFashion.Dao
         }
 
 
-        //internal void ChamarClientes()
-        //{
-        //    var selectUsuario = @"";
-        //    var selectCliente = @"";
-        //    var selectEndereco = @"";
-        //    var selectTelefone = @"";
+        internal ClienteModel RecuperarDadosCliente()
+        {
+            var selectUsuario = @"select c.IdCliente, c.Observacao, c.ValorLimite,
+                            c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                            c.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
+                            c.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
+                            from
+                            Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
+                            inner join Endereco e on c.IdUsuario = e.IdUsuario
+                            inner join Telefone t on c.IdUsuario = t.IdUsuario;";
+            try
+            {
+                using (var con = conexao.conectar())
+                {
+                    return con.Query<ClienteModel, TelefoneModel, EnderecoModel, ClienteModel>(
+                        selectUsuario,
+                        (clienteModel, telefoneModel, enderecoModel) => MapearCliente(clienteModel, telefoneModel, enderecoModel),
+                        splitOn: "IdUsuario"
+                        ).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
 
-        //}
+        }
     }
 }
