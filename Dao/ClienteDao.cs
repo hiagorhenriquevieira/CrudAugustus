@@ -113,7 +113,7 @@ namespace CrudAugustusFashion.Dao
 
         private ClienteListaModel MapearCliente(ClienteListaModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
         {
-            clienteModel.Telefone = telefoneModel;
+            
             clienteModel.Endereco = enderecoModel;
             return clienteModel;
         }
@@ -156,5 +156,16 @@ namespace CrudAugustusFashion.Dao
             }
 
         }
+
+
+        //internal void ChamarClientes()
+        //{
+        //    var selectUsuario = @"";
+        //    var selectCliente = @"";
+        //    var selectEndereco = @"";
+        //    var selectTelefone = @"";
+
+
+        //}
     }
 }

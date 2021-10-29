@@ -41,7 +41,7 @@ namespace CrudAugustusFashion.View
             // 
             this.labelListagemClientes.AutoSize = true;
             this.labelListagemClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelListagemClientes.Location = new System.Drawing.Point(12, 19);
+            this.labelListagemClientes.Location = new System.Drawing.Point(12, 28);
             this.labelListagemClientes.Name = "labelListagemClientes";
             this.labelListagemClientes.Size = new System.Drawing.Size(304, 39);
             this.labelListagemClientes.TabIndex = 1;
@@ -50,19 +50,19 @@ namespace CrudAugustusFashion.View
             // dataGridViewListaClientes
             // 
             this.dataGridViewListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewListaClientes.Location = new System.Drawing.Point(12, 77);
+            this.dataGridViewListaClientes.Location = new System.Drawing.Point(12, 70);
             this.dataGridViewListaClientes.MultiSelect = false;
             this.dataGridViewListaClientes.Name = "dataGridViewListaClientes";
             this.dataGridViewListaClientes.ReadOnly = true;
             this.dataGridViewListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewListaClientes.Size = new System.Drawing.Size(1112, 403);
+            this.dataGridViewListaClientes.Size = new System.Drawing.Size(756, 243);
             this.dataGridViewListaClientes.TabIndex = 0;
             this.dataGridViewListaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListaClientes_CellContentClick);
             // 
             // btnExibirCadastroCliente
             // 
             this.btnExibirCadastroCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExibirCadastroCliente.Location = new System.Drawing.Point(318, 506);
+            this.btnExibirCadastroCliente.Location = new System.Drawing.Point(158, 343);
             this.btnExibirCadastroCliente.Name = "btnExibirCadastroCliente";
             this.btnExibirCadastroCliente.Size = new System.Drawing.Size(388, 55);
             this.btnExibirCadastroCliente.TabIndex = 21;
@@ -73,7 +73,7 @@ namespace CrudAugustusFashion.View
             // btnFiltrarCliente
             // 
             this.btnFiltrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarCliente.Location = new System.Drawing.Point(703, 19);
+            this.btnFiltrarCliente.Location = new System.Drawing.Point(347, 28);
             this.btnFiltrarCliente.Name = "btnFiltrarCliente";
             this.btnFiltrarCliente.Size = new System.Drawing.Size(211, 31);
             this.btnFiltrarCliente.TabIndex = 22;
@@ -83,7 +83,7 @@ namespace CrudAugustusFashion.View
             // txtFiltrarCliente
             // 
             this.txtFiltrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltrarCliente.Location = new System.Drawing.Point(920, 19);
+            this.txtFiltrarCliente.Location = new System.Drawing.Point(564, 28);
             this.txtFiltrarCliente.Name = "txtFiltrarCliente";
             this.txtFiltrarCliente.Size = new System.Drawing.Size(204, 31);
             this.txtFiltrarCliente.TabIndex = 23;
@@ -92,7 +92,7 @@ namespace CrudAugustusFashion.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 601);
+            this.ClientSize = new System.Drawing.Size(780, 433);
             this.Controls.Add(this.txtFiltrarCliente);
             this.Controls.Add(this.btnFiltrarCliente);
             this.Controls.Add(this.btnExibirCadastroCliente);

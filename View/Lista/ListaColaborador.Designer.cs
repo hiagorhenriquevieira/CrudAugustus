@@ -38,19 +38,19 @@ namespace CrudAugustusFashion.View
             // dataGrideViewColaboradores
             // 
             this.dataGrideViewColaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrideViewColaboradores.Location = new System.Drawing.Point(64, 83);
+            this.dataGrideViewColaboradores.Location = new System.Drawing.Point(12, 83);
             this.dataGrideViewColaboradores.MultiSelect = false;
             this.dataGrideViewColaboradores.Name = "dataGrideViewColaboradores";
             this.dataGrideViewColaboradores.ReadOnly = true;
             this.dataGrideViewColaboradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrideViewColaboradores.Size = new System.Drawing.Size(650, 248);
+            this.dataGrideViewColaboradores.Size = new System.Drawing.Size(743, 229);
             this.dataGrideViewColaboradores.TabIndex = 0;
             // 
             // labelListaColaborador
             // 
             this.labelListaColaborador.AutoSize = true;
             this.labelListaColaborador.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelListaColaborador.Location = new System.Drawing.Point(183, 41);
+            this.labelListaColaborador.Location = new System.Drawing.Point(189, 41);
             this.labelListaColaborador.Name = "labelListaColaborador";
             this.labelListaColaborador.Size = new System.Drawing.Size(396, 39);
             this.labelListaColaborador.TabIndex = 1;
@@ -58,7 +58,8 @@ namespace CrudAugustusFashion.View
             // 
             // btnExibirCadastroColaborador
             // 
-            this.btnExibirCadastroColaborador.Location = new System.Drawing.Point(201, 369);
+            this.btnExibirCadastroColaborador.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExibirCadastroColaborador.Location = new System.Drawing.Point(231, 349);
             this.btnExibirCadastroColaborador.Name = "btnExibirCadastroColaborador";
             this.btnExibirCadastroColaborador.Size = new System.Drawing.Size(286, 54);
             this.btnExibirCadastroColaborador.TabIndex = 2;
@@ -70,7 +71,7 @@ namespace CrudAugustusFashion.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(763, 412);
             this.Controls.Add(this.btnExibirCadastroColaborador);
             this.Controls.Add(this.labelListaColaborador);
             this.Controls.Add(this.dataGrideViewColaboradores);

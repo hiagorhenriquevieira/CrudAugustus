@@ -134,9 +134,9 @@ namespace CrudAugustusFashion.Dao
 
         private ColaboradorListaModel MapearColaborador(ColaboradorListaModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
         {
-            colaboradorModel.Telefone = telefoneModel;
+            
             colaboradorModel.Endereco = enderecoModel;
-            colaboradorModel.ContasBancarias = contaBancariaModel;
+            
 
             return colaboradorModel;
         }

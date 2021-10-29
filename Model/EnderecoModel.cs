@@ -17,5 +17,9 @@ namespace CrudAugustusFashion.Model
         public string Bairro { get; set; }
         public string NumeroResidencia { get; set; }
         public string Cidade{ get; set; }
+        public override string ToString()
+        {
+            return $"Cep: {Cep} Rua: {Logradouro}, Nº{NumeroResidencia}, Estado: {Uf}, Complemento: {Complemento}, Bairro: {Bairro}, Cidade: {Cidade}";
+        }
     }
 }
