@@ -16,21 +16,26 @@ namespace CrudAugustusFashion.View.Alteracao
     public partial class FrmAlteracaoColaboradores : Form
     {
         private ColaboradorModel _colaboradorModel;
+        private ColaboradorDao _excluirColaborador;
+
         public FrmAlteracaoColaboradores(ColaboradorModel colaboradores)
         {
             InitializeComponent();
             _colaboradorModel = colaboradores;
+            _excluirColaborador = new ColaboradorDao();
             PreencherCamposComConsultores();
         }
 
         private void AlteracaoColaboradores_Load(object sender, EventArgs e)
         {
-            new ColaboradorDao().ListarColaboradores();
+             new ColaboradorDao().ListarColaboradores(); 
         }
 
         private void btnAlteracaoCliente_Click(object sender, EventArgs e)
         {
             var colaborador = new ColaboradorModel();
+            colaborador.IdColaborador = int.Parse(txtIdColaborador.Text);
+            colaborador.IdUsuario = int.Parse(txtIdUsuario.Text);
             colaborador.Nome = txtNome.Text;
             colaborador.SobreNome = txtSobrenome.Text;
             colaborador.Cpf = txtCpf.Text;
@@ -94,6 +99,25 @@ namespace CrudAugustusFashion.View.Alteracao
             txtTipoConta.Text = _colaboradorModel.ContasBancarias.TipoConta;
             txtPorcentagemComissao.Text = _colaboradorModel.PorcentagemComissao.ToString();
             txtSalario.Text = _colaboradorModel.Salario.ToString();
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _excluirColaborador.ExcluirColaboradores(_colaboradorModel);
+                MessageBox.Show("Colaborador excluido com sucesso.");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falha ao excluir colaborador. Erro: " + ex.Message);
+            }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
 
         }
     }

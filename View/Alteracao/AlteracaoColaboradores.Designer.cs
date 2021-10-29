@@ -181,6 +181,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.groupBox2.Size = new System.Drawing.Size(852, 353);
             this.groupBox2.TabIndex = 120;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtIdColaborador
             // 
@@ -678,6 +679,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.btnExcluir.TabIndex = 23;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // FrmAlteracaoColaboradores
             // 

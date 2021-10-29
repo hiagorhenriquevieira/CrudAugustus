@@ -94,7 +94,9 @@
     <Compile Include="Controller\AlteracaoColaboradorController.cs" />
     <Compile Include="Controller\CadastroColaboradorController.cs" />
     <Compile Include="Controller\CadastroClienteController.cs" />
+    <Compile Include="Controller\ColaboradoresModel.cs" />
     <Compile Include="Controller\ExcluirClienteController.cs" />
+    <Compile Include="Controller\ExcluirColaboradorController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />

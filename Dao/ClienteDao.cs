@@ -108,7 +108,7 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(ex.Message);
             }
 
-            return new List<ClienteListaModel>();
+            //return new List<ClienteListaModel>();
         }
 
         private ClienteListaModel MapearCliente(ClienteListaModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)

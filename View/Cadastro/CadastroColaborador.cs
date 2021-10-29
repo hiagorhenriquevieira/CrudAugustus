@@ -144,17 +144,29 @@ namespace CrudAugustusFashion.View
             {
                 MessageBox.Show("Campo -Banco- invalido");
                 return false;
-            }else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtAgencia.Text))
+            }
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtAgencia.Text))
             {
                 MessageBox.Show("Campo -Agencia- invalido");
                 return false;
-            }else if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtTipoConta.Text))
+            }
+            else if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtTipoConta.Text))
             {
                 MessageBox.Show("Campo -Tipo conta- invalido");
                 return false;
-            }else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtConta.Text))
+            }
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtConta.Text))
             {
                 MessageBox.Show("Campo -Conta- invalido");
+                return false;
+            }
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtPorcentagemComissao.Text))
+            {
+                MessageBox.Show("Campo -Porcentagem de Comissão- invalido");
+                return false;
+            }else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtSalario.Text))
+            {
+                MessageBox.Show("Campo -Salário- invalido");
                 return false;
             }
             return true;

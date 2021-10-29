@@ -30,6 +30,8 @@ namespace CrudAugustusFashion.View.Alteracao
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.maskBoxTelefone = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxUf = new System.Windows.Forms.ComboBox();
             this.comboBoxSexo = new System.Windows.Forms.ComboBox();
@@ -69,8 +71,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label1 = new System.Windows.Forms.Label();
             this.btnAlteracaoCliente = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +120,23 @@ namespace CrudAugustusFashion.View.Alteracao
             this.groupBox1.Size = new System.Drawing.Size(793, 542);
             this.groupBox1.TabIndex = 53;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtIdUsuario
+            // 
+            this.txtIdUsuario.Location = new System.Drawing.Point(507, 44);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtIdUsuario.TabIndex = 52;
+            this.txtIdUsuario.Visible = false;
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Location = new System.Drawing.Point(656, 44);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtIdCliente.TabIndex = 51;
+            this.txtIdCliente.Visible = false;
             // 
             // maskBoxTelefone
             // 
@@ -527,22 +544,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Location = new System.Drawing.Point(656, 44);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtIdCliente.TabIndex = 51;
-            this.txtIdCliente.Visible = false;
-            // 
-            // txtIdUsuario
-            // 
-            this.txtIdUsuario.Location = new System.Drawing.Point(507, 44);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(100, 20);
-            this.txtIdUsuario.TabIndex = 52;
-            this.txtIdUsuario.Visible = false;
             // 
             // FrmAlteracaoCliente
             // 

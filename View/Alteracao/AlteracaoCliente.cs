@@ -121,5 +121,10 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Cliente não pode ser alterado. Erro " + ex.Message);
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
