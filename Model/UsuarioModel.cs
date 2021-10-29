@@ -19,5 +19,10 @@ namespace CrudAugustusFashion.Model
         public TelefoneModel Telefone { get; set; }
         public EnderecoModel Endereco { get; set; }
 
+        public UsuarioModel()
+        {
+            Endereco = new EnderecoModel();
+            Telefone = new TelefoneModel();
+        }
     }
 }

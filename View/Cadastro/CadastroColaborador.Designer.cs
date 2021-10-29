@@ -107,7 +107,7 @@ namespace CrudAugustusFashion.View
             this.label13.Size = new System.Drawing.Size(86, 25);
             this.label13.TabIndex = 75;
             this.label13.Text = "Salario";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
+            
             // 
             // label10
             // 
@@ -147,7 +147,7 @@ namespace CrudAugustusFashion.View
             this.label18.Size = new System.Drawing.Size(97, 25);
             this.label18.TabIndex = 98;
             this.label18.Text = "Agência";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
+            
             // 
             // label20
             // 
@@ -387,7 +387,7 @@ namespace CrudAugustusFashion.View
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(204, 29);
             this.txtBairro.TabIndex = 6;
-            this.txtBairro.TextChanged += new System.EventHandler(this.txtBairro_TextChanged);
+            
             // 
             // txtComplemento
             // 

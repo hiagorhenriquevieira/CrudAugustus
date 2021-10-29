@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Validacoes",
     "\\View",
     "\\View\\Cadastro"
   ],
-  "SelectedNode": "\\View\\Cadastro\\CadastroCliente.cs",
+  "SelectedNode": "\\Validacoes\\ValidacoesExtencion.cs",
   "PreviewInSolutionExplorer": false
 }

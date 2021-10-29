@@ -31,7 +31,7 @@ namespace CrudAugustusFashion
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
             
-            if (ValidarCamposDeCadastro())
+            if (ValidarCamposDeCadastroCliente())
             {
                 var cliente = new ClienteModel();
 
@@ -44,20 +44,18 @@ namespace CrudAugustusFashion
             cliente.ValorLimite = decimal.Parse(txtLimiteCompraPrazo.Text);
             cliente.Observacao = txtObservacao.Text;
 
-            var endereco = new EnderecoModel();
-            endereco.Cep = txtCep.Text;
-            endereco.Cidade = txtCidade.Text;
-            endereco.Bairro = txtBairro.Text;
-            endereco.Logradouro = txtLogradouro.Text;
-            endereco.NumeroResidencia = txtNumeroResidencia.Text;
-            endereco.Uf = comboBoxUf.Text;
-            endereco.Complemento = txtComplemento.Text;
+            cliente.Endereco.Cep = txtCep.Text;
+            cliente.Endereco.Cidade = txtCidade.Text;
+            cliente.Endereco.Bairro = txtBairro.Text;
+            cliente.Endereco.Logradouro = txtLogradouro.Text;
+            cliente.Endereco.NumeroResidencia = txtNumeroResidencia.Text;
+            cliente.Endereco.Uf = comboBoxUf.Text;
+            cliente.Endereco.Complemento = txtComplemento.Text;
 
-            var telefone = new TelefoneModel();
-            telefone.Telefone = txtTelefone.Text;
-            telefone.Celular = txtCelular.Text;
+            cliente.Telefone.Telefone = txtTelefone.Text;
+            cliente.Telefone.Celular = txtCelular.Text;
 
-            new CadastroClienteController().CadastrarCliente(cliente, endereco, telefone);
+            new CadastroClienteController().CadastrarCliente(cliente);
             this.Close();
 
             }
@@ -68,7 +66,7 @@ namespace CrudAugustusFashion
 
         }
 
-        private bool ValidarCamposDeCadastro()
+        private bool ValidarCamposDeCadastroCliente()
         {
             if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNome.Text))
             {

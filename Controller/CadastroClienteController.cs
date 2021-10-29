@@ -20,9 +20,9 @@ namespace CrudAugustusFashion.Controller
             _clienteDao = new ClienteDao();
         }
 
-        public void CadastrarCliente(ClienteModel cliente, EnderecoModel endereco, TelefoneModel telefone)
+        public void CadastrarCliente(ClienteModel cliente)
         {
-           _clienteDao.CadastrarCliente(cliente, endereco, telefone);
+           _clienteDao.CadastrarCliente(cliente);
         }
 
         public void AbrirCadastroCliente()

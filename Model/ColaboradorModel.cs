@@ -12,6 +12,10 @@ namespace CrudAugustusFashion.Model
         public int Salario { get; set; }
         public int PorcentagemComissao { get; set; }
         public ContaBancariaModel ContasBancarias { get; set; }
+        public ColaboradorModel()
+        {
+            ContasBancarias = new ContaBancariaModel();
+        }
 
     }
 }

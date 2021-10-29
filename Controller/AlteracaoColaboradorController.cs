@@ -24,9 +24,9 @@ namespace CrudAugustusFashion.Controller
             frmAlteracaoColaboradores.Show();
         }
 
-        internal void AlterarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
+        internal void AlterarColaborador(ColaboradorModel colaborador)
         {
-            _colaboradorDao.AlterarColaborador(colaborador, endereco, telefone, contaBancaria);
+            _colaboradorDao.AlterarColaborador(colaborador);
         }
     }
     

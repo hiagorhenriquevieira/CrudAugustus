@@ -18,11 +18,13 @@ namespace CrudAugustusFashion.View.Alteracao
     {
         //variavel de instancia
         private ClienteModel _cliente;
+        private ExcluirClienteController _excluircliente;
 
         public FrmAlteracaoCliente(ClienteModel cliente)
         {
             InitializeComponent();
-            _cliente = cliente; 
+            _cliente = cliente;
+            _excluircliente = new ExcluirClienteController();
             PreencherCamposComCliente();
         }
 
@@ -58,7 +60,17 @@ namespace CrudAugustusFashion.View.Alteracao
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
+                _excluircliente.ExcluirClientes(_cliente);
+                MessageBox.Show("Cliente excluído com sucesso.");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Falha ao excluir cliente. Erro: " + ex.Message);
+            }
+            
+            
         }
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -79,22 +91,20 @@ namespace CrudAugustusFashion.View.Alteracao
             cliente.Email = txtEmail.Text;
             cliente.ValorLimite = int.Parse(txtLimiteCompraPrazo.Text);
 
-            var endereco = new EnderecoModel();
-            endereco.IdUsuario = int.Parse(txtIdUsuario.Text);
-            endereco.Cidade = txtCidade.Text;
-            endereco.Bairro = txtBairro.Text;
-            endereco.Cep = txtCep.Text;
-            endereco.Uf = comboBoxUf.Text;
-            endereco.Complemento = txtComplemento.Text;
-            endereco.Logradouro = txtLogradouro.Text;
-            endereco.NumeroResidencia = txtNumeroResidencia.Text;
+            cliente.Endereco.IdUsuario = int.Parse(txtIdUsuario.Text);
+            cliente.Endereco.Cidade = txtCidade.Text;
+            cliente.Endereco.Bairro = txtBairro.Text;
+            cliente.Endereco.Cep = txtCep.Text;
+            cliente.Endereco.Uf = comboBoxUf.Text;
+            cliente.Endereco.Complemento = txtComplemento.Text;
+            cliente.Endereco.Logradouro = txtLogradouro.Text;
+            cliente.Endereco.NumeroResidencia = txtNumeroResidencia.Text;
 
-            var telefone = new TelefoneModel();
-            telefone.IdUsuario = int.Parse(txtIdUsuario.Text);
-            telefone.Celular = maskBoxCelular.Text;
-            telefone.Telefone = maskBoxTelefone.Text;
+            cliente.Telefone.IdUsuario = int.Parse(txtIdUsuario.Text);
+            cliente.Telefone.Celular = maskBoxCelular.Text;
+            cliente.Telefone.Telefone = maskBoxTelefone.Text;
 
-            new AlteracaoClienteController().AlterarCliente(cliente, endereco, telefone);
+            new AlteracaoClienteController().AlterarCliente(cliente);
         }
     }
 }

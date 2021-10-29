@@ -31,39 +31,33 @@ namespace CrudAugustusFashion.View.Alteracao
         private void btnAlteracaoCliente_Click(object sender, EventArgs e)
         {
             var colaborador = new ColaboradorModel();
-            colaborador.IdColaborador = int.Parse(txtIdColaborador.Text);
-            colaborador.IdUsuario = int.Parse(txtIdUsuario.Text);
             colaborador.Nome = txtNome.Text;
             colaborador.SobreNome = txtSobrenome.Text;
             colaborador.Cpf = txtCpf.Text;
             colaborador.Sexo = comboBoxSexo.Text;
-            colaborador.DataNascimento = dateTimeNascimento.Value;
             colaborador.Email = txtEmail.Text;
+            colaborador.DataNascimento = dateTimeNascimento.Value;
             colaborador.Salario = int.Parse(txtSalario.Text);
             colaborador.PorcentagemComissao = int.Parse(txtPorcentagemComissao.Text);
 
-            
+            colaborador.Endereco.Cep = txtCep.Text;
+            colaborador.Endereco.Cidade = txtCidade.Text;
+            colaborador.Endereco.Bairro = txtComplemento.Text;
+            colaborador.Endereco.Logradouro = txtLogradouro.Text;
+            colaborador.Endereco.NumeroResidencia = txtNumeroResidencia.Text;
+            colaborador.Endereco.Uf = comboBoxUf.Text;
+            colaborador.Endereco.Complemento = txtComplemento.Text;
 
-            var endereco = new EnderecoModel();
-            endereco.Cidade = txtCidade.Text;
-            endereco.Bairro = txtBairro.Text;
-            endereco.Cep = txtCep.Text;
-            endereco.Complemento = txtComplemento.Text;
-            endereco.Logradouro = txtLogradouro.Text;
-            endereco.NumeroResidencia = txtNumeroResidencia.Text;
+            colaborador.Telefone.Telefone = maskBoxTelefone.Text;
+            colaborador.Telefone.Celular = maskBoxCelular.Text;
 
-            var telefone = new TelefoneModel();
-            telefone.Celular = maskBoxCelular.Text;
-            telefone.Telefone = maskBoxTelefone.Text;
-
-            var contaBancaria = new ContaBancariaModel();
-            contaBancaria.Conta = int.Parse(txtConta.Text);
-            contaBancaria.Agencia = int.Parse(txtAgencia.Text);
-            contaBancaria.TipoConta = txtTipoConta.Text;
-            contaBancaria.Banco = txtBanco.Text;
+            colaborador.ContasBancarias.Agencia = int.Parse(txtAgencia.Text);
+            colaborador.ContasBancarias.Banco = txtBanco.Text;
+            colaborador.ContasBancarias.TipoConta = txtBanco.Text;
+            colaborador.ContasBancarias.Conta = int.Parse(txtConta.Text);
 
 
-            new AlteracaoColaboradorController().AlterarColaborador(colaborador, endereco, telefone, contaBancaria);
+            new AlteracaoColaboradorController().AlterarColaborador(colaborador);
         }
 
         private void PreencherCamposComConsultores()

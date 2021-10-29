@@ -12,7 +12,7 @@ namespace CrudAugustusFashion.Dao
     public class ColaboradorDao
     {
         ConexaoDao conexao = new ConexaoDao();
-        public void CadastrarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
+        public void CadastrarColaborador(ColaboradorModel colaborador)
         {
 
             var insertUsuario = "insert into Usuarios (Nome, SobreNome, Sexo, DataNascimento, Cpf, Email) output inserted.IdUsuario values (@nome, @sobreNome, @sexo, @dataNascimento, @cpf, @email)";
@@ -31,19 +31,19 @@ namespace CrudAugustusFashion.Dao
 
                     colaborador.IdUsuario = id;
 
-                    endereco.IdUsuario = id;
+                    colaborador.Endereco.IdUsuario = id;
 
-                    telefone.IdUsuario = id;
+                    colaborador.Telefone.IdUsuario = id;
 
                     int idColaborador = con.ExecuteScalar<int>(insertColaborador, colaborador, transacao);
 
-                    contaBancaria.IdColaborador = idColaborador;
+                    colaborador.ContasBancarias.IdColaborador = idColaborador;
 
-                    con.Execute(insertEndereco, endereco, transacao);
+                    con.Execute(insertEndereco, colaborador.Endereco, transacao);
 
-                    con.Execute(insertTelefone, telefone, transacao);
+                    con.Execute(insertTelefone, colaborador.Telefone, transacao);
 
-                    con.Execute(insertContaBancaria, contaBancaria, transacao);
+                    con.Execute(insertContaBancaria, colaborador.ContasBancarias, transacao);
 
                     transacao.Commit();
                 }
@@ -57,7 +57,7 @@ namespace CrudAugustusFashion.Dao
             }
         }
 
-        internal void AlterarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
+        internal void AlterarColaborador(ColaboradorModel colaborador)
         {
             var updateUsuario = "update Usuarios set Nome = @Nome, SobreNome = @SobreNome, Cpf = @Cpf, Sexo = @Sexo, DataNascimento = @DataNascimento, Email = @Email" +
                 " where IdUsuario = @IdUsuario ";
@@ -78,19 +78,19 @@ namespace CrudAugustusFashion.Dao
 
                     colaborador.IdUsuario = id;
 
-                    endereco.IdUsuario = id;
+                    colaborador.Endereco.IdUsuario = id;
 
-                    telefone.IdUsuario = id;
+                    colaborador.Telefone.IdUsuario = id;
 
                     int idColaborador = con.ExecuteScalar<int>(updateColaborador, colaborador, transacao);
 
-                    contaBancaria.IdColaborador = idColaborador;
+                    colaborador.ContasBancarias.IdColaborador = idColaborador;
 
-                    con.Execute(updateEndereco, endereco, transacao);
+                    con.Execute(updateEndereco, colaborador.Endereco, transacao);
 
-                    con.Execute(updateTelefone, telefone, transacao);
+                    con.Execute(updateTelefone, colaborador.Telefone, transacao);
 
-                    con.Execute(updateContasBancarias, contaBancaria, transacao);
+                    con.Execute(updateContasBancarias, colaborador.ContasBancarias, transacao);
 
                     transacao.Commit();
                 }

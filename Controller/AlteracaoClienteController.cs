@@ -26,9 +26,9 @@ namespace CrudAugustusFashion.Controller
 
         }
 
-        internal void AlterarCliente(ClienteModel Cliente, EnderecoModel endereco, TelefoneModel telefone)
+        internal void AlterarCliente(ClienteModel Cliente)
         {
-            _clienteDao.AlterarCliente(Cliente, endereco, telefone);
+            _clienteDao.AlterarCliente(Cliente);
         }
     }
 }

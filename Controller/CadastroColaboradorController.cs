@@ -11,9 +11,9 @@ namespace CrudAugustusFashion.Controller
 {
     class CadastroColaboradorController
     {
-        public void CadastrarColaborador(ColaboradorModel colaborador, EnderecoModel endereco, TelefoneModel telefone, ContaBancariaModel contaBancaria)
+        public void CadastrarColaborador(ColaboradorModel colaborador)
         {
-            new ColaboradorDao().CadastrarColaborador(colaborador, endereco, telefone, contaBancaria);
+            new ColaboradorDao().CadastrarColaborador(colaborador);
         }
         public void AbrirCadastroColaborador()
         {
