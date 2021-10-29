@@ -12,7 +12,7 @@ namespace CrudAugustusFashion.Controller
 {
     class AlteracaoClienteController
     {
-        private  ClienteDao _clienteDao;
+        private ClienteDao _clienteDao;
         public AlteracaoClienteController()
         {
             _clienteDao = new ClienteDao();
@@ -28,7 +28,15 @@ namespace CrudAugustusFashion.Controller
 
         internal void AlterarCliente(ClienteModel Cliente)
         {
-            _clienteDao.AlterarCliente(Cliente);
+            try
+            {
+                _clienteDao.AlterarCliente(Cliente);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
     }
 }

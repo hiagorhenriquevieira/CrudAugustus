@@ -13,7 +13,14 @@ namespace CrudAugustusFashion.Controller
     {
         public void CadastrarColaborador(ColaboradorModel colaborador)
         {
-            new ColaboradorDao().CadastrarColaborador(colaborador);
+            try
+            {
+                new ColaboradorDao().CadastrarColaborador(colaborador);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         public void AbrirCadastroColaborador()
         {

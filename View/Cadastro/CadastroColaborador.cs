@@ -49,8 +49,16 @@ namespace CrudAugustusFashion.View
             colaborador.ContasBancarias.TipoConta = txtBanco.Text;
             colaborador.ContasBancarias.Conta = int.Parse(txtConta.Text);
 
-            new CadastroColaboradorController().CadastrarColaborador(colaborador);
-            this.Close();
+                try
+                {
+                    new CadastroColaboradorController().CadastrarColaborador(colaborador);
+                    MessageBox.Show("Colaborador cadastrado com sucesso!");
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Falha ao cadastrar colaborador. Erro: " + ex.Message);
+                }
             }
             return;
 

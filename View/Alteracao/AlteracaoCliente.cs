@@ -53,7 +53,13 @@ namespace CrudAugustusFashion.View.Alteracao
 
         private void FrmAlteracaoCliente_Load(object sender, EventArgs e)
         {
-            new ClienteDao().ListarClientes();
+            try
+            {
+                new ClienteDao().ListarClientes();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao listar clientes. Erro " + ex.Message);
+            }
            
 
         }
@@ -64,6 +70,7 @@ namespace CrudAugustusFashion.View.Alteracao
             {
                 _excluircliente.ExcluirClientes(_cliente);
                 MessageBox.Show("Cliente excluído com sucesso.");
+                this.Close();
             }
             catch(Exception ex)
             {
@@ -104,7 +111,15 @@ namespace CrudAugustusFashion.View.Alteracao
             cliente.Telefone.Celular = maskBoxCelular.Text;
             cliente.Telefone.Telefone = maskBoxTelefone.Text;
 
-            new AlteracaoClienteController().AlterarCliente(cliente);
+            try
+            {
+                new AlteracaoClienteController().AlterarCliente(cliente);
+                MessageBox.Show("Cliente alterado com sucesso.");
+                this.Close();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Cliente não pode ser alterado. Erro " + ex.Message);
+            }
         }
     }
 }

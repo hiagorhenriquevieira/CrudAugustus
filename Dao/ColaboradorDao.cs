@@ -47,16 +47,13 @@ namespace CrudAugustusFashion.Dao
 
                     transacao.Commit();
                 }
-
-                
-                MessageBox.Show("Colaborador cadastrado com sucesso.");
             }
             catch (Exception ex)
             {
-                DialogResult dialogResult = MessageBox.Show(ex.Message);
+                throw new Exception(ex.Message);
+                ;
             }
         }
-
         internal void AlterarColaborador(ColaboradorModel colaborador)
         {
             var updateUsuario = "update Usuarios set Nome = @Nome, SobreNome = @SobreNome, Cpf = @Cpf, Sexo = @Sexo, DataNascimento = @DataNascimento, Email = @Email" +
@@ -94,13 +91,11 @@ namespace CrudAugustusFashion.Dao
 
                     transacao.Commit();
                 }
-
-                
-                MessageBox.Show("Colaborador alterado com sucesso.");
             }
             catch (Exception ex)
             {
-                DialogResult dialogResult = MessageBox.Show(ex.Message);
+
+                throw new Exception(ex.Message);
             }
         }
 
@@ -131,7 +126,7 @@ namespace CrudAugustusFashion.Dao
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ocorreu um erro ao listar clientes");
+                throw new Exception(ex.Message);
             }
 
             return new List<ColaboradorListaModel>();

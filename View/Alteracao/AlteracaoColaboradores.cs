@@ -57,7 +57,16 @@ namespace CrudAugustusFashion.View.Alteracao
             colaborador.ContasBancarias.Conta = int.Parse(txtConta.Text);
 
 
-            new AlteracaoColaboradorController().AlterarColaborador(colaborador);
+            try
+            {
+                new AlteracaoColaboradorController().AlterarColaborador(colaborador);
+                MessageBox.Show("Colaborador alterado com sucesso.");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falha ao alterar colaborador. Erro" + ex.Message);
+            }
         }
 
         private void PreencherCamposComConsultores()

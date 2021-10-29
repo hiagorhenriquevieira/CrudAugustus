@@ -26,7 +26,14 @@ namespace CrudAugustusFashion.Controller
 
         internal void AlterarColaborador(ColaboradorModel colaborador)
         {
-            _colaboradorDao.AlterarColaborador(colaborador);
+            try
+            {
+                _colaboradorDao.AlterarColaborador(colaborador);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
     

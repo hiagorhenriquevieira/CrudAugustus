@@ -55,8 +55,15 @@ namespace CrudAugustusFashion
             cliente.Telefone.Telefone = txtTelefone.Text;
             cliente.Telefone.Celular = txtCelular.Text;
 
-            new CadastroClienteController().CadastrarCliente(cliente);
-            this.Close();
+                try
+                {
+                    new CadastroClienteController().CadastrarCliente(cliente);
+                    MessageBox.Show("Cliente cadastrado com sucesso.");
+                    this.Close();
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Falha ao cadastrar cliente. Erro " + ex.Message);
+                }
 
             }
         }

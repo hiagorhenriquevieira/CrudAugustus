@@ -41,13 +41,10 @@ namespace CrudAugustusFashion.Dao
 
                     transacao.Commit();
                 }
-
-
-                MessageBox.Show("Cliente cadastrado com sucesso.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception(ex.Message);
             }
         }
 
@@ -77,12 +74,10 @@ namespace CrudAugustusFashion.Dao
 
                     transacao.Commit();
                 }
-
-                MessageBox.Show("Cliente alterado com sucesso");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception(ex.Message);
             }
         }
 
@@ -110,7 +105,7 @@ namespace CrudAugustusFashion.Dao
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ocorreu um erro ao listar clientes");
+                throw new Exception(ex.Message);
             }
 
             return new List<ClienteListaModel>();
@@ -120,7 +115,6 @@ namespace CrudAugustusFashion.Dao
         {
             clienteModel.Telefone = telefoneModel;
             clienteModel.Endereco = enderecoModel;
-
             return clienteModel;
         }
 

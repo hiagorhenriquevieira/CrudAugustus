@@ -22,7 +22,14 @@ namespace CrudAugustusFashion.Controller
 
         public void CadastrarCliente(ClienteModel cliente)
         {
-           _clienteDao.CadastrarCliente(cliente);
+            try
+            {
+                _clienteDao.CadastrarCliente(cliente);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public void AbrirCadastroCliente()

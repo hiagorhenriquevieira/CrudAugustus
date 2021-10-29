@@ -23,7 +23,14 @@ namespace CrudAugustusFashion.View
 
         private void frmListaCliente_Load(object sender, EventArgs e)
         {
-            dataGridViewListaClientes.DataSource = new ClienteDao().ListarClientes();
+            try
+            {
+                dataGridViewListaClientes.DataSource = new ClienteDao().ListarClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao listar clientes. Erro " + ex.Message);
+            }
         }
 
         private void dataGridViewListaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -37,6 +44,7 @@ namespace CrudAugustusFashion.View
             var cliente = RetornarClienteDaGrid();
 
             new AlteracaoClienteController().AbrirAlteracaoCliente(cliente);
+            this.Close();
         }
 
         private ClienteModel RetornarClienteDaGrid()
