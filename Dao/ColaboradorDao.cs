@@ -127,17 +127,18 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(ex.Message);
             }
 
-            //return new List<ColaboradorListaModel>();
+            
         }
 
         private ColaboradorListaModel MapearListaColaborador(ColaboradorListaModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
         {
-            
             colaboradorModel.Endereco = enderecoModel;
             return colaboradorModel;
         }
-        private ColaboradorModel MapearColaborador(ColaboradorModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
+        private ColaboradorModel MapearColaborador(ColaboradorModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel )
         {
+            colaboradorModel.ContasBancarias = contaBancariaModel;
+            colaboradorModel.Telefone = telefoneModel;
             colaboradorModel.Endereco = enderecoModel;
             return colaboradorModel;
         }
@@ -199,25 +200,25 @@ namespace CrudAugustusFashion.Dao
         {
             int idUsuario = RecuperarIdColaborador(idColaborador);
 
-            var selectColaborador = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
-                        co.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+            var selectColaborador = @"select co.IdColaborador, co.IdUsuario, co.Salario, co.PorcentagemComissao,
+                        u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
                         co.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
                         co.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia,
                         co.IdUsuario, cb.IdContaBancaria, cb.Conta, cb.Agencia, cb.Banco, cb.Tipoconta
                         from
-                        Usuarios u inner join Colaboradores co on u.IdUsuario = co.IdUsuario
+                        Colaboradores co inner join Usuarios u on u.IdUsuario = co.IdUsuario
                         inner join Endereco e on co.IdUsuario = e.IdUsuario
                         inner join ContasBancarias cb on co.IdColaborador = cb.IdColaborador
                         inner join Telefone t on co.IdUsuario = t.IdUsuario
-                        where co.IdUsuario = @IdUsuario;";
+                        where co.IdColaborador = @IdColaborador;";
             try
             {
                 using (var con = conexao.conectar())
                 {
-                    return con.Query<ColaboradorModel, TelefoneModel, EnderecoModel, ColaboradorModel>(
+                    return con.Query<ColaboradorModel, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorModel >(
                         selectColaborador,
-                        (colaboradorModel, telefoneModel, enderecoModel) => MapearColaborador(colaboradorModel, telefoneModel, enderecoModel),
-                        new { IdUsuario = idUsuario },
+                        (colaboradorModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearColaborador(colaboradorModel, telefoneModel, enderecoModel, contaBancariaModel ),
+                        new { IdColaborador = idColaborador },
                         splitOn: "IdUsuario"
                         ).FirstOrDefault();
                 }

@@ -45,6 +45,7 @@ namespace CrudAugustusFashion.View.Alteracao
             colaborador.Salario = int.Parse(txtSalario.Text);
             colaborador.PorcentagemComissao = int.Parse(txtPorcentagemComissao.Text);
 
+            colaborador.Endereco.IdUsuario = int.Parse(txtIdUsuario.Text);
             colaborador.Endereco.Cep = txtCep.Text;
             colaborador.Endereco.Cidade = txtCidade.Text;
             colaborador.Endereco.Bairro = txtComplemento.Text;
@@ -53,9 +54,11 @@ namespace CrudAugustusFashion.View.Alteracao
             colaborador.Endereco.Uf = comboBoxUf.Text;
             colaborador.Endereco.Complemento = txtComplemento.Text;
 
+            colaborador.Telefone.IdUsuario = int.Parse(txtIdUsuario.Text);
             colaborador.Telefone.Telefone = maskBoxTelefone.Text;
             colaborador.Telefone.Celular = maskBoxCelular.Text;
 
+            colaborador.ContasBancarias.IdColaborador = int.Parse(txtIdColaborador.Text);
             colaborador.ContasBancarias.Agencia = int.Parse(txtAgencia.Text);
             colaborador.ContasBancarias.Banco = txtBanco.Text;
             colaborador.ContasBancarias.TipoConta = txtBanco.Text;
