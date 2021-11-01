@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Dao",
     "\\Validacoes",
     "\\View",
+    "\\View\\Alteracao",
     "\\View\\Cadastro"
   ],
-  "SelectedNode": "\\Validacoes\\ValidacoesExtencion.cs",
+  "SelectedNode": "\\Dao\\ClienteDao.cs",
   "PreviewInSolutionExplorer": false
 }

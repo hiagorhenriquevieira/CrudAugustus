@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 namespace CrudAugustusFashion.Dao
 {
     class ConexaoDao
@@ -17,8 +18,9 @@ namespace CrudAugustusFashion.Dao
 
         public SqlConnection conectar()
         {
-            if (con.State == System.Data.ConnectionState.Closed)
+            if (con.State == ConnectionState.Closed)
             {
+                con.ConnectionString = "Data Source=DESKTOP-IETNHSD;Initial Catalog=BDAUGUSTO;User ID=sa;Password=123";
                 con.Open();
             }
             return con;
@@ -26,7 +28,7 @@ namespace CrudAugustusFashion.Dao
 
         public void desconectar()
         {
-            if (con.State == System.Data.ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
                 con.Close();
             }

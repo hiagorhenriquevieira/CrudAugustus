@@ -98,7 +98,7 @@ namespace CrudAugustusFashion.Dao
                 {
                     return con.Query<ClienteListaModel, TelefoneModel, EnderecoModel, ClienteListaModel>(
                         sqlSelect,
-                        (clienteListaModel, telefoneModel, enderecoModel) => MapearCliente(clienteListaModel, telefoneModel, enderecoModel),
+                        (clienteListaModel, telefoneModel, enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel),
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -108,16 +108,20 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(ex.Message);
             }
 
-            
+
         }
 
-        private ClienteListaModel MapearCliente(ClienteListaModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
+        private ClienteListaModel MapearListaCliente(ClienteListaModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
         {
             clienteModel.Endereco = enderecoModel;
             return clienteModel;
         }
 
-
+        private ClienteModel MapearCliente(ClienteModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
+        {
+            clienteModel.Endereco = enderecoModel;
+            return clienteModel;
+        }
 
 
 
@@ -153,12 +157,31 @@ namespace CrudAugustusFashion.Dao
             {
                 throw new Exception(ex.Message);
             }
+        }
 
+        public int RecuperarIdUsuario(int idCliente)
+        {
+            var SelectIdUsuario = @"select IdUsuario from Clientes 
+                                    where IdCliente = @IdCliente;";
+
+            try
+            {
+                using (var conexao = this.conexao.conectar())
+                {
+                    return conexao.QuerySingle<int>(SelectIdUsuario, new { IdCliente = idCliente });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
 
-        internal ClienteModel RecuperarDadosCliente()
+        internal ClienteModel RecuperarDadosCliente(int idCliente)
         {
+            int idUsuario = RecuperarIdUsuario(idCliente);
+
             var selectUsuario = @"select c.IdCliente, c.Observacao, c.ValorLimite,
                             c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
                             c.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
@@ -166,7 +189,8 @@ namespace CrudAugustusFashion.Dao
                             from
                             Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
                             inner join Endereco e on c.IdUsuario = e.IdUsuario
-                            inner join Telefone t on c.IdUsuario = t.IdUsuario;";
+                            inner join Telefone t on c.IdUsuario = t.IdUsuario
+                            where c.IdUsuario = @IdUsuario;";
             try
             {
                 using (var con = conexao.conectar())
@@ -174,6 +198,7 @@ namespace CrudAugustusFashion.Dao
                     return con.Query<ClienteModel, TelefoneModel, EnderecoModel, ClienteModel>(
                         selectUsuario,
                         (clienteModel, telefoneModel, enderecoModel) => MapearCliente(clienteModel, telefoneModel, enderecoModel),
+                        new { IdUsuario = idUsuario },
                         splitOn: "IdUsuario"
                         ).FirstOrDefault();
                 }

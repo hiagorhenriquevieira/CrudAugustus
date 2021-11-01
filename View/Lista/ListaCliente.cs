@@ -40,8 +40,9 @@ namespace CrudAugustusFashion.View
 
         private void btnExibirCadastroCliente_Click(object sender, EventArgs e)
         {
+            int idCliente = Convert.ToInt32(dataGridViewListaClientes.SelectedRows[0].Cells[0].Value);
 
-            var cliente = new ClienteDao().RecuperarDadosCliente();
+            var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
 
            new AlteracaoClienteController().AbrirAlteracaoCliente(cliente);
             this.Close();
