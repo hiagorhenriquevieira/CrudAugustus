@@ -52,8 +52,8 @@ namespace CrudAugustusFashion.Dao
         {
             const string updateUsuario = "update Usuarios set Nome = @Nome, SobreNome = @SobreNome, Cpf = @Cpf, Sexo = @Sexo, DataNascimento = @DataNascimento, Email = @Email" +
                 " where IdUsuario = @IdUsuario ";
-            const string updateCliente = "update Clientes set ValorLimite = @ValorLimite, Observacao = @Observacao " +
-                "where IdUsuario = @IdUsuario";
+            const string updateCliente = "update Clientes set ValorLimite = @ValorLimite, Observacao = @Observacao" +
+                " where IdUsuario = @IdUsuario";
             const string updateEndereco = "update Endereco set Cep = @Cep, Cidade = @Cidade, Logradouro = @Logradouro, Uf = @Uf, Complemento = @Complemento, Bairro = @Bairro, NumeroResidencia = @NumeroResidencia " +
                 "where IdUsuario = @IdUsuario";
             const string updateTelefone = "update Telefone set Telefone = @Telefone, Celular = @Celular" +
@@ -85,7 +85,7 @@ namespace CrudAugustusFashion.Dao
         {
             var sqlSelect = @"select c.IdCliente, c.Observacao, c.ValorLimite,
                             c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
-                            c.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
+                            c.IdUsuario, t.IdTelefone, t.Telefone, t.Celular, 
                             c.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
                             from
                             Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
@@ -113,12 +113,15 @@ namespace CrudAugustusFashion.Dao
 
         private ClienteListaModel MapearListaCliente(ClienteListaModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
         {
+            clienteModel.Telefone = telefoneModel;
             clienteModel.Endereco = enderecoModel;
             return clienteModel;
         }
 
         private ClienteModel MapearCliente(ClienteModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
         {
+
+            clienteModel.Telefone = telefoneModel;
             clienteModel.Endereco = enderecoModel;
             return clienteModel;
         }
@@ -184,12 +187,12 @@ namespace CrudAugustusFashion.Dao
 
             var selectUsuario = @"select c.IdCliente, c.Observacao, c.ValorLimite,
                             c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
-                            c.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
+                            c.IdUsuario, t.IdTelefone, t.Telefone, t.Celular, 
                             c.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
                             from
                             Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
-                            inner join Endereco e on c.IdUsuario = e.IdUsuario
-                            inner join Telefone t on c.IdUsuario = t.IdUsuario
+                            inner join Endereco e on u.IdUsuario = e.IdUsuario
+                            inner join Telefone t on u.IdUsuario = t.IdUsuario
                             where c.IdUsuario = @IdUsuario;";
             try
             {
@@ -207,8 +210,6 @@ namespace CrudAugustusFashion.Dao
             {
                 throw new Exception(ex.Message);
             }
-
-
         }
     }
 }

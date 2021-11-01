@@ -20,5 +20,7 @@ namespace CrudAugustusFashion.Model
 
         public EnderecoModel Endereco { get; set; }
 
+        public TelefoneModel Telefone { get; set; }
+
     }
 }

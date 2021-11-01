@@ -22,11 +22,11 @@ namespace CrudAugustusFashion.Controller
 
         }
 
-        internal void AlterarCliente(ClienteModel Cliente)
+        internal void AlterarCliente(ClienteModel cliente)
         {
             try
             {
-                _clienteDao.AlterarCliente(Cliente);
+                _clienteDao.AlterarCliente(cliente);
             }
             catch (Exception ex)
             {

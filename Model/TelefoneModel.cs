@@ -13,5 +13,9 @@ namespace CrudAugustusFashion.Model
         public string Telefone { get; set; }
         public string Celular { get; set; }
 
+        public override string ToString()
+        {
+            return $"Telefone: {Telefone} Celular: {Celular}";
+        }
     }
 }

@@ -97,6 +97,7 @@ namespace CrudAugustusFashion.View.Alteracao
             cliente.DataNascimento = dateTimeNascimento.Value;
             cliente.Email = txtEmail.Text;
             cliente.ValorLimite = int.Parse(txtLimiteCompraPrazo.Text);
+            cliente.Observacao = txtObservacao.Text.ToString();
 
             cliente.Endereco.IdUsuario = int.Parse(txtIdUsuario.Text);
             cliente.Endereco.Cidade = txtCidade.Text;

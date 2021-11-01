@@ -35,56 +35,59 @@ namespace CrudAugustusFashion.View
 
         private void btnExibirCadastroColaborador_Click(object sender, EventArgs e)
         {
-            var colaboradores = RetornarClienteDaGrid();
+            //var colaboradores = RetornarClienteDaGrid();
+            int idColaborador = Convert.ToInt32(dataGrideViewColaboradores.SelectedRows[0].Cells[0].Value);
 
-            new AlteracaoColaboradorController().AbrirAlteracaoColaboradores(colaboradores);
+            var colaborador = new ColaboradorDao().RecuperarDadosColaborador(idColaborador);
+
+            new AlteracaoColaboradorController().AbrirAlteracaoColaboradores(colaborador);
             this.Close();
         }
 
-        private ColaboradorModel RetornarClienteDaGrid()
-        {
-            return new ColaboradorModel
-            {
-                IdUsuario = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdUsuario"].Value,
-                IdColaborador = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdColaborador"].Value,
-                Nome = dataGrideViewColaboradores.SelectedRows[0].Cells["Nome"].Value.ToString(),
-                SobreNome = dataGrideViewColaboradores.SelectedRows[0].Cells["SobreNome"].Value.ToString(),
-                Sexo = dataGrideViewColaboradores.SelectedRows[0].Cells["Sexo"].Value.ToString(),
-                Cpf = dataGrideViewColaboradores.SelectedRows[0].Cells["Cpf"].Value.ToString(),
-                DataNascimento = (DateTime)dataGrideViewColaboradores.SelectedRows[0].Cells["DataNascimento"].Value,
-                Email = dataGrideViewColaboradores.SelectedRows[0].Cells["Email"].Value.ToString(),
-                Salario = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["Salario"].Value,
-                PorcentagemComissao = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["PorcentagemComissao"].Value,
+        //private ColaboradorModel RetornarClienteDaGrid()
+        //{
+        //    return new ColaboradorModel
+        //    {
+        //        IdUsuario = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdUsuario"].Value,
+        //        IdColaborador = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdColaborador"].Value,
+        //        Nome = dataGrideViewColaboradores.SelectedRows[0].Cells["Nome"].Value.ToString(),
+        //        SobreNome = dataGrideViewColaboradores.SelectedRows[0].Cells["SobreNome"].Value.ToString(),
+        //        Sexo = dataGrideViewColaboradores.SelectedRows[0].Cells["Sexo"].Value.ToString(),
+        //        Cpf = dataGrideViewColaboradores.SelectedRows[0].Cells["Cpf"].Value.ToString(),
+        //        DataNascimento = (DateTime)dataGrideViewColaboradores.SelectedRows[0].Cells["DataNascimento"].Value,
+        //        Email = dataGrideViewColaboradores.SelectedRows[0].Cells["Email"].Value.ToString(),
+        //        Salario = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["Salario"].Value,
+        //        PorcentagemComissao = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["PorcentagemComissao"].Value,
 
-                Endereco = new EnderecoModel
-                {
-                    Cep = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoCep"].Value.ToString(),
-                    Cidade = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoCidade"].Value.ToString(),
-                    Bairro = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoBairro"].Value.ToString(),
-                    Complemento = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoComplemento"].Value.ToString(),
-                    NumeroResidencia = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoNumero"].Value.ToString(),
-                    Logradouro = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoLogradouro"].Value.ToString(),
-                    Uf = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoUf"].Value.ToString(),
-                    IdEndereco = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdEndereco"].Value,
-                    IdUsuario = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdUsuario"].Value,
-                },
-                Telefone = new TelefoneModel
-                {
-                    IdTelefone = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdTelefone"].Value,
-                    IdUsuario = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdUsuario"].Value,
-                    Telefone = dataGrideViewColaboradores.SelectedRows[0].Cells["TelefoneTelefone"].Value.ToString(),
-                    Celular = dataGrideViewColaboradores.SelectedRows[0].Cells["TelefoneCelular"].Value.ToString(),
-                },
-                ContasBancarias = new ContaBancariaModel
-                {
-                    IdContaBancaria = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdContaBancaria"].Value,
-                    IdColaborador = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdColaborador"].Value,
-                    Conta = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["ContaBancariaConta"].Value,
-                    Agencia = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["ContaBancariaAgencia"].Value,
-                    TipoConta = dataGrideViewColaboradores.SelectedRows[0].Cells["ContaBancariaTipoConta"].Value.ToString(),
-                    Banco = dataGrideViewColaboradores.SelectedRows[0].Cells["ContaBancariaBanco"].Value.ToString(),
-                }
-            };
-        }
+        //        Endereco = new EnderecoModel
+        //        {
+        //            Cep = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoCep"].Value.ToString(),
+        //            Cidade = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoCidade"].Value.ToString(),
+        //            Bairro = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoBairro"].Value.ToString(),
+        //            Complemento = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoComplemento"].Value.ToString(),
+        //            NumeroResidencia = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoNumero"].Value.ToString(),
+        //            Logradouro = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoLogradouro"].Value.ToString(),
+        //            Uf = dataGrideViewColaboradores.SelectedRows[0].Cells["EnderecoUf"].Value.ToString(),
+        //            IdEndereco = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdEndereco"].Value,
+        //            IdUsuario = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdUsuario"].Value,
+        //        },
+        //        Telefone = new TelefoneModel
+        //        {
+        //            IdTelefone = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdTelefone"].Value,
+        //            IdUsuario = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdUsuario"].Value,
+        //            Telefone = dataGrideViewColaboradores.SelectedRows[0].Cells["TelefoneTelefone"].Value.ToString(),
+        //            Celular = dataGrideViewColaboradores.SelectedRows[0].Cells["TelefoneCelular"].Value.ToString(),
+        //        },
+        //        ContasBancarias = new ContaBancariaModel
+        //        {
+        //            IdContaBancaria = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdContaBancaria"].Value,
+        //            IdColaborador = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["IdColaborador"].Value,
+        //            Conta = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["ContaBancariaConta"].Value,
+        //            Agencia = (int)dataGrideViewColaboradores.SelectedRows[0].Cells["ContaBancariaAgencia"].Value,
+        //            TipoConta = dataGrideViewColaboradores.SelectedRows[0].Cells["ContaBancariaTipoConta"].Value.ToString(),
+        //            Banco = dataGrideViewColaboradores.SelectedRows[0].Cells["ContaBancariaBanco"].Value.ToString(),
+        //        }
+        //    };
+        //}
     }
 }

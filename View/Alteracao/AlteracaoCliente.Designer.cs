@@ -146,7 +146,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.maskBoxTelefone.Mask = "000000000";
             this.maskBoxTelefone.Name = "maskBoxTelefone";
             this.maskBoxTelefone.Size = new System.Drawing.Size(203, 29);
-            this.maskBoxTelefone.TabIndex = 9;
+            this.maskBoxTelefone.TabIndex = 13;
             this.maskBoxTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // comboBoxUf

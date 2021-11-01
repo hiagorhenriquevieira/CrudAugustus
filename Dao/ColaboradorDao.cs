@@ -33,8 +33,6 @@ namespace CrudAugustusFashion.Dao
 
                     colaborador.Endereco.IdUsuario = id;
 
-                    colaborador.Telefone.IdUsuario = id;
-
                     int idColaborador = con.ExecuteScalar<int>(insertColaborador, colaborador, transacao);
 
                     colaborador.ContasBancarias.IdColaborador = idColaborador;
@@ -119,7 +117,7 @@ namespace CrudAugustusFashion.Dao
                 {
                     return con.Query<ColaboradorListaModel, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
                         sqlSelect,
-                        (colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearColaborador(colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel),
+                        (colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearListaColaborador(colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel),
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -132,12 +130,15 @@ namespace CrudAugustusFashion.Dao
             //return new List<ColaboradorListaModel>();
         }
 
-        private ColaboradorListaModel MapearColaborador(ColaboradorListaModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
+        private ColaboradorListaModel MapearListaColaborador(ColaboradorListaModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
         {
             
             colaboradorModel.Endereco = enderecoModel;
-            
-
+            return colaboradorModel;
+        }
+        private ColaboradorModel MapearColaborador(ColaboradorModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
+        {
+            colaboradorModel.Endereco = enderecoModel;
             return colaboradorModel;
         }
 
@@ -170,12 +171,62 @@ namespace CrudAugustusFashion.Dao
                     conexao.Execute(deleteUsuario, new { IdUsuario = colaboradorModel.IdUsuario }, transacao);
                     transacao.Commit();
                 }
-
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+
+        }
+        public int RecuperarIdColaborador(int idColaborador)
+        {
+            var SelectIdColaborador = @"select IdUsuario from Colaboradores 
+                                    where IdColaborador = @IdColaborador;";
+
+            try
+            {
+                using (var conexao = this.conexao.conectar())
+                {
+                    return conexao.QuerySingle<int>(SelectIdColaborador, new { IdColaborador = idColaborador });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        internal ColaboradorModel RecuperarDadosColaborador(int idColaborador)
+        {
+            int idUsuario = RecuperarIdColaborador(idColaborador);
+
+            var selectColaborador = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
+                        co.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                        co.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
+                        co.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia,
+                        co.IdUsuario, cb.IdContaBancaria, cb.Conta, cb.Agencia, cb.Banco, cb.Tipoconta
+                        from
+                        Usuarios u inner join Colaboradores co on u.IdUsuario = co.IdUsuario
+                        inner join Endereco e on co.IdUsuario = e.IdUsuario
+                        inner join ContasBancarias cb on co.IdColaborador = cb.IdColaborador
+                        inner join Telefone t on co.IdUsuario = t.IdUsuario
+                        where co.IdUsuario = @IdUsuario;";
+            try
+            {
+                using (var con = conexao.conectar())
+                {
+                    return con.Query<ColaboradorModel, TelefoneModel, EnderecoModel, ColaboradorModel>(
+                        selectColaborador,
+                        (colaboradorModel, telefoneModel, enderecoModel) => MapearColaborador(colaboradorModel, telefoneModel, enderecoModel),
+                        new { IdUsuario = idUsuario },
+                        splitOn: "IdUsuario"
+                        ).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
 
         }
     }
