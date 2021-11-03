@@ -43,5 +43,17 @@ namespace CrudAugustusFashion.View
             new AlteracaoColaboradorController().AbrirAlteracaoColaboradores(colaborador);
             this.Close();
         }
+
+        private void btnFiltrarColaborador_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGrideViewColaboradores.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador(txtFiltrarColaborador.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar colaborador. Erro:" + ex.Message);
+            }
+        }
     }
 }

@@ -2,11 +2,12 @@
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.View.Alteracao;
 using System;
-
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace CrudAugustusFashion.Controller
 {
-    class AlteracaoClienteController
+   public class AlteracaoClienteController
     {
         private ClienteDao _clienteDao;
         public AlteracaoClienteController()
@@ -33,6 +34,20 @@ namespace CrudAugustusFashion.Controller
                 throw new Exception(ex.Message);
             }
 
+        }
+
+        public List<ClienteListaModel> BuscarListaCliente(string nome)
+        {
+            try
+            {
+                var lista = _clienteDao.BuscarListaCliente(nome);
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+                
+            }
         }
     }
 }

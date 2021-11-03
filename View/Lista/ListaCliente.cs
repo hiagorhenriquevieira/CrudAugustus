@@ -47,5 +47,17 @@ namespace CrudAugustusFashion.View
            new AlteracaoClienteController().AbrirAlteracaoCliente(cliente);
             this.Close();
         }
+
+        private void btnFiltrarCliente_Click(object sender, EventArgs e)
+        {
+            try 
+            { 
+                dataGridViewListaClientes.DataSource = new AlteracaoClienteController().BuscarListaCliente(txtFiltrarCliente.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar usuario. Erro: " + ex.Message);
+            }
+        }
     }
 }

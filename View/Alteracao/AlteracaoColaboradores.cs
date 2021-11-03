@@ -61,7 +61,7 @@ namespace CrudAugustusFashion.View.Alteracao
             colaborador.ContasBancarias.IdColaborador = int.Parse(txtIdColaborador.Text);
             colaborador.ContasBancarias.Agencia = int.Parse(txtAgencia.Text);
             colaborador.ContasBancarias.Banco = txtBanco.Text;
-            colaborador.ContasBancarias.TipoConta = txtBanco.Text;
+            colaborador.ContasBancarias.TipoConta = txtTipoConta.Text;
             colaborador.ContasBancarias.Conta = int.Parse(txtConta.Text);
 
 

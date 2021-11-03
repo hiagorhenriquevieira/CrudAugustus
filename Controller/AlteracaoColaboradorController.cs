@@ -35,6 +35,18 @@ namespace CrudAugustusFashion.Controller
                 throw new Exception(ex.Message);
             }
         }
+        public List<ColaboradorListaModel> BuscarListaColaborador(string nome)
+        {
+            try
+            {
+                var lista = _colaboradorDao.BuscarListaColaborador(nome);
+                return lista;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
     
 }

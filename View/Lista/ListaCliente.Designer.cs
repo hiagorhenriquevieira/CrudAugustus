@@ -79,6 +79,7 @@ namespace CrudAugustusFashion.View
             this.btnFiltrarCliente.TabIndex = 22;
             this.btnFiltrarCliente.Text = "Filtrar por nome";
             this.btnFiltrarCliente.UseVisualStyleBackColor = true;
+            this.btnFiltrarCliente.Click += new System.EventHandler(this.btnFiltrarCliente_Click);
             // 
             // txtFiltrarCliente
             // 

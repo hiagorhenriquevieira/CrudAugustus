@@ -1,13 +1,9 @@
-﻿using CrudAugustusFashion.Controller;
-using CrudAugustusFashion.Model;
+﻿using CrudAugustusFashion.Model;
 using Dapper;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace CrudAugustusFashion.Dao
 {
@@ -18,7 +14,8 @@ namespace CrudAugustusFashion.Dao
         {
             const string insertUsuario = "insert into Usuarios output inserted.IdUsuario values (@nome, @sobreNome, @cpf, @sexo, @dataNascimento, @email)";
             const string insertCliente = "insert into Clientes (IdUsuario, ValorLimite, Observacao) values (@IdUsuario, @valorLimite, @observacao)";
-            const string insertEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
+            const string insertEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
+                "values (@IdUsuario, @cep, @cidade, @logradouro, @uf, @complemento, @bairro, @numeroResidencia)";
             const string insertTelefone = "insert into Telefone (IdUsuario, Telefone, Celular) values (@IdUsuario, @telefone, @celular)";
 
             try
@@ -126,7 +123,35 @@ namespace CrudAugustusFashion.Dao
             return clienteModel;
         }
 
-
+        public   List<ClienteListaModel> BuscarListaCliente(string nome)
+        {
+                
+                var selectNomeCliente = @"select c.IdCliente, c.Observacao, c.ValorLimite,
+                            c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                            c.IdUsuario, t.IdTelefone, t.Telefone, t.Celular, 
+                            c.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
+                            from
+                            Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
+                            inner join Endereco e on c.IdUsuario = e.IdUsuario
+                            inner join Telefone t on c.IdUsuario = t.IdUsuario
+                            where u.Nome like @Nome + '%';";
+            try
+            {
+                
+                using (var con = conexao.conectar())
+                {
+                    return con.Query<ClienteListaModel, TelefoneModel, EnderecoModel, ClienteListaModel>(
+                        selectNomeCliente,
+                        (clienteListaModel, telefoneModel, enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel), new { Nome = nome},
+                        splitOn: "IdUsuario"
+                        ).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }          
+        }
 
 
         internal void ExcluirClientes(ClienteModel clienteModel)

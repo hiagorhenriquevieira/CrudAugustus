@@ -3,9 +3,7 @@ using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace CrudAugustusFashion.Dao
 {
@@ -49,7 +47,6 @@ namespace CrudAugustusFashion.Dao
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-                ;
             }
         }
         internal void AlterarColaborador(ColaboradorModel colaborador)
@@ -57,29 +54,22 @@ namespace CrudAugustusFashion.Dao
             var updateUsuario = "update Usuarios set Nome = @Nome, SobreNome = @SobreNome, Cpf = @Cpf, Sexo = @Sexo, DataNascimento = @DataNascimento, Email = @Email" +
                 " where IdUsuario = @IdUsuario ";
             var updateColaborador = "update Colaboradores set Salario = @Salario, PorcentagemComissao = @PorcentagemComissao " +
-                "where IdColaborador = @IdUsuario";
+                "where IdUsuario = @IdUsuario";
             var updateEndereco = "update Endereco set Cep = @Cep, Cidade = @Cidade, Logradouro = @Logradouro, Uf = @Uf, Complemento = @Complemento, Bairro = @Bairro, NumeroResidencia = @NumeroResidencia " +
-                "where IdEndereco = @IdUsuario";
+                "where IdUsuario = @IdUsuario";
             var updateTelefone = "update Telefone set Telefone = @Telefone, Celular = @Celular" +
-                " where IdTelefone = @IdUsuario";
-            var updateContasBancarias = "update ContasBancarias set Conta = @Conta, Agencia = @Agencia, TipoConta = @TipoConta, Banco = @Banco where IdContaBancaria = @IdColaborador ";
+                " where IdUsuario = @IdUsuario";
+            var updateContasBancarias = "update ContasBancarias set Conta = @Conta, Agencia = @Agencia, TipoConta = @TipoConta, Banco = @Banco" +
+                " where IdColaborador = @IdColaborador ";
 
             try
             {
                 using (var con = conexao.conectar())
                 using (var transacao = con.BeginTransaction())
                 {
-                    int id = con.ExecuteScalar<int>(updateUsuario, colaborador, transacao);
+                    con.Execute(updateUsuario, colaborador, transacao);
 
-                    colaborador.IdUsuario = id;
-
-                    colaborador.Endereco.IdUsuario = id;
-
-                    colaborador.Telefone.IdUsuario = id;
-
-                    int idColaborador = con.ExecuteScalar<int>(updateColaborador, colaborador, transacao);
-
-                    colaborador.ContasBancarias.IdColaborador = idColaborador;
+                    con.Execute(updateColaborador, colaborador, transacao);
 
                     con.Execute(updateEndereco, colaborador.Endereco, transacao);
 
@@ -132,6 +122,7 @@ namespace CrudAugustusFashion.Dao
 
         private ColaboradorListaModel MapearListaColaborador(ColaboradorListaModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
         {
+            colaboradorModel.Telefone = telefoneModel;
             colaboradorModel.Endereco = enderecoModel;
             return colaboradorModel;
         }
@@ -142,7 +133,37 @@ namespace CrudAugustusFashion.Dao
             colaboradorModel.Endereco = enderecoModel;
             return colaboradorModel;
         }
+        public List<ColaboradorListaModel> BuscarListaColaborador(string nome)
+        {
+            var selectNomeColaborador = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
+                        co.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                        co.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
+                        co.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia,
+                        co.IdUsuario, cb.IdContaBancaria, cb.Conta, cb.Agencia, cb.Banco, cb.Tipoconta
+                        from
+                        Usuarios u inner join Colaboradores co on u.IdUsuario = co.IdUsuario
+                        inner join Endereco e on co.IdUsuario = e.IdUsuario
+                        inner join ContasBancarias cb on co.IdColaborador = cb.IdColaborador
+                        inner join Telefone t on co.IdUsuario = t.IdUsuario
+                        where u.Nome like @Nome + '%' ";
+            try
+            {
+                using (var con = conexao.conectar())
+                {
+                    return con.Query<ColaboradorListaModel, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
+                        selectNomeColaborador,
+                        (colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearListaColaborador(colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel),
+                        new { Nome = nome },
+                        splitOn: "IdUsuario"
+                        ).ToList();
+                }
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         internal void ExcluirColaboradores(ColaboradorModel colaboradorModel)
         {
             var deleteTelefone = @"Delete from Telefone
