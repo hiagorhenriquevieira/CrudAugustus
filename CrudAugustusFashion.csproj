@@ -90,27 +90,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDAUGUSTODataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Controller\AlteracaoClienteController.cs" />
-    <Compile Include="Controller\AlteracaoColaboradorController.cs" />
-    <Compile Include="Controller\CadastroColaboradorController.cs" />
-    <Compile Include="Controller\CadastroClienteController.cs" />
-    <Compile Include="Controller\ColaboradoresModel.cs" />
-    <Compile Include="Controller\ExcluirClienteController.cs" />
-    <Compile Include="Controller\ExcluirColaboradorController.cs" />
+    <Compile Include="Controller\ClienteController\AlteracaoClienteController.cs" />
+    <Compile Include="Controller\ColaboradorController\AlteracaoColaboradorController.cs" />
+    <Compile Include="Controller\ColaboradorController\CadastroColaboradorController.cs" />
+    <Compile Include="Controller\ClienteController\CadastroClienteController.cs" />
+    <Compile Include="Controller\ClienteController\ExcluirClienteController.cs" />
+    <Compile Include="Controller\ColaboradorController\ExcluirColaboradorController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
+    <Compile Include="Model\EnderecoModel\CEPs\Cep.cs" />
     <Compile Include="Validacoes\ValidacoesCadastros.cs" />
     <Compile Include="Validacoes\ValidacoesExtencion.cs" />
-    <Compile Include="Model\ClienteListaModel.cs" />
-    <Compile Include="Model\ClienteModel.cs" />
-    <Compile Include="Model\ColaboradorListaModel.cs" />
-    <Compile Include="Model\ColaboradorModel.cs" />
-    <Compile Include="Model\ContaBancariaModel.cs" />
-    <Compile Include="Model\EnderecoModel.cs" />
-    <Compile Include="Model\MdiSingletonModel.cs" />
-    <Compile Include="Model\TelefoneModel.cs" />
-    <Compile Include="Model\UsuarioModel.cs" />
+    <Compile Include="Model\ClienteModel\ClienteListaModel.cs" />
+    <Compile Include="Model\ClienteModel\ClienteModel.cs" />
+    <Compile Include="Model\ColaboradorModel\ColaboradorListaModel.cs" />
+    <Compile Include="Model\ColaboradorModel\ColaboradorModel.cs" />
+    <Compile Include="Model\ContaBancariaModel\ContaBancariaModel.cs" />
+    <Compile Include="Model\EnderecoModel\EnderecoModel.cs" />
+    <Compile Include="Model\MdiSingletonModel\MdiSingletonModel.cs" />
+    <Compile Include="Model\TelefoneModel\TelefoneModel.cs" />
+    <Compile Include="Model\UsuarioModel\UsuarioModel.cs" />
     <Compile Include="View\Alteracao\AlteracaoCliente.cs">
       <SubType>Form</SubType>
     </Compile>

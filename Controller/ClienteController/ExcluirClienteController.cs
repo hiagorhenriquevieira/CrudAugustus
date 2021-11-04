@@ -16,15 +16,15 @@ namespace CrudAugustusFashion.Controller
         {
             _clienteDao = new ClienteDao();
         }
-        public void ExcluirClientes(ClienteModel cliente)
+        public void ExcluirClientes(ClienteModel clienteModel)
         {
             try
             {
-               _clienteDao.ExcluirClientes(cliente);
+               _clienteDao.ExcluirClientes(clienteModel);
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
         }
     }

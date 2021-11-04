@@ -1,9 +1,5 @@
 ﻿using CrudAugustusFashion.Dao;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CrudAugustusFashion.Model;
 
 namespace CrudAugustusFashion.Controller
@@ -15,15 +11,15 @@ namespace CrudAugustusFashion.Controller
         {
             _colaboradorDao = new ColaboradorDao();
         }
-        public void ExcluirColaboradores(ColaboradorModel colaborador)
+        public void ExcluirColaboradores(ColaboradorModel colaboradorModel)
         {
             try
             {
-                _colaboradorDao.ExcluirColaboradores(colaborador);
+                _colaboradorDao.ExcluirColaboradores(colaboradorModel);
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
         }
     }

@@ -3,7 +3,7 @@ using CrudAugustusFashion.Model;
 using CrudAugustusFashion.View.Alteracao;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
+
 
 namespace CrudAugustusFashion.Controller
 {
@@ -15,23 +15,23 @@ namespace CrudAugustusFashion.Controller
             _clienteDao = new ClienteDao();
         }
 
-        public void AbrirAlteracaoCliente(ClienteModel cliente)
+        public void AbrirAlteracaoCliente(ClienteModel clienteModel)
         {
-            var frmAlteracaoCliente = new FrmAlteracaoCliente(cliente);
+            var frmAlteracaoCliente = new FrmAlteracaoCliente(clienteModel);
             frmAlteracaoCliente.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmAlteracaoCliente.Show();
 
         }
 
-        internal void AlterarCliente(ClienteModel cliente)
+        internal void AlterarCliente(ClienteModel clienteModel)
         {
             try
             {
-                _clienteDao.AlterarCliente(cliente);
+                _clienteDao.AlterarCliente(clienteModel);
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
 
         }
@@ -43,9 +43,9 @@ namespace CrudAugustusFashion.Controller
                 var lista = _clienteDao.BuscarListaCliente(nome);
                 return lista;
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
                 
             }
         }

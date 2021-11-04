@@ -23,12 +23,12 @@ namespace CrudAugustusFashion.Dao
                 using (var conexao = this.conexao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
-                    int id = conexao.ExecuteScalar<int>(insertUsuario, cliente, transacao);
-                    cliente.IdUsuario = id;
+                    int idUsuario = conexao.ExecuteScalar<int>(insertUsuario, cliente, transacao);
+                    cliente.IdUsuario = idUsuario;
 
-                    cliente.Endereco.IdUsuario = id;
+                    cliente.Endereco.IdUsuario = idUsuario;
 
-                    cliente.Telefone.IdUsuario = id;
+                    cliente.Telefone.IdUsuario = idUsuario;
 
                     conexao.Execute(insertCliente, cliente, transacao);
 
@@ -39,9 +39,9 @@ namespace CrudAugustusFashion.Dao
                     transacao.Commit();
                 }
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
         }
 
@@ -72,9 +72,9 @@ namespace CrudAugustusFashion.Dao
                     transacao.Commit();
                 }
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
         }
 
@@ -91,18 +91,18 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var con = conexao.conectar())
+                using (var conexao = this.conexao.conectar())
                 {
-                    return con.Query<ClienteListaModel, TelefoneModel, EnderecoModel, ClienteListaModel>(
+                    return conexao.Query(
                         sqlSelect,
-                        (clienteListaModel, telefoneModel, enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel),
+                        (ClienteListaModel clienteListaModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel),
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
 
 
@@ -138,18 +138,18 @@ namespace CrudAugustusFashion.Dao
             try
             {
                 
-                using (var con = conexao.conectar())
+                using (var conexao = this.conexao.conectar())
                 {
-                    return con.Query<ClienteListaModel, TelefoneModel, EnderecoModel, ClienteListaModel>(
+                    return conexao.Query(
                         selectNomeCliente,
-                        (clienteListaModel, telefoneModel, enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel), new { Nome = nome},
+                        (ClienteListaModel clienteListaModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel), new { Nome = nome},
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }          
         }
 
@@ -181,9 +181,9 @@ namespace CrudAugustusFashion.Dao
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
         }
 
@@ -199,9 +199,9 @@ namespace CrudAugustusFashion.Dao
                     return conexao.QuerySingle<int>(SelectIdUsuario, new { IdCliente = idCliente });
                 }
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
         }
 
@@ -221,19 +221,19 @@ namespace CrudAugustusFashion.Dao
                             where c.IdUsuario = @IdUsuario;";
             try
             {
-                using (var con = conexao.conectar())
+                using (var conexao = this.conexao.conectar())
                 {
-                    return con.Query<ClienteModel, TelefoneModel, EnderecoModel, ClienteModel>(
+                    return conexao.Query(
                         selectUsuario,
-                        (clienteModel, telefoneModel, enderecoModel) => MapearCliente(clienteModel, telefoneModel, enderecoModel),
+                        (ClienteModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel) => MapearCliente(clienteModel, telefoneModel, enderecoModel),
                         new { IdUsuario = idUsuario },
                         splitOn: "IdUsuario"
                         ).FirstOrDefault();
                 }
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
         }
     }

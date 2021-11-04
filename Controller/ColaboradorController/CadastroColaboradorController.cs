@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CrudAugustusFashion.Dao;
+﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.View;
+using System;
 
 namespace CrudAugustusFashion.Controller
 {
     class CadastroColaboradorController
     {
-        public void CadastrarColaborador(ColaboradorModel colaborador)
+        public void CadastrarColaborador(ColaboradorModel colaboradorModel)
         {
             try
             {
-                new ColaboradorDao().CadastrarColaborador(colaborador);
+                new ColaboradorDao().CadastrarColaborador(colaboradorModel);
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
         }
         public void AbrirCadastroColaborador()

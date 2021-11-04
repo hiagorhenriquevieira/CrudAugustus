@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace CrudAugustusFashion.Model
 {
-    public class EnderecoModel 
+    public class EnderecoModel
     {
         public int IdUsuario { get; set; }
         public int IdEndereco { get; set; }

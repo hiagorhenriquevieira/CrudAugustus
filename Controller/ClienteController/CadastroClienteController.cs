@@ -1,12 +1,7 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CrudAugustusFashion.View;
-using CrudAugustusFashion.View.Alteracao;
 
 namespace CrudAugustusFashion.Controller
 {
@@ -20,15 +15,15 @@ namespace CrudAugustusFashion.Controller
             _clienteDao = new ClienteDao();
         }
 
-        public void CadastrarCliente(ClienteModel cliente)
+        public void CadastrarCliente(ClienteModel clienteModel)
         {
             try
             {
-                _clienteDao.CadastrarCliente(cliente);
+                _clienteDao.CadastrarCliente(clienteModel);
             }
-            catch (Exception ex)
+            catch (Exception excecao)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(excecao.Message);
             }
         }
 
