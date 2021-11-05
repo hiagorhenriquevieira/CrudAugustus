@@ -35,11 +35,11 @@ namespace CrudAugustusFashion.View.Alteracao
             txtNome.Text = _cliente.Nome;
             txtLogradouro.Text = _cliente.Endereco.Logradouro;
             txtBairro.Text = _cliente.Endereco.Bairro;
-            txtCep.Text = _cliente.Endereco.Cep;
+            txtCep.Text = _cliente.Endereco.Cep.ToString();
             txtCidade.Text = _cliente.Endereco.Cidade;
             txtComplemento.Text = _cliente.Endereco.Complemento;
             comboBoxUf.Text = _cliente.Endereco.Uf;
-            txtNumeroResidencia.Text = _cliente.Endereco.NumeroResidencia;
+            txtNumeroResidencia.Text = _cliente.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _cliente.Sexo;
             txtCpf.Text = _cliente.Cpf;
             txtSobrenome.Text = _cliente.SobreNome;
@@ -106,7 +106,7 @@ namespace CrudAugustusFashion.View.Alteracao
             cliente.Endereco.Uf = comboBoxUf.Text;
             cliente.Endereco.Complemento = txtComplemento.Text;
             cliente.Endereco.Logradouro = txtLogradouro.Text;
-            cliente.Endereco.NumeroResidencia = txtNumeroResidencia.Text;
+            cliente.Endereco.NumeroResidencia = int.Parse(txtNumeroResidencia.Text);
 
             cliente.Telefone.IdUsuario = int.Parse(txtIdUsuario.Text);
             cliente.Telefone.Celular = maskBoxCelular.Text;

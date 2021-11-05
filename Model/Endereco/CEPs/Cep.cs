@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FluentValidation.Results;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CrudAugustusFashion.Model.EnderecoModel.CEPs
+namespace CrudAugustusFashion.Model.Endereco.CEPs
 {
     public class Cep
     {
@@ -21,14 +19,18 @@ namespace CrudAugustusFashion.Model.EnderecoModel.CEPs
             _valor = valor;
         }
 
+        public ValidationResult Validar()
+        {
+            return new CepValidation().Validate(this);
+        }
+
         public string RemoverFormatacao()
         {
             string retornarCepSemFormatacao = _valor;
 
             retornarCepSemFormatacao = new string((from c in retornarCepSemFormatacao
                                                    where char.IsDigit(c)
-                                           select c
-            ).ToArray());
+                                                   select c).ToArray());
 
             return retornarCepSemFormatacao;
         }

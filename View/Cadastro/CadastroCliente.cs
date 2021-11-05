@@ -48,7 +48,7 @@ namespace CrudAugustusFashion
             cliente.Endereco.Cidade = txtCidade.Text;
             cliente.Endereco.Bairro = txtBairro.Text;
             cliente.Endereco.Logradouro = txtLogradouro.Text;
-            cliente.Endereco.NumeroResidencia = txtNumeroResidencia.Text;
+            cliente.Endereco.NumeroResidencia = int.Parse(txtNumeroResidencia.Text);
             cliente.Endereco.Uf = comboBoxUf.Text;
             cliente.Endereco.Complemento = txtComplemento.Text;
 

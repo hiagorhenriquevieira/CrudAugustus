@@ -37,7 +37,7 @@ namespace CrudAugustusFashion.View
             colaborador.Endereco.Cidade = txtCidade.Text;
             colaborador.Endereco.Bairro = txtComplemento.Text;
             colaborador.Endereco.Logradouro = txtLogradouro.Text;
-            colaborador.Endereco.NumeroResidencia = txtNumeroResidencia.Text;
+            colaborador.Endereco.NumeroResidencia = int.Parse(txtNumeroResidencia.Text);
             colaborador.Endereco.Uf = comboBoxUf.Text;
             colaborador.Endereco.Complemento = txtComplemento.Text;
 

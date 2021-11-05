@@ -3,6 +3,7 @@ using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CrudAugustusFashion.Model.Endereco.CEPs;
 
 
 namespace CrudAugustusFashion.Dao
@@ -32,7 +33,17 @@ namespace CrudAugustusFashion.Dao
 
                     conexao.Execute(insertCliente, cliente, transacao);
 
-                    conexao.Execute(insertEndereco, cliente.Endereco, transacao);
+                    conexao.Execute(insertEndereco, new
+                    {
+                        IdUsuario = cliente.Endereco.IdUsuario,
+                        Cep = cliente.Endereco.Cep.RetornarValor,
+                        Cidade = cliente.Endereco.Cidade,
+                        Logradouro = cliente.Endereco.Logradouro,
+                        Uf = cliente.Endereco.Uf,
+                        Complemento = cliente.Endereco.Complemento,
+                        Bairro = cliente.Endereco.Bairro,
+                        NumeroResidencia = cliente.Endereco.NumeroResidencia
+                    }, transacao);
 
                     conexao.Execute(insertTelefone, cliente.Telefone, transacao);
 
@@ -65,7 +76,12 @@ namespace CrudAugustusFashion.Dao
 
                     conexao.Execute(updateCliente, cliente, transacao);
 
-                    conexao.Execute(updateEndereco, cliente.Endereco, transacao);
+                    conexao.Execute(updateEndereco, cliente.Endereco
+                            //new
+                            //{
+                            //    IdUsuario = cliente.Endereco.IdUsuario,
+                            //}
+                            , transacao);
 
                     conexao.Execute(updateTelefone, cliente.Telefone, transacao);
 
@@ -123,10 +139,10 @@ namespace CrudAugustusFashion.Dao
             return clienteModel;
         }
 
-        public   List<ClienteListaModel> BuscarListaCliente(string nome)
+        public List<ClienteListaModel> BuscarListaCliente(string nome)
         {
-                
-                var selectNomeCliente = @"select c.IdCliente, c.Observacao, c.ValorLimite,
+
+            var selectNomeCliente = @"select c.IdCliente, c.Observacao, c.ValorLimite,
                             c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
                             c.IdUsuario, t.IdTelefone, t.Telefone, t.Celular, 
                             c.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
@@ -137,12 +153,12 @@ namespace CrudAugustusFashion.Dao
                             where u.Nome like @Nome + '%';";
             try
             {
-                
+
                 using (var conexao = this.conexao.conectar())
                 {
                     return conexao.Query(
                         selectNomeCliente,
-                        (ClienteListaModel clienteListaModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel), new { Nome = nome},
+                        (ClienteListaModel clienteListaModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel), new { Nome = nome },
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -150,7 +166,7 @@ namespace CrudAugustusFashion.Dao
             catch (Exception excecao)
             {
                 throw new Exception(excecao.Message);
-            }          
+            }
         }
 
 

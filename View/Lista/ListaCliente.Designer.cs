@@ -49,20 +49,21 @@ namespace CrudAugustusFashion.View
             // 
             // dataGridViewListaClientes
             // 
+            this.dataGridViewListaClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewListaClientes.Location = new System.Drawing.Point(12, 70);
+            this.dataGridViewListaClientes.Location = new System.Drawing.Point(19, 70);
             this.dataGridViewListaClientes.MultiSelect = false;
             this.dataGridViewListaClientes.Name = "dataGridViewListaClientes";
             this.dataGridViewListaClientes.ReadOnly = true;
             this.dataGridViewListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewListaClientes.Size = new System.Drawing.Size(756, 243);
+            this.dataGridViewListaClientes.Size = new System.Drawing.Size(1251, 358);
             this.dataGridViewListaClientes.TabIndex = 0;
             this.dataGridViewListaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListaClientes_CellContentClick);
             // 
             // btnExibirCadastroCliente
             // 
             this.btnExibirCadastroCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExibirCadastroCliente.Location = new System.Drawing.Point(158, 343);
+            this.btnExibirCadastroCliente.Location = new System.Drawing.Point(465, 458);
             this.btnExibirCadastroCliente.Name = "btnExibirCadastroCliente";
             this.btnExibirCadastroCliente.Size = new System.Drawing.Size(388, 55);
             this.btnExibirCadastroCliente.TabIndex = 21;
@@ -93,7 +94,7 @@ namespace CrudAugustusFashion.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 433);
+            this.ClientSize = new System.Drawing.Size(1282, 539);
             this.Controls.Add(this.txtFiltrarCliente);
             this.Controls.Add(this.btnFiltrarCliente);
             this.Controls.Add(this.btnExibirCadastroCliente);

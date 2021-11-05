@@ -50,7 +50,7 @@ namespace CrudAugustusFashion.View.Alteracao
             colaborador.Endereco.Cidade = txtCidade.Text;
             colaborador.Endereco.Bairro = txtComplemento.Text;
             colaborador.Endereco.Logradouro = txtLogradouro.Text;
-            colaborador.Endereco.NumeroResidencia = txtNumeroResidencia.Text;
+            colaborador.Endereco.NumeroResidencia = int.Parse(txtNumeroResidencia.Text);
             colaborador.Endereco.Uf = comboBoxUf.Text;
             colaborador.Endereco.Complemento = txtComplemento.Text;
 
@@ -84,11 +84,11 @@ namespace CrudAugustusFashion.View.Alteracao
             txtNome.Text = _colaboradorModel.Nome;
             txtLogradouro.Text = _colaboradorModel.Endereco.Logradouro;
             txtBairro.Text = _colaboradorModel.Endereco.Bairro;
-            txtCep.Text = _colaboradorModel.Endereco.Cep;
+            txtCep.Text = _colaboradorModel.Endereco.Cep.ToString();
             txtCidade.Text = _colaboradorModel.Endereco.Cidade;
             txtComplemento.Text = _colaboradorModel.Endereco.Complemento;
             comboBoxUf.Text = _colaboradorModel.Endereco.Uf;
-            txtNumeroResidencia.Text = _colaboradorModel.Endereco.NumeroResidencia;
+            txtNumeroResidencia.Text = _colaboradorModel.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _colaboradorModel.Sexo;
             txtCpf.Text = _colaboradorModel.Cpf;
             txtSobrenome.Text = _colaboradorModel.SobreNome;

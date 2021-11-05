@@ -42,6 +42,9 @@
     <Reference Include="Dommel, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Dommel.2.3.2\lib\netstandard2.0\Dommel.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>packages\FluentValidation.10.3.4\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="NetTopologySuite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
       <HintPath>packages\NetTopologySuite.2.4.0\lib\netstandard2.0\NetTopologySuite.dll</HintPath>
     </Reference>
@@ -99,7 +102,9 @@
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
-    <Compile Include="Model\EnderecoModel\CEPs\Cep.cs" />
+    <Compile Include="Model\Endereco\CEPs\Cep.cs" />
+    <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
+    <Compile Include="Model\Endereco\EnderecoValidation.cs" />
     <Compile Include="Validacoes\ValidacoesCadastros.cs" />
     <Compile Include="Validacoes\ValidacoesExtencion.cs" />
     <Compile Include="Model\ClienteModel\ClienteListaModel.cs" />
@@ -107,7 +112,7 @@
     <Compile Include="Model\ColaboradorModel\ColaboradorListaModel.cs" />
     <Compile Include="Model\ColaboradorModel\ColaboradorModel.cs" />
     <Compile Include="Model\ContaBancariaModel\ContaBancariaModel.cs" />
-    <Compile Include="Model\EnderecoModel\EnderecoModel.cs" />
+    <Compile Include="Model\Endereco\EnderecoModel.cs" />
     <Compile Include="Model\MdiSingletonModel\MdiSingletonModel.cs" />
     <Compile Include="Model\TelefoneModel\TelefoneModel.cs" />
     <Compile Include="Model\UsuarioModel\UsuarioModel.cs" />
