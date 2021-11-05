@@ -31,11 +31,23 @@ namespace CrudAugustusFashion.Dao
 
                     colaborador.Endereco.IdUsuario = id;
 
+                    colaborador.Telefone.IdUsuario = id;
+
                     int idColaborador = con.ExecuteScalar<int>(insertColaborador, colaborador, transacao);
 
                     colaborador.ContasBancarias.IdColaborador = idColaborador;
 
-                    con.Execute(insertEndereco, colaborador.Endereco, transacao);
+                    con.Execute(insertEndereco, new
+                    {
+                        IdUsuario = colaborador.Endereco.IdUsuario,
+                        Cep = colaborador.Endereco.Cep.RetornarValor,
+                        Cidade = colaborador.Endereco.Cidade,
+                        Logradouro = colaborador.Endereco.Logradouro,
+                        Uf = colaborador.Endereco.Uf,
+                        Complemento = colaborador.Endereco.Complemento,
+                        Bairro = colaborador.Endereco.Bairro,
+                        NumeroResidencia = colaborador.Endereco.NumeroResidencia
+                    }, transacao);
 
                     con.Execute(insertTelefone, colaborador.Telefone, transacao);
 
@@ -71,7 +83,17 @@ namespace CrudAugustusFashion.Dao
 
                     con.Execute(updateColaborador, colaborador, transacao);
 
-                    con.Execute(updateEndereco, colaborador.Endereco, transacao);
+                    con.Execute(updateEndereco, new
+                    {
+                        IdUsuario = colaborador.Endereco.IdUsuario,
+                        Cep = colaborador.Endereco.Cep.RetornarValor,
+                        Cidade = colaborador.Endereco.Cidade,
+                        Logradouro = colaborador.Endereco.Logradouro,
+                        Uf = colaborador.Endereco.Uf,
+                        Complemento = colaborador.Endereco.Complemento,
+                        Bairro = colaborador.Endereco.Bairro,
+                        NumeroResidencia = colaborador.Endereco.NumeroResidencia
+                    }, transacao);
 
                     con.Execute(updateTelefone, colaborador.Telefone, transacao);
 

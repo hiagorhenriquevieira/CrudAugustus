@@ -3,7 +3,6 @@ using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CrudAugustusFashion.Model.Endereco.CEPs;
 
 
 namespace CrudAugustusFashion.Dao
@@ -76,12 +75,17 @@ namespace CrudAugustusFashion.Dao
 
                     conexao.Execute(updateCliente, cliente, transacao);
 
-                    conexao.Execute(updateEndereco, cliente.Endereco
-                            //new
-                            //{
-                            //    IdUsuario = cliente.Endereco.IdUsuario,
-                            //}
-                            , transacao);
+                    conexao.Execute(updateEndereco, new
+                    {
+                        IdUsuario = cliente.Endereco.IdUsuario,
+                        Cep = cliente.Endereco.Cep.RetornarValor,
+                        Cidade = cliente.Endereco.Cidade,
+                        Logradouro = cliente.Endereco.Logradouro,
+                        Uf = cliente.Endereco.Uf,
+                        Complemento = cliente.Endereco.Complemento,
+                        Bairro = cliente.Endereco.Bairro,
+                        NumeroResidencia = cliente.Endereco.NumeroResidencia
+                    }, transacao);
 
                     conexao.Execute(updateTelefone, cliente.Telefone, transacao);
 

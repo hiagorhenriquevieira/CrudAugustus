@@ -105,7 +105,7 @@ namespace CrudAugustusFashion
                 MessageBox.Show("Campo -Bairro- invalido");
                 return false;
             }
-            else if (!ValidacoesExtencion.ValidarCep(txtCep.Text))
+            else if (ValidacoesExtencion.NuloOuVazio(txtCep))
             {
                 MessageBox.Show("Campo -Cep- invalido");
                 return false;

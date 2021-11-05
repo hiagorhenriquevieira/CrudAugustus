@@ -29,20 +29,11 @@ namespace CrudAugustusFashion.Validacoes
         public static bool ValidarCpf(this string cpf) => 
             new Regex(@"^[0-9]{11}$").Match(cpf).Success;
 
-        public static bool ValidarCep(this string cep) =>
-            new Regex(@"^[0-9]{8}$").Match(cep).Success;
-
         public static bool ValidarTelefone(this string telefone) =>
             new Regex(@"^[0-9]{10}$").Match(telefone).Success;
 
         public static bool ValidarCelular(this string celular) =>
             new Regex(@"^[0-9]{11}$").Match(celular).Success;
-
-
-
-
-
-
     }
 
     
