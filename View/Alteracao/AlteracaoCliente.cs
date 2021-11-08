@@ -22,10 +22,11 @@ namespace CrudAugustusFashion.View.Alteracao
         }
 
         private void PreencherCamposComCliente()
-        {
+        {           
             txtIdUsuario.Text = _cliente.IdUsuario.ToString();
             txtIdCliente.Text = _cliente.IdCliente.ToString();
-            txtNome.Text = _cliente.NomeCompleto.Nome.ToString();
+            txtNome.Text = _cliente.NomeCompleto.Nome;
+            txtSobrenome.Text = _cliente.NomeCompleto.SobreNome;
             txtLogradouro.Text = _cliente.Endereco.Logradouro;
             txtBairro.Text = _cliente.Endereco.Bairro;
             txtCep.Text = _cliente.Endereco.Cep.ToString();

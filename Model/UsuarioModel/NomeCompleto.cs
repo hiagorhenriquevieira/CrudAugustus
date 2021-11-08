@@ -21,9 +21,8 @@ namespace CrudAugustusFashion.Model.Usuario
             return $"{Nome} {SobreNome}";
         }
 
-        public NomeCompleto()
-        {
-
+        public NomeCompleto() { 
+        
         }
     }
 }

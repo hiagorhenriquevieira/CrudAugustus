@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrudAugustusFashion.Model.Usuario;
+using System;
 
 namespace CrudAugustusFashion.Model
 {
@@ -7,8 +8,7 @@ namespace CrudAugustusFashion.Model
 
 
         public int IdCliente { get; set; }
-        public string Nome { get; set; }
-        public string SobreNome { get; set; }
+        public NomeCompleto Nome { get; set; }
         public string Sexo { get; set; }
         public int Idade { get; set; }
         public DateTime DataNascimento { get; set; }
