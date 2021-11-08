@@ -25,7 +25,17 @@ namespace CrudAugustusFashion.Dao
                 using (var con = conexao.conectar())
                 using (var transacao = con.BeginTransaction())
                 {
-                    int id = con.ExecuteScalar<int>(insertUsuario, colaborador, transacao);
+                    int id = con.ExecuteScalar<int>(insertUsuario, new
+                    {
+                        IdUsuario = colaborador.IdUsuario,
+                        Nome = colaborador.Nome,
+                        SobreNome = colaborador.SobreNome,
+                        Cpf = colaborador.Cpf.RemoverFormatacao(),
+                        Sexo = colaborador.Sexo,
+                        DataNascimento = colaborador.DataNascimento,
+                        Email = colaborador.Email,
+                    }
+                            , transacao);
 
                     colaborador.IdUsuario = id;
 
@@ -40,7 +50,7 @@ namespace CrudAugustusFashion.Dao
                     con.Execute(insertEndereco, new
                     {
                         IdUsuario = colaborador.Endereco.IdUsuario,
-                        Cep = colaborador.Endereco.Cep.RetornarValor,
+                        Cep = colaborador.Endereco.Cep.RemoverFormatacao(),
                         Cidade = colaborador.Endereco.Cidade,
                         Logradouro = colaborador.Endereco.Logradouro,
                         Uf = colaborador.Endereco.Uf,
@@ -79,14 +89,24 @@ namespace CrudAugustusFashion.Dao
                 using (var con = conexao.conectar())
                 using (var transacao = con.BeginTransaction())
                 {
-                    con.Execute(updateUsuario, colaborador, transacao);
+                    con.Execute(updateUsuario, new
+                    {
+                        IdUsuario = colaborador.IdUsuario,
+                        Nome = colaborador.Nome,
+                        SobreNome = colaborador.SobreNome,
+                        Cpf = colaborador.Cpf.RemoverFormatacao(),
+                        Sexo = colaborador.Sexo,
+                        DataNascimento = colaborador.DataNascimento,
+                        Email = colaborador.Email,
+                    }
+                            , transacao);
 
                     con.Execute(updateColaborador, colaborador, transacao);
 
                     con.Execute(updateEndereco, new
                     {
                         IdUsuario = colaborador.Endereco.IdUsuario,
-                        Cep = colaborador.Endereco.Cep.RetornarValor,
+                        Cep = colaborador.Endereco.Cep.RemoverFormatacao(),
                         Cidade = colaborador.Endereco.Cidade,
                         Logradouro = colaborador.Endereco.Logradouro,
                         Uf = colaborador.Endereco.Uf,

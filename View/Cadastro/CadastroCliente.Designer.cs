@@ -81,7 +81,6 @@ namespace CrudAugustusFashion
             this.label1.Size = new System.Drawing.Size(72, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -247,7 +246,7 @@ namespace CrudAugustusFashion
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(236, 29);
             this.txtNome.TabIndex = 1;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            
             // 
             // txtCidade
             // 
@@ -461,7 +460,7 @@ namespace CrudAugustusFashion
             this.groupBox1.Size = new System.Drawing.Size(793, 542);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            
             // 
             // txtCep
             // 
@@ -538,7 +537,6 @@ namespace CrudAugustusFashion
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FrmCadastroCliente";
             this.Text = "Cadastro de cliente";
-            this.Load += new System.EventHandler(this.FrmCadastroCliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

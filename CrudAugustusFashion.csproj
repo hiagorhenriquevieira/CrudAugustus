@@ -106,6 +106,8 @@
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
     <Compile Include="Model\Endereco\EnderecoValidation.cs" />
+    <Compile Include="Model\UsuarioModel\Cpf.cs" />
+    <Compile Include="Model\UsuarioModel\CpfValidation.cs" />
     <Compile Include="Model\UsuarioModel\UsuarioValidation.cs" />
     <Compile Include="Validacoes\ValidacoesCadastros.cs" />
     <Compile Include="Validacoes\ValidacoesExtencion.cs" />

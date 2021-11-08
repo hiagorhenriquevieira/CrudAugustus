@@ -24,7 +24,17 @@ namespace CrudAugustusFashion.Dao
                 using (var conexao = this.conexao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
-                    int idUsuario = conexao.ExecuteScalar<int>(insertUsuario, cliente, transacao);
+                    int idUsuario = conexao.ExecuteScalar<int>(insertUsuario, new
+                    {
+                        IdUsuario = cliente.IdUsuario,
+                        Nome = cliente.Nome,
+                        SobreNome = cliente.SobreNome,
+                        Cpf = cliente.Cpf.RemoverFormatacao(),
+                        Sexo = cliente.Sexo,
+                        DataNascimento = cliente.DataNascimento,
+                        Email = cliente.Email,
+                    }
+                            , transacao);
                     cliente.IdUsuario = idUsuario;
 
                     cliente.Endereco.IdUsuario = idUsuario;
@@ -36,7 +46,7 @@ namespace CrudAugustusFashion.Dao
                     conexao.Execute(insertEndereco, new
                     {
                         IdUsuario = cliente.Endereco.IdUsuario,
-                        Cep = cliente.Endereco.Cep.RetornarValor,
+                        Cep = cliente.Endereco.Cep.RemoverFormatacao(),
                         Cidade = cliente.Endereco.Cidade,
                         Logradouro = cliente.Endereco.Logradouro,
                         Uf = cliente.Endereco.Uf,
@@ -72,14 +82,24 @@ namespace CrudAugustusFashion.Dao
                 using (var conexao = this.conexao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
-                    conexao.Execute(updateUsuario, cliente, transacao);
+                    conexao.Execute(updateUsuario, new
+                    {
+                        IdUsuario = cliente.IdUsuario,
+                        Nome = cliente.Nome,
+                        SobreNome = cliente.SobreNome,
+                        Cpf = cliente.Cpf.RemoverFormatacao(),
+                        Sexo = cliente.Sexo,
+                        DataNascimento = cliente.DataNascimento,
+                        Email = cliente.Email,
+                    }
+                            , transacao);
 
                     conexao.Execute(updateCliente, cliente, transacao);
 
                     conexao.Execute(updateEndereco, new
                     {
                         IdUsuario = cliente.Endereco.IdUsuario,
-                        Cep = cliente.Endereco.Cep.RetornarValor,
+                        Cep = cliente.Endereco.Cep.RemoverFormatacao(),
                         Cidade = cliente.Endereco.Cidade,
                         Logradouro = cliente.Endereco.Logradouro,
                         Uf = cliente.Endereco.Uf,

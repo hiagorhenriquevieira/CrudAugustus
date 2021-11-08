@@ -24,16 +24,16 @@ namespace CrudAugustusFashion.Model.Endereco.CEPs
             return new CepValidation().Validate(this);
         }
 
-        //public string RemoverFormatacao()
-        //{
-        //    string retornarCepSemFormatacao = _valor;
+        public string RemoverFormatacao()
+        {
+            string cepSemFormatacao = _valor;
 
-        //    retornarCepSemFormatacao = new string((from c in retornarCepSemFormatacao
-        //                                           where char.IsDigit(c)
-        //                                           select c).ToArray());
+            cepSemFormatacao = new string((from c in cepSemFormatacao
+                                                   where char.IsDigit(c)
+                                                   select c).ToArray());
 
-        //    return retornarCepSemFormatacao;
-        //}
+            return cepSemFormatacao;
+        }
 
         public override string ToString()
         {

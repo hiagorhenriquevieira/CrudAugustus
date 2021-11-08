@@ -12,22 +12,6 @@ namespace CrudAugustusFashion
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmCadastroCliente_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
             
@@ -74,12 +58,6 @@ namespace CrudAugustusFashion
 
             }
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private bool ValidarCamposDeCadastroCliente()
         {
             if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNome.Text))
@@ -92,9 +70,9 @@ namespace CrudAugustusFashion
                 MessageBox.Show("Campo -Sobrenome- invalido ");
                 return false;
             }
-            else if (!ValidacoesExtencion.ValidarCpf(txtCpf.Text))
+            else if (ValidacoesExtencion.NuloOuVazio(txtCpf))
             {
-                MessageBox.Show("Campo - Cpf- Invalido");
+                MessageBox.Show("Campo - Cpf- obrigatorio");
                 return false;
             }
             else if (ValidacoesExtencion.NuloOuVazio(comboBoxSexo))
@@ -142,7 +120,7 @@ namespace CrudAugustusFashion
                 MessageBox.Show("Campo -Celular- invalido");
                 return false;
             }
-            else if (ValidacoesExtencion.NuloOuVazio(txtEmail))
+            else if (!ValidacoesExtencion.ValidarEmail(txtEmail.Text))
             {
                 MessageBox.Show("Campo -Email- invalido");
                 return false;

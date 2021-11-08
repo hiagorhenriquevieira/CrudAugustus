@@ -33,7 +33,7 @@ namespace CrudAugustusFashion.View.Alteracao
             comboBoxUf.Text = _cliente.Endereco.Uf;
             txtNumeroResidencia.Text = _cliente.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _cliente.Sexo;
-            txtCpf.Text = _cliente.Cpf;
+            txtCpf.Text = _cliente.Cpf.ToString();
             txtSobrenome.Text = _cliente.SobreNome;
             txtLimiteCompraPrazo.Text = _cliente.ValorLimite.ToString();
             txtObservacao.Text = _cliente.Observacao;

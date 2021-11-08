@@ -136,7 +136,7 @@ namespace CrudAugustusFashion.View
                 MessageBox.Show("Campo -Celular- invalido");
                 return false;
             }
-            else if (!ValidacoesExtencion.ValidarEmail(txtEmail.Text))
+            else if (ValidacoesExtencion.ValidarEmail(txtEmail.Text))
             {
                 MessageBox.Show("Campo -Email- invalido");
                 return false;

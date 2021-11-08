@@ -90,7 +90,7 @@ namespace CrudAugustusFashion.View.Alteracao
             comboBoxUf.Text = _colaboradorModel.Endereco.Uf;
             txtNumeroResidencia.Text = _colaboradorModel.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _colaboradorModel.Sexo;
-            txtCpf.Text = _colaboradorModel.Cpf;
+            txtCpf.Text = _colaboradorModel.Cpf.ToString();
             txtSobrenome.Text = _colaboradorModel.SobreNome;
             dateTimeNascimento.Value = _colaboradorModel.DataNascimento;
             txtEmail.Text = _colaboradorModel.Email;
