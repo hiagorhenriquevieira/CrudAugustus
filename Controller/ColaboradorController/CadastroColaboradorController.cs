@@ -2,6 +2,7 @@
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.View;
 using System;
+using CrudAugustusFashion.Model.Usuario;
 
 namespace CrudAugustusFashion.Controller
 {

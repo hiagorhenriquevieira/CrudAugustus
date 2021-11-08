@@ -1,5 +1,6 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Cliente;
 using System;
 using CrudAugustusFashion.View;
 
@@ -15,11 +16,20 @@ namespace CrudAugustusFashion.Controller
             _clienteDao = new ClienteDao();
         }
 
-        public void CadastrarCliente(ClienteModel clienteModel)
+        public string CadastrarCliente(ClienteModel clienteModel)
         {
             try
             {
+                var retorno = clienteModel.ValidarCliente();
+                if (retorno == string.Empty)
+                {
                 _clienteDao.CadastrarCliente(clienteModel);
+                    return string.Empty;
+                }else
+                {
+                    return retorno;     
+                }
+                
             }
             catch (Exception excecao)
             {

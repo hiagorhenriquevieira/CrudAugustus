@@ -3,6 +3,7 @@ using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CrudAugustusFashion.Model.Cliente;
 
 
 namespace CrudAugustusFashion.Dao

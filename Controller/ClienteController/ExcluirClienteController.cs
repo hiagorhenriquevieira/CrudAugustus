@@ -1,15 +1,10 @@
 ﻿using CrudAugustusFashion.Dao;
-using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Cliente;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CrudAugustusFashion.Controller
 {
-   public class ExcluirClienteController
+    public class ExcluirClienteController
     {
         private ClienteDao _clienteDao;
         public ExcluirClienteController()

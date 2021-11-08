@@ -1,8 +1,9 @@
 ﻿using CrudAugustusFashion.Controller;
-using CrudAugustusFashion.Validacoes;
 using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Validacoes;
 using System;
 using System.Windows.Forms;
+
 
 namespace CrudAugustusFashion.View
 {

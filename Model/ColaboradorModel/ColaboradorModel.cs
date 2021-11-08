@@ -1,4 +1,5 @@
-﻿
+﻿using CrudAugustusFashion.Model.Usuario; 
+
 namespace CrudAugustusFashion.Model
 {
     public class ColaboradorModel : UsuarioModel

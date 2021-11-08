@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Validacoes;
 
@@ -57,9 +57,16 @@ namespace CrudAugustusFashion
 
                 try
                 {
-                    new CadastroClienteController().CadastrarCliente(cliente);
-                    MessageBox.Show("Cliente cadastrado com sucesso.");
-                    this.Close();
+                    var retorno = new CadastroClienteController().CadastrarCliente(cliente);
+                    if (retorno == string.Empty)
+                    {
+                        MessageBox.Show("Cliente cadastrado com sucesso.");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(retorno);
+                    }
                 }catch(Exception ex)
                 {
                     MessageBox.Show("Falha ao cadastrar cliente. Erro " + ex.Message);
@@ -135,7 +142,7 @@ namespace CrudAugustusFashion
                 MessageBox.Show("Campo -Celular- invalido");
                 return false;
             }
-            else if (!ValidacoesExtencion.ValidarEmail(txtEmail.Text))
+            else if (ValidacoesExtencion.NuloOuVazio(txtEmail))
             {
                 MessageBox.Show("Campo -Email- invalido");
                 return false;

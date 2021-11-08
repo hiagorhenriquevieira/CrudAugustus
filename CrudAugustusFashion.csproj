@@ -102,9 +102,11 @@
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
+    <Compile Include="Model\ClienteModel\ClienteValidation.cs" />
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
     <Compile Include="Model\Endereco\EnderecoValidation.cs" />
+    <Compile Include="Model\UsuarioModel\UsuarioValidation.cs" />
     <Compile Include="Validacoes\ValidacoesCadastros.cs" />
     <Compile Include="Validacoes\ValidacoesExtencion.cs" />
     <Compile Include="Model\ClienteModel\ClienteListaModel.cs" />

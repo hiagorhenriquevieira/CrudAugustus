@@ -1,8 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using CrudAugustusFashion.View;
-using System.Linq;
-
 
 namespace CrudAugustusFashion.Validacoes
 {

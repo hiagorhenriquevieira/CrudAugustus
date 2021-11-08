@@ -1,8 +1,10 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.View.Alteracao;
 using System;
 using System.Collections.Generic;
+
 
 
 namespace CrudAugustusFashion.Controller
