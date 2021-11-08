@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Dao"
+    "\\View",
+    "\\View\\Lista"
   ],
-  "SelectedNode": "\\Dao\\ClienteDao.cs",
+  "SelectedNode": "\\View\\Lista\\ListaCliente.cs",
   "PreviewInSolutionExplorer": false
 }
