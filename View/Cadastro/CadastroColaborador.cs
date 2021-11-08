@@ -25,8 +25,8 @@ namespace CrudAugustusFashion.View
             {
             var colaborador = new ColaboradorModel();
 
-            colaborador.Nome = txtNome.Text;
-            colaborador.SobreNome = txtSobrenome.Text;
+            colaborador.NomeCompleto.Nome = txtNome.Text;
+            colaborador.NomeCompleto.SobreNome = txtSobrenome.Text;
             colaborador.Cpf = txtCpf.Text;
             colaborador.Sexo = comboBoxSexo.Text;
             colaborador.Email = txtEmail.Text;

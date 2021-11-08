@@ -28,8 +28,8 @@ namespace CrudAugustusFashion.Dao
                     int id = con.ExecuteScalar<int>(insertUsuario, new
                     {
                         IdUsuario = colaborador.IdUsuario,
-                        Nome = colaborador.Nome,
-                        SobreNome = colaborador.SobreNome,
+                        Nome = colaborador.NomeCompleto.Nome,
+                        SobreNome = colaborador.NomeCompleto.SobreNome,
                         Cpf = colaborador.Cpf.RemoverFormatacao(),
                         Sexo = colaborador.Sexo,
                         DataNascimento = colaborador.DataNascimento,
@@ -92,8 +92,8 @@ namespace CrudAugustusFashion.Dao
                     con.Execute(updateUsuario, new
                     {
                         IdUsuario = colaborador.IdUsuario,
-                        Nome = colaborador.Nome,
-                        SobreNome = colaborador.SobreNome,
+                        Nome = colaborador.NomeCompleto.Nome,
+                        SobreNome = colaborador.NomeCompleto.SobreNome,
                         Cpf = colaborador.Cpf.RemoverFormatacao(),
                         Sexo = colaborador.Sexo,
                         DataNascimento = colaborador.DataNascimento,

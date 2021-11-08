@@ -1,6 +1,7 @@
 ﻿using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Cliente;
+using CrudAugustusFashion.Model.Usuario;
 using System;
 using System.Windows.Forms;
 
@@ -24,7 +25,7 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             txtIdUsuario.Text = _cliente.IdUsuario.ToString();
             txtIdCliente.Text = _cliente.IdCliente.ToString();
-            txtNome.Text = _cliente.Nome;
+            txtNome.Text = _cliente.NomeCompleto.Nome.ToString();
             txtLogradouro.Text = _cliente.Endereco.Logradouro;
             txtBairro.Text = _cliente.Endereco.Bairro;
             txtCep.Text = _cliente.Endereco.Cep.ToString();
@@ -34,7 +35,7 @@ namespace CrudAugustusFashion.View.Alteracao
             txtNumeroResidencia.Text = _cliente.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _cliente.Sexo;
             txtCpf.Text = _cliente.Cpf.ToString();
-            txtSobrenome.Text = _cliente.SobreNome;
+            txtSobrenome.Text = _cliente.NomeCompleto.SobreNome.ToString();
             txtLimiteCompraPrazo.Text = _cliente.ValorLimite.ToString();
             txtObservacao.Text = _cliente.Observacao;
             dateTimeNascimento.Value = _cliente.DataNascimento;
@@ -82,8 +83,8 @@ namespace CrudAugustusFashion.View.Alteracao
             var cliente = new ClienteModel();
             cliente.IdCliente = int.Parse(txtIdCliente.Text);
             cliente.IdUsuario = int.Parse(txtIdUsuario.Text);
-            cliente.Nome = txtNome.Text;
-            cliente.SobreNome = txtSobrenome.Text;
+            cliente.NomeCompleto.Nome = txtNome.Text;
+            cliente.NomeCompleto.SobreNome = txtSobrenome.Text;
             cliente.Cpf = txtCpf.Text;
             cliente.Sexo = comboBoxSexo.Text;
             cliente.DataNascimento = dateTimeNascimento.Value;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using CrudAugustusFashion.Model.Cliente;
+using CrudAugustusFashion.Model.Usuario;
 using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Validacoes;
 
@@ -18,9 +19,8 @@ namespace CrudAugustusFashion
             if (ValidarCamposDeCadastroCliente())
             {
                 var cliente = new ClienteModel();
-
-            cliente.Nome = txtNome.Text;
-            cliente.SobreNome = txtSobrenome.Text;
+            cliente.NomeCompleto.Nome = txtNome.Text;
+            cliente.NomeCompleto.SobreNome = txtSobrenome.Text;
             cliente.Cpf = txtCpf.Text;
             cliente.Sexo = comboBoxSexo.Text;
             cliente.DataNascimento = dateTimeNascimento.Value;

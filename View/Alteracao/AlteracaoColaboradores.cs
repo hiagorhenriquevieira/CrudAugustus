@@ -2,15 +2,8 @@
 using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CrudAugustusFashion.Model.Usuario;
 namespace CrudAugustusFashion.View.Alteracao
 {
     public partial class FrmAlteracaoColaboradores : Form
@@ -36,8 +29,8 @@ namespace CrudAugustusFashion.View.Alteracao
             var colaborador = new ColaboradorModel();
             colaborador.IdColaborador = int.Parse(txtIdColaborador.Text);
             colaborador.IdUsuario = int.Parse(txtIdUsuario.Text);
-            colaborador.Nome = txtNome.Text;
-            colaborador.SobreNome = txtSobrenome.Text;
+            colaborador.NomeCompleto.Nome = txtNome.Text;
+            colaborador.NomeCompleto.SobreNome = txtSobrenome.Text;
             colaborador.Cpf = txtCpf.Text;
             colaborador.Sexo = comboBoxSexo.Text;
             colaborador.Email = txtEmail.Text;
@@ -81,7 +74,7 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             txtIdColaborador.Text = _colaboradorModel.IdColaborador.ToString();
             txtIdUsuario.Text = _colaboradorModel.IdUsuario.ToString();
-            txtNome.Text = _colaboradorModel.Nome;
+            txtNome.Text = _colaboradorModel.NomeCompleto.Nome.ToString();
             txtLogradouro.Text = _colaboradorModel.Endereco.Logradouro;
             txtBairro.Text = _colaboradorModel.Endereco.Bairro;
             txtCep.Text = _colaboradorModel.Endereco.Cep.ToString();
@@ -91,7 +84,7 @@ namespace CrudAugustusFashion.View.Alteracao
             txtNumeroResidencia.Text = _colaboradorModel.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _colaboradorModel.Sexo;
             txtCpf.Text = _colaboradorModel.Cpf.ToString();
-            txtSobrenome.Text = _colaboradorModel.SobreNome;
+            txtSobrenome.Text = _colaboradorModel.NomeCompleto.SobreNome.ToString();
             dateTimeNascimento.Value = _colaboradorModel.DataNascimento;
             txtEmail.Text = _colaboradorModel.Email;
             maskBoxTelefone.Text = _colaboradorModel.Telefone.Telefone;

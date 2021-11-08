@@ -5,8 +5,7 @@ namespace CrudAugustusFashion.Model.Usuario
     public abstract class UsuarioModel
     {
         public int IdUsuario { get; set; }
-        public string Nome { get; set; }
-        public string SobreNome { get; set; }
+        public NomeCompleto NomeCompleto { get; set; }
         public Cpf Cpf { get; set; }
         public string Sexo { get; set; }
         public DateTime DataNascimento { get; set; }
@@ -18,6 +17,7 @@ namespace CrudAugustusFashion.Model.Usuario
         {
             Endereco = new EnderecoModel();
             Telefone = new TelefoneModel();
+            NomeCompleto = new NomeCompleto();
         }
     }
 }

@@ -27,8 +27,8 @@ namespace CrudAugustusFashion.Dao
                     int idUsuario = conexao.ExecuteScalar<int>(insertUsuario, new
                     {
                         IdUsuario = cliente.IdUsuario,
-                        Nome = cliente.Nome,
-                        SobreNome = cliente.SobreNome,
+                        Nome = cliente.NomeCompleto.Nome,
+                        SobreNome = cliente.NomeCompleto.SobreNome,
                         Cpf = cliente.Cpf.RemoverFormatacao(),
                         Sexo = cliente.Sexo,
                         DataNascimento = cliente.DataNascimento,
@@ -85,8 +85,8 @@ namespace CrudAugustusFashion.Dao
                     conexao.Execute(updateUsuario, new
                     {
                         IdUsuario = cliente.IdUsuario,
-                        Nome = cliente.Nome,
-                        SobreNome = cliente.SobreNome,
+                        Nome = cliente.NomeCompleto.Nome,
+                        SobreNome = cliente.NomeCompleto.SobreNome,
                         Cpf = cliente.Cpf.RemoverFormatacao(),
                         Sexo = cliente.Sexo,
                         DataNascimento = cliente.DataNascimento,
