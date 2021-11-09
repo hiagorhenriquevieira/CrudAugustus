@@ -1,9 +1,6 @@
 ﻿using FluentValidation.Results;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Model.Usuario
 {
@@ -12,7 +9,8 @@ namespace CrudAugustusFashion.Model.Usuario
         private string _valor;
 
         public string RetornarValor { get => _valor; }
-        public string RetornarComFormatacao { get => Convert.ToInt64(_valor).ToString(@"000.000.000-00");  }
+
+        public string RetornarComFormatacao { get => Convert.ToInt64(_valor).ToString(@"000.000.000-00"); }
 
         public Cpf(string valor)
         {
@@ -23,13 +21,6 @@ namespace CrudAugustusFashion.Model.Usuario
         {
             return new CpfValidation().Validate(this);
         }
-
-        public override string ToString()
-        {
-            return _valor;
-        }
-
-        public static implicit operator Cpf(string valor) => new Cpf(valor);
 
 
         public string RemoverFormatacao()
@@ -42,5 +33,11 @@ namespace CrudAugustusFashion.Model.Usuario
 
             return cpfSemFormatacao;
         }
+        public override string ToString()
+        {
+            return _valor;
+        }
+        
+        public static implicit operator Cpf(string valor) => new Cpf(valor);
     }
 }

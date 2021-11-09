@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CrudAugustusFashion.Model.Cliente;
-
+using CrudAugustusFashion.Model.Usuario;
 
 namespace CrudAugustusFashion.Dao
 {
@@ -121,8 +121,9 @@ namespace CrudAugustusFashion.Dao
 
         public List<ClienteListaModel> ListarClientes()
         {
-            var sqlSelect = @"select c.IdCliente, c.Observacao, c.ValorLimite,
-                            c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+            var sqlSelect = @"select c.IdCliente, c.IdUsuario, c.Observacao, c.ValorLimite,
+                            u.IdUsuario, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                            c.IdUsuario, u.Nome, u.SobreNome, 
                             c.IdUsuario, t.IdTelefone, t.Telefone, t.Celular, 
                             c.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
                             from
@@ -136,7 +137,8 @@ namespace CrudAugustusFashion.Dao
                 {
                     return conexao.Query(
                         sqlSelect,
-                        (ClienteListaModel clienteListaModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel),
+                        (ClienteListaModel clienteListaModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
+                        => MapearListaCliente(clienteListaModel, nomeCompleto, telefoneModel, enderecoModel),
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -149,16 +151,17 @@ namespace CrudAugustusFashion.Dao
 
         }
 
-        private ClienteListaModel MapearListaCliente(ClienteListaModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
+        private ClienteListaModel MapearListaCliente(ClienteListaModel clienteModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
         {
+            clienteModel.NomeCompleto = nomeCompleto;
             clienteModel.Telefone = telefoneModel;
             clienteModel.Endereco = enderecoModel;
             return clienteModel;
         }
 
-        private ClienteModel MapearCliente(ClienteModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
+        private ClienteModel MapearCliente(ClienteModel clienteModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
         {
-
+            clienteModel.NomeCompleto = nomeCompleto;
             clienteModel.Telefone = telefoneModel;
             clienteModel.Endereco = enderecoModel;
             return clienteModel;
@@ -168,7 +171,8 @@ namespace CrudAugustusFashion.Dao
         {
 
             var selectNomeCliente = @"select c.IdCliente, c.Observacao, c.ValorLimite,
-                            c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                            c.IdUsuario, u.IdUsuario, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                            c.IdUsuario, u.Nome, u.SobreNome,
                             c.IdUsuario, t.IdTelefone, t.Telefone, t.Celular, 
                             c.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
                             from
@@ -183,7 +187,8 @@ namespace CrudAugustusFashion.Dao
                 {
                     return conexao.Query(
                         selectNomeCliente,
-                        (ClienteListaModel clienteListaModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel) => MapearListaCliente(clienteListaModel, telefoneModel, enderecoModel), new { Nome = nome },
+                        (ClienteListaModel clienteListaModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel) 
+                        => MapearListaCliente(clienteListaModel, nomeCompleto, telefoneModel, enderecoModel), new { Nome = nome },
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -252,7 +257,8 @@ namespace CrudAugustusFashion.Dao
             int idUsuario = RecuperarIdUsuario(idCliente);
 
             var selectUsuario = @"select c.IdCliente, c.Observacao, c.ValorLimite,
-                            c.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                            c.IdUsuario, u.IdUsuario, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                            c.IdUsuario, u.Nome, u.SobreNome,
                             c.IdUsuario, t.IdTelefone, t.Telefone, t.Celular, 
                             c.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia
                             from
@@ -266,7 +272,8 @@ namespace CrudAugustusFashion.Dao
                 {
                     return conexao.Query(
                         selectUsuario,
-                        (ClienteModel clienteModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel) => MapearCliente(clienteModel, telefoneModel, enderecoModel),
+                        (ClienteModel clienteModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel) 
+                        => MapearCliente(clienteModel, nomeCompleto, telefoneModel, enderecoModel),
                         new { IdUsuario = idUsuario },
                         splitOn: "IdUsuario"
                         ).FirstOrDefault();

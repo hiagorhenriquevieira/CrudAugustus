@@ -8,7 +8,7 @@ namespace CrudAugustusFashion.Model
 
 
         public int IdCliente { get; set; }
-        public NomeCompleto Nome { get; set; }
+        public NomeCompleto NomeCompleto { get; set; }
         public string Sexo { get; set; }
         public int Idade { get; set; }
         public DateTime DataNascimento { get; set; }

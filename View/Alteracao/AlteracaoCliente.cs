@@ -22,7 +22,8 @@ namespace CrudAugustusFashion.View.Alteracao
         }
 
         private void PreencherCamposComCliente()
-        {           
+        {
+           
             txtIdUsuario.Text = _cliente.IdUsuario.ToString();
             txtIdCliente.Text = _cliente.IdCliente.ToString();
             txtNome.Text = _cliente.NomeCompleto.Nome;
@@ -35,14 +36,13 @@ namespace CrudAugustusFashion.View.Alteracao
             comboBoxUf.Text = _cliente.Endereco.Uf;
             txtNumeroResidencia.Text = _cliente.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _cliente.Sexo;
-            txtCpf.Text = _cliente.Cpf.ToString();
-            txtSobrenome.Text = _cliente.NomeCompleto.SobreNome.ToString();
             txtLimiteCompraPrazo.Text = _cliente.ValorLimite.ToString();
             txtObservacao.Text = _cliente.Observacao;
-            dateTimeNascimento.Value = _cliente.DataNascimento;
             txtEmail.Text = _cliente.Email;
             maskBoxTelefone.Text = _cliente.Telefone.Telefone;
-            maskBoxCelular.Text = _cliente.Telefone.Celular;
+            maskBoxCelular.Text = _cliente.Telefone.Celular; 
+            txtCpf.Text = _cliente.Cpf.ToString();
+            dateTimeNascimento.Value = _cliente.DataNascimento;
         }
 
         private void FrmAlteracaoCliente_Load(object sender, EventArgs e)
@@ -108,10 +108,18 @@ namespace CrudAugustusFashion.View.Alteracao
 
             try
             {
-                new AlteracaoClienteController().AlterarCliente(cliente);
+                var retorno = new AlteracaoClienteController().AlterarCliente(cliente);
+                if(retorno == string.Empty)
+                {
                 MessageBox.Show("Cliente alterado com sucesso.");
                 this.Close();
-            }catch(Exception ex)
+                }
+                else
+                {
+                    MessageBox.Show(retorno);
+                }
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show("Cliente não pode ser alterado. Erro " + ex.Message);
             }

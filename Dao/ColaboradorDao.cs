@@ -94,7 +94,7 @@ namespace CrudAugustusFashion.Dao
                         IdUsuario = colaborador.IdUsuario,
                         Nome = colaborador.NomeCompleto.Nome,
                         SobreNome = colaborador.NomeCompleto.SobreNome,
-                        Cpf = colaborador.Cpf.RemoverFormatacao(),
+                        Cpf = colaborador.Cpf.ToString(),
                         Sexo = colaborador.Sexo,
                         DataNascimento = colaborador.DataNascimento,
                         Email = colaborador.Email,
