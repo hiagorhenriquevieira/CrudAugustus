@@ -55,7 +55,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtNumeroResidencia = new System.Windows.Forms.TextBox();
             this.txtLogradouro = new System.Windows.Forms.TextBox();
             this.txtComplemento = new System.Windows.Forms.TextBox();
-            this.txtCep = new System.Windows.Forms.TextBox();
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -83,6 +82,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtBanco = new System.Windows.Forms.TextBox();
             this.btnAlteracaoCliente = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -140,6 +140,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtCep);
             this.groupBox2.Controls.Add(this.txtIdColaborador);
             this.groupBox2.Controls.Add(this.txtIdUsuario);
             this.groupBox2.Controls.Add(this.comboBoxUf);
@@ -160,7 +161,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.groupBox2.Controls.Add(this.txtNumeroResidencia);
             this.groupBox2.Controls.Add(this.txtLogradouro);
             this.groupBox2.Controls.Add(this.txtComplemento);
-            this.groupBox2.Controls.Add(this.txtCep);
             this.groupBox2.Controls.Add(this.txtBairro);
             this.groupBox2.Controls.Add(this.txtCidade);
             this.groupBox2.Controls.Add(this.txtNome);
@@ -295,7 +295,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtCpf.AccessibleName = "";
             this.txtCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.Location = new System.Drawing.Point(490, 84);
-            this.txtCpf.Mask = "00000000000";
+            this.txtCpf.Mask = "000,000,000-00";
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(163, 29);
             this.txtCpf.TabIndex = 3;
@@ -403,15 +403,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(236, 29);
             this.txtComplemento.TabIndex = 9;
-            // 
-            // txtCep
-            // 
-            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCep.Location = new System.Drawing.Point(490, 144);
-            this.txtCep.MaxLength = 8;
-            this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(163, 29);
-            this.txtCep.TabIndex = 7;
             // 
             // txtBairro
             // 
@@ -681,6 +672,16 @@ namespace CrudAugustusFashion.View.Alteracao
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // txtCep
+            // 
+            this.txtCep.AccessibleName = "";
+            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCep.Location = new System.Drawing.Point(490, 144);
+            this.txtCep.Mask = "00000-000";
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(163, 29);
+            this.txtCep.TabIndex = 126;
+            // 
             // FrmAlteracaoColaboradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -731,7 +732,6 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.TextBox txtNumeroResidencia;
         private System.Windows.Forms.TextBox txtLogradouro;
         private System.Windows.Forms.TextBox txtComplemento;
-        private System.Windows.Forms.TextBox txtCep;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtNome;
@@ -761,5 +761,6 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox txtIdColaborador;
         private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.MaskedTextBox txtCep;
     }
 }
