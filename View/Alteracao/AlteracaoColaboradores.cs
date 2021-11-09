@@ -74,7 +74,7 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             txtIdColaborador.Text = _colaboradorModel.IdColaborador.ToString();
             txtIdUsuario.Text = _colaboradorModel.IdUsuario.ToString();
-            txtNome.Text = _colaboradorModel.NomeCompleto.Nome.ToString();
+            txtNome.Text = _colaboradorModel.NomeCompleto.Nome;
             txtLogradouro.Text = _colaboradorModel.Endereco.Logradouro;
             txtBairro.Text = _colaboradorModel.Endereco.Bairro;
             txtCep.Text = _colaboradorModel.Endereco.Cep.ToString();
@@ -84,7 +84,7 @@ namespace CrudAugustusFashion.View.Alteracao
             txtNumeroResidencia.Text = _colaboradorModel.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _colaboradorModel.Sexo;
             txtCpf.Text = _colaboradorModel.Cpf.ToString();
-            txtSobrenome.Text = _colaboradorModel.NomeCompleto.SobreNome.ToString();
+            txtSobrenome.Text = _colaboradorModel.NomeCompleto.SobreNome;
             dateTimeNascimento.Value = _colaboradorModel.DataNascimento;
             txtEmail.Text = _colaboradorModel.Email;
             maskBoxTelefone.Text = _colaboradorModel.Telefone.Telefone;

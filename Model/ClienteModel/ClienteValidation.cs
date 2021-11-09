@@ -8,6 +8,7 @@ namespace CrudAugustusFashion.Model.Cliente
         public ClienteValidation()
         {
             RuleFor(x => x).SetValidator(new UsuarioValidation());
+            
         }
     }
 }

@@ -86,7 +86,7 @@ namespace CrudAugustusFashion.View
                 MessageBox.Show("Campo -Sobrenome- invalido ");
                 return false;
             }
-            else if (!ValidacoesExtencion.ValidarCpf(txtCpf.Text))
+            else if (ValidacoesExtencion.NuloOuVazio(txtCpf))
             {
                 MessageBox.Show("Campo -Cpf- Invalido");
                 return false;
@@ -136,7 +136,7 @@ namespace CrudAugustusFashion.View
                 MessageBox.Show("Campo -Celular- invalido");
                 return false;
             }
-            else if (ValidacoesExtencion.ValidarEmail(txtEmail.Text))
+            else if (!ValidacoesExtencion.ValidarEmail(txtEmail.Text))
             {
                 MessageBox.Show("Campo -Email- invalido");
                 return false;

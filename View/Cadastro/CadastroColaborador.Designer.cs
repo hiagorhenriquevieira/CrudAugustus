@@ -66,13 +66,13 @@ namespace CrudAugustusFashion.View
             this.txtSobrenome = new System.Windows.Forms.TextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxUf = new System.Windows.Forms.ComboBox();
             this.comboBoxSexo = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -107,7 +107,6 @@ namespace CrudAugustusFashion.View
             this.label13.Size = new System.Drawing.Size(86, 25);
             this.label13.TabIndex = 75;
             this.label13.Text = "Salario";
-            
             // 
             // label10
             // 
@@ -147,7 +146,6 @@ namespace CrudAugustusFashion.View
             this.label18.Size = new System.Drawing.Size(97, 25);
             this.label18.TabIndex = 98;
             this.label18.Text = "Agência";
-            
             // 
             // label20
             // 
@@ -387,7 +385,6 @@ namespace CrudAugustusFashion.View
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(204, 29);
             this.txtBairro.TabIndex = 6;
-            
             // 
             // txtComplemento
             // 
@@ -498,7 +495,7 @@ namespace CrudAugustusFashion.View
             this.txtCpf.AccessibleName = "";
             this.txtCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.Location = new System.Drawing.Point(490, 84);
-            this.txtCpf.Mask = "00000000000";
+            this.txtCpf.Mask = "000,000,000-00";
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(163, 29);
             this.txtCpf.TabIndex = 3;
@@ -545,6 +542,16 @@ namespace CrudAugustusFashion.View
             this.groupBox2.TabIndex = 115;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // txtCep
+            // 
+            this.txtCep.AccessibleName = "";
+            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCep.Location = new System.Drawing.Point(490, 144);
+            this.txtCep.Mask = "00000-000";
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(163, 29);
+            this.txtCep.TabIndex = 7;
             // 
             // comboBoxUf
             // 
@@ -636,16 +643,6 @@ namespace CrudAugustusFashion.View
             this.label28.Size = new System.Drawing.Size(70, 25);
             this.label28.TabIndex = 118;
             this.label28.Text = "Email";
-            // 
-            // txtCep
-            // 
-            this.txtCep.AccessibleName = "";
-            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCep.Location = new System.Drawing.Point(490, 144);
-            this.txtCep.Mask = "00000000";
-            this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(163, 29);
-            this.txtCep.TabIndex = 7;
             // 
             // FrmCadastroColaborador
             // 

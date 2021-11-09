@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Usuario;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -94,7 +95,7 @@ namespace CrudAugustusFashion.Dao
                         IdUsuario = colaborador.IdUsuario,
                         Nome = colaborador.NomeCompleto.Nome,
                         SobreNome = colaborador.NomeCompleto.SobreNome,
-                        Cpf = colaborador.Cpf.ToString(),
+                        Cpf = colaborador.Cpf.RemoverFormatacao(),
                         Sexo = colaborador.Sexo,
                         DataNascimento = colaborador.DataNascimento,
                         Email = colaborador.Email,
@@ -133,7 +134,8 @@ namespace CrudAugustusFashion.Dao
         public List<ColaboradorListaModel> ListarColaboradores()
         {
             var sqlSelect = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
-                        co.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                        co.IdUsuario, u.IdUsuario, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                        co.IdUsuario, u.Nome, u.SobreNome,
                         co.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
                         co.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia,
                         co.IdUsuario, cb.IdContaBancaria, cb.Conta, cb.Agencia, cb.Banco, cb.Tipoconta
@@ -147,9 +149,9 @@ namespace CrudAugustusFashion.Dao
             {
                 using (var con = conexao.conectar())
                 {
-                    return con.Query<ColaboradorListaModel, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
+                    return con.Query<ColaboradorListaModel, NomeCompleto, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
                         sqlSelect,
-                        (colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearListaColaborador(colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel),
+                        (colaboradorListaModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel) => MapearListaColaborador(colaboradorListaModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel),
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -162,14 +164,16 @@ namespace CrudAugustusFashion.Dao
             
         }
 
-        private ColaboradorListaModel MapearListaColaborador(ColaboradorListaModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
+        private ColaboradorListaModel MapearListaColaborador(ColaboradorListaModel colaboradorModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
         {
+            colaboradorModel.NomeCompleto = nomeCompleto;
             colaboradorModel.Telefone = telefoneModel;
             colaboradorModel.Endereco = enderecoModel;
             return colaboradorModel;
         }
-        private ColaboradorModel MapearColaborador(ColaboradorModel colaboradorModel, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel )
+        private ColaboradorModel MapearColaborador(ColaboradorModel colaboradorModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel )
         {
+            colaboradorModel.NomeCompleto = nomeCompleto;
             colaboradorModel.ContasBancarias = contaBancariaModel;
             colaboradorModel.Telefone = telefoneModel;
             colaboradorModel.Endereco = enderecoModel;
@@ -178,7 +182,8 @@ namespace CrudAugustusFashion.Dao
         public List<ColaboradorListaModel> BuscarListaColaborador(string nome)
         {
             var selectNomeColaborador = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
-                        co.IdUsuario, u.IdUsuario,  u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                        co.IdUsuario, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                        co.IdUsuario, u.Nome, u.SobreNome,
                         co.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
                         co.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia,
                         co.IdUsuario, cb.IdContaBancaria, cb.Conta, cb.Agencia, cb.Banco, cb.Tipoconta
@@ -192,9 +197,10 @@ namespace CrudAugustusFashion.Dao
             {
                 using (var con = conexao.conectar())
                 {
-                    return con.Query<ColaboradorListaModel, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
+                    return con.Query<ColaboradorListaModel, NomeCompleto, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
                         selectNomeColaborador,
-                        (colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearListaColaborador(colaboradorListaModel, telefoneModel, enderecoModel, contaBancariaModel),
+                        (colaboradorListaModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel)
+                        => MapearListaColaborador(colaboradorListaModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel),
                         new { Nome = nome },
                         splitOn: "IdUsuario"
                         ).ToList();
@@ -263,8 +269,9 @@ namespace CrudAugustusFashion.Dao
         {
             int idUsuario = RecuperarIdColaborador(idColaborador);
 
-            var selectColaborador = @"select co.IdColaborador, co.IdUsuario, co.Salario, co.PorcentagemComissao,
-                        u.Nome, u.SobreNome, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+            var selectColaborador = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
+                        co.IdUsuario, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
+                        co.IdUsuario, u.Nome, u.SobreNome,
                         co.IdUsuario, t.IdTelefone, t.Celular, t.Telefone, 
                         co.IdUsuario, e.IdEndereco, e.Cidade, e.Bairro, e.Cep, e.Uf, e.Complemento, e.Logradouro, e.NumeroResidencia,
                         co.IdUsuario, cb.IdContaBancaria, cb.Conta, cb.Agencia, cb.Banco, cb.Tipoconta
@@ -278,9 +285,10 @@ namespace CrudAugustusFashion.Dao
             {
                 using (var con = conexao.conectar())
                 {
-                    return con.Query<ColaboradorModel, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorModel >(
+                    return con.Query<ColaboradorModel, NomeCompleto, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorModel >(
                         selectColaborador,
-                        (colaboradorModel, telefoneModel, enderecoModel, contaBancariaModel) => MapearColaborador(colaboradorModel, telefoneModel, enderecoModel, contaBancariaModel ),
+                        (colaboradorModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel) 
+                        => MapearColaborador(colaboradorModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel ),
                         new { IdColaborador = idColaborador },
                         splitOn: "IdUsuario"
                         ).FirstOrDefault();

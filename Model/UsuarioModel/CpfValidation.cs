@@ -7,8 +7,7 @@ namespace CrudAugustusFashion.Model.Usuario
     {
         public CpfValidation()
         {
-            RuleFor(x => x.ToString()).NotNull().NotEmpty().WithMessage("Cpf não pode ser nulo ou vazio.");
-            RuleFor(x => x.ToString()).Length(11).WithMessage("Cpf deve ter 11 números.");
+            RuleFor(x => x.ToString()).Length(14).WithMessage("Cpf deve ter 11 números.");
             RuleFor(x => x.ToString()).Must(ValidarSeNumerosNaoSaoIguais).WithMessage("Cpf não pode ser tudo igual.");
         }
 

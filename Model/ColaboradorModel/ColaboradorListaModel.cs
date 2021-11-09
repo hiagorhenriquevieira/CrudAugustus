@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrudAugustusFashion.Model.Usuario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,8 +11,7 @@ namespace CrudAugustusFashion.Model
     public class ColaboradorListaModel
     {
         public int IdColaborador { get; set; }
-        public string Nome { get; set; }
-        public string SobreNome { get; set; }
+        public NomeCompleto NomeCompleto { get; set; }
         public string Sexo { get; set; }
         public int Idade { get; set; }
         public DateTime DataNascimento { get; set; }

@@ -246,7 +246,6 @@ namespace CrudAugustusFashion
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(236, 29);
             this.txtNome.TabIndex = 1;
-            
             // 
             // txtCidade
             // 
@@ -363,9 +362,9 @@ namespace CrudAugustusFashion
             this.txtCpf.AccessibleName = "";
             this.txtCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.Location = new System.Drawing.Point(470, 108);
-            this.txtCpf.Mask = "00000000000";
+            this.txtCpf.Mask = "000,000,000-00";
             this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(137, 29);
+            this.txtCpf.Size = new System.Drawing.Size(138, 29);
             this.txtCpf.TabIndex = 3;
             // 
             // btnCadastrarCliente
@@ -460,14 +459,13 @@ namespace CrudAugustusFashion
             this.groupBox1.Size = new System.Drawing.Size(793, 542);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            
             // 
             // txtCep
             // 
             this.txtCep.AccessibleName = "";
             this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCep.Location = new System.Drawing.Point(470, 168);
-            this.txtCep.Mask = "00000000";
+            this.txtCep.Mask = "00000-000";
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(136, 29);
             this.txtCep.TabIndex = 7;

@@ -5,8 +5,6 @@ namespace CrudAugustusFashion.Model
 {
     public class ClienteListaModel
     {
-
-
         public int IdCliente { get; set; }
         public NomeCompleto NomeCompleto { get; set; }
         public string Sexo { get; set; }
