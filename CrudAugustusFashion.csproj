@@ -107,6 +107,7 @@
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
     <Compile Include="Model\Endereco\EnderecoValidation.cs" />
+    <Compile Include="Model\Produto\ProdutoModel.cs" />
     <Compile Include="Model\TelefoneModel\TelefoneValidation.cs" />
     <Compile Include="Model\UsuarioModel\Cpf.cs" />
     <Compile Include="Model\UsuarioModel\CpfValidation.cs" />

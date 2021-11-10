@@ -11,5 +11,6 @@ namespace CrudAugustusFashion.Controller.ProdutoController
             frmCadastroProduto.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmCadastroProduto.Show();
         }
+
     }
 }
