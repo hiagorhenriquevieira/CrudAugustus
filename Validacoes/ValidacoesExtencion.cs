@@ -5,6 +5,18 @@ namespace CrudAugustusFashion.Validacoes
 {
     public static class ValidacoesExtencion
     {
+        public static float ToFloat(this string value)
+        {
+            try
+            {
+                return float.Parse(value);
+            }
+            catch
+            {
+                return 0f;
+            }
+        }
+
         public static bool NuloOuVazio(this TextBox textoBox) =>
             string.IsNullOrEmpty(textoBox.Text);
 

@@ -32,7 +32,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.txtPrecoVenda = new System.Windows.Forms.TextBox();
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
-            this.txtPreçoCusto = new System.Windows.Forms.TextBox();
+            this.txtPrecoCusto = new System.Windows.Forms.TextBox();
             this.txtEstoque = new System.Windows.Forms.TextBox();
             this.txtNomeFabricante = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,13 +73,13 @@ namespace CrudAugustusFashion.View.Cadastro
             this.txtCodigoBarras.Size = new System.Drawing.Size(363, 29);
             this.txtCodigoBarras.TabIndex = 5;
             // 
-            // txtPreçoCusto
+            // txtPrecoCusto
             // 
-            this.txtPreçoCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPreçoCusto.Location = new System.Drawing.Point(246, 398);
-            this.txtPreçoCusto.Name = "txtPreçoCusto";
-            this.txtPreçoCusto.Size = new System.Drawing.Size(165, 29);
-            this.txtPreçoCusto.TabIndex = 6;
+            this.txtPrecoCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecoCusto.Location = new System.Drawing.Point(246, 398);
+            this.txtPrecoCusto.Name = "txtPrecoCusto";
+            this.txtPrecoCusto.Size = new System.Drawing.Size(165, 29);
+            this.txtPrecoCusto.TabIndex = 6;
             // 
             // txtEstoque
             // 
@@ -194,6 +194,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.buttonCadastrarProduto.TabIndex = 21;
             this.buttonCadastrarProduto.Text = "Cadastrar";
             this.buttonCadastrarProduto.UseVisualStyleBackColor = true;
+            this.buttonCadastrarProduto.Click += new System.EventHandler(this.buttonCadastrarProduto_Click);
             // 
             // buttonCalcularPrecoProduto
             // 
@@ -204,6 +205,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.buttonCalcularPrecoProduto.TabIndex = 22;
             this.buttonCalcularPrecoProduto.Text = "Calcular preço ";
             this.buttonCalcularPrecoProduto.UseVisualStyleBackColor = true;
+            this.buttonCalcularPrecoProduto.Click += new System.EventHandler(this.buttonCalcularPrecoProduto_Click);
             // 
             // FrmCadastroProduto
             // 
@@ -224,7 +226,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.Controls.Add(this.txtNomeFabricante);
             this.Controls.Add(this.txtPorcentagemLucro);
             this.Controls.Add(this.txtEstoque);
-            this.Controls.Add(this.txtPreçoCusto);
+            this.Controls.Add(this.txtPrecoCusto);
             this.Controls.Add(this.txtCodigoBarras);
             this.Controls.Add(this.txtPrecoVenda);
             this.Controls.Add(this.txtNomeProduto);
@@ -240,7 +242,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private System.Windows.Forms.TextBox txtNomeProduto;
         private System.Windows.Forms.TextBox txtPrecoVenda;
         private System.Windows.Forms.TextBox txtCodigoBarras;
-        private System.Windows.Forms.TextBox txtPreçoCusto;
+        private System.Windows.Forms.TextBox txtPrecoCusto;
         private System.Windows.Forms.TextBox txtEstoque;
         private System.Windows.Forms.TextBox txtNomeFabricante;
         private System.Windows.Forms.Label label1;

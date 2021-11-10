@@ -103,6 +103,7 @@
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
+    <Compile Include="Dao\ProdutoDao.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
