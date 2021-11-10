@@ -173,3 +173,4 @@ C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\bin\Debug\System.Memo
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.csproj.CopyComplete
+C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Cadastro.FrmCadastroProduto.resources

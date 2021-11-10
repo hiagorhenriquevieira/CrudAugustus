@@ -99,6 +99,7 @@
     <Compile Include="Controller\ClienteController\CadastroClienteController.cs" />
     <Compile Include="Controller\ClienteController\ExcluirClienteController.cs" />
     <Compile Include="Controller\ColaboradorController\ExcluirColaboradorController.cs" />
+    <Compile Include="Controller\ProdutoController\CadastroProdutoController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
@@ -148,6 +149,12 @@
     <Compile Include="View\Cadastro\CadastroColaborador.Designer.cs">
       <DependentUpon>CadastroColaborador.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Cadastro\CadastroProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastro\CadastroProduto.Designer.cs">
+      <DependentUpon>CadastroProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Lista\ListaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cadastro\CadastroColaborador.resx">
       <DependentUpon>CadastroColaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cadastro\CadastroProduto.resx">
+      <DependentUpon>CadastroProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Lista\ListaCliente.resx">
       <DependentUpon>ListaCliente.cs</DependentUpon>

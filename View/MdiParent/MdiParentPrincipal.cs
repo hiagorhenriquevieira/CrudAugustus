@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Controller;
+using CrudAugustusFashion.Controller.ProdutoController;
 using CrudAugustusFashion.View.Alteracao;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,14 @@ namespace CrudAugustusFashion.View
         private int childFormNumber = 0;
         private CadastroColaboradorController _cadastroColaboradorController;
         private CadastroClienteController _cadastroClienteController;
+        private CadastroProdutoController _cadastroProdutoController;
+
         public MdiParentPrincipal()
         {
             InitializeComponent();
             _cadastroColaboradorController = new CadastroColaboradorController();
             _cadastroClienteController = new CadastroClienteController();
+            _cadastroProdutoController = new CadastroProdutoController();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -99,10 +103,13 @@ namespace CrudAugustusFashion.View
         private void clienteToolStripMenuItem1_Click(object sender, EventArgs e) => _cadastroClienteController.AbrirListaCliente();
 
         private void colaboradorToolStripMenuItem1_Click(object sender, EventArgs e) => _cadastroColaboradorController.AbrirListaColaborador();
+        private void produtoToolStripMenuItem_Click(object sender, EventArgs e) => _cadastroProdutoController.AbrirCadastroProduto();
 
         private void cadastrarNovoUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }
