@@ -80,6 +80,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.txtPrecoCusto.Name = "txtPrecoCusto";
             this.txtPrecoCusto.Size = new System.Drawing.Size(165, 29);
             this.txtPrecoCusto.TabIndex = 6;
+            this.txtPrecoCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoCusto_KeyPress);
             // 
             // txtEstoque
             // 
@@ -174,6 +175,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.txtPorcentagemLucro.Name = "txtPorcentagemLucro";
             this.txtPorcentagemLucro.Size = new System.Drawing.Size(165, 29);
             this.txtPorcentagemLucro.TabIndex = 8;
+            this.txtPorcentagemLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentagemLucro_KeyPress);
             // 
             // label10
             // 

@@ -137,6 +137,12 @@
     <Compile Include="View\Alteracao\AlteracaoColaboradores.Designer.cs">
       <DependentUpon>AlteracaoColaboradores.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Alteracao\AlteracaoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Alteracao\AlteracaoProduto.Designer.cs">
+      <DependentUpon>AlteracaoProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Cadastro\CadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Alteracao\AlteracaoColaboradores.resx">
       <DependentUpon>AlteracaoColaboradores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Alteracao\AlteracaoProduto.resx">
+      <DependentUpon>AlteracaoProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cadastro\CadastroCliente.resx">
       <DependentUpon>CadastroCliente.cs</DependentUpon>
