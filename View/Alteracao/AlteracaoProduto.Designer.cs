@@ -1,7 +1,7 @@
 ﻿
 namespace CrudAugustusFashion.View.Alteracao
 {
-    partial class AlteracaoProduto
+    partial class FrmAlteracaoProduto
     {
         /// <summary>
         /// Required designer variable.
@@ -48,6 +48,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCalcularPrecoProduto
@@ -62,13 +63,14 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             // buttonCadastrarProduto
             // 
+            this.buttonCadastrarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.buttonCadastrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCadastrarProduto.Location = new System.Drawing.Point(297, 551);
+            this.buttonCadastrarProduto.Location = new System.Drawing.Point(61, 548);
             this.buttonCadastrarProduto.Name = "buttonCadastrarProduto";
             this.buttonCadastrarProduto.Size = new System.Drawing.Size(276, 51);
             this.buttonCadastrarProduto.TabIndex = 38;
-            this.buttonCadastrarProduto.Text = "Cadastrar";
-            this.buttonCadastrarProduto.UseVisualStyleBackColor = true;
+            this.buttonCadastrarProduto.Text = "Alterar";
+            this.buttonCadastrarProduto.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
@@ -225,12 +227,24 @@ namespace CrudAugustusFashion.View.Alteracao
             this.textBox1.Size = new System.Drawing.Size(165, 29);
             this.textBox1.TabIndex = 40;
             // 
-            // AlteracaoProduto
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(504, 548);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(276, 51);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Inativar produto";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // FrmAlteracaoProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(876, 623);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonCalcularPrecoProduto);
@@ -250,7 +264,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.Controls.Add(this.txtCodigoBarras);
             this.Controls.Add(this.txtPrecoVenda);
             this.Controls.Add(this.txtNomeProduto);
-            this.Name = "AlteracaoProduto";
+            this.Name = "FrmAlteracaoProduto";
             this.Text = "AlteracaoProduto";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -278,5 +292,6 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.TextBox txtNomeProduto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -15,8 +15,8 @@
 
         public enum Status
         {
-            inativo,
-            ativo,
+            inativo = 0,
+            ativo = 1,
         }
     }
 }

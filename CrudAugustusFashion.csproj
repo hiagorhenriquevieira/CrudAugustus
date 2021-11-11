@@ -99,6 +99,7 @@
     <Compile Include="Controller\ClienteController\CadastroClienteController.cs" />
     <Compile Include="Controller\ClienteController\ExcluirClienteController.cs" />
     <Compile Include="Controller\ColaboradorController\ExcluirColaboradorController.cs" />
+    <Compile Include="Controller\ProdutoController\AlteracaoProdutoController.cs" />
     <Compile Include="Controller\ProdutoController\CadastroProdutoController.cs" />
     <Compile Include="Controller\ProdutoController\ListaProdutoController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />

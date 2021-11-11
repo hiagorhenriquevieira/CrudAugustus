@@ -29,7 +29,7 @@ namespace CrudAugustusFashion.Dao
         }
 
 
-        public List<ProdutoModel> ListarPruduto()
+        public List<ProdutoLista> ListarPruduto()
         {
             const string listaProduto = @"select * from Produtos
                                           where Status = 1";
@@ -39,7 +39,7 @@ namespace CrudAugustusFashion.Dao
                 using (var conexao = this.conexao.conectar())
                 {
                     
-                    return conexao.Query<ProdutoModel>(listaProduto).ToList();
+                    return conexao.Query<ProdutoLista>(listaProduto).ToList();
                 }
             }
             catch (Exception excecao)
@@ -48,6 +48,43 @@ namespace CrudAugustusFashion.Dao
             }
         }
 
+        public int RecuperarIdProduto(int IdProduto)
+        {
+            const string selectIdProduto = @"select IdProduto from Produtos
+                                             where IdProduto = @IdProduto";
+            try
+            {
+                using (var conexao = this.conexao.conectar())
+                {
+                    return conexao.QuerySingle<int>(selectIdProduto, new { IdProduto });
+                }
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
+
+        internal ProdutoModel RecuperarDadosProduto(int IdProduto)
+        {
+            int codigoProduto = RecuperarIdProduto(IdProduto);
+
+            const string selectProduto = @"select * from Produtos
+                                           where IdProduto = @IdProduto";
+            try
+            {
+                using (var conexao = this.conexao.conectar())
+                {
+                    return conexao.Query<ProdutoModel>(selectProduto, new { IdProduto }).FirstOrDefault();
+                        
+                }
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+
+        }
 
 
 

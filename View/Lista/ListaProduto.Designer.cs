@@ -63,6 +63,7 @@ namespace CrudAugustusFashion.View.Lista
             this.btnExibirCadastroCliente.TabIndex = 22;
             this.btnExibirCadastroCliente.Text = "Exibir Produto";
             this.btnExibirCadastroCliente.UseVisualStyleBackColor = true;
+            this.btnExibirCadastroCliente.Click += new System.EventHandler(this.btnExibirCadastroCliente_Click);
             // 
             // FrmListaProduto
             // 

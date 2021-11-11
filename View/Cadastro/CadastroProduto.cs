@@ -75,16 +75,11 @@ namespace CrudAugustusFashion.View.Cadastro
                 MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
                 return false;
             }
-            //else if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtBairro.Text))
-            //{
-            //    MessageBox.Show("Campo -Bairro- invalido");
-            //    return false;
-            //}
-            //else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtNumeroResidencia.Text))
-            //{
-            //    MessageBox.Show("Campo -Numero- invalido");
-            //    return false;
-            //}
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text))
+            {
+                MessageBox.Show("Campo -Estoque- invalido");
+                return false;
+            }
 
             return true;
         }

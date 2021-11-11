@@ -36,5 +36,14 @@ namespace CrudAugustusFashion.View.Lista
                 MessageBox.Show("Ocorreu um erro ao listar clientes. Erro " + ex.Message);
             }
         }
+
+        private void btnExibirCadastroCliente_Click(object sender, EventArgs e)
+        {
+            int codigoProduto = Convert.ToInt32(dataGridViewListaProduto.SelectedRows[0].Cells[0].Value);
+
+            var produto = new ProdutoDao().RecuperarDadosProduto(codigoProduto);
+            new AlteracaoProdutoController().AbrirAlteracaoProduto(produto);
+            this.Close();
+        }
     }
 }
