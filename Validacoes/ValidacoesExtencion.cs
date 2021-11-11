@@ -5,6 +5,17 @@ namespace CrudAugustusFashion.Validacoes
 {
     public static class ValidacoesExtencion
     {
+        public static int ToInt(this string value)
+        {
+            try
+            {
+                return int.Parse(value);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
         public static float ToFloat(this string value)
         {
             try

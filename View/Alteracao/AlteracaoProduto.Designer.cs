@@ -47,7 +47,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPrecoVenda = new System.Windows.Forms.TextBox();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtProdutosAdicionaisEstoque = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -151,9 +151,9 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(266, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(330, 37);
+            this.label1.Size = new System.Drawing.Size(336, 37);
             this.label1.TabIndex = 30;
-            this.label1.Text = "Cadastro de produto";
+            this.label1.Text = "Alteração de produto";
             // 
             // txtNomeFabricante
             // 
@@ -170,12 +170,14 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPorcentagemLucro.Name = "txtPorcentagemLucro";
             this.txtPorcentagemLucro.Size = new System.Drawing.Size(165, 29);
             this.txtPorcentagemLucro.TabIndex = 28;
+            this.txtPorcentagemLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentagemLucro_KeyPress);
             // 
             // txtEstoque
             // 
             this.txtEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEstoque.Location = new System.Drawing.Point(259, 320);
             this.txtEstoque.Name = "txtEstoque";
+            this.txtEstoque.ReadOnly = true;
             this.txtEstoque.Size = new System.Drawing.Size(165, 29);
             this.txtEstoque.TabIndex = 27;
             // 
@@ -186,6 +188,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPrecoCusto.Name = "txtPrecoCusto";
             this.txtPrecoCusto.Size = new System.Drawing.Size(165, 29);
             this.txtPrecoCusto.TabIndex = 26;
+            this.txtPrecoCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoCusto_KeyPress);
             // 
             // txtCodigoBarras
             // 
@@ -222,13 +225,14 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label2.TabIndex = 41;
             this.label2.Text = "Produtos Adicionais";
             // 
-            // textBox1
+            // txtProdutosAdicionaisEstoque
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(457, 320);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 29);
-            this.textBox1.TabIndex = 40;
+            this.txtProdutosAdicionaisEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProdutosAdicionaisEstoque.Location = new System.Drawing.Point(457, 320);
+            this.txtProdutosAdicionaisEstoque.Name = "txtProdutosAdicionaisEstoque";
+            this.txtProdutosAdicionaisEstoque.Size = new System.Drawing.Size(165, 29);
+            this.txtProdutosAdicionaisEstoque.TabIndex = 40;
+            this.txtProdutosAdicionaisEstoque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProdutosAdicionaisEstoque_KeyPress);
             // 
             // button1
             // 
@@ -248,6 +252,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtIdProduto.Name = "txtIdProduto";
             this.txtIdProduto.Size = new System.Drawing.Size(38, 29);
             this.txtIdProduto.TabIndex = 43;
+            this.txtIdProduto.Visible = false;
             // 
             // FrmAlteracaoProduto
             // 
@@ -258,7 +263,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.Controls.Add(this.txtIdProduto);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtProdutosAdicionaisEstoque);
             this.Controls.Add(this.buttonCalcularPrecoProduto);
             this.Controls.Add(this.buttonCadastrarProduto);
             this.Controls.Add(this.label10);
@@ -304,7 +309,7 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.TextBox txtPrecoVenda;
         private System.Windows.Forms.TextBox txtNomeProduto;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtProdutosAdicionaisEstoque;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtIdProduto;
     }

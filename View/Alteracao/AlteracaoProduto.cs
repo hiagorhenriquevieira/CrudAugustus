@@ -46,25 +46,46 @@ namespace CrudAugustusFashion.View.Alteracao
         }
         private void buttonCadastrarProduto_Click(object sender, System.EventArgs e)
         {
-            if (ValidarCamposDeAlteracaoProduto())
+            try
             {
-                var produto = new ProdutoModel();
-                produto.IdProduto = Convert.ToInt32(txtIdProduto.Text);
-                produto.Nome = txtNomeProduto.Text;
-                produto.Fabricante = txtNomeFabricante.Text;
-                produto.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
-                produto.PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
-                produto.CodigoDeBarras = txtCodigoBarras.Text;
-                produto.QuantidadeEstoque = Convert.ToInt32(txtEstoque.Text);
-                produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
 
-                new AlteracaoProdutoController().AlterarProduto(produto);
-                MessageBox.Show("Produto alteradocom sucesso!");
-                this.Close();
+                if (ValidarCamposDeAlteracaoProduto())
+                {
+                    var produto = new ProdutoModel();
+                    produto.IdProduto = Convert.ToInt32(txtIdProduto.Text);
+                    produto.Nome = txtNomeProduto.Text;
+                    produto.Fabricante = txtNomeFabricante.Text;
+                    produto.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
+                    produto.PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
+                    produto.CodigoDeBarras = txtCodigoBarras.Text;
+                    produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
+                    if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
+                    {
+                        var estoque = txtEstoque.Text.ToInt();
+                        var estoqueAdicional = txtProdutosAdicionaisEstoque.Text.ToInt();
+                        var retorno = (estoque + estoqueAdicional);
+                        produto.QuantidadeEstoque = retorno;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Porcentagem de lucro invalida");
+                        return;
+                    }
+                    //int estoque = Convert.ToInt32(txtEstoque.Text + txtProdutosAdicionaisEstoque.Text); 
+                    //produto.QuantidadeEstoque = estoque;
+
+                    new AlteracaoProdutoController().AlterarProduto(produto);
+                    MessageBox.Show("Produto alteradocom sucesso!");
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return;
+                MessageBox.Show("Erro ao alterar Produto.  " + ex.Message);
             }
         }
 
@@ -97,6 +118,10 @@ namespace CrudAugustusFashion.View.Alteracao
             {
                 MessageBox.Show("Campo -Estoque- invalido");
                 return false;
+            }else if (ValidacoesExtencion.NuloOuVazio(txtProdutosAdicionaisEstoque))
+            {
+                MessageBox.Show("Campo -Produtos Adicionais- invalido");
+                return false;
             }
 
             return true;
@@ -105,6 +130,30 @@ namespace CrudAugustusFashion.View.Alteracao
         private void FrmAlteracaoProduto_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtProdutosAdicionaisEstoque_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecoCusto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPorcentagemLucro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
