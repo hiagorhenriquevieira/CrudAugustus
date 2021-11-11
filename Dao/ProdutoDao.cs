@@ -85,6 +85,24 @@ namespace CrudAugustusFashion.Dao
             }
 
         }
+        public void AlterarProduto(ProdutoModel produto)
+        {
+            const string updateProduto =@"update Produtos set CodigoDeBarras = @CodigoDeBarras, Nome = @Nome,
+                                        PrecoCusto = @PrecoCusto, PrecoVenda = @PrecoVenda, Lucro = @Lucro, 
+                                        QuantidadeEstoque = @QuantidadeEstoque, Fabricante = @Fabricante
+                                        where IdProduto = @IdProduto ";
+            try
+            {
+                using (var conexao = this.conexao.conectar())
+                {
+                    conexao.Execute(updateProduto, produto);
+                }
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
 
 
 

@@ -45,5 +45,14 @@ namespace CrudAugustusFashion.View.Lista
             new AlteracaoProdutoController().AbrirAlteracaoProduto(produto);
             this.Close();
         }
+
+        private void dataGridViewListaProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int codigoProduto = Convert.ToInt32(dataGridViewListaProduto.SelectedRows[0].Cells[0].Value);
+
+            var produto = new ProdutoDao().RecuperarDadosProduto(codigoProduto);
+            new AlteracaoProdutoController().AbrirAlteracaoProduto(produto);
+            this.Close();
+        }
     }
 }

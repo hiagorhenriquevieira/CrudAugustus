@@ -49,6 +49,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtIdProduto = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonCalcularPrecoProduto
@@ -60,6 +61,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.buttonCalcularPrecoProduto.TabIndex = 39;
             this.buttonCalcularPrecoProduto.Text = "Calcular preço ";
             this.buttonCalcularPrecoProduto.UseVisualStyleBackColor = true;
+            this.buttonCalcularPrecoProduto.Click += new System.EventHandler(this.buttonCalcularPrecoProduto_Click);
             // 
             // buttonCadastrarProduto
             // 
@@ -71,6 +73,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.buttonCadastrarProduto.TabIndex = 38;
             this.buttonCadastrarProduto.Text = "Alterar";
             this.buttonCadastrarProduto.UseVisualStyleBackColor = false;
+            this.buttonCadastrarProduto.Click += new System.EventHandler(this.buttonCadastrarProduto_Click);
             // 
             // label10
             // 
@@ -238,12 +241,21 @@ namespace CrudAugustusFashion.View.Alteracao
             this.button1.Text = "Inativar produto";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // txtIdProduto
+            // 
+            this.txtIdProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProduto.Location = new System.Drawing.Point(602, 27);
+            this.txtIdProduto.Name = "txtIdProduto";
+            this.txtIdProduto.Size = new System.Drawing.Size(38, 29);
+            this.txtIdProduto.TabIndex = 43;
+            // 
             // FrmAlteracaoProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(876, 623);
+            this.Controls.Add(this.txtIdProduto);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
@@ -266,6 +278,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.Controls.Add(this.txtNomeProduto);
             this.Name = "FrmAlteracaoProduto";
             this.Text = "AlteracaoProduto";
+            this.Load += new System.EventHandler(this.FrmAlteracaoProduto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +306,6 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtIdProduto;
     }
 }

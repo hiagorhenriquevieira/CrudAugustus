@@ -37,12 +37,18 @@ namespace CrudAugustusFashion.View.Lista
             // 
             // dataGridViewListaProduto
             // 
+            this.dataGridViewListaProduto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewListaProduto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewListaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListaProduto.Location = new System.Drawing.Point(19, 60);
+            this.dataGridViewListaProduto.MultiSelect = false;
             this.dataGridViewListaProduto.Name = "dataGridViewListaProduto";
+            this.dataGridViewListaProduto.ReadOnly = true;
+            this.dataGridViewListaProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewListaProduto.Size = new System.Drawing.Size(754, 257);
             this.dataGridViewListaProduto.TabIndex = 0;
             this.dataGridViewListaProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewListaProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListaProduto_CellDoubleClick);
             // 
             // labelListagemProdutos
             // 
