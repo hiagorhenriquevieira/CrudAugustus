@@ -100,6 +100,7 @@
     <Compile Include="Controller\ClienteController\ExcluirClienteController.cs" />
     <Compile Include="Controller\ColaboradorController\ExcluirColaboradorController.cs" />
     <Compile Include="Controller\ProdutoController\CadastroProdutoController.cs" />
+    <Compile Include="Controller\ProdutoController\ListaProdutoController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
@@ -108,6 +109,8 @@
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
     <Compile Include="Model\Endereco\EnderecoValidation.cs" />
+    <Compile Include="Model\Produto\Pedido\PedidoLista.cs" />
+    <Compile Include="Model\Produto\ProdutoLista.cs" />
     <Compile Include="Model\Produto\ProdutoModel.cs" />
     <Compile Include="Model\TelefoneModel\TelefoneValidation.cs" />
     <Compile Include="Model\UsuarioModel\Cpf.cs" />
@@ -175,6 +178,18 @@
     <Compile Include="View\Lista\ListaColaborador.Designer.cs">
       <DependentUpon>ListaColaborador.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Lista\ListaProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Lista\ListaProduto.Designer.cs">
+      <DependentUpon>ListaProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Lista\PedidoLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Lista\PedidoLista.Designer.cs">
+      <DependentUpon>PedidoLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MdiParent\MdiParentPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Lista\ListaColaborador.resx">
       <DependentUpon>ListaColaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Lista\ListaProduto.resx">
+      <DependentUpon>ListaProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MdiParent\MdiParentPrincipal.resx">
       <DependentUpon>MdiParentPrincipal.cs</DependentUpon>

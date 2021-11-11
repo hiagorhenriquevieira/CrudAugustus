@@ -2,13 +2,6 @@
 using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Validacoes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CrudAugustusFashion.View.Cadastro
@@ -29,8 +22,8 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             if (ValidarCamposDeCadastroProduto()) { 
             var produto = new ProdutoModel();
-            produto.NomeProduto = txtNomeProduto.Text;
-            produto.NomeFabricante = txtNomeFabricante.Text;
+            produto.Nome = txtNomeProduto.Text;
+            produto.Fabricante = txtNomeFabricante.Text;
             produto.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
             produto.PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
             produto.CodigoDeBarras = txtCodigoBarras.Text;

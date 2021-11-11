@@ -175,3 +175,4 @@ C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\bin\Debug\System.Runt
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.csproj.CopyComplete
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Cadastro.FrmCadastroProduto.resources
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Alteracao.AlteracaoProduto.resources
+C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Lista.FrmListaProduto.resources
