@@ -1,5 +1,4 @@
 ﻿using CrudAugustusFashion.Controller.ProdutoController;
-using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Validacoes;
 using System;
@@ -31,7 +30,7 @@ namespace CrudAugustusFashion.View.Alteracao
             txtPorcentagemLucro.Text = _produto.Lucro.ToString();
         }
 
-        private void buttonCalcularPrecoProduto_Click(object sender, System.EventArgs e)
+        private void buttonCalcularPrecoProduto_Click(object sender,EventArgs e)
         {
             if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
             {

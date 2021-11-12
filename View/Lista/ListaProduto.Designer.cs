@@ -48,9 +48,8 @@ namespace CrudAugustusFashion.View.Lista
             this.dataGridViewListaProduto.Name = "dataGridViewListaProduto";
             this.dataGridViewListaProduto.ReadOnly = true;
             this.dataGridViewListaProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewListaProduto.Size = new System.Drawing.Size(833, 257);
+            this.dataGridViewListaProduto.Size = new System.Drawing.Size(853, 257);
             this.dataGridViewListaProduto.TabIndex = 0;
-            this.dataGridViewListaProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewListaProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListaProduto_CellDoubleClick);
             // 
             // labelListagemProdutos
@@ -81,7 +80,6 @@ namespace CrudAugustusFashion.View.Lista
             this.txtFiltrarProduto.Name = "txtFiltrarProduto";
             this.txtFiltrarProduto.Size = new System.Drawing.Size(204, 31);
             this.txtFiltrarProduto.TabIndex = 27;
-            this.txtFiltrarProduto.TextChanged += new System.EventHandler(this.txtFiltrarProduto_TextChanged);
             // 
             // btnFiltrarProduto
             // 
@@ -97,20 +95,21 @@ namespace CrudAugustusFashion.View.Lista
             // checkBoxListaProdutoAtivo
             // 
             this.checkBoxListaProdutoAtivo.AutoSize = true;
+            this.checkBoxListaProdutoAtivo.Checked = true;
+            this.checkBoxListaProdutoAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxListaProdutoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxListaProdutoAtivo.Location = new System.Drawing.Point(655, 23);
+            this.checkBoxListaProdutoAtivo.Location = new System.Drawing.Point(626, 23);
             this.checkBoxListaProdutoAtivo.Name = "checkBoxListaProdutoAtivo";
-            this.checkBoxListaProdutoAtivo.Size = new System.Drawing.Size(171, 28);
+            this.checkBoxListaProdutoAtivo.Size = new System.Drawing.Size(259, 28);
             this.checkBoxListaProdutoAtivo.TabIndex = 30;
-            this.checkBoxListaProdutoAtivo.Text = "Produtos ativos";
+            this.checkBoxListaProdutoAtivo.Text = "Somente produtos ativos";
             this.checkBoxListaProdutoAtivo.UseVisualStyleBackColor = true;
-            this.checkBoxListaProdutoAtivo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
+            //
             // FrmListaProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 412);
+            this.ClientSize = new System.Drawing.Size(896, 412);
             this.Controls.Add(this.checkBoxListaProdutoAtivo);
             this.Controls.Add(this.txtFiltrarProduto);
             this.Controls.Add(this.btnFiltrarProduto);

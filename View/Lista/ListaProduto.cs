@@ -2,7 +2,6 @@
 using CrudAugustusFashion.Dao;
 using System;
 using System.Windows.Forms;
-using CrudAugustusFashion.Validacoes;
 
 
 namespace CrudAugustusFashion.View.Lista
@@ -16,12 +15,6 @@ namespace CrudAugustusFashion.View.Lista
             InitializeComponent();
             _listaProduto = new ListaProdutoController();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void FrmListaProduto_Load(object sender, EventArgs e)
         {
             try
@@ -51,30 +44,17 @@ namespace CrudAugustusFashion.View.Lista
             new AlteracaoProdutoController().AbrirAlteracaoProduto(produto);
             this.Close();
         }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnFiltrarProduto_Click(object sender, EventArgs e)
         {
             if (txtFiltrarProduto.Text == string.Empty)
-                MessageBox.Show("DIgita algo");
+                MessageBox.Show("DIgite algo");
             else
-                Filtrar();
-
-            
-
+                FiltrarProduto();
         }
-        private void Filtrar()
+        private void FiltrarProduto()
         {   
             dataGridViewListaProduto.DataSource = new ListaProdutoController().
                 MostrarProdutosNaLista((txtFiltrarProduto.Text), checkBoxListaProdutoAtivo.Checked);
-        }
-        private void txtFiltrarProduto_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
