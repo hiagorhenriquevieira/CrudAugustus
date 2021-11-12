@@ -19,7 +19,6 @@ namespace CrudAugustusFashion.View.Alteracao
             PreencherCamposComDadosProduto();
             _alteracaoProduto = new AlteracaoProdutoController();
         }
-
         public void PreencherCamposComDadosProduto()
         {
             txtIdProduto.Text = _produto.IdProduto.ToString();
@@ -54,20 +53,20 @@ namespace CrudAugustusFashion.View.Alteracao
 
                 if (ValidarCamposDeAlteracaoProduto())
                 {
-                    var produto = new ProdutoModel();
-                    produto.IdProduto = Convert.ToInt32(txtIdProduto.Text);
-                    produto.Nome = txtNomeProduto.Text;
-                    produto.Fabricante = txtNomeFabricante.Text;
-                    produto.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
-                    produto.PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
-                    produto.CodigoDeBarras = txtCodigoBarras.Text;
-                    produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
+
+                    _produto.IdProduto = Convert.ToInt32(txtIdProduto.Text);
+                    _produto.Nome = txtNomeProduto.Text;
+                    _produto.Fabricante = txtNomeFabricante.Text;
+                    _produto.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
+                    _produto.PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
+                    _produto.CodigoDeBarras = txtCodigoBarras.Text;
+                    _produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
                     if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
                     {
                         var estoque = txtEstoque.Text.ToInt();
-                        var estoqueAdicional = txtProdutosAdicionaisEstoque.Text.ToInt();
+                        var estoqueAdicional = txtEstoqueAdicional.Text.ToInt();
                         var retorno = (estoque + estoqueAdicional);
-                        produto.QuantidadeEstoque = retorno;
+                        _produto.QuantidadeEstoque = retorno;
                     }
                     else
                     {
@@ -77,7 +76,7 @@ namespace CrudAugustusFashion.View.Alteracao
                     //int estoque = Convert.ToInt32(txtEstoque.Text + txtProdutosAdicionaisEstoque.Text); 
                     //produto.QuantidadeEstoque = estoque;
 
-                    new AlteracaoProdutoController().AlterarProduto(produto);
+                    new AlteracaoProdutoController().AlterarProduto(_produto);
                     MessageBox.Show("Produto alteradocom sucesso!");
                     this.Close();
                 }
@@ -86,14 +85,11 @@ namespace CrudAugustusFashion.View.Alteracao
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro ao alterar Produto.  " + ex.Message);
             }
         }
-
-
-
 
         private bool ValidarCamposDeAlteracaoProduto()
         {
@@ -102,26 +98,27 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Campo -Nome do Produto- invalido ");
                 return false;
             }
-            else if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNomeFabricante.Text))
+            if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNomeFabricante.Text))
             {
                 MessageBox.Show("Campo -Nome do Fabricante- invalido ");
                 return false;
             }
-            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtCodigoBarras.Text))
+             if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtCodigoBarras.Text))
             {
                 MessageBox.Show("Campo - Codigo de Barras- invalido");
                 return false;
             }
-            else if (ValidacoesExtencion.NuloOuVazio(txtPrecoCusto))
+             if (ValidacoesExtencion.NuloOuVazio(txtPrecoCusto))
             {
                 MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
                 return false;
             }
-            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text))
+             if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text))
             {
                 MessageBox.Show("Campo -Estoque- invalido");
                 return false;
-            }else if (ValidacoesExtencion.NuloOuVazio(txtProdutosAdicionaisEstoque))
+            }
+             if (ValidacoesExtencion.NuloOuVazio(txtEstoqueAdicional))
             {
                 MessageBox.Show("Campo -Produtos Adicionais- invalido");
                 return false;
@@ -137,7 +134,7 @@ namespace CrudAugustusFashion.View.Alteracao
 
         private void txtProdutosAdicionaisEstoque_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
             }
@@ -145,7 +142,7 @@ namespace CrudAugustusFashion.View.Alteracao
 
         private void txtPrecoCusto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
             }
@@ -153,7 +150,7 @@ namespace CrudAugustusFashion.View.Alteracao
 
         private void txtPorcentagemLucro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
             }
@@ -184,6 +181,27 @@ namespace CrudAugustusFashion.View.Alteracao
             {
                 MessageBox.Show("Erro encontrado. " + excecao.Message);
             }
+        }
+
+        private void btnAdicionarEstoque_Click(object sender, EventArgs e)
+        {
+            if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
+            {
+                var estoque = txtEstoque.Text.ToInt();
+                var estoqueAdicional = txtEstoqueAdicional.Text.ToInt();
+                _produto.QuantidadeEstoque = estoque + estoqueAdicional;
+                txtEstoque.Text = _produto.QuantidadeEstoque.ToString();
+            }
+        }
+
+        private void btnSubtrairEstoque_Click(object sender, EventArgs e)
+        {
+
+            if (ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro)) return;
+            var estoque = txtEstoque.Text.ToInt();
+            var estoqueAdicional = txtEstoqueAdicional.Text.ToInt();
+            _produto.QuantidadeEstoque = (estoque - estoqueAdicional);
+            txtEstoque.Text = _produto.QuantidadeEstoque.ToString();       
         }
     }
 }

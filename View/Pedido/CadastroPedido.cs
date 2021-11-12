@@ -8,5 +8,6 @@ namespace CrudAugustusFashion.View.Pedido
 {
     class CadastroPedido
     {
+
     }
 } 
