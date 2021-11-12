@@ -187,7 +187,7 @@ namespace CrudAugustusFashion.Dao
                 {
                     return conexao.Query(
                         selectNomeCliente,
-                        (ClienteListaModel clienteListaModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel) 
+                        (ClienteListaModel clienteListaModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
                         => MapearListaCliente(clienteListaModel, nomeCompleto, telefoneModel, enderecoModel), new { Nome = nome },
                         splitOn: "IdUsuario"
                         ).ToList();
@@ -198,8 +198,6 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
-
-
         internal void ExcluirClientes(ClienteModel clienteModel)
         {
             var deleteTelefone = @"Delete from Telefone
@@ -272,7 +270,7 @@ namespace CrudAugustusFashion.Dao
                 {
                     return conexao.Query(
                         selectUsuario,
-                        (ClienteModel clienteModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel) 
+                        (ClienteModel clienteModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
                         => MapearCliente(clienteModel, nomeCompleto, telefoneModel, enderecoModel),
                         new { IdUsuario },
                         splitOn: "IdUsuario"

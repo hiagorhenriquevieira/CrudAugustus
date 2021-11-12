@@ -66,7 +66,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 MessageBox.Show("Campo -Nome do Fabricante- invalido ");
                 return false;
             }
-            else if (ValidacoesExtencion.NuloOuVazio(txtCodigoBarras))
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtCodigoBarras.Text))
             {
                 MessageBox.Show("Campo - Codigo de Barras- obrigatorio");
                 return false;

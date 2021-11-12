@@ -197,6 +197,7 @@
     <Compile Include="View\MdiParent\MdiParentPrincipal.Designer.cs">
       <DependentUpon>MdiParentPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Pedido\CadastroPedido.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Controller.ProdutoController;
+using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Validacoes;
 using System;
@@ -9,12 +10,14 @@ namespace CrudAugustusFashion.View.Alteracao
     public partial class FrmAlteracaoProduto : Form
     {
         private ProdutoModel _produto;
+        private AlteracaoProdutoController _alteracaoProduto;
 
         public FrmAlteracaoProduto(ProdutoModel produto)
         {
             _produto = produto;
             InitializeComponent();
             PreencherCamposComDadosProduto();
+            _alteracaoProduto = new AlteracaoProdutoController();
         }
 
         public void PreencherCamposComDadosProduto()
@@ -104,9 +107,9 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Campo -Nome do Fabricante- invalido ");
                 return false;
             }
-            else if (ValidacoesExtencion.NuloOuVazio(txtCodigoBarras))
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtCodigoBarras.Text))
             {
-                MessageBox.Show("Campo - Codigo de Barras- obrigatorio");
+                MessageBox.Show("Campo - Codigo de Barras- invalido");
                 return false;
             }
             else if (ValidacoesExtencion.NuloOuVazio(txtPrecoCusto))
@@ -153,6 +156,33 @@ namespace CrudAugustusFashion.View.Alteracao
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _alteracaoProduto.AtivarProduto(_produto);
+                MessageBox.Show("Produto ativo.");
+
+            }
+            catch (Exception excecao)
+            {
+                MessageBox.Show("Erro encontrado. " + excecao.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _alteracaoProduto.DesativarProduto(_produto);
+                MessageBox.Show("Produto desativado.");
+            }
+            catch (Exception excecao)
+            {
+                MessageBox.Show("Erro encontrado. " + excecao.Message);
             }
         }
     }

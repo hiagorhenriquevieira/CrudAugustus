@@ -50,6 +50,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtProdutosAdicionaisEstoque = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCalcularPrecoProduto
@@ -71,7 +72,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.buttonCadastrarProduto.Name = "buttonCadastrarProduto";
             this.buttonCadastrarProduto.Size = new System.Drawing.Size(276, 51);
             this.buttonCadastrarProduto.TabIndex = 38;
-            this.buttonCadastrarProduto.Text = "Alterar";
+            this.buttonCadastrarProduto.Text = "Salvar alteração";
             this.buttonCadastrarProduto.UseVisualStyleBackColor = false;
             this.buttonCadastrarProduto.Click += new System.EventHandler(this.buttonCadastrarProduto_Click);
             // 
@@ -232,18 +233,20 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtProdutosAdicionaisEstoque.Name = "txtProdutosAdicionaisEstoque";
             this.txtProdutosAdicionaisEstoque.Size = new System.Drawing.Size(165, 29);
             this.txtProdutosAdicionaisEstoque.TabIndex = 40;
+            this.txtProdutosAdicionaisEstoque.Text = "0";
             this.txtProdutosAdicionaisEstoque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProdutosAdicionaisEstoque_KeyPress);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(504, 548);
+            this.button1.Location = new System.Drawing.Point(588, 560);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(276, 51);
             this.button1.TabIndex = 42;
-            this.button1.Text = "Inativar produto";
+            this.button1.Text = "Desativar produto";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtIdProduto
             // 
@@ -254,12 +257,25 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtIdProduto.TabIndex = 43;
             this.txtIdProduto.Visible = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(588, 489);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(276, 51);
+            this.button2.TabIndex = 44;
+            this.button2.Text = "Ativar produto";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FrmAlteracaoProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(876, 623);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtIdProduto);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -312,5 +328,6 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.TextBox txtProdutosAdicionaisEstoque;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtIdProduto;
+        private System.Windows.Forms.Button button2;
     }
 }
