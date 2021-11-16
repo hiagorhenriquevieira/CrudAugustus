@@ -176,3 +176,5 @@ C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustu
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Cadastro.FrmCadastroProduto.resources
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Lista.FrmListaProduto.resources
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Alteracao.FrmAlteracaoProduto.resources
+C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Cadastro.FrmCadastroPedido.resources
+C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Lista.FrmPedidoLista.resources

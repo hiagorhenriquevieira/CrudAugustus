@@ -8,9 +8,12 @@ namespace CrudAugustusFashion.View.Cadastro
 {
     public partial class FrmCadastroProduto : Form
     {
+        private ProdutoModel _produto;
+
         public FrmCadastroProduto()
         {
             InitializeComponent();
+            _produto = new ProdutoModel();
         }
 
         private void CadastroProduto_Load(object sender, EventArgs e)
@@ -20,17 +23,18 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void buttonCadastrarProduto_Click(object sender, EventArgs e)
         {
-            if (ValidarCamposDeCadastroProduto()) { 
-            var produto = new ProdutoModel();
-            produto.Nome = txtNomeProduto.Text;
-            produto.Fabricante = txtNomeFabricante.Text;
-            produto.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
-            produto.PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
-            produto.CodigoDeBarras = txtCodigoBarras.Text;
-            produto.QuantidadeEstoque = Convert.ToInt32(txtEstoque.Text);
-            produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
-
-            new CadastroProdutoController().CadastrarProduto(produto);
+            if (ValidarCamposDeCadastroProduto()) {
+                
+                _produto.Nome = txtNomeProduto.Text;
+                _produto.Fabricante = txtNomeFabricante.Text;
+                _produto.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
+                _produto.PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
+                _produto.CodigoDeBarras = txtCodigoBarras.Text;
+                _produto.QuantidadeEstoque = Convert.ToInt32(txtEstoque.Text);
+                _produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
+            }
+            if (ValidarPrecoCustoVenda()) {
+            new CadastroProdutoController().CadastrarProduto(_produto);
             MessageBox.Show("Produto cadastrado com sucesso!");
                 this.Close();
             }
@@ -105,6 +109,18 @@ namespace CrudAugustusFashion.View.Cadastro
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
+            }
+        }
+        private bool ValidarPrecoCustoVenda()
+        {
+            if (Convert.ToInt32(txtPrecoVenda.Text) >= Convert.ToInt32(txtPrecoCusto.Text))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Preço de venda deve ser igual ou maior que o preço de custo do produto.");
+                return false;
             }
         }
     }
