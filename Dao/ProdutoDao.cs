@@ -36,22 +36,22 @@ namespace CrudAugustusFashion.Dao
                 return conexao.Query<ProdutoLista>(listaProduto).ToList();
             }
         }
-        //public int RecuperarIdProduto(int IdProduto)
-        //{
-        //    const string selectIdProduto = @"select IdProduto from Produtos
-        //                                     where IdProduto = @IdProduto";
-        //    try
-        //    {
-        //        using (var conexao = this.conexao.conectar())
-        //        {
-        //            return conexao.QuerySingle<int>(selectIdProduto, new { IdProduto });
-        //        }
-        //    }
-        //    catch (Exception excecao)
-        //    {
-        //        throw new Exception(excecao.Message);
-        //    }
-        //}
+        public int recuperaridproduto(int idproduto)
+        {
+            const string selectidproduto = @"select idproduto from produtos
+                                             where idproduto = @idproduto";
+            try
+            {
+                using (var conexao = this.conexao.conectar())
+                {
+                    return conexao.QuerySingle<int>(selectidproduto, new { idproduto });
+                }
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
         internal ProdutoModel RecuperarDadosProduto(int IdProduto)
         {
             const string selectProduto = @"select * from Produtos

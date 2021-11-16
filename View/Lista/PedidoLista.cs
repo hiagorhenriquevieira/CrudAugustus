@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Controller.PedidoController;
+using CrudAugustusFashion.Dao;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,12 @@ namespace CrudAugustusFashion.View.Lista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridViewPedidoLista.DataSource = new CadastroPedidoController().ListarProdutosParaVenda(txtPedido.Text);
+            dataGridViewPedidoLista.DataSource = new CadastroPedidoController().ListarProdutosPedido(txtPedidoProduto.Text);
+        }
+
+        private void btnSelecionarItemListaPedido_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

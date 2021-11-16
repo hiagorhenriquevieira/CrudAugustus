@@ -106,6 +106,7 @@
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
+    <Compile Include="Dao\exception.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\ProdutoDao.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />

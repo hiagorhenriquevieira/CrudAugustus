@@ -12,6 +12,7 @@ namespace CrudAugustusFashion.Controller.PedidoController
     class CadastroPedidoController
     {
         private PedidoDao _pedidoDao;
+        private FrmCadastroPedido _frmCadastroPedido;
 
         public CadastroPedidoController()
         {
@@ -19,12 +20,12 @@ namespace CrudAugustusFashion.Controller.PedidoController
         }
         public void AbrirCadastroPedido()
         {
-            var frmCadastroPedido = new FrmCadastroPedido();
-            frmCadastroPedido.MdiParent = MdiSingletonModel.InstanciarMDI();
-            frmCadastroPedido.Show();
+            _frmCadastroPedido = new FrmCadastroPedido();
+            _frmCadastroPedido.MdiParent = MdiSingletonModel.InstanciarMDI();
+            _frmCadastroPedido.Show();
         }
 
-        public IList<ProdutoLista> ListarProdutosParaVenda(string nome)
+        public IList<ProdutoLista> ListarProdutosPedido(string nome)
         {
             try
             {
@@ -36,13 +37,6 @@ namespace CrudAugustusFashion.Controller.PedidoController
                 MessageBox.Show("Erro." + excecao.Message);
             }
             return new List<ProdutoLista>();
-        }
-        
-        public void AbrirListaParaVenda()
-        {
-            var frmPedidoLista = new FrmPedidoLista();
-            frmPedidoLista.MdiParent = MdiSingletonModel.InstanciarMDI();
-            frmPedidoLista.Show();
         }
     }
 }
