@@ -108,12 +108,6 @@ namespace CrudAugustusFashion.View.Alteracao
             //    MessageBox.Show("Campo -Estoque- invalido");
             //    return false;
             //}
-             if (ValidacoesExtencion.NuloOuVazio(txtEstoqueAdicional))
-            {
-                MessageBox.Show("Campo -Produtos Adicionais- invalido");
-                return false;
-            }
-
             return true;
         }
 
