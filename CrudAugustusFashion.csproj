@@ -114,6 +114,7 @@
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
     <Compile Include="Model\Endereco\EnderecoValidation.cs" />
     <Compile Include="Model\Produto\Pedido\PedidoLista.cs" />
+    <Compile Include="Model\Produto\Pedido\ProdutoPedidoModel.cs" />
     <Compile Include="Model\Produto\ProdutoLista.cs" />
     <Compile Include="Model\Produto\ProdutoModel.cs" />
     <Compile Include="Model\TelefoneModel\TelefoneValidation.cs" />
@@ -298,6 +299,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\Carinho\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

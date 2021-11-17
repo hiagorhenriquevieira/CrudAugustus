@@ -36,15 +36,15 @@ namespace CrudAugustusFashion.Dao
                 return conexao.Query<ProdutoLista>(listaProduto).ToList();
             }
         }
-        public int recuperaridproduto(int idproduto)
+        public int RecuperarIdProduto(int idProduto)
         {
-            const string selectidproduto = @"select idproduto from produtos
+            const string selectIdProduto = @"select idproduto from produtos
                                              where idproduto = @idproduto";
             try
             {
                 using (var conexao = this.conexao.conectar())
                 {
-                    return conexao.QuerySingle<int>(selectidproduto, new { idproduto });
+                    return conexao.QuerySingle<int>(selectIdProduto, new { idProduto });
                 }
             }
             catch (Exception excecao)

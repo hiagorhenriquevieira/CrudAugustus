@@ -49,7 +49,8 @@ namespace CrudAugustusFashion.View.Cadastro
             if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda)){ 
                 var lucro = txtPorcentagemLucro.Text.ToFloat();
                 var precoCusto = txtPrecoCusto.Text.ToFloat();
-                var retorno = ((lucro / 100) + 1) * precoCusto;
+                var retorno = ((lucro / 100) +1) * precoCusto;
+
                 txtPrecoVenda.Text = retorno.ToString();
             }else
             {
