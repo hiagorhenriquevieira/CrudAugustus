@@ -8,6 +8,7 @@
         public string Fabricante{ get; set; }
         public decimal PrecoCusto { get; set; }
         public decimal PrecoVenda { get; set; }
+        public decimal QuantidadeEstoque { get; set; }
 
     }
 }

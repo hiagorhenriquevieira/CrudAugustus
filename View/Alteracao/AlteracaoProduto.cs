@@ -24,7 +24,7 @@ namespace CrudAugustusFashion.View.Alteracao
             txtCodigoBarras.Text = _produto.CodigoDeBarras;
             txtNomeProduto.Text = _produto.Nome;
             txtNomeFabricante.Text = _produto.Fabricante;
-            txtEstoque.Text = _produto.QuantidadeEstoque.ToString();
+            numericEstoque.Text = _produto.QuantidadeEstoque.ToString();
             txtPrecoCusto.Text = _produto.PrecoCusto.ToString();
             txtPrecoVenda.Text = _produto.PrecoVenda.ToString();
             txtPorcentagemLucro.Text = _produto.Lucro.ToString();
@@ -60,24 +60,15 @@ namespace CrudAugustusFashion.View.Alteracao
                     _produto.PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
                     _produto.CodigoDeBarras = txtCodigoBarras.Text;
                     _produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
-                    if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
-                    {
-                        var estoque = txtEstoque.Text.ToInt();
-                        var estoqueAdicional = txtEstoqueAdicional.Text.ToInt();
-                        var retorno = (estoque + estoqueAdicional);
-                        _produto.QuantidadeEstoque = retorno;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Porcentagem de lucro invalida");
-                        return;
-                    }
+                    _produto.QuantidadeEstoque = Convert.ToInt32(numericEstoque.Value);
                     //int estoque = Convert.ToInt32(txtEstoque.Text + txtProdutosAdicionaisEstoque.Text); 
                     //produto.QuantidadeEstoque = estoque;
-
+                    if (Convert.ToInt32(numericEstoque.Text) >= 0)
+                    {
                     new AlteracaoProdutoController().AlterarProduto(_produto);
-                    MessageBox.Show("Produto alteradocom sucesso!");
+                    MessageBox.Show("Produto alterado com sucesso!");
                     this.Close();
+                    }
                 }
                 else
                 {
@@ -112,11 +103,11 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
                 return false;
             }
-             if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text))
-            {
-                MessageBox.Show("Campo -Estoque- invalido");
-                return false;
-            }
+            // if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text))
+            //{
+            //    MessageBox.Show("Campo -Estoque- invalido");
+            //    return false;
+            //}
              if (ValidacoesExtencion.NuloOuVazio(txtEstoqueAdicional))
             {
                 MessageBox.Show("Campo -Produtos Adicionais- invalido");
@@ -186,10 +177,10 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
             {
-                var estoque = txtEstoque.Text.ToInt();
-                var estoqueAdicional = txtEstoqueAdicional.Text.ToInt();
-                _produto.QuantidadeEstoque = estoque + estoqueAdicional;
-                txtEstoque.Text = _produto.QuantidadeEstoque.ToString();
+                var estoque = numericEstoque.Value;
+                var estoqueAdicional = numericEstoqueAdicional.Value;
+                _produto.QuantidadeEstoque = Convert.ToInt32(estoque) + Convert.ToInt32(estoqueAdicional);
+                numericEstoque.Value = _produto.QuantidadeEstoque;
             }
         }
 
@@ -197,10 +188,10 @@ namespace CrudAugustusFashion.View.Alteracao
         {
 
             if (ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro)) return;
-            var estoque = txtEstoque.Text.ToInt();
-            var estoqueAdicional = txtEstoqueAdicional.Text.ToInt();
-            _produto.QuantidadeEstoque = (estoque - estoqueAdicional);
-            txtEstoque.Text = _produto.QuantidadeEstoque.ToString();       
+            var estoque = numericEstoque.Value;
+            var estoqueAdicional = numericEstoqueAdicional.Value;
+            _produto.QuantidadeEstoque = (Convert.ToInt32(estoque) - Convert.ToInt32(estoqueAdicional));
+            numericEstoque.Value = _produto.QuantidadeEstoque;       
         }
     }
 }

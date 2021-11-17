@@ -75,8 +75,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private void numericQuantidade_ValueChanged(object sender, EventArgs e) => AtualizarPrecos();
         private void numericQuantidade_KeyPress(object sender, KeyPressEventArgs e) => AtualizarPrecos();
 
-        
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAdicionarProduto_Click(object sender, EventArgs e)
         {
 
         }

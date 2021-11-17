@@ -41,7 +41,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeFabricante = new System.Windows.Forms.TextBox();
             this.txtPorcentagemLucro = new System.Windows.Forms.TextBox();
-            this.txtEstoque = new System.Windows.Forms.TextBox();
             this.txtPrecoCusto = new System.Windows.Forms.TextBox();
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.txtPrecoVenda = new System.Windows.Forms.TextBox();
@@ -49,9 +48,12 @@ namespace CrudAugustusFashion.View.Alteracao
             this.button1 = new System.Windows.Forms.Button();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtEstoqueAdicional = new System.Windows.Forms.TextBox();
             this.btnAdicionarEstoque = new System.Windows.Forms.Button();
             this.btnSubtrairEstoque = new System.Windows.Forms.Button();
+            this.numericEstoque = new System.Windows.Forms.NumericUpDown();
+            this.numericEstoqueAdicional = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEstoque)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEstoqueAdicional)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCalcularPrecoProduto
@@ -174,14 +176,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPorcentagemLucro.TabIndex = 28;
             this.txtPorcentagemLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentagemLucro_KeyPress);
             // 
-            // txtEstoque
-            // 
-            this.txtEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstoque.Location = new System.Drawing.Point(449, 331);
-            this.txtEstoque.Name = "txtEstoque";
-            this.txtEstoque.Size = new System.Drawing.Size(165, 29);
-            this.txtEstoque.TabIndex = 27;
-            // 
             // txtPrecoCusto
             // 
             this.txtPrecoCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -230,7 +224,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // txtIdProduto
             // 
             this.txtIdProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProduto.Location = new System.Drawing.Point(752, 28);
+            this.txtIdProduto.Location = new System.Drawing.Point(649, 17);
             this.txtIdProduto.Name = "txtIdProduto";
             this.txtIdProduto.Size = new System.Drawing.Size(38, 29);
             this.txtIdProduto.TabIndex = 43;
@@ -247,16 +241,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.button2.Text = "Ativar produto";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtEstoqueAdicional
-            // 
-            this.txtEstoqueAdicional.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstoqueAdicional.Location = new System.Drawing.Point(353, 318);
-            this.txtEstoqueAdicional.Name = "txtEstoqueAdicional";
-            this.txtEstoqueAdicional.Size = new System.Drawing.Size(56, 29);
-            this.txtEstoqueAdicional.TabIndex = 40;
-            this.txtEstoqueAdicional.Text = "0";
-            this.txtEstoqueAdicional.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProdutosAdicionaisEstoque_KeyPress);
             // 
             // btnAdicionarEstoque
             // 
@@ -278,18 +262,35 @@ namespace CrudAugustusFashion.View.Alteracao
             this.btnSubtrairEstoque.UseVisualStyleBackColor = true;
             this.btnSubtrairEstoque.Click += new System.EventHandler(this.btnSubtrairEstoque_Click);
             // 
+            // numericEstoque
+            // 
+            this.numericEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericEstoque.Location = new System.Drawing.Point(467, 331);
+            this.numericEstoque.Name = "numericEstoque";
+            this.numericEstoque.Size = new System.Drawing.Size(138, 29);
+            this.numericEstoque.TabIndex = 47;
+            // 
+            // numericEstoqueAdicional
+            // 
+            this.numericEstoqueAdicional.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericEstoqueAdicional.Location = new System.Drawing.Point(343, 317);
+            this.numericEstoqueAdicional.Name = "numericEstoqueAdicional";
+            this.numericEstoqueAdicional.Size = new System.Drawing.Size(66, 29);
+            this.numericEstoqueAdicional.TabIndex = 48;
+            // 
             // FrmAlteracaoProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(876, 623);
+            this.Controls.Add(this.numericEstoqueAdicional);
+            this.Controls.Add(this.numericEstoque);
             this.Controls.Add(this.btnSubtrairEstoque);
             this.Controls.Add(this.btnAdicionarEstoque);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtIdProduto);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtEstoqueAdicional);
             this.Controls.Add(this.buttonCalcularPrecoProduto);
             this.Controls.Add(this.buttonCadastrarProduto);
             this.Controls.Add(this.label10);
@@ -302,7 +303,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNomeFabricante);
             this.Controls.Add(this.txtPorcentagemLucro);
-            this.Controls.Add(this.txtEstoque);
             this.Controls.Add(this.txtPrecoCusto);
             this.Controls.Add(this.txtCodigoBarras);
             this.Controls.Add(this.txtPrecoVenda);
@@ -310,6 +310,8 @@ namespace CrudAugustusFashion.View.Alteracao
             this.Name = "FrmAlteracaoProduto";
             this.Text = "AlteracaoProduto";
             this.Load += new System.EventHandler(this.FrmAlteracaoProduto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericEstoque)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEstoqueAdicional)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,7 +331,6 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeFabricante;
         private System.Windows.Forms.TextBox txtPorcentagemLucro;
-        private System.Windows.Forms.TextBox txtEstoque;
         private System.Windows.Forms.TextBox txtPrecoCusto;
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.TextBox txtPrecoVenda;
@@ -337,8 +338,9 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtIdProduto;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtEstoqueAdicional;
         private System.Windows.Forms.Button btnAdicionarEstoque;
         private System.Windows.Forms.Button btnSubtrairEstoque;
+        private System.Windows.Forms.NumericUpDown numericEstoque;
+        private System.Windows.Forms.NumericUpDown numericEstoqueAdicional;
     }
 }

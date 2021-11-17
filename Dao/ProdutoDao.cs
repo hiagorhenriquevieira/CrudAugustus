@@ -123,7 +123,7 @@ namespace CrudAugustusFashion.Dao
         }
         public List<ProdutoLista> BuscarListaProduto(string nome, bool status)
         {
-            const string selectProduto = @"Select IdProduto, CodigoDeBarras, Nome, Fabricante, PrecoCusto, PrecoVenda
+            const string selectProduto = @"Select IdProduto, CodigoDeBarras, Nome, Fabricante, PrecoCusto, PrecoVenda, QuantidadeEstoque
                                            from Produtos
                                            where Nome Like @Nome + '%' and Status = @Status ";
             using (var conexao = this.conexao.conectar())
