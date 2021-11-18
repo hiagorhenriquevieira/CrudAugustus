@@ -1,8 +1,10 @@
 ﻿using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
+using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Validacoes;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CrudAugustusFashion.View.Cadastro
@@ -60,11 +62,11 @@ namespace CrudAugustusFashion.View.Cadastro
                 var precoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
                 var desconto = numericDesconto.Value;
                 var precoLiquido = precoVenda - ((desconto / 100) * precoVenda);
-                txtPrecoLiquido.Text = precoLiquido.ToString("c");
+                txtPrecoLiquido.Text = precoLiquido.ToString();
 
                 var quantidade = numericQuantidade.Value;
                 var total = precoLiquido * quantidade;
-                txtTotal.Text = total.ToString("c");
+                txtTotal.Text = total.ToString();
             }
         }
         //Desconto
@@ -75,9 +77,49 @@ namespace CrudAugustusFashion.View.Cadastro
         private void numericQuantidade_ValueChanged(object sender, EventArgs e) => AtualizarPrecos();
         private void numericQuantidade_KeyPress(object sender, KeyPressEventArgs e) => AtualizarPrecos();
 
+
+        List<CarrinhoModel> CarrinhoLista = new List<CarrinhoModel>();
         private void btnAdicionarProduto_Click(object sender, EventArgs e)
         {
+            if(lblIdProduto.Text == "")
+            {
+                MessageBox.Show("Selecione um produto.");
+                return;
+            }else if (numericQuantidade.Value < 1)
+            {
+                MessageBox.Show("Quantidade não pode ser menor que 1.");
+                return;
+            }
+            else
+            {
+                CarrinhoLista.Add(new CarrinhoModel()
+                {
+                    Nome = lblNomeProduto.Text,
+                    Desconto = (int)numericDesconto.Value,
+                    PrecoLiquido = Convert.ToDecimal(txtPrecoLiquido.Text),
+                    PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text),
+                    Quantidade = Convert.ToInt32(numericQuantidade.Value),
+                    Total = Convert.ToDecimal(txtTotal.Text)
+                });
+                
+                dataGridViewCarrinhoPedido.DataSource = null;
+                dataGridViewCarrinhoPedido.DataSource = CarrinhoLista;
+            }
+            LimparCampos();
 
         }
+        public void LimparCampos()
+        {
+            lblIdProduto.Text = "";
+            lblNomeProduto.Text = "";
+            txtPrecoVenda.Text = "";
+            txtPrecoLiquido.Text = "";
+            txtTotal.Text = "";
+            txtDescontoDecimal.Text = "";
+            numericDesconto.Value = 0;
+            numericQuantidade.Value = 1;
+        }
+
+
     }
 }

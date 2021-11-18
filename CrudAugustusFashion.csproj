@@ -109,6 +109,7 @@
     <Compile Include="Dao\exception.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\ProdutoDao.cs" />
+    <Compile Include="Model\Carinho\CarrinhoModel.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
@@ -299,8 +300,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Carinho\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
