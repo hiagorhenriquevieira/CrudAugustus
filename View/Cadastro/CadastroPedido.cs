@@ -94,6 +94,7 @@ namespace CrudAugustusFashion.View.Cadastro
             {
                 CarrinhoLista.Add(new CarrinhoModel()
                 {
+                    IdProduto = Convert.ToInt32(lblIdProduto.Text),
                     Nome = lblNomeProduto.Text,
                     Desconto = (int)numericDesconto.Value,
                     PrecoLiquido = Convert.ToDecimal(txtPrecoLiquido.Text),
@@ -108,6 +109,9 @@ namespace CrudAugustusFashion.View.Cadastro
             LimparCampos();
 
         }
+
+        //public int SelecionarItemCarrinho() => dataGridViewCarrinhoPedido.Rows.GetRowCount(DataGridViewElementStates.Selected);
+
         public void LimparCampos()
         {
             lblIdProduto.Text = "";
@@ -120,6 +124,8 @@ namespace CrudAugustusFashion.View.Cadastro
             numericQuantidade.Value = 1;
         }
 
-
+        //    var itemCarrinho = SelecionarItemCarrinho();
+        //    CarrinhoLista.RemoveAt(itemCarrinho);
+        
     }
 }

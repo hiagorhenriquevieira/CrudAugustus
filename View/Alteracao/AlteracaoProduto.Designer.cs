@@ -62,7 +62,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.buttonCalcularPrecoProduto.Location = new System.Drawing.Point(355, 457);
             this.buttonCalcularPrecoProduto.Name = "buttonCalcularPrecoProduto";
             this.buttonCalcularPrecoProduto.Size = new System.Drawing.Size(165, 29);
-            this.buttonCalcularPrecoProduto.TabIndex = 39;
+            this.buttonCalcularPrecoProduto.TabIndex = 8;
             this.buttonCalcularPrecoProduto.Text = "Calcular preço ";
             this.buttonCalcularPrecoProduto.UseVisualStyleBackColor = true;
             this.buttonCalcularPrecoProduto.Click += new System.EventHandler(this.buttonCalcularPrecoProduto_Click);
@@ -74,7 +74,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.buttonCadastrarProduto.Location = new System.Drawing.Point(61, 548);
             this.buttonCadastrarProduto.Name = "buttonCadastrarProduto";
             this.buttonCadastrarProduto.Size = new System.Drawing.Size(276, 51);
-            this.buttonCadastrarProduto.TabIndex = 38;
+            this.buttonCadastrarProduto.TabIndex = 10;
             this.buttonCadastrarProduto.Text = "Salvar alteração";
             this.buttonCadastrarProduto.UseVisualStyleBackColor = false;
             this.buttonCadastrarProduto.Click += new System.EventHandler(this.buttonCadastrarProduto_Click);
@@ -165,7 +165,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtNomeFabricante.Location = new System.Drawing.Point(262, 240);
             this.txtNomeFabricante.Name = "txtNomeFabricante";
             this.txtNomeFabricante.Size = new System.Drawing.Size(363, 29);
-            this.txtNomeFabricante.TabIndex = 29;
+            this.txtNomeFabricante.TabIndex = 3;
             // 
             // txtPorcentagemLucro
             // 
@@ -173,7 +173,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPorcentagemLucro.Location = new System.Drawing.Point(464, 422);
             this.txtPorcentagemLucro.Name = "txtPorcentagemLucro";
             this.txtPorcentagemLucro.Size = new System.Drawing.Size(165, 29);
-            this.txtPorcentagemLucro.TabIndex = 28;
+            this.txtPorcentagemLucro.TabIndex = 7;
             this.txtPorcentagemLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentagemLucro_KeyPress);
             // 
             // txtPrecoCusto
@@ -182,7 +182,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPrecoCusto.Location = new System.Drawing.Point(262, 422);
             this.txtPrecoCusto.Name = "txtPrecoCusto";
             this.txtPrecoCusto.Size = new System.Drawing.Size(165, 29);
-            this.txtPrecoCusto.TabIndex = 26;
+            this.txtPrecoCusto.TabIndex = 6;
             this.txtPrecoCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoCusto_KeyPress);
             // 
             // txtCodigoBarras
@@ -191,7 +191,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtCodigoBarras.Location = new System.Drawing.Point(262, 99);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(363, 29);
-            this.txtCodigoBarras.TabIndex = 25;
+            this.txtCodigoBarras.TabIndex = 1;
             // 
             // txtPrecoVenda
             // 
@@ -199,7 +199,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPrecoVenda.Location = new System.Drawing.Point(355, 516);
             this.txtPrecoVenda.Name = "txtPrecoVenda";
             this.txtPrecoVenda.Size = new System.Drawing.Size(165, 29);
-            this.txtPrecoVenda.TabIndex = 24;
+            this.txtPrecoVenda.TabIndex = 9;
             // 
             // txtNomeProduto
             // 
@@ -207,7 +207,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtNomeProduto.Location = new System.Drawing.Point(262, 171);
             this.txtNomeProduto.Name = "txtNomeProduto";
             this.txtNomeProduto.Size = new System.Drawing.Size(363, 29);
-            this.txtNomeProduto.TabIndex = 23;
+            this.txtNomeProduto.TabIndex = 2;
             // 
             // button1
             // 
@@ -216,7 +216,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.button1.Location = new System.Drawing.Point(588, 560);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(276, 51);
-            this.button1.TabIndex = 42;
+            this.button1.TabIndex = 12;
             this.button1.Text = "Desativar produto";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -237,7 +237,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.button2.Location = new System.Drawing.Point(588, 489);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(276, 51);
-            this.button2.TabIndex = 44;
+            this.button2.TabIndex = 11;
             this.button2.Text = "Ativar produto";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -266,17 +266,27 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             this.numericEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericEstoque.Location = new System.Drawing.Point(467, 331);
+            this.numericEstoque.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
             this.numericEstoque.Name = "numericEstoque";
             this.numericEstoque.Size = new System.Drawing.Size(138, 29);
-            this.numericEstoque.TabIndex = 47;
+            this.numericEstoque.TabIndex = 5;
             // 
             // numericEstoqueAdicional
             // 
             this.numericEstoqueAdicional.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericEstoqueAdicional.Location = new System.Drawing.Point(343, 317);
+            this.numericEstoqueAdicional.Maximum = new decimal(new int[] {
+            2500,
+            0,
+            0,
+            0});
             this.numericEstoqueAdicional.Name = "numericEstoqueAdicional";
             this.numericEstoqueAdicional.Size = new System.Drawing.Size(66, 29);
-            this.numericEstoqueAdicional.TabIndex = 48;
+            this.numericEstoqueAdicional.TabIndex = 4;
             // 
             // FrmAlteracaoProduto
             // 

@@ -15,7 +15,7 @@ namespace CrudAugustusFashion.Dao
         ConexaoDao conexao = new ConexaoDao();
         public List<ProdutoLista> BuscarProdutoParaVenda(string nome)
         {
-            const string selectProduto = @"Select IdProduto, CodigoDeBarras, Nome, Fabricante, PrecoCusto, PrecoVenda
+            const string selectProduto = @"Select IdProduto, CodigoDeBarras, Nome, Fabricante, PrecoCusto, PrecoVenda, QuantidadeEstoque
                                            from Produtos
                                            where Nome Like @Nome + '%' and Status = 1";
             using (var conexao = this.conexao.conectar())
