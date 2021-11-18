@@ -13,7 +13,7 @@ namespace CrudAugustusFashion.Model.Carinho
                                              where char.IsDigit(c)
                                            select c).ToArray());
 
-            var precoCorreto = (Convert.ToInt32(precoSemFormatacao)/100);
+            var precoCorreto = (Convert.ToDecimal(precoSemFormatacao)/100);
             return precoCorreto.ToString();
         }
     }

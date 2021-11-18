@@ -115,8 +115,11 @@
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
     <Compile Include="Model\Endereco\EnderecoValidation.cs" />
-    <Compile Include="Model\Produto\Pedido\PedidoLista.cs" />
-    <Compile Include="Model\Produto\Pedido\ProdutoPedidoModel.cs" />
+    <Compile Include="Model\Pedido\PedidoModel.cs" />
+    <Compile Include="Model\Pedido\TipoDePagamentoEnum.cs" />
+    <Compile Include="Model\Pedido\FormaPagamentoModel.cs" />
+    <Compile Include="Model\Pedido\PedidoLista.cs" />
+    <Compile Include="Model\Pedido\ProdutoPedidoModel.cs" />
     <Compile Include="Model\Produto\ProdutoLista.cs" />
     <Compile Include="Model\Produto\ProdutoModel.cs" />
     <Compile Include="Model\TelefoneModel\TelefoneValidation.cs" />
@@ -124,6 +127,7 @@
     <Compile Include="Model\UsuarioModel\CpfValidation.cs" />
     <Compile Include="Model\UsuarioModel\NomeCompleto.cs" />
     <Compile Include="Model\UsuarioModel\UsuarioValidation.cs" />
+    <Compile Include="Model\Venda\VendaModel.cs" />
     <Compile Include="Validacoes\ValidacoesCadastros.cs" />
     <Compile Include="Validacoes\ValidacoesExtencion.cs" />
     <Compile Include="Model\ClienteModel\ClienteListaModel.cs" />
