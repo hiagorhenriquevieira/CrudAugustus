@@ -9,7 +9,7 @@
         public string NomeCliente { get; set; }
         public string NomeColaborador { get; set; }
         public int FormaDePagamento { get; set; }
-        public int TotalBruto {get; set;}
+        public int TotalBruto { get; set; }
         public int TotalDesconto { get; set; }
         public int TotalLiquido { get; set; }
 

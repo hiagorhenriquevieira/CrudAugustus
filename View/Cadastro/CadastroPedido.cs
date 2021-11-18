@@ -2,18 +2,22 @@
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Carinho;
+using CrudAugustusFashion.Model.Produto.Pedido;
 using CrudAugustusFashion.Validacoes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CrudAugustusFashion.View.Cadastro
 {
     public partial class FrmCadastroPedido : Form
     {
+        private PedidoLista _pedidoLista;
         public FrmCadastroPedido()
         {
             InitializeComponent();
+            _pedidoLista = new PedidoLista();    
         }
 
         private void btnPesquisarProduto_Click(object sender, System.EventArgs e) => 
@@ -31,9 +35,8 @@ namespace CrudAugustusFashion.View.Cadastro
 
             lblIdProduto.Text = produto.IdProduto.ToString();
             lblNomeProduto.Text = produto.Nome;
-            txtPrecoVenda.Text = produto.PrecoVenda.ToString();
+            lblPrecoVenda.Text = produto.PrecoVenda.ToString();
             AtualizarPrecos();
-            
         }
 
         private void dataGridViewColaboradorPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -57,28 +60,40 @@ namespace CrudAugustusFashion.View.Cadastro
 
         public void AtualizarPrecos() 
         { 
-            if (!ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
+            if (!ValidacoesExtencion.NuloOuVazio(lblPrecoVenda))
             {
-                var precoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
+                var precoVenda = Convert.ToDecimal(lblPrecoVenda.Text);
                 var desconto = numericDesconto.Value;
                 var precoLiquido = precoVenda - ((desconto / 100) * precoVenda);
-                txtPrecoLiquido.Text = precoLiquido.ToString();
+                lblPrecoLiquido.Text = precoLiquido.ToString("c");
 
                 var quantidade = numericQuantidade.Value;
                 var total = precoLiquido * quantidade;
-                txtTotal.Text = total.ToString();
+                lblTotal.Text = total.ToString("c");
+
+                var descontoDecimal = precoVenda - precoLiquido;
+                lblDescontoDecimal.Text = descontoDecimal.ToString("c");
             }
         }
         //Desconto
-        private void numericDesconto_ValueChanged(object sender, EventArgs e) => AtualizarPrecos();
-        private void numericDesconto_KeyPress(object sender, KeyPressEventArgs e) => AtualizarPrecos();
+        private void numericDesconto_ValueChanged(object sender, EventArgs e)
+        {
+            AtualizarPrecos();
+            //CalcularDescontoEmDecimal();
+        }
+
+        private void numericDesconto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AtualizarPrecos();
+            //CalcularDescontoEmDecimal();
+        }
 
         //Quantidade
         private void numericQuantidade_ValueChanged(object sender, EventArgs e) => AtualizarPrecos();
+
         private void numericQuantidade_KeyPress(object sender, KeyPressEventArgs e) => AtualizarPrecos();
 
-
-        List<CarrinhoModel> CarrinhoLista = new List<CarrinhoModel>();
+        List<CarrinhoModel> _carrinhoLista = new List<CarrinhoModel>();
         private void btnAdicionarProduto_Click(object sender, EventArgs e)
         {
             if(lblIdProduto.Text == "")
@@ -92,40 +107,71 @@ namespace CrudAugustusFashion.View.Cadastro
             }
             else
             {
-                CarrinhoLista.Add(new CarrinhoModel()
+                _carrinhoLista.Add(new CarrinhoModel()
                 {
                     IdProduto = Convert.ToInt32(lblIdProduto.Text),
                     Nome = lblNomeProduto.Text,
-                    Desconto = (int)numericDesconto.Value,
-                    PrecoLiquido = Convert.ToDecimal(txtPrecoLiquido.Text),
-                    PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text),
+                    DescontoDecimal = Convert.ToDecimal(ValidacaoDePreco.RemoverFormatacaoDoPreco(lblDescontoDecimal.Text)),
+                    PrecoLiquido = Convert.ToDecimal(ValidacaoDePreco.RemoverFormatacaoDoPreco(lblPrecoLiquido.Text)),
+                    PrecoVenda = Convert.ToDecimal(ValidacaoDePreco.RemoverFormatacaoDoPreco(lblPrecoVenda.Text)),
                     Quantidade = Convert.ToInt32(numericQuantidade.Value),
-                    Total = Convert.ToDecimal(txtTotal.Text)
-                });
-                
-                dataGridViewCarrinhoPedido.DataSource = null;
-                dataGridViewCarrinhoPedido.DataSource = CarrinhoLista;
+                    Total = Convert.ToDecimal(ValidacaoDePreco.RemoverFormatacaoDoPreco(lblTotal.Text))
+                }) ;
+
+                AtualizarCarrinho();
             }
             LimparCampos();
 
         }
 
-        //public int SelecionarItemCarrinho() => dataGridViewCarrinhoPedido.Rows.GetRowCount(DataGridViewElementStates.Selected);
-
+        private void AtualizarCarrinho()
+        {
+            dataGridViewCarrinhoPedido.DataSource = null;
+            dataGridViewCarrinhoPedido.DataSource = _carrinhoLista;
+            CalcularTotalBruto();
+            CalcularTotalDesconto();
+            CalcularTotalLiquido();
+        }
         public void LimparCampos()
         {
             lblIdProduto.Text = "";
             lblNomeProduto.Text = "";
-            txtPrecoVenda.Text = "";
-            txtPrecoLiquido.Text = "";
-            txtTotal.Text = "";
-            txtDescontoDecimal.Text = "";
+            lblPrecoVenda.Text = "";
+            lblPrecoLiquido.Text = "";
+            lblTotal.Text = "";
+            lblDescontoDecimal.Text = "";
             numericDesconto.Value = 0;
             numericQuantidade.Value = 1;
+            lblDescontoDecimal.Text = "";
         }
 
-        //    var itemCarrinho = SelecionarItemCarrinho();
-        //    CarrinhoLista.RemoveAt(itemCarrinho);
-        
+        private void btnRetirarProdutoCarrinho_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridViewCarrinhoPedido.SelectedRows[0].Cells[0].Value);
+            _carrinhoLista.Remove((from x in _carrinhoLista
+                                  where x.IdProduto == id
+                                  select x).FirstOrDefault()
+                                  );
+            AtualizarCarrinho();
+        } 
+        private void CalcularTotalBruto()
+        {
+            var soma = _carrinhoLista.Sum(x => x.PrecoVenda * x.Quantidade);
+            lblTotalBruto.Text = soma.ToString("c"); 
+        }
+        private void CalcularTotalDesconto()
+        {
+            var soma = _carrinhoLista.Sum(x => x.DescontoDecimal + x.DescontoDecimal);
+            lblTotalDesconto.Text = soma.ToString("c");
+        }
+        private void CalcularTotalLiquido()
+        {
+            var soma = _carrinhoLista.Sum(x => x.PrecoLiquido + x.PrecoLiquido);
+            lblTotalLiquido.Text = soma.ToString("c");
+        }
+        private void FrmCadastroPedido_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

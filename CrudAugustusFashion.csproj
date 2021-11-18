@@ -110,6 +110,7 @@
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\ProdutoDao.cs" />
     <Compile Include="Model\Carinho\CarrinhoModel.cs" />
+    <Compile Include="Model\Carinho\ValidacaoDePreco.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />

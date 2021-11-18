@@ -30,6 +30,8 @@ namespace CrudAugustusFashion.Validacoes
 
         public static bool NuloOuVazio(this TextBox textoBox) =>
             string.IsNullOrEmpty(textoBox.Text);
+        public static bool NuloOuVazio(this Label label) =>
+            string.IsNullOrEmpty(label.Text);
 
         public static bool NuloOuVazio(this MaskedTextBox mascaraBox) =>
             string.IsNullOrEmpty(mascaraBox.Text);
