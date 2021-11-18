@@ -109,6 +109,7 @@
     <Compile Include="Dao\exception.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\ProdutoDao.cs" />
+    <Compile Include="Dao\VendaDao.cs" />
     <Compile Include="Model\Carinho\CarrinhoModel.cs" />
     <Compile Include="Model\Carinho\ValidacaoDePreco.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />
