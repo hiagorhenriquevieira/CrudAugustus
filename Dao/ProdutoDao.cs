@@ -27,31 +27,31 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(ex.Message);
             }
         }
-        public List<ProdutoLista> ListarPruduto()
-        {
-            const string listaProduto = @"select * from Produtos";
-            using (var conexao = this.conexao.conectar())
-            {
+        //public List<ProdutoLista> ListarPruduto()
+        //{
+        //    const string listaProduto = @"select * from Produtos";
+        //    using (var conexao = this.conexao.conectar())
+        //    {
 
-                return conexao.Query<ProdutoLista>(listaProduto).ToList();
-            }
-        }
-        public int RecuperarIdProduto(int idProduto)
-        {
-            const string selectIdProduto = @"select idproduto from produtos
-                                             where idproduto = @idproduto";
-            try
-            {
-                using (var conexao = this.conexao.conectar())
-                {
-                    return conexao.QuerySingle<int>(selectIdProduto, new { idProduto });
-                }
-            }
-            catch (Exception excecao)
-            {
-                throw new Exception(excecao.Message);
-            }
-        }
+        //        return conexao.Query<ProdutoLista>(listaProduto).ToList();
+        //    }
+        //}
+        //public int RecuperarIdProduto(int idProduto)
+        //{
+        //    const string selectIdProduto = @"select idproduto from produtos
+        //                                     where idproduto = @idproduto";
+        //    try
+        //    {
+        //        using (var conexao = this.conexao.conectar())
+        //        {
+        //            return conexao.QuerySingle<int>(selectIdProduto, new { idProduto });
+        //        }
+        //    }
+        //    catch (Exception excecao)
+        //    {
+        //        throw new Exception(excecao.Message);
+        //    }
+        //}
         internal ProdutoModel RecuperarDadosProduto(int IdProduto)
         {
             const string selectProduto = @"select * from Produtos
@@ -128,7 +128,7 @@ namespace CrudAugustusFashion.Dao
                                            where Nome Like @Nome + '%' and Status = @Status ";
             using (var conexao = this.conexao.conectar())
             {
-                return conexao.Query<ProdutoLista>(selectProduto, new {Nome = nome, Status = status} ).ToList();
+                return conexao.Query<ProdutoLista>(selectProduto, new { Nome = nome, Status = status }).ToList();
             }
         }
     }

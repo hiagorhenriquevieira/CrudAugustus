@@ -116,7 +116,7 @@
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
     <Compile Include="Model\Endereco\EnderecoValidation.cs" />
-    <Compile Include="Model\Pedido\PedidoModel.cs" />
+    <Compile Include="Model\Pedido\VendaModel.cs" />
     <Compile Include="Model\Pedido\TipoDePagamentoEnum.cs" />
     <Compile Include="Model\Pedido\FormaPagamentoModel.cs" />
     <Compile Include="Model\Pedido\PedidoLista.cs" />

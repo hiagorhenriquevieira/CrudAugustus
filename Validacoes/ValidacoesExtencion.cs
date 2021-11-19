@@ -43,7 +43,7 @@ namespace CrudAugustusFashion.Validacoes
             new Regex(@"^[0-9]+$").Match(numero).Success;
 
         public static bool ValidarApenasLetras(this string texto) =>   
-            new Regex(@"^[a-zA-Z]+$").Match(texto).Success;
+            new Regex(@"^[a-zA-ZçÇ áÁãÃÂâêÊ.íìÌÍ]+$").Match(texto).Success;
 
         public static bool ValidarEmail(this string email) => 
             new Regex(@"^[a-zA-Z0-9._-]+[@][a-z]+[.]([a-zA-Z]{2,3})+$").Match(email).Success;

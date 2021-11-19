@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CrudAugustusFashion.Model.Produto.Pedido
+﻿namespace CrudAugustusFashion.Model.Produto.Pedido
 {
-    class ProdutoPedidoModel
+    public class ProdutoPedidoModel
     {
         public int IdPedido { get; set; }
         public int IdProduto { get; set; }

@@ -30,18 +30,18 @@ namespace CrudAugustusFashion.View.Cadastro
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastroPedido));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbRealizarPedido = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -90,6 +90,10 @@ namespace CrudAugustusFashion.View.Cadastro
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPrecoLiquido = new System.Windows.Forms.Label();
             this.lblPrecoVenda = new System.Windows.Forms.Label();
+            this.lblLucro = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lblPrecoCusto = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutoPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewColaboradorPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientePedido)).BeginInit();
@@ -162,7 +166,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(840, 435);
+            this.label6.Location = new System.Drawing.Point(1044, 364);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 18;
@@ -182,7 +186,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(26, 283);
+            this.label8.Location = new System.Drawing.Point(27, 326);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(149, 25);
             this.label8.TabIndex = 23;
@@ -202,7 +206,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(26, 353);
+            this.label10.Location = new System.Drawing.Point(27, 384);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(136, 25);
             this.label10.TabIndex = 25;
@@ -212,7 +216,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(26, 433);
+            this.label11.Location = new System.Drawing.Point(26, 442);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(55, 25);
             this.label11.TabIndex = 26;
@@ -306,30 +310,30 @@ namespace CrudAugustusFashion.View.Cadastro
             this.dataGridViewProdutoPedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewProdutoPedido.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewProdutoPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewProdutoPedido.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewProdutoPedido.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewProdutoPedido.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dataGridViewProdutoPedido.Location = new System.Drawing.Point(31, 111);
             this.dataGridViewProdutoPedido.MultiSelect = false;
             this.dataGridViewProdutoPedido.Name = "dataGridViewProdutoPedido";
             this.dataGridViewProdutoPedido.ReadOnly = true;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProdutoPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewProdutoPedido.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProdutoPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridViewProdutoPedido.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewProdutoPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProdutoPedido.Size = new System.Drawing.Size(354, 99);
             this.dataGridViewProdutoPedido.TabIndex = 56;
@@ -340,30 +344,30 @@ namespace CrudAugustusFashion.View.Cadastro
             this.dataGridViewColaboradorPedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewColaboradorPedido.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewColaboradorPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewColaboradorPedido.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewColaboradorPedido.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewColaboradorPedido.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dataGridViewColaboradorPedido.Location = new System.Drawing.Point(448, 109);
             this.dataGridViewColaboradorPedido.MultiSelect = false;
             this.dataGridViewColaboradorPedido.Name = "dataGridViewColaboradorPedido";
             this.dataGridViewColaboradorPedido.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewColaboradorPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewColaboradorPedido.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewColaboradorPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridViewColaboradorPedido.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewColaboradorPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewColaboradorPedido.Size = new System.Drawing.Size(353, 101);
             this.dataGridViewColaboradorPedido.TabIndex = 57;
@@ -374,30 +378,30 @@ namespace CrudAugustusFashion.View.Cadastro
             this.dataGridViewClientePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewClientePedido.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewClientePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewClientePedido.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewClientePedido.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewClientePedido.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dataGridViewClientePedido.Location = new System.Drawing.Point(852, 109);
             this.dataGridViewClientePedido.MultiSelect = false;
             this.dataGridViewClientePedido.Name = "dataGridViewClientePedido";
             this.dataGridViewClientePedido.ReadOnly = true;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewClientePedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewClientePedido.RowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewClientePedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridViewClientePedido.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewClientePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewClientePedido.Size = new System.Drawing.Size(353, 101);
             this.dataGridViewClientePedido.TabIndex = 58;
@@ -408,30 +412,30 @@ namespace CrudAugustusFashion.View.Cadastro
             this.dataGridViewCarrinhoPedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewCarrinhoPedido.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewCarrinhoPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCarrinhoPedido.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCarrinhoPedido.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewCarrinhoPedido.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dataGridViewCarrinhoPedido.Location = new System.Drawing.Point(441, 353);
             this.dataGridViewCarrinhoPedido.MultiSelect = false;
             this.dataGridViewCarrinhoPedido.Name = "dataGridViewCarrinhoPedido";
             this.dataGridViewCarrinhoPedido.ReadOnly = true;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCarrinhoPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewCarrinhoPedido.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCarrinhoPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridViewCarrinhoPedido.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewCarrinhoPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCarrinhoPedido.Size = new System.Drawing.Size(368, 138);
             this.dataGridViewCarrinhoPedido.TabIndex = 59;
@@ -448,6 +452,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.btnFinalizarPedido.TabIndex = 60;
             this.btnFinalizarPedido.Text = " Finalizar pedido\r\n";
             this.btnFinalizarPedido.UseVisualStyleBackColor = false;
+            this.btnFinalizarPedido.Click += new System.EventHandler(this.btnFinalizarPedido_Click);
             // 
             // label13
             // 
@@ -549,9 +554,9 @@ namespace CrudAugustusFashion.View.Cadastro
             this.btnAdicionarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdicionarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionarProduto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAdicionarProduto.Location = new System.Drawing.Point(31, 505);
+            this.btnAdicionarProduto.Location = new System.Drawing.Point(31, 502);
             this.btnAdicionarProduto.Name = "btnAdicionarProduto";
-            this.btnAdicionarProduto.Size = new System.Drawing.Size(146, 31);
+            this.btnAdicionarProduto.Size = new System.Drawing.Size(149, 31);
             this.btnAdicionarProduto.TabIndex = 62;
             this.btnAdicionarProduto.Text = "Adicionar Produto";
             this.btnAdicionarProduto.UseVisualStyleBackColor = false;
@@ -630,7 +635,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.lblTotalDesconto.BackColor = System.Drawing.Color.White;
             this.lblTotalDesconto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTotalDesconto.Location = new System.Drawing.Point(842, 468);
+            this.lblTotalDesconto.Location = new System.Drawing.Point(1049, 395);
             this.lblTotalDesconto.Name = "lblTotalDesconto";
             this.lblTotalDesconto.Size = new System.Drawing.Size(148, 23);
             this.lblTotalDesconto.TabIndex = 70;
@@ -660,7 +665,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.lblTotal.BackColor = System.Drawing.Color.White;
             this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTotal.Location = new System.Drawing.Point(32, 464);
+            this.lblTotal.Location = new System.Drawing.Point(32, 468);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(148, 31);
             this.lblTotal.TabIndex = 75;
@@ -670,7 +675,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.lblPrecoLiquido.BackColor = System.Drawing.Color.White;
             this.lblPrecoLiquido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPrecoLiquido.Location = new System.Drawing.Point(32, 387);
+            this.lblPrecoLiquido.Location = new System.Drawing.Point(31, 410);
             this.lblPrecoLiquido.Name = "lblPrecoLiquido";
             this.lblPrecoLiquido.Size = new System.Drawing.Size(148, 31);
             this.lblPrecoLiquido.TabIndex = 76;
@@ -680,11 +685,51 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.lblPrecoVenda.BackColor = System.Drawing.Color.White;
             this.lblPrecoVenda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPrecoVenda.Location = new System.Drawing.Point(32, 322);
+            this.lblPrecoVenda.Location = new System.Drawing.Point(31, 352);
             this.lblPrecoVenda.Name = "lblPrecoVenda";
             this.lblPrecoVenda.Size = new System.Drawing.Size(148, 31);
             this.lblPrecoVenda.TabIndex = 77;
             this.lblPrecoVenda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLucro
+            // 
+            this.lblLucro.BackColor = System.Drawing.Color.White;
+            this.lblLucro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLucro.Location = new System.Drawing.Point(842, 468);
+            this.lblLucro.Name = "lblLucro";
+            this.lblLucro.Size = new System.Drawing.Size(148, 23);
+            this.lblLucro.TabIndex = 78;
+            this.lblLucro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label18.Location = new System.Drawing.Point(837, 433);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(63, 25);
+            this.label18.TabIndex = 79;
+            this.label18.Text = "Lucro";
+            // 
+            // lblPrecoCusto
+            // 
+            this.lblPrecoCusto.BackColor = System.Drawing.Color.White;
+            this.lblPrecoCusto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPrecoCusto.Location = new System.Drawing.Point(32, 294);
+            this.lblPrecoCusto.Name = "lblPrecoCusto";
+            this.lblPrecoCusto.Size = new System.Drawing.Size(148, 31);
+            this.lblPrecoCusto.TabIndex = 81;
+            this.lblPrecoCusto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(28, 268);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(146, 25);
+            this.label20.TabIndex = 80;
+            this.label20.Text = "Preço de Custo";
             // 
             // FrmCadastroPedido
             // 
@@ -692,6 +737,10 @@ namespace CrudAugustusFashion.View.Cadastro
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1290, 607);
+            this.Controls.Add(this.lblPrecoCusto);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.lblLucro);
             this.Controls.Add(this.lblPrecoVenda);
             this.Controls.Add(this.lblPrecoLiquido);
             this.Controls.Add(this.lblTotal);
@@ -803,5 +852,9 @@ namespace CrudAugustusFashion.View.Cadastro
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblPrecoLiquido;
         private System.Windows.Forms.Label lblPrecoVenda;
+        private System.Windows.Forms.Label lblLucro;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblPrecoCusto;
+        private System.Windows.Forms.Label label20;
     }
 }

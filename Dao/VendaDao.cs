@@ -1,48 +1,45 @@
-﻿using CrudAugustusFashion.Model.Produto;
-using CrudAugustusFashion.Model.Venda;
-using Dapper;
+﻿using Dapper;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-
+using VendaModel = CrudAugustusFashion.Model.Pedido.VendaModel;
 
 namespace CrudAugustusFashion.Dao
 {
     public class VendaDao
     {
         ConexaoDao conexao = new ConexaoDao();
-        public void CadastrarVendaPedido()
+        public void CadastrarVendaPedido(VendaModel venda)
         {
-            const string insertPedido = @"Insert into Pedidos (TotalBruto, TotalDesconto, TotalLiquido)  
-                output inserted.IdPedido 
-                values ( @TotalBruto, @TotalDesconto, @TotalLiquido)";
+            const string insertVenda = @"Insert into Venda (IdCliente, IdColaborador, TotalBruto, TotalDesconto, TotalLiquido, Lucro)  
+                output inserted.IdVenda 
+                values (@IdCliente, @IdColaborador, @TotalBruto, @TotalDesconto, @TotalLiquido, @Lucro)";
 
-            const string insertVenda = @"Insert into Venda (IdProduto, IdCliente, IdColaborador, PrecoBruto, PrecoCusto
-                QuantidadeProduto, Desconto, PrecoLiquido, Total) values (@IdProduto, @IdCliente, @IdColaborador, @PrecoBruto, @PrecoCusto
-                @QuantidadeProduto, @Desconto, @PrecoLiquido, @Total)";
+            const string insertPedido = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto,
+                QuantidadeProduto, Desconto, PrecoLiquido, Total) 
+                values (@IdVenda, @PrecoVenda, @PrecoCusto, @Quantidade, @DescontoDecimal, @PrecoLiquido, @Total)";
 
-            const string insertFormaPagamento = @"Insert into FormaDePagamento (IdVenda) values (@IdVenda)";
+            //const string insertFormaPagamento = @"Insert into FormaDePagamento (IdVenda) values (@IdVenda)";
 
             try
             {
                 using (var conexao = this.conexao.conectar())
                 {
-                    conexao.Open();
                     using (SqlTransaction transaction = conexao.BeginTransaction())
                     {
-                        //pedido.IdPedido = sqlCon.ExecuteScalar<int>(insertPedido, pedido, transaction);
+                        venda.IdVenda = conexao.ExecuteScalar<int>(insertVenda, venda, transaction);
 
-                        //pedido.Produtos.ForEach(x => x.IdPedido = pedido.IdPedido);
+                        venda.Produtos.ForEach(x => x.IdVenda = venda.IdVenda);
 
-                        //sqlCon.Execute(strSqlPedidoProduto, pedido.Produtos, transaction);
+                        conexao.Execute(insertPedido, venda.Produtos, transaction);
 
-                        //transaction.Commit();
+                        //pedido.IdPedido = conexao.Execute(insertFormaPagamento, transaction);
+
+                        transaction.Commit();
                     }
                 }
-            }catch
+            }catch(Exception excecao)
             {
-
+                throw new Exception(excecao.Message);
             }
         }
     } 

@@ -99,7 +99,7 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void txtPrecoCusto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
@@ -114,7 +114,7 @@ namespace CrudAugustusFashion.View.Cadastro
         }
         private bool ValidarPrecoCustoVenda()
         {
-            if (Convert.ToInt32(txtPrecoVenda.Text) >= Convert.ToInt32(txtPrecoCusto.Text))
+            if (Convert.ToDecimal(txtPrecoVenda.Text) >= Convert.ToDecimal(txtPrecoCusto.Text))
             {
                 return true;
             }
