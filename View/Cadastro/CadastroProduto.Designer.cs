@@ -189,31 +189,33 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             // buttonCadastrarProduto
             // 
+            this.buttonCadastrarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.buttonCadastrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCadastrarProduto.Location = new System.Drawing.Point(284, 554);
             this.buttonCadastrarProduto.Name = "buttonCadastrarProduto";
             this.buttonCadastrarProduto.Size = new System.Drawing.Size(276, 51);
             this.buttonCadastrarProduto.TabIndex = 21;
             this.buttonCadastrarProduto.Text = "Cadastrar";
-            this.buttonCadastrarProduto.UseVisualStyleBackColor = true;
+            this.buttonCadastrarProduto.UseVisualStyleBackColor = false;
             this.buttonCadastrarProduto.Click += new System.EventHandler(this.buttonCadastrarProduto_Click);
             // 
             // buttonCalcularPrecoProduto
             // 
+            this.buttonCalcularPrecoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.buttonCalcularPrecoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCalcularPrecoProduto.Location = new System.Drawing.Point(342, 433);
             this.buttonCalcularPrecoProduto.Name = "buttonCalcularPrecoProduto";
             this.buttonCalcularPrecoProduto.Size = new System.Drawing.Size(165, 29);
             this.buttonCalcularPrecoProduto.TabIndex = 22;
             this.buttonCalcularPrecoProduto.Text = "Calcular preço ";
-            this.buttonCalcularPrecoProduto.UseVisualStyleBackColor = true;
+            this.buttonCalcularPrecoProduto.UseVisualStyleBackColor = false;
             this.buttonCalcularPrecoProduto.Click += new System.EventHandler(this.buttonCalcularPrecoProduto_Click);
             // 
             // FrmCadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(876, 623);
             this.Controls.Add(this.buttonCalcularPrecoProduto);
             this.Controls.Add(this.buttonCadastrarProduto);

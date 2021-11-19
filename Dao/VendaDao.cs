@@ -10,15 +10,15 @@ namespace CrudAugustusFashion.Dao
         ConexaoDao conexao = new ConexaoDao();
         public void CadastrarVendaPedido(VendaModel venda)
         {
-            const string insertVenda = @"Insert into Venda (IdCliente, IdColaborador, TotalBruto, TotalDesconto, TotalLiquido, Lucro)  
+            const string insertVenda = @"Insert into Venda (IdCliente, IdColaborador, TotalBruto, TotalDesconto, TotalLiquido, Lucro, FormaDePagamento)  
                 output inserted.IdVenda 
-                values (@IdCliente, @IdColaborador, @TotalBruto, @TotalDesconto, @TotalLiquido, @Lucro)";
+                values (@IdCliente, @IdColaborador, @TotalBruto, @TotalDesconto, @TotalLiquido, @LucroTotal, @FormaDePagamento)";
 
             const string insertPedido = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto,
                 QuantidadeProduto, Desconto, PrecoLiquido, Total) 
                 values (@IdVenda, @PrecoVenda, @PrecoCusto, @Quantidade, @DescontoDecimal, @PrecoLiquido, @Total)";
 
-            //const string insertFormaPagamento = @"Insert into FormaDePagamento (IdVenda) values (@IdVenda)";
+            
 
             try
             {
@@ -31,8 +31,6 @@ namespace CrudAugustusFashion.Dao
                         venda.Produtos.ForEach(x => x.IdVenda = venda.IdVenda);
 
                         conexao.Execute(insertPedido, venda.Produtos, transaction);
-
-                        //pedido.IdPedido = conexao.Execute(insertFormaPagamento, transaction);
 
                         transaction.Commit();
                     }

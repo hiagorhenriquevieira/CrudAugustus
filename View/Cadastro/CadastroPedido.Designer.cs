@@ -707,9 +707,9 @@ namespace CrudAugustusFashion.View.Cadastro
             this.label18.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.label18.Location = new System.Drawing.Point(837, 433);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(63, 25);
+            this.label18.Size = new System.Drawing.Size(111, 25);
             this.label18.TabIndex = 79;
-            this.label18.Text = "Lucro";
+            this.label18.Text = "Lucro Total";
             // 
             // lblPrecoCusto
             // 

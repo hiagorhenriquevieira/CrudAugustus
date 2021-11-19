@@ -1,8 +1,10 @@
 ﻿namespace CrudAugustusFashion.Model.Produto.Pedido
 {
     public class FormaPagamentoModel
-    {  
-        public TipoDePagamentoEnum FormaDePagamento { get; set; }
+    {
+        public int IdVenda { get; set; }
+        public string FormaPagamento { get; set; }
+       // public TipoDePagamentoEnum FormaDePagamento { get; set; }
 
 
     }

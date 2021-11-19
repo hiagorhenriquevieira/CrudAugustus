@@ -2,12 +2,9 @@
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Carinho;
-using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Produto.Pedido;
-using CrudAugustusFashion.Model.Venda;
 using CrudAugustusFashion.Validacoes;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -81,6 +78,10 @@ namespace CrudAugustusFashion.View.Cadastro
 
                 var descontoDecimal = precoVenda - precoLiquido;
                 lblDescontoDecimal.Text = descontoDecimal.ToString("c");
+                lblLucro.Text = _pedidoModel.LucroTotal.ToString();
+                lblTotalBruto.Text = _pedidoModel.TotalBruto.ToString();
+                lblTotalDesconto.Text = _pedidoModel.TotalDesconto.ToString();
+                lblTotalLiquido.Text = _pedidoModel.TotalLiquido.ToString();
             }
         }
         //Desconto
@@ -128,6 +129,10 @@ namespace CrudAugustusFashion.View.Cadastro
                 }) ;
 
                 AtualizarCarrinho();
+                lblLucro.Text = _pedidoModel.LucroTotal.ToString();
+                lblTotalBruto.Text = _pedidoModel.TotalBruto.ToString();
+                lblTotalDesconto.Text = _pedidoModel.TotalDesconto.ToString();
+                lblTotalLiquido.Text = _pedidoModel.TotalLiquido.ToString();
             }
             LimparCampos();
 
@@ -137,10 +142,7 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             dataGridViewCarrinhoPedido.DataSource = null;
             dataGridViewCarrinhoPedido.DataSource = _pedidoModel.Produtos;
-            CalcularTotalBruto();
-            CalcularTotalDesconto();
-            CalcularTotalLiquido();
-            CalcularTotalLucro();
+            
         }
         public void LimparCampos()
         {
@@ -164,26 +166,7 @@ namespace CrudAugustusFashion.View.Cadastro
                                   );
             AtualizarCarrinho();
         } 
-        private void CalcularTotalBruto()
-        {
-            var soma = _pedidoModel.Produtos.Sum(x => x.PrecoVenda * x.Quantidade);
-            lblTotalBruto.Text = soma.ToString(); 
-        }
-        private void CalcularTotalDesconto()
-        {
-            var soma = _pedidoModel.Produtos.Sum(x => x.DescontoDecimal + x.DescontoDecimal);
-            lblTotalDesconto.Text = soma.ToString();
-        }
-        private void CalcularTotalLiquido()
-        {
-            var soma = _pedidoModel.Produtos.Sum(x => x.PrecoLiquido + x.PrecoLiquido);
-            lblTotalLiquido.Text = soma.ToString();
-        }
-        private void CalcularTotalLucro()
-        {
-            var soma = _pedidoModel.Produtos.Sum(x => x.PrecoLiquido - x.PrecoCusto);
-            lblLucro.Text = soma.ToString();
-        }
+        
         private void FrmCadastroPedido_Load(object sender, EventArgs e)
         {
         }
@@ -194,15 +177,12 @@ namespace CrudAugustusFashion.View.Cadastro
             {
                 if (ValidarCamposDeCadastroPedido())
                 {
-                    
-
                     _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
                     _pedidoModel.IdColaborador = Convert.ToInt32(lblIdColaborador.Text);
-                    _pedidoModel.TotalBruto = Convert.ToDecimal(lblTotalBruto.Text);
-                    _pedidoModel.TotalDesconto = Convert.ToDecimal(lblTotalDesconto.Text);
-                    _pedidoModel.TotalLiquido = Convert.ToDecimal(lblTotalLiquido.Text);
-                    _pedidoModel.Lucro = Convert.ToDecimal(lblLucro.Text);
+                    _pedidoModel.FormaDePagamento = comboBoxFormaPagamento.Text;
+
                     _cadastroPedido.CadastrarPedido(_pedidoModel);
+                   
                     MessageBox.Show("Sucesso");
                 }
             }
@@ -227,6 +207,11 @@ namespace CrudAugustusFashion.View.Cadastro
             if (lblTotalLiquido.NuloOuVazio())
             {
                 MessageBox.Show("Não há nenhum produto na lista para ser efetuado o cadastro do pedido.");
+                return false;
+            }
+            if (comboBoxFormaPagamento.NuloOuVazio())
+            {
+                MessageBox.Show("Selecione um meio de pagamento.");
                 return false;
             }
             else return true;
