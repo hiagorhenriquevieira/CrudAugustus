@@ -1,6 +1,9 @@
-﻿using Dapper;
+﻿using CrudAugustusFashion.Model.Produto.Pedido;
+using Dapper;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using VendaModel = CrudAugustusFashion.Model.Pedido.VendaModel;
 
 namespace CrudAugustusFashion.Dao
@@ -40,11 +43,29 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
+        public List<PedidoListaModel> ListarPedidosCadastrados()
+        {
+            var selectPedido = @"select  ven.IdVenda, concat(ucli.Nome,' ',ucli.SobreNome) as NomeCliente,
+				concat(uco.Nome, ' ', uco.SobreNome) as NomeColaborador,
+				 ven.FormaDePagamento, ven.TotalBruto, ven.TotalDesconto, ven.TotalLiquido, ven.Lucro
+				from Venda ven
+				inner join Colaboradores as co on ven.IdColaborador = co.IdColaborador
+				inner join Clientes as c on ven.IdCliente = c.IdCliente				
+				inner join Usuarios ucli on ucli.IdUsuario = c.IdUsuario
+				inner join Usuarios uco on uco.IdUsuario = co.IdUsuario;";
+            try
+            {
+                using (var conexao  = this.conexao.conectar())
+                {
+                    return conexao.Query<PedidoListaModel>(
+                        selectPedido
+                     ).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     } 
 }
-//var strSqlPedido = @"Insert into Pedidos (IdCliente, IdColaborador, FormaPagamento, DataEmissao, TotalBruto, TotalDesconto, TotalLiquido)  
-//                output inserted.IdPedido 
-//                values (@IdCliente, @IdColaborador, @FormaPagamento, @DataEmissao, @TotalBruto, @TotalDesconto, @TotalLiquido)";
-
-//var strSqlPedidoProduto = @"insert into Pedido_Produto (IdPedido, IdProduto, PrecoVenda, Quantidade, Desconto, PrecoLiquido, Total)
-//                values (@IdPedido, @IdProduto, @PrecoVenda, @Quantidade, @Desconto, @PrecoLiquido, @Total) ";

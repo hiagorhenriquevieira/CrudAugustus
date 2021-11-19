@@ -2,7 +2,6 @@
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Carinho;
-using CrudAugustusFashion.Model.Produto.Pedido;
 using CrudAugustusFashion.Validacoes;
 using System;
 using System.Linq;
@@ -12,14 +11,13 @@ namespace CrudAugustusFashion.View.Cadastro
 {
     public partial class FrmCadastroPedido : Form
     {
-        private PedidoLista _pedidoLista;
+        
         private Model.Pedido.VendaModel _pedidoModel;
         private CadastroPedidoController _cadastroPedido;
 
         public FrmCadastroPedido()
         {
             InitializeComponent();
-            _pedidoLista = new PedidoLista();
             _pedidoModel = new Model.Pedido.VendaModel();
             _cadastroPedido = new CadastroPedidoController();
         }

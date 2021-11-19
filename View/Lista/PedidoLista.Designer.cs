@@ -32,7 +32,7 @@ namespace CrudAugustusFashion.View.Lista
             this.dataGridViewPedidoLista = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSelecionarItemListaPedido = new System.Windows.Forms.Button();
-            this.txtPedidoProduto = new System.Windows.Forms.TextBox();
+            this.txtFiltrarPedido = new System.Windows.Forms.TextBox();
             this.btnFiltrarPedidoProduto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPedidoLista)).BeginInit();
             this.SuspendLayout();
@@ -57,9 +57,9 @@ namespace CrudAugustusFashion.View.Lista
             this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(56, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 33);
+            this.label1.Size = new System.Drawing.Size(258, 33);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Lista pedido produto";
+            this.label1.Text = "Listagem de pedidos";
             // 
             // btnSelecionarItemListaPedido
             // 
@@ -71,17 +71,17 @@ namespace CrudAugustusFashion.View.Lista
             this.btnSelecionarItemListaPedido.Name = "btnSelecionarItemListaPedido";
             this.btnSelecionarItemListaPedido.Size = new System.Drawing.Size(186, 63);
             this.btnSelecionarItemListaPedido.TabIndex = 3;
-            this.btnSelecionarItemListaPedido.Text = "Selecionar produto";
+            this.btnSelecionarItemListaPedido.Text = "Selecionar pedido";
             this.btnSelecionarItemListaPedido.UseVisualStyleBackColor = false;
             this.btnSelecionarItemListaPedido.Click += new System.EventHandler(this.btnSelecionarItemListaPedido_Click);
             // 
-            // txtPedidoProduto
+            // txtFiltrarPedido
             // 
-            this.txtPedidoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPedidoProduto.Location = new System.Drawing.Point(461, 59);
-            this.txtPedidoProduto.Name = "txtPedidoProduto";
-            this.txtPedidoProduto.Size = new System.Drawing.Size(204, 26);
-            this.txtPedidoProduto.TabIndex = 21;
+            this.txtFiltrarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltrarPedido.Location = new System.Drawing.Point(461, 59);
+            this.txtFiltrarPedido.Name = "txtFiltrarPedido";
+            this.txtFiltrarPedido.Size = new System.Drawing.Size(204, 26);
+            this.txtFiltrarPedido.TabIndex = 21;
             // 
             // btnFiltrarPedidoProduto
             // 
@@ -94,7 +94,7 @@ namespace CrudAugustusFashion.View.Lista
             this.btnFiltrarPedidoProduto.TabIndex = 22;
             this.btnFiltrarPedidoProduto.Text = "Filtrar";
             this.btnFiltrarPedidoProduto.UseVisualStyleBackColor = false;
-            this.btnFiltrarPedidoProduto.Click += new System.EventHandler(this.button1_Click);
+            this.btnFiltrarPedidoProduto.Click += new System.EventHandler(this.btnFiltrarPedidoProduto_Click);
             // 
             // FrmPedidoLista
             // 
@@ -103,7 +103,7 @@ namespace CrudAugustusFashion.View.Lista
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(953, 524);
             this.Controls.Add(this.btnFiltrarPedidoProduto);
-            this.Controls.Add(this.txtPedidoProduto);
+            this.Controls.Add(this.txtFiltrarPedido);
             this.Controls.Add(this.btnSelecionarItemListaPedido);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewPedidoLista);
@@ -121,7 +121,7 @@ namespace CrudAugustusFashion.View.Lista
 
         private System.Windows.Forms.DataGridView dataGridViewPedidoLista;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPedidoProduto;
+        private System.Windows.Forms.TextBox txtFiltrarPedido;
         private System.Windows.Forms.Button btnFiltrarPedidoProduto;
         private System.Windows.Forms.Button btnSelecionarItemListaPedido;
     }

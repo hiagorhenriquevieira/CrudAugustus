@@ -100,6 +100,7 @@
     <Compile Include="Controller\ClienteController\ExcluirClienteController.cs" />
     <Compile Include="Controller\ColaboradorController\ExcluirColaboradorController.cs" />
     <Compile Include="Controller\PedidoController\CadastroPedidoController.cs" />
+    <Compile Include="Controller\PedidoController\ListagemPedidoController.cs" />
     <Compile Include="Controller\ProdutoController\AlteracaoProdutoController.cs" />
     <Compile Include="Controller\ProdutoController\CadastroProdutoController.cs" />
     <Compile Include="Controller\ProdutoController\ListaProdutoController.cs" />
@@ -119,7 +120,7 @@
     <Compile Include="Model\Pedido\VendaModel.cs" />
     <Compile Include="Model\Pedido\TipoDePagamentoEnum.cs" />
     <Compile Include="Model\Pedido\FormaPagamentoModel.cs" />
-    <Compile Include="Model\Pedido\PedidoLista.cs" />
+    <Compile Include="Model\Pedido\PedidoListaModel.cs" />
     <Compile Include="Model\Pedido\ProdutoPedidoModel.cs" />
     <Compile Include="Model\Produto\ProdutoLista.cs" />
     <Compile Include="Model\Produto\ProdutoModel.cs" />
