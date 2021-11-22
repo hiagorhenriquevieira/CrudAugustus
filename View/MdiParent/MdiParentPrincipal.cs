@@ -115,7 +115,7 @@ namespace CrudAugustusFashion.View
 
         private void pedidoToolStripMenuItem_Click(object sender, EventArgs e) => _cadastroPedidoController.AbrirCadastroPedido();
 
-        private void pedidoToolStripMenuItem1_Click(object sender, EventArgs e) => _listaPedidoController.
+        private void pedidoToolStripMenuItem1_Click(object sender, EventArgs e) => _listaPedidoController.AbrirListaPedido();
         
     }
 }

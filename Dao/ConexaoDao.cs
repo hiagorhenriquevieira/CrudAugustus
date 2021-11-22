@@ -7,17 +7,19 @@ using System.Data.SqlClient;
 using System.Data;
 namespace CrudAugustusFashion.Dao
 {
-    class ConexaoDao
+   public static class ConexaoDao
     {
-        SqlConnection con = new SqlConnection();
+        
 
-        public ConexaoDao()
-        {
-            con.ConnectionString = "Data Source=DESKTOP-IETNHSD;Initial Catalog=BDAUGUSTO;User ID=sa;Password=123";
-        }
+        //public static ConexaoDao()
+        //{
+        //    var con = new SqlConnection();
+        //    con.ConnectionString = "Data Source=DESKTOP-IETNHSD;Initial Catalog=BDAUGUSTO;User ID=sa;Password=123";
+        //}
 
-        public SqlConnection conectar()
+        public static SqlConnection conectar()
         {
+            var con = new SqlConnection();
             if (con.State == ConnectionState.Closed)
             {
                 con.ConnectionString = "Data Source=DESKTOP-IETNHSD;Initial Catalog=BDAUGUSTO;User ID=sa;Password=123";
@@ -26,8 +28,9 @@ namespace CrudAugustusFashion.Dao
             return con;
         }
 
-        public void desconectar()
+        public static void desconectar()
         {
+            var con = new SqlConnection();
             if (con.State == ConnectionState.Open)
             {
                 con.Close();

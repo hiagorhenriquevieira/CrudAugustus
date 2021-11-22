@@ -12,13 +12,13 @@ namespace CrudAugustusFashion.Dao
 {
     class PedidoDao
     {
-        ConexaoDao conexao = new ConexaoDao();
+        //ConexaoDao conexao = new ConexaoDao();
         public List<ProdutoLista> BuscarProdutoParaVenda(string nome)
         {
             const string selectProduto = @"Select IdProduto, CodigoDeBarras, Nome, Fabricante, PrecoCusto, PrecoVenda, QuantidadeEstoque
                                            from Produtos
                                            where Nome Like @Nome + '%' and Status = 1";
-            using (var conexao = this.conexao.conectar())
+            using (var conexao = ConexaoDao.conectar())
             {
                 return conexao.Query<ProdutoLista>(selectProduto, new { Nome = nome }).ToList();
             }
@@ -38,7 +38,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var con = conexao.conectar())
+                using (var con = ConexaoDao.conectar())
                 {
                     return con.Query<ColaboradorListaModel, NomeCompleto, TelefoneModel, ColaboradorListaModel>(
                         sqlSelect,

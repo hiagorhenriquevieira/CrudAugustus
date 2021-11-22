@@ -10,7 +10,7 @@ namespace CrudAugustusFashion.Dao
 {
     public class ClienteDao
     {
-        ConexaoDao conexao = new ConexaoDao();
+        
         public void CadastrarCliente(ClienteModel cliente)
         {
             const string insertUsuario = "insert into Usuarios output inserted.IdUsuario values (@nome, @sobreNome, @cpf, @sexo, @dataNascimento, @email)";
@@ -21,7 +21,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
                     int idUsuario = conexao.ExecuteScalar<int>(insertUsuario, new
@@ -79,7 +79,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
                     conexao.Execute(updateUsuario, new
@@ -133,12 +133,15 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     return conexao.Query(
                         sqlSelect,
                         (ClienteListaModel clienteListaModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
-                        => MapearListaCliente(clienteListaModel, nomeCompleto, telefoneModel, enderecoModel),
+                        => MapearListaCliente(clienteListaModel,
+                                              nomeCompleto,
+                                              telefoneModel,
+                                              enderecoModel),
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -183,7 +186,7 @@ namespace CrudAugustusFashion.Dao
             try
             {
 
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     return conexao.Query(
                         selectNomeCliente,
@@ -211,7 +214,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
                     conexao.Execute(deleteTelefone, new { IdUsuario = clienteModel.IdUsuario }, transacao);
@@ -238,7 +241,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     return conexao.QuerySingle<int>(SelectIdUsuario, new { IdCliente });
                 }
@@ -266,7 +269,7 @@ namespace CrudAugustusFashion.Dao
                             where c.IdUsuario = @IdUsuario;";
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     return conexao.Query(
                         selectUsuario,

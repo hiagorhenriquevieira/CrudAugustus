@@ -8,7 +8,7 @@ namespace CrudAugustusFashion.Dao
 {
     public class ProdutoDao
     {
-        ConexaoDao conexao = new ConexaoDao();
+        //ConexaoDao conexao = new ConexaoDao();
         public void CadastrarProduto(ProdutoModel produto)
         {
             const string insertProduto = @"insert into Produtos (CodigoDeBarras, Nome, PrecoCusto, PrecoVenda, Lucro, QuantidadeEstoque, Fabricante)
@@ -16,7 +16,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     conexao.Execute(insertProduto, produto);
 
@@ -27,38 +27,13 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(ex.Message);
             }
         }
-        //public List<ProdutoLista> ListarPruduto()
-        //{
-        //    const string listaProduto = @"select * from Produtos";
-        //    using (var conexao = this.conexao.conectar())
-        //    {
-
-        //        return conexao.Query<ProdutoLista>(listaProduto).ToList();
-        //    }
-        //}
-        //public int RecuperarIdProduto(int idProduto)
-        //{
-        //    const string selectIdProduto = @"select idproduto from produtos
-        //                                     where idproduto = @idproduto";
-        //    try
-        //    {
-        //        using (var conexao = this.conexao.conectar())
-        //        {
-        //            return conexao.QuerySingle<int>(selectIdProduto, new { idProduto });
-        //        }
-        //    }
-        //    catch (Exception excecao)
-        //    {
-        //        throw new Exception(excecao.Message);
-        //    }
-        //}
         internal ProdutoModel RecuperarDadosProduto(int IdProduto)
         {
             const string selectProduto = @"select * from Produtos
                                            where IdProduto = @IdProduto";
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     return conexao.Query<ProdutoModel>(selectProduto, new { IdProduto }).FirstOrDefault();
 
@@ -78,7 +53,7 @@ namespace CrudAugustusFashion.Dao
                                         where IdProduto = @IdProduto ";
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     conexao.Execute(updateProduto, produto);
                 }
@@ -95,7 +70,7 @@ namespace CrudAugustusFashion.Dao
 	                                        where IdProduto = @IdProduto;";
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     conexao.Execute(produtoInativo, produto);
                 }
@@ -111,7 +86,7 @@ namespace CrudAugustusFashion.Dao
 	                                      where IdProduto = @IdProduto;";
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     conexao.Execute(produtoAtivo, produto);
                 }
@@ -126,7 +101,7 @@ namespace CrudAugustusFashion.Dao
             const string selectProduto = @"Select IdProduto, CodigoDeBarras, Nome, Fabricante, PrecoCusto, PrecoVenda, QuantidadeEstoque
                                            from Produtos
                                            where Nome Like @Nome + '%' and Status = @Status ";
-            using (var conexao = this.conexao.conectar())
+            using (var conexao = ConexaoDao.conectar())
             {
                 return conexao.Query<ProdutoLista>(selectProduto, new { Nome = nome, Status = status }).ToList();
             }

@@ -10,7 +10,7 @@ namespace CrudAugustusFashion.Dao
 {
     public class VendaDao
     {
-        ConexaoDao conexao = new ConexaoDao();
+        //ConexaoDao conexao = new ConexaoDao();
         public void CadastrarVendaPedido(VendaModel venda)
         {
             const string insertVenda = @"Insert into Venda (IdCliente, IdColaborador, TotalBruto, TotalDesconto, TotalLiquido, Lucro, FormaDePagamento)  
@@ -25,7 +25,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     using (SqlTransaction transaction = conexao.BeginTransaction())
                     {
@@ -55,7 +55,7 @@ namespace CrudAugustusFashion.Dao
 				inner join Usuarios uco on uco.IdUsuario = co.IdUsuario;";
             try
             {
-                using (var conexao  = this.conexao.conectar())
+                using (var conexao  = ConexaoDao.conectar())
                 {
                     return conexao.Query<PedidoListaModel>(
                         selectPedido
@@ -67,5 +67,6 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(ex.Message);
             }
         }
+
     } 
 }

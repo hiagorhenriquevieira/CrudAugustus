@@ -1,16 +1,10 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
-using CrudAugustusFashion.Model.Produto.Pedido;
 using CrudAugustusFashion.View.Lista;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Controller.PedidoController
 {
-   public class ListagemPedidoController
+    public class ListagemPedidoController
     {
         private VendaDao _vendaDao;
 
@@ -21,9 +15,9 @@ namespace CrudAugustusFashion.Controller.PedidoController
 
         public void AbrirListaPedido()
         {
-            _frmPedidoLista = new FrmPedidoLista();
-            _frmPedidoLista.MdiParent = MdiSingletonModel.InstanciarMDI();
-            _frmPedidoLista.Show();
+           var frmPedidoLista = new FrmPedidoLista();
+            frmPedidoLista.MdiParent = MdiSingletonModel.InstanciarMDI();
+            frmPedidoLista.Show();
         }
 
         //public void ListarPedidosRealizados(PedidoListaModel pedidoLista)

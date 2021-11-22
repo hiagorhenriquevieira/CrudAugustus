@@ -10,7 +10,7 @@ namespace CrudAugustusFashion.Dao
 {
     public class ColaboradorDao
     {
-        ConexaoDao conexao = new ConexaoDao();
+        //ConexaoDao conexao = new ConexaoDao();
         public void CadastrarColaborador(ColaboradorModel colaborador)
         {
 
@@ -23,7 +23,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var con = conexao.conectar())
+                using (var con = ConexaoDao.conectar())
                 using (var transacao = con.BeginTransaction())
                 {
                     int id = con.ExecuteScalar<int>(insertUsuario, new
@@ -87,7 +87,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var con = conexao.conectar())
+                using (var con = ConexaoDao.conectar())
                 using (var transacao = con.BeginTransaction())
                 {
                     con.Execute(updateUsuario, new
@@ -147,7 +147,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var con = conexao.conectar())
+                using (var con = ConexaoDao.conectar())
                 {
                     return con.Query<ColaboradorListaModel, NomeCompleto, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
                         sqlSelect,
@@ -195,7 +195,7 @@ namespace CrudAugustusFashion.Dao
                         where u.Nome like @Nome + '%' ";
             try
             {
-                using (var con = conexao.conectar())
+                using (var con = ConexaoDao.conectar())
                 {
                     return con.Query<ColaboradorListaModel, NomeCompleto, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorListaModel>(
                         selectNomeColaborador,
@@ -227,7 +227,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
                     conexao.Execute(deleteTelefone, new { IdUsuario = colaboradorModel.IdUsuario }, transacao);
@@ -255,7 +255,7 @@ namespace CrudAugustusFashion.Dao
 
             try
             {
-                using (var conexao = this.conexao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     return conexao.QuerySingle<int>(SelectIdColaborador, new { IdColaborador = idColaborador });
                 }
@@ -283,7 +283,7 @@ namespace CrudAugustusFashion.Dao
                         where co.IdColaborador = @IdColaborador;";
             try
             {
-                using (var con = conexao.conectar())
+                using (var con = ConexaoDao.conectar())
                 {
                     return con.Query<ColaboradorModel, NomeCompleto, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorModel >(
                         selectColaborador,
