@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace CrudAugustusFashion.Model.Produto.Pedido
+﻿namespace CrudAugustusFashion.Model.Produto.Pedido
 {
     //public enum TipoDePagamentoEnum
     //{

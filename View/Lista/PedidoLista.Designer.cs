@@ -31,15 +31,16 @@ namespace CrudAugustusFashion.View.Lista
         {
             this.dataGridViewPedidoLista = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSelecionarItemListaPedido = new System.Windows.Forms.Button();
+            this.btnExibirItemListaPedido = new System.Windows.Forms.Button();
             this.txtFiltrarPedido = new System.Windows.Forms.TextBox();
             this.btnFiltrarPedidoProduto = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPedidoLista)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewPedidoLista
             // 
-            this.dataGridViewPedidoLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewPedidoLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPedidoLista.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewPedidoLista.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewPedidoLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -50,6 +51,7 @@ namespace CrudAugustusFashion.View.Lista
             this.dataGridViewPedidoLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPedidoLista.Size = new System.Drawing.Size(761, 214);
             this.dataGridViewPedidoLista.TabIndex = 1;
+            this.dataGridViewPedidoLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPedidoLista_CellContentClick);
             // 
             // label1
             // 
@@ -61,19 +63,19 @@ namespace CrudAugustusFashion.View.Lista
             this.label1.TabIndex = 2;
             this.label1.Text = "Listagem de pedidos";
             // 
-            // btnSelecionarItemListaPedido
+            // btnExibirItemListaPedido
             // 
-            this.btnSelecionarItemListaPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.btnSelecionarItemListaPedido.FlatAppearance.BorderSize = 0;
-            this.btnSelecionarItemListaPedido.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSelecionarItemListaPedido.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelecionarItemListaPedido.Location = new System.Drawing.Point(327, 358);
-            this.btnSelecionarItemListaPedido.Name = "btnSelecionarItemListaPedido";
-            this.btnSelecionarItemListaPedido.Size = new System.Drawing.Size(186, 63);
-            this.btnSelecionarItemListaPedido.TabIndex = 3;
-            this.btnSelecionarItemListaPedido.Text = "Selecionar pedido";
-            this.btnSelecionarItemListaPedido.UseVisualStyleBackColor = false;
-            this.btnSelecionarItemListaPedido.Click += new System.EventHandler(this.btnSelecionarItemListaPedido_Click);
+            this.btnExibirItemListaPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.btnExibirItemListaPedido.FlatAppearance.BorderSize = 0;
+            this.btnExibirItemListaPedido.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExibirItemListaPedido.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExibirItemListaPedido.Location = new System.Drawing.Point(62, 337);
+            this.btnExibirItemListaPedido.Name = "btnExibirItemListaPedido";
+            this.btnExibirItemListaPedido.Size = new System.Drawing.Size(150, 31);
+            this.btnExibirItemListaPedido.TabIndex = 3;
+            this.btnExibirItemListaPedido.Text = "Exibir pedido";
+            this.btnExibirItemListaPedido.UseVisualStyleBackColor = false;
+            this.btnExibirItemListaPedido.Click += new System.EventHandler(this.btnSelecionarItemListaPedido_Click);
             // 
             // txtFiltrarPedido
             // 
@@ -82,6 +84,7 @@ namespace CrudAugustusFashion.View.Lista
             this.txtFiltrarPedido.Name = "txtFiltrarPedido";
             this.txtFiltrarPedido.Size = new System.Drawing.Size(204, 26);
             this.txtFiltrarPedido.TabIndex = 21;
+            this.txtFiltrarPedido.TextChanged += new System.EventHandler(this.txtFiltrarPedido_TextChanged);
             // 
             // btnFiltrarPedidoProduto
             // 
@@ -96,15 +99,29 @@ namespace CrudAugustusFashion.View.Lista
             this.btnFiltrarPedidoProduto.UseVisualStyleBackColor = false;
             this.btnFiltrarPedidoProduto.Click += new System.EventHandler(this.btnFiltrarPedidoProduto_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(148)))), ((int)(((byte)(250)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(218, 337);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 31);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Alterar Pedido";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FrmPedidoLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(953, 524);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFiltrarPedidoProduto);
             this.Controls.Add(this.txtFiltrarPedido);
-            this.Controls.Add(this.btnSelecionarItemListaPedido);
+            this.Controls.Add(this.btnExibirItemListaPedido);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewPedidoLista);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,6 +140,7 @@ namespace CrudAugustusFashion.View.Lista
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFiltrarPedido;
         private System.Windows.Forms.Button btnFiltrarPedidoProduto;
-        private System.Windows.Forms.Button btnSelecionarItemListaPedido;
+        private System.Windows.Forms.Button btnExibirItemListaPedido;
+        private System.Windows.Forms.Button button1;
     }
 }

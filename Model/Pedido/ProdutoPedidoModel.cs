@@ -4,6 +4,7 @@
     {
         public int IdPedido { get; set; }
         public int IdProduto { get; set; }
+        public int IdVenda { get; set; }
         public decimal PrecoVenda { get; set; }
         public int QuantidadeProduto{ get; set; }
         public decimal Desconto { get; set; }

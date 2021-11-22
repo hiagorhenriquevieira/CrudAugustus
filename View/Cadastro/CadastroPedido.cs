@@ -127,10 +127,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 }) ;
 
                 AtualizarCarrinho();
-                lblLucro.Text = _pedidoModel.LucroTotal.ToString();
-                lblTotalBruto.Text = _pedidoModel.TotalBruto.ToString();
-                lblTotalDesconto.Text = _pedidoModel.TotalDesconto.ToString();
-                lblTotalLiquido.Text = _pedidoModel.TotalLiquido.ToString();
+                
             }
             LimparCampos();
 
@@ -140,7 +137,11 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             dataGridViewCarrinhoPedido.DataSource = null;
             dataGridViewCarrinhoPedido.DataSource = _pedidoModel.Produtos;
-            
+            lblLucro.Text = _pedidoModel.LucroTotal.ToString();
+            lblTotalBruto.Text = _pedidoModel.TotalBruto.ToString();
+            lblTotalDesconto.Text = _pedidoModel.TotalDesconto.ToString();
+            lblTotalLiquido.Text = _pedidoModel.TotalLiquido.ToString();
+
         }
         public void LimparCampos()
         {
@@ -157,14 +158,29 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void btnRetirarProdutoCarrinho_Click(object sender, EventArgs e)
         {
+            if(VerificarSeCarrinhoEstaVazio())
+            {
             int id = Convert.ToInt32(dataGridViewCarrinhoPedido.SelectedRows[0].Cells[1].Value);
             _pedidoModel.Produtos.Remove((from x in _pedidoModel.Produtos
                                    where x.IdProduto == id
                                   select x).FirstOrDefault()
                                   );
-            AtualizarCarrinho();
+                AtualizarCarrinho();
+            };
         } 
         
+        public bool VerificarSeCarrinhoEstaVazio() 
+        {
+            if (dataGridViewCarrinhoPedido.RowCount == 0)
+            {
+                MessageBox.Show("Erro! Carrinho vazio");
+                return false;
+            }
+            btnRetirarProdutoCarrinho.Enabled = true;
+           
+            return true;
+        }
+
         private void FrmCadastroPedido_Load(object sender, EventArgs e)
         {
         }
@@ -178,7 +194,7 @@ namespace CrudAugustusFashion.View.Cadastro
                     _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
                     _pedidoModel.IdColaborador = Convert.ToInt32(lblIdColaborador.Text);
                     _pedidoModel.FormaDePagamento = comboBoxFormaPagamento.Text;
-
+                   
                     _cadastroPedido.CadastrarPedido(_pedidoModel);
                    
                     MessageBox.Show("Sucesso");
@@ -210,6 +226,11 @@ namespace CrudAugustusFashion.View.Cadastro
             if (comboBoxFormaPagamento.NuloOuVazio())
             {
                 MessageBox.Show("Selecione um meio de pagamento.");
+                return false;
+            }
+            if(dataGridViewCarrinhoPedido.RowCount == 0)
+            {
+                MessageBox.Show("Não há nenhum produto para ser efetuado o cadastro de pedido");
                 return false;
             }
             else return true;

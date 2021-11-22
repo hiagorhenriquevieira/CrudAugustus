@@ -40,7 +40,7 @@ namespace CrudAugustusFashion.View.Lista
             // 
             // dataGridViewListaProduto
             // 
-            this.dataGridViewListaProduto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewListaProduto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewListaProduto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewListaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListaProduto.Location = new System.Drawing.Point(19, 76);
@@ -104,7 +104,7 @@ namespace CrudAugustusFashion.View.Lista
             this.checkBoxListaProdutoAtivo.TabIndex = 30;
             this.checkBoxListaProdutoAtivo.Text = "Somente produtos ativos";
             this.checkBoxListaProdutoAtivo.UseVisualStyleBackColor = true;
-            //
+            // 
             // FrmListaProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

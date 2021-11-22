@@ -129,7 +129,7 @@
     <Compile Include="Model\UsuarioModel\CpfValidation.cs" />
     <Compile Include="Model\UsuarioModel\NomeCompleto.cs" />
     <Compile Include="Model\UsuarioModel\UsuarioValidation.cs" />
-    <Compile Include="Model\Venda\VendaModel.cs" />
+    <Compile Include="Model\Venda\VendaConsulta.cs" />
     <Compile Include="Validacoes\ValidacoesCadastros.cs" />
     <Compile Include="Validacoes\ValidacoesExtencion.cs" />
     <Compile Include="Model\ClienteModel\ClienteListaModel.cs" />
@@ -203,6 +203,12 @@
     <Compile Include="View\Lista\ListaProduto.Designer.cs">
       <DependentUpon>ListaProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Lista\ListaVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Lista\ListaVenda.Designer.cs">
+      <DependentUpon>ListaVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Lista\PedidoLista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Lista\ListaProduto.resx">
       <DependentUpon>ListaProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Lista\ListaVenda.resx">
+      <DependentUpon>ListaVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Lista\PedidoLista.resx">
       <DependentUpon>PedidoLista.cs</DependentUpon>

@@ -1,13 +1,7 @@
 ﻿using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
+using CrudAugustusFashion.Model.Venda;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CrudAugustusFashion.View.Lista
@@ -20,6 +14,7 @@ namespace CrudAugustusFashion.View.Lista
         {
             InitializeComponent();
             _listagemPedido = new ListagemPedidoController();
+            
         }
         private void PedidoLista_Load(object sender, EventArgs e)
         {
@@ -28,7 +23,12 @@ namespace CrudAugustusFashion.View.Lista
 
         private void btnSelecionarItemListaPedido_Click(object sender, EventArgs e)
         {
-            
+            if (VerificarSeUmaVendaFoiSelecionada())
+            {
+               var idVenda = Convert.ToInt32(dataGridViewPedidoLista.CurrentRow.Cells[0].Value);
+            var cliente = _listagemPedido.ExibirListaDeVenda(idVenda);
+            _listagemPedido.AbrirConsultaDeVenda();
+            }
         }
 
         private void btnFiltrarPedidoProduto_Click(object sender, EventArgs e)
@@ -42,6 +42,25 @@ namespace CrudAugustusFashion.View.Lista
             {
                 MessageBox.Show("Erro ao listar pedidos." + excecao.Message);
             }
+        }
+
+        private void txtFiltrarPedido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool VerificarSeUmaVendaFoiSelecionada()
+        {
+            if (dataGridViewPedidoLista.RowCount == 0)
+            {
+                MessageBox.Show("Uma venda deve ser selecionada para exibir.");
+                return false;
+            }
+            return true;
+        }
+        private void dataGridViewPedidoLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

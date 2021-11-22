@@ -700,6 +700,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.lblLucro.Size = new System.Drawing.Size(148, 23);
             this.lblLucro.TabIndex = 78;
             this.lblLucro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblLucro.Visible = false;
             // 
             // label18
             // 
@@ -710,6 +711,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.label18.Size = new System.Drawing.Size(111, 25);
             this.label18.TabIndex = 79;
             this.label18.Text = "Lucro Total";
+            this.label18.Visible = false;
             // 
             // lblPrecoCusto
             // 
@@ -720,6 +722,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.lblPrecoCusto.Size = new System.Drawing.Size(148, 31);
             this.lblPrecoCusto.TabIndex = 81;
             this.lblPrecoCusto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPrecoCusto.Visible = false;
             // 
             // label20
             // 
@@ -730,6 +733,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.label20.Size = new System.Drawing.Size(146, 25);
             this.label20.TabIndex = 80;
             this.label20.Text = "Preço de Custo";
+            this.label20.Visible = false;
             // 
             // FrmCadastroPedido
             // 

@@ -1,6 +1,9 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Produto.Pedido;
+using CrudAugustusFashion.Model.Venda;
 using CrudAugustusFashion.View.Lista;
+using System;
 
 namespace CrudAugustusFashion.Controller.PedidoController
 {
@@ -24,7 +27,7 @@ namespace CrudAugustusFashion.Controller.PedidoController
         //{
         //    try
         //    {
-        //        _vendaDao.ListarPedidosCadastrados(pedidoLista);
+        //        _vendaDao.ListarPedidosCadastrados();
         //    }
         //    catch (Exception excecao)
         //    {
@@ -32,5 +35,24 @@ namespace CrudAugustusFashion.Controller.PedidoController
         //    }
 
         //}
+        public VendaConsulta ExibirListaDeVenda(int idVenda)
+        {
+            try
+            {
+                return _vendaDao.ExibirPedidoSelecionado(idVenda);
+            }
+            catch(Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+            
+        }
+        public void AbrirConsultaDeVenda()
+        {
+            
+            var frmConsultaLista = new FrmListaVenda();
+            frmConsultaLista.MdiParent = MdiSingletonModel.InstanciarMDI();
+            frmConsultaLista.Show();
+        }
     }
 }
