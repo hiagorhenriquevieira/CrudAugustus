@@ -14,20 +14,30 @@ namespace CrudAugustusFashion.View.Lista
         {
             InitializeComponent();
             _listagemPedido = new ListagemPedidoController();
-            
+
         }
         private void PedidoLista_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnSelecionarItemListaPedido_Click(object sender, EventArgs e)
         {
-            if (VerificarSeUmaVendaFoiSelecionada())
+            try
             {
-               var idVenda = Convert.ToInt32(dataGridViewPedidoLista.CurrentRow.Cells[0].Value);
-            var cliente = _listagemPedido.ExibirListaDeVenda(idVenda);
-            _listagemPedido.AbrirConsultaDeVenda();
+                if (VerificarSeUmaVendaFoiSelecionada())
+                {
+                    var idVenda = Convert.ToInt32(dataGridViewPedidoLista.CurrentRow.Cells[0].Value);
+
+                    var cliente = _listagemPedido.ExibirListaDeVenda(idVenda);
+                    _listagemPedido.AbrirConsultaDeVenda(cliente);
+                    this.Close();
+                }
+
+            }
+            catch (Exception excecao)
+            {
+                MessageBox.Show("Erro encontrado. " + excecao.Message);
             }
         }
 

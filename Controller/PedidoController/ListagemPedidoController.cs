@@ -47,10 +47,10 @@ namespace CrudAugustusFashion.Controller.PedidoController
             }
             
         }
-        public void AbrirConsultaDeVenda()
+        public void AbrirConsultaDeVenda(VendaConsulta venda)
         {
             
-            var frmConsultaLista = new FrmListaVenda();
+            var frmConsultaLista = new FrmListaVenda(venda);
             frmConsultaLista.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmConsultaLista.Show();
         }

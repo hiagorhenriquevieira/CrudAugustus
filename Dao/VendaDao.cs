@@ -1,4 +1,6 @@
-﻿using CrudAugustusFashion.Model.Produto.Pedido;
+﻿using CrudAugustusFashion.Model.Carinho;
+using CrudAugustusFashion.Model.Cliente;
+using CrudAugustusFashion.Model.Produto.Pedido;
 using CrudAugustusFashion.Model.Venda;
 using Dapper;
 using System;
@@ -77,9 +79,10 @@ namespace CrudAugustusFashion.Dao
         public VendaConsulta ExibirPedidoSelecionado(int idVenda)
         {
             
-            var selectPedido = @"select  ven.IdVenda, concat(ucli.Nome,' ',ucli.SobreNome) as NomeCliente,
+            const string selectPedido = @"select distinct ven.IdVenda, concat(ucli.Nome,' ',ucli.SobreNome) as NomeCliente,
 				concat(uco.Nome, ' ', uco.SobreNome) as NomeColaborador,
-                 ven.FormaDePagamento, ven.TotalBruto, ven.TotalDesconto, ven.TotalLiquido
+                co.IdColaborador, c.IdCliente,
+                 ven.FormaDePagamento, ven.TotalBruto, ven.TotalDesconto, ven.TotalLiquido, ven.Lucro
 				from Venda ven
                 inner join PedidosProduto as pp on ven.IdVenda = pp.IdVenda
 				inner join Colaboradores as co on ven.IdColaborador = co.IdColaborador
@@ -88,13 +91,43 @@ namespace CrudAugustusFashion.Dao
 				inner join Usuarios uco on uco.IdUsuario = co.IdUsuario
                 where ven.IdVenda = @IdVenda";
 
+            const string selectProdutos = @"select pp.IdProduto, p.Nome,
+				pp.IdVenda, pp.Desconto, pp.Total, pp.QuantidadeProduto as Quantidade, pp.PrecoVenda, pp.PrecoLiquido,
+				pp.PrecoCusto
+				from Produtos p
+				inner join PedidosProduto as pp on p.IdProduto = pp.IdProduto
+                inner join Venda as v on v.idVenda = pp.idVenda
+				where v.IdVenda = @IdVenda";
             try
             {
+                VendaConsulta venda;
                 using ( var conexao = ConexaoDao.conectar())
                 {
-                    return conexao.Query<VendaConsulta>(
+                    venda = conexao.QuerySingle<VendaConsulta>(
                         selectPedido, new {IdVenda = idVenda}
-                        ).FirstOrDefault();
+                        );
+
+                    venda.Produtos = conexao.Query<CarrinhoModel>(
+                        selectProdutos, new {IdVenda = idVenda}).ToList();
+                }
+                
+                return venda;
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
+        public int RecuperarIdUsuario(int IdCliente)
+        {
+            var SelectIdCliente = @"select concat (Nome, ' ', SobreNome) as NomeCompleto from Clientes 
+                                    where IdCliente = @IdCliente;";
+
+            try
+            {
+                using (var conexao = ConexaoDao.conectar())
+                {
+                    return conexao.QuerySingle<int>(SelectIdCliente, new { IdCliente });
                 }
             }
             catch (Exception excecao)
@@ -102,6 +135,28 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
+        public string RecuperarNomeCliente( int idCliente)
+        {
+            var nomeCliente = RecuperarIdUsuario(idCliente);
+            const string selectCliente = @"select 
+                            c.IdUsuario, concat (u.Nome, ' ' ,u.SobreNome) as NomeCompleto
+                            from
+                            Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
+                            where c.IdUsuario = @IdUsuario;";
 
+            try
+            
+            
+            {
+                using (var conexao = ConexaoDao.conectar())
+                {
+                    return conexao.Query<string>(selectCliente, new {nomeCliente}).FirstOrDefault();
+                }
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
     } 
 }

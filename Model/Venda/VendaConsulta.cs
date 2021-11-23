@@ -11,10 +11,10 @@ namespace CrudAugustusFashion.Model.Venda
         public string NomeCliente { get; set; }
         public int IdColaborador { get; set; }
         public string NomeColaborador { get; set; }
-        public decimal TotalBruto { get => Produtos.Sum(x => x.PrecoVenda * x.Quantidade); }
-        public decimal TotalDesconto { get => Produtos.Sum(x => x.Quantidade * x.DescontoDecimal); }
-        public decimal TotalLiquido { get => Produtos.Sum(x => x.PrecoLiquido * x.Quantidade); }
-        public decimal LucroTotal { get => Produtos.Sum(x => x.Total - (x.Quantidade * x.PrecoCusto)); }
+        public decimal TotalBruto { get; }
+        public decimal TotalDesconto { get; }
+        public decimal TotalLiquido { get; }
+        public decimal Lucro { get; }
         public string FormaDePagamento { get; set; }
 
         public List<CarrinhoModel> Produtos { get; set; }

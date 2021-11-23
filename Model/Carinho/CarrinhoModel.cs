@@ -7,7 +7,7 @@
         public string Nome { get; set; }
         public int Quantidade { get; set; }
         public decimal PrecoVenda { get; set; }
-        public decimal DescontoDecimal { get; set; }
+        public decimal Desconto { get; set; }
         public decimal PrecoLiquido { get; set; }
         public decimal Total { get; set; }
         public decimal PrecoCusto { get; set; }

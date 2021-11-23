@@ -1,9 +1,9 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.View.Cadastro;
-using CrudAugustusFashion.View.Lista;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -23,7 +23,14 @@ namespace CrudAugustusFashion.Controller.PedidoController
         }
         public void AbrirCadastroPedido()
         {
-            _frmCadastroPedido = new FrmCadastroPedido();
+            _frmCadastroPedido = new FrmCadastroPedido(new VendaModel());
+            _frmCadastroPedido.MdiParent = MdiSingletonModel.InstanciarMDI();
+            _frmCadastroPedido.Show();
+        }
+
+        public void AbrirAlteracaoDePedido(VendaModel venda)
+        {
+            _frmCadastroPedido = new FrmCadastroPedido(venda);
             _frmCadastroPedido.MdiParent = MdiSingletonModel.InstanciarMDI();
             _frmCadastroPedido.Show();
         }
@@ -41,12 +48,23 @@ namespace CrudAugustusFashion.Controller.PedidoController
             }
             return new List<ProdutoLista>();
         }
+        public string RetornarNomeCliente(int idCliente)
+        {
+            try
+            {
+                return _vendaDao.RecuperarNomeCliente(idCliente);
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
 
         public void CadastrarPedido(VendaModel pedido)
         {
             try
             {
-            _vendaDao.CadastrarVendaPedido(pedido);
+                _vendaDao.CadastrarVendaPedido(pedido);
             }
             catch (Exception excecao)
             {

@@ -2,6 +2,7 @@
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Carinho;
+using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Validacoes;
 using System;
 using System.Linq;
@@ -12,13 +13,13 @@ namespace CrudAugustusFashion.View.Cadastro
     public partial class FrmCadastroPedido : Form
     {
         
-        private Model.Pedido.VendaModel _pedidoModel;
+        private VendaModel _pedidoModel;
         private CadastroPedidoController _cadastroPedido;
 
-        public FrmCadastroPedido()
+        public FrmCadastroPedido(VendaModel pedidoModel)
         {
             InitializeComponent();
-            _pedidoModel = new Model.Pedido.VendaModel();
+            _pedidoModel = pedidoModel;
             _cadastroPedido = new CadastroPedidoController();
         }
 
@@ -86,7 +87,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private void numericDesconto_ValueChanged(object sender, EventArgs e)
         {
             AtualizarPrecos();
-            //CalcularDescontoEmDecimal();
+            
         }
 
         private void numericDesconto_KeyPress(object sender, KeyPressEventArgs e)
@@ -118,7 +119,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 {
                     IdProduto = Convert.ToInt32(lblIdProduto.Text),
                     Nome = lblNomeProduto.Text,
-                    DescontoDecimal = Convert.ToDecimal(lblDescontoDecimal.Text.RemoverFormatacaoDoPreco()),
+                    Desconto = Convert.ToDecimal(lblDescontoDecimal.Text.RemoverFormatacaoDoPreco()),
                     PrecoLiquido = Convert.ToDecimal(lblPrecoLiquido.Text.RemoverFormatacaoDoPreco()),
                     PrecoVenda = Convert.ToDecimal(lblPrecoVenda.Text.RemoverFormatacaoDoPreco()),
                     PrecoCusto =Convert.ToDecimal(lblPrecoCusto.Text.RemoverFormatacaoDoPreco()),
@@ -129,7 +130,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 AtualizarCarrinho();
                 
             }
-            LimparCampos();
+            LimparCamposAposAdicionarProdutoNoCarrinho();
 
         }
 
@@ -143,7 +144,7 @@ namespace CrudAugustusFashion.View.Cadastro
             lblTotalLiquido.Text = _pedidoModel.TotalLiquido.ToString();
 
         }
-        public void LimparCampos()
+        public void LimparCamposAposAdicionarProdutoNoCarrinho()
         {
             lblIdProduto.Text = "";
             lblNomeProduto.Text = "";
@@ -180,11 +181,6 @@ namespace CrudAugustusFashion.View.Cadastro
            
             return true;
         }
-
-        private void FrmCadastroPedido_Load(object sender, EventArgs e)
-        {
-        }
-
         private void btnFinalizarPedido_Click(object sender, EventArgs e)
         {
             try
@@ -197,7 +193,8 @@ namespace CrudAugustusFashion.View.Cadastro
                    
                     _cadastroPedido.CadastrarPedido(_pedidoModel);
                    
-                    MessageBox.Show("Sucesso");
+                    MessageBox.Show("Venda realizada!");
+                    LimparCamposAposCadastro();
                 }
             }
             catch (Exception excecao)
@@ -234,6 +231,35 @@ namespace CrudAugustusFashion.View.Cadastro
                 return false;
             }
             else return true;
+        }
+
+        public void LimparCamposAposCadastro()
+        {
+            new CadastroPedidoController().AbrirCadastroPedido();
+            this.Close();
+        }
+
+        public void RetornarDadosDaVenda()
+        {
+            lblIdCliente.Text = _pedidoModel.IdCliente.ToString();
+            lblIdColaborador.Text = _pedidoModel.IdColaborador.ToString();
+            dataGridViewCarrinhoPedido.DataSource = _pedidoModel.Produtos;
+
+             
+                var cliente = new CadastroPedidoController().RetornarNomeCliente(Convert.ToInt32(lblIdCliente.Text));
+            lblNomeCliente.Text = cliente.ToString();
+
+        }
+
+        private void FrmCadastroPedido_Load(object sender, EventArgs e)
+        {
+            if(_pedidoModel.IdVenda != 0)
+            {
+                RetornarDadosDaVenda();
+
+                
+
+            }
         }
     }
 }

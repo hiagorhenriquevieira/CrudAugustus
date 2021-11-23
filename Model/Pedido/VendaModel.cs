@@ -11,7 +11,7 @@ namespace CrudAugustusFashion.Model.Pedido
         public int IdCliente { get; set; }
         public int IdColaborador { get; set; }
         public decimal TotalBruto { get => Produtos.Sum(x => x.PrecoVenda * x.Quantidade); }
-        public decimal TotalDesconto { get => Produtos.Sum(x => x.Quantidade * x.DescontoDecimal);}
+        public decimal TotalDesconto { get => Produtos.Sum(x => x.Quantidade * x.Desconto);}
         public decimal TotalLiquido { get => Produtos.Sum(x => x.PrecoLiquido * x.Quantidade); }
         public decimal LucroTotal { get => Produtos.Sum(x => x.Total -(x.Quantidade * x.PrecoCusto)); }  
         public string FormaDePagamento { get; set; }
