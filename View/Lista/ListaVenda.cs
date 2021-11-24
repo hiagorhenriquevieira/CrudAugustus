@@ -60,6 +60,7 @@ namespace CrudAugustusFashion.View.Lista
             venda.IdColaborador = _venda.IdColaborador;
             venda.FormaDePagamento = _venda.FormaDePagamento;
             venda.Produtos = _venda.Produtos;
+            venda.IdVenda = _venda.IdVenda;
 
             return venda;
             

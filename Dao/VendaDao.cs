@@ -14,7 +14,7 @@ namespace CrudAugustusFashion.Dao
     {
         //ConexaoDao conexao = new ConexaoDao();
         public void CadastrarVendaPedido(VendaModel venda)
-        { 
+        {
             const string insertVenda = @"Insert into Venda (IdCliente, IdColaborador, TotalBruto, TotalDesconto, TotalLiquido, Lucro, FormaDePagamento)  
                 output inserted.IdVenda 
                 values (@IdCliente, @IdColaborador, @TotalBruto, @TotalDesconto, @TotalLiquido, @LucroTotal, @FormaDePagamento)";
@@ -24,7 +24,7 @@ namespace CrudAugustusFashion.Dao
                 values (@IdVenda, @PrecoVenda, @PrecoCusto, @IdProduto, @PrecoVenda, @Quantidade, @Desconto, @PrecoLiquido, @Total)";
             const string updateQuantidade = @"Update  Produtos set QuantidadeEstoque -= @Quantidade 
                                             where IdProduto = @IdProduto";
-            
+
 
             try
             {
@@ -45,7 +45,8 @@ namespace CrudAugustusFashion.Dao
                         transaction.Commit();
                     }
                 }
-            }catch(Exception excecao)
+            }
+            catch (Exception excecao)
             {
                 throw new Exception(excecao.Message);
             }
@@ -62,7 +63,7 @@ namespace CrudAugustusFashion.Dao
 				inner join Usuarios uco on uco.IdUsuario = co.IdUsuario";
             try
             {
-                using (var conexao  = ConexaoDao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     return conexao.Query<PedidoListaModel>(
                         selectPedido
@@ -78,7 +79,7 @@ namespace CrudAugustusFashion.Dao
 
         public VendaConsulta ExibirPedidoSelecionado(int idVenda)
         {
-            
+
             const string selectPedido = @"select distinct ven.IdVenda, concat(ucli.Nome,' ',ucli.SobreNome) as NomeCliente,
 				concat(uco.Nome, ' ', uco.SobreNome) as NomeColaborador,
                 co.IdColaborador, c.IdCliente,
@@ -101,16 +102,16 @@ namespace CrudAugustusFashion.Dao
             try
             {
                 VendaConsulta venda;
-                using ( var conexao = ConexaoDao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
                     venda = conexao.QuerySingle<VendaConsulta>(
-                        selectPedido, new {IdVenda = idVenda}
+                        selectPedido, new { IdVenda = idVenda }
                         );
 
                     venda.Produtos = conexao.Query<CarrinhoModel>(
-                        selectProdutos, new {IdVenda = idVenda}).ToList();
+                        selectProdutos, new { IdVenda = idVenda }).ToList();
                 }
-                
+
                 return venda;
             }
             catch (Exception excecao)
@@ -120,53 +121,55 @@ namespace CrudAugustusFashion.Dao
         }
         internal void AlterarPedido(VendaModel pedidoModel)
         {
+            const string selectProdutosAntigos = @"Select IdProduto, QuantidadeProduto as Quantidade
+                                                   From PedidosProduto
+                                                   where IdVenda = @IdVenda";
 
-            //const string 
+            const string deletePedidoProduto = @"delete PedidosProduto
+                                       where IdVenda = @IdVenda;";
 
+            const string updateQuantidade = @"Update Produtos set QuantidadeEstoque += @Quantidade
+                                                where IdProduto = @IdProduto";
 
+            const string updateVenda = @"Update Venda set TotalBruto = @TotalBruto, TotalDesconto = @TotalDesconto, 
+                                        TotalLiquido = @TotalLiquido, Lucro = @LucroTotal, FormaDePagamento = @FormaDePagamento";
 
-            //const string selectProdutosAntigos = @"Select IdProduto, QuantidadeProduto as Quantidade
-            //                                       From PedidosProduto
-            //                                       where IdVenda = @IdVenda";
+            const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
+                QuantidadeProduto, Desconto, PrecoLiquido,Total) 
+                values (@IdVenda, @PrecoVenda, @PrecoCusto, @IdProduto, @PrecoVenda, @Quantidade, @Desconto, @PrecoLiquido, @Total)";
 
-            //const string deletePedidoProduto = @"delete PedidosProduto
-			         //                           where IdVenda = @IdVenda;";
-
-            //const string updateQuantidade = @"Update Produtos set QuantidadeEstoque += Quantidade
-            //                                    where IdProduto = @IdProduto";
-
-            //const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
-            //    QuantidadeProduto, Desconto, PrecoLiquido,Total) 
-            //    values (@IdVenda, @PrecoVenda, @PrecoCusto, @IdProduto, @PrecoVenda, @Quantidade, @Desconto, @PrecoLiquido, @Total)";
-
-            //const string upQuantidade = @"Update Produtos set QuantidadeEstoque -= @Quantidade 
-            //                                where IdProduto = @IdProduto";
+            const string upQuantidade = @"Update Produtos set QuantidadeEstoque -= @Quantidade 
+                                            where IdProduto = @IdProduto";
 
             try
             {
+                using (var conexao = ConexaoDao.conectar())
+                {
+                    using (SqlTransaction transaction = conexao.BeginTransaction())
+                    {
+                        List<CarrinhoModel> produtosAntigos = conexao.Query<CarrinhoModel>(selectProdutosAntigos, new { pedidoModel.IdVenda }, transaction).ToList();
+                        foreach (var update in produtosAntigos)
+                        {
+                            conexao.Execute(updateQuantidade, update, transaction);
+                        }
+                        conexao.Execute(deletePedidoProduto, pedidoModel, transaction);
 
+                        conexao.Execute(updateVenda, pedidoModel, transaction);
 
+                        conexao.Execute(insertPedidoProduto, pedidoModel.Produtos, transaction);
+                        foreach (var update in pedidoModel.Produtos)
+                        {
+                            conexao.Execute(upQuantidade, update, transaction);
+                        }
 
-
-                //VendaModel venda;
-                //using (var conexao = ConexaoDao.conectar())
-                //{
-                //    using (SqlTransaction transaction = conexao.BeginTransaction())
-                //    {
-                //        List<CarrinhoModel> produtosAntigos = (List<CarrinhoModel>)conexao.Query<CarrinhoModel>(selectProdutosAntigos, pedidoModel, transaction);
-                        
-                //        conexao.Execute(insertPedidoProduto, produtosAntigos, transaction);
-                //        foreach (var update in produtosAntigos)
-                //        {
-                //            conexao.Execute(updateQuantidade, update, transaction);
-                //        }
-                //    }
-                //}
+                        transaction.Commit();
+                    }
+                }
             }
-            catch(Exception excecao)
+            catch (Exception excecao)
             {
                 throw new Exception(excecao.Message);
             }
         }
-    } 
+    }
 }

@@ -22,20 +22,14 @@ namespace CrudAugustusFashion.Controller.ProdutoController
         }
         public void CadastrarProduto(ProdutoModel produtoModel)
         {
-            //try
-            //{
-            //    var retorno = produtoModel.ValidarProduto();
-
-            //    if (retorno == string.Empty)
-            //    {
-                   _produtoDao.CadastrarProduto(produtoModel);
-            //    }
-            //    return retorno;
-            //}
-            //catch (Exception excecao)
-            //{
-            //    throw new Exception(excecao.Message);
-            //}
+            try
+            {
+                _produtoDao.CadastrarProduto(produtoModel);
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
         }
 
     }

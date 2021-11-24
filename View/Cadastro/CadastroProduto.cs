@@ -66,21 +66,22 @@ namespace CrudAugustusFashion.View.Cadastro
                 MessageBox.Show("Campo -Nome do Produto- invalido ");
                 return false;
             }
-            else if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNomeFabricante.Text))
+             if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNomeFabricante.Text))
             {
                 MessageBox.Show("Campo -Nome do Fabricante- invalido ");
                 return false;
             }
-            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtCodigoBarras.Text))
+            if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtCodigoBarras.Text))
             {
                 MessageBox.Show("Campo - Codigo de Barras- obrigatorio");
                 return false;
-            }else if (ValidacoesExtencion.NuloOuVazio(txtPrecoCusto))
+            }
+            if (ValidacoesExtencion.NuloOuVazio(txtPrecoCusto))
             {
                 MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
                 return false;
             }
-            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text))
+            if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text))
             {
                 MessageBox.Show("Campo -Estoque- invalido");
                 return false;
@@ -122,6 +123,15 @@ namespace CrudAugustusFashion.View.Cadastro
             {
                 MessageBox.Show("Preço de venda deve ser igual ou maior que o preço de custo do produto.");
                 return false;
+            }
+        }
+
+        private void txtCodigoBarras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
             }
         }
     }

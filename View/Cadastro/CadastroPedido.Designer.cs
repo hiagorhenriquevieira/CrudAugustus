@@ -94,6 +94,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.label18 = new System.Windows.Forms.Label();
             this.lblPrecoCusto = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.lblIdVenda = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutoPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewColaboradorPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientePedido)).BeginInit();
@@ -735,6 +736,16 @@ namespace CrudAugustusFashion.View.Cadastro
             this.label20.Text = "Preço de Custo";
             this.label20.Visible = false;
             // 
+            // lblIdVenda
+            // 
+            this.lblIdVenda.BackColor = System.Drawing.Color.White;
+            this.lblIdVenda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblIdVenda.Location = new System.Drawing.Point(274, 40);
+            this.lblIdVenda.Name = "lblIdVenda";
+            this.lblIdVenda.Size = new System.Drawing.Size(42, 23);
+            this.lblIdVenda.TabIndex = 61;
+            this.lblIdVenda.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmCadastroPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -765,6 +776,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.Controls.Add(this.lblNomeCliente);
             this.Controls.Add(this.lblNomeColaborador);
             this.Controls.Add(this.lblIdCliente);
+            this.Controls.Add(this.lblIdVenda);
             this.Controls.Add(this.lblIdColaborador);
             this.Controls.Add(this.lblNomeProduto);
             this.Controls.Add(this.lblIdProduto);
@@ -860,5 +872,6 @@ namespace CrudAugustusFashion.View.Cadastro
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lblPrecoCusto;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblIdVenda;
     }
 }

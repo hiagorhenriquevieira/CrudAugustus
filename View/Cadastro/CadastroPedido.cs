@@ -41,6 +41,7 @@ namespace CrudAugustusFashion.View.Cadastro
             lblNomeProduto.Text = produto.Nome;
             lblPrecoVenda.Text = produto.PrecoVenda.ToString();
             lblPrecoCusto.Text = produto.PrecoCusto.ToString();
+            
             AtualizarPrecos();
         }
 
@@ -116,17 +117,10 @@ namespace CrudAugustusFashion.View.Cadastro
             }
             else
             {
-               _pedidoModel.Produtos.Add(new CarrinhoModel()
+                if(ValidarSeIdVendaJaExiste())
                 {
-                    IdProduto = Convert.ToInt32(lblIdProduto.Text),
-                    Nome = lblNomeProduto.Text,
-                    Desconto = Convert.ToDecimal(lblDescontoDecimal.Text.RemoverFormatacaoDoPreco()),
-                    PrecoLiquido = Convert.ToDecimal(lblPrecoLiquido.Text.RemoverFormatacaoDoPreco()),
-                    PrecoVenda = Convert.ToDecimal(lblPrecoVenda.Text.RemoverFormatacaoDoPreco()),
-                    PrecoCusto =Convert.ToDecimal(lblPrecoCusto.Text.RemoverFormatacaoDoPreco()),
-                    Quantidade = Convert.ToInt32(numericQuantidade.Value),
-                    Total = Convert.ToDecimal(lblTotal.Text.RemoverFormatacaoDoPreco())
-                }) ;
+                    MessageBox.Show("Produto adicionado.");
+                }
 
                 AtualizarCarrinho();
                 
@@ -187,6 +181,8 @@ namespace CrudAugustusFashion.View.Cadastro
            if(_pedidoModel.IdVenda != 0)
             {
                 new AlteracaoPedidoController().AlterarPedido(_pedidoModel);
+                MessageBox.Show("Alteração realizada com sucesso");
+                LimparCamposAposCadastro();
             }
             else
             {
@@ -208,6 +204,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 {
                     MessageBox.Show("Erro ao finalizar pedido. " + excecao.Message);
                 }
+
             }
         }
 
@@ -251,10 +248,13 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             lblIdCliente.Text = _pedidoModel.IdCliente.ToString();
             lblIdColaborador.Text = _pedidoModel.IdColaborador.ToString();
-            dataGridViewCarrinhoPedido.DataSource = _pedidoModel.Produtos;
-            comboBoxFormaPagamento.Text = _pedidoModel.FormaDePagamento.ToString();
 
+            dataGridViewCarrinhoPedido.DataSource = _pedidoModel.Produtos;
+
+            comboBoxFormaPagamento.Text = _pedidoModel.FormaDePagamento.ToString();
+            lblIdVenda.Text = _pedidoModel.IdVenda.ToString();
             int idCliente = Convert.ToInt32(lblIdCliente.Text);
+
             var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
             lblNomeCliente.Text = cliente.NomeCompleto.ToString();
 
@@ -276,7 +276,39 @@ namespace CrudAugustusFashion.View.Cadastro
             }
         }
 
-
+        private bool ValidarSeIdVendaJaExiste()
+        {
+            if (!ValidacoesExtencion.NuloOuVazio(lblIdVenda) && Convert.ToInt32(lblIdVenda.Text) != 0)
+            {
+                _pedidoModel.Produtos.Add(new CarrinhoModel()
+                {
+                    IdProduto = Convert.ToInt32(lblIdProduto.Text),
+                    Nome = lblNomeProduto.Text,
+                    IdVenda = Convert.ToInt32(lblIdVenda.Text),
+                    Desconto = Convert.ToDecimal(lblDescontoDecimal.Text.RemoverFormatacaoDoPreco()),
+                    PrecoLiquido = Convert.ToDecimal(lblPrecoLiquido.Text.RemoverFormatacaoDoPreco()),
+                    PrecoVenda = Convert.ToDecimal(lblPrecoVenda.Text.RemoverFormatacaoDoPreco()),
+                    PrecoCusto = Convert.ToDecimal(lblPrecoCusto.Text.RemoverFormatacaoDoPreco()),
+                    Quantidade = Convert.ToInt32(numericQuantidade.Value),
+                    Total = Convert.ToDecimal(lblTotal.Text.RemoverFormatacaoDoPreco())
+                });
+            }
+            else
+            {
+                _pedidoModel.Produtos.Add(new CarrinhoModel()
+                {
+                    IdProduto = Convert.ToInt32(lblIdProduto.Text),
+                    Nome = lblNomeProduto.Text,
+                    Desconto = Convert.ToDecimal(lblDescontoDecimal.Text.RemoverFormatacaoDoPreco()),
+                    PrecoLiquido = Convert.ToDecimal(lblPrecoLiquido.Text.RemoverFormatacaoDoPreco()),
+                    PrecoVenda = Convert.ToDecimal(lblPrecoVenda.Text.RemoverFormatacaoDoPreco()),
+                    PrecoCusto = Convert.ToDecimal(lblPrecoCusto.Text.RemoverFormatacaoDoPreco()),
+                    Quantidade = Convert.ToInt32(numericQuantidade.Value),
+                    Total = Convert.ToDecimal(lblTotal.Text.RemoverFormatacaoDoPreco())
+                });
+            }
+            return true;
+        }
        
     }
 }
