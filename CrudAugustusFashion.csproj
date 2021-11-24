@@ -67,6 +67,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -99,6 +100,7 @@
     <Compile Include="Controller\ClienteController\CadastroClienteController.cs" />
     <Compile Include="Controller\ClienteController\ExcluirClienteController.cs" />
     <Compile Include="Controller\ColaboradorController\ExcluirColaboradorController.cs" />
+    <Compile Include="Controller\PedidoController\AlteracaoPedidoController.cs" />
     <Compile Include="Controller\PedidoController\CadastroPedidoController.cs" />
     <Compile Include="Controller\PedidoController\ListagemPedidoController.cs" />
     <Compile Include="Controller\ProdutoController\AlteracaoProdutoController.cs" />

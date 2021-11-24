@@ -1,5 +1,4 @@
 ﻿using CrudAugustusFashion.Model.Carinho;
-using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Produto.Pedido;
 using CrudAugustusFashion.Model.Venda;
 using Dapper;
@@ -20,9 +19,9 @@ namespace CrudAugustusFashion.Dao
                 output inserted.IdVenda 
                 values (@IdCliente, @IdColaborador, @TotalBruto, @TotalDesconto, @TotalLiquido, @LucroTotal, @FormaDePagamento)";
 
-            const string insertPedido = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto,
+            const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
                 QuantidadeProduto, Desconto, PrecoLiquido,Total) 
-                values (@IdVenda, @PrecoVenda, @PrecoCusto, @Quantidade, @DescontoDecimal, @PrecoLiquido, @Total)";
+                values (@IdVenda, @PrecoVenda, @PrecoCusto, @IdProduto, @PrecoVenda, @Quantidade, @Desconto, @PrecoLiquido, @Total)";
             const string updateQuantidade = @"Update  Produtos set QuantidadeEstoque -= @Quantidade 
                                             where IdProduto = @IdProduto";
             
@@ -37,11 +36,12 @@ namespace CrudAugustusFashion.Dao
 
                         venda.Produtos.ForEach(x => x.IdVenda = venda.IdVenda);
 
-                        conexao.Execute(insertPedido, venda.Produtos, transaction);
+                        conexao.Execute(insertPedidoProduto, venda.Produtos, transaction);
                         foreach (var update in venda.Produtos)
                         {
                             conexao.Execute(updateQuantidade, update, transaction);
                         }
+                        //List<CarrinhoModel> produtosAntigos =  conexao.Query<CarrinhoModel>
                         transaction.Commit();
                     }
                 }
@@ -118,42 +118,52 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
-        public int RecuperarIdUsuario(int IdCliente)
+        internal void AlterarPedido(VendaModel pedidoModel)
         {
-            var SelectIdCliente = @"select concat (Nome, ' ', SobreNome) as NomeCompleto from Clientes 
-                                    where IdCliente = @IdCliente;";
+
+            //const string 
+
+
+
+            //const string selectProdutosAntigos = @"Select IdProduto, QuantidadeProduto as Quantidade
+            //                                       From PedidosProduto
+            //                                       where IdVenda = @IdVenda";
+
+            //const string deletePedidoProduto = @"delete PedidosProduto
+			         //                           where IdVenda = @IdVenda;";
+
+            //const string updateQuantidade = @"Update Produtos set QuantidadeEstoque += Quantidade
+            //                                    where IdProduto = @IdProduto";
+
+            //const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
+            //    QuantidadeProduto, Desconto, PrecoLiquido,Total) 
+            //    values (@IdVenda, @PrecoVenda, @PrecoCusto, @IdProduto, @PrecoVenda, @Quantidade, @Desconto, @PrecoLiquido, @Total)";
+
+            //const string upQuantidade = @"Update Produtos set QuantidadeEstoque -= @Quantidade 
+            //                                where IdProduto = @IdProduto";
 
             try
             {
-                using (var conexao = ConexaoDao.conectar())
-                {
-                    return conexao.QuerySingle<int>(SelectIdCliente, new { IdCliente });
-                }
-            }
-            catch (Exception excecao)
-            {
-                throw new Exception(excecao.Message);
-            }
-        }
-        public string RecuperarNomeCliente( int idCliente)
-        {
-            var nomeCliente = RecuperarIdUsuario(idCliente);
-            const string selectCliente = @"select 
-                            c.IdUsuario, concat (u.Nome, ' ' ,u.SobreNome) as NomeCompleto
-                            from
-                            Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
-                            where c.IdUsuario = @IdUsuario;";
 
-            try
-            
-            
-            {
-                using (var conexao = ConexaoDao.conectar())
-                {
-                    return conexao.Query<string>(selectCliente, new {nomeCliente}).FirstOrDefault();
-                }
+
+
+
+                //VendaModel venda;
+                //using (var conexao = ConexaoDao.conectar())
+                //{
+                //    using (SqlTransaction transaction = conexao.BeginTransaction())
+                //    {
+                //        List<CarrinhoModel> produtosAntigos = (List<CarrinhoModel>)conexao.Query<CarrinhoModel>(selectProdutosAntigos, pedidoModel, transaction);
+                        
+                //        conexao.Execute(insertPedidoProduto, produtosAntigos, transaction);
+                //        foreach (var update in produtosAntigos)
+                //        {
+                //            conexao.Execute(updateQuantidade, update, transaction);
+                //        }
+                //    }
+                //}
             }
-            catch (Exception excecao)
+            catch(Exception excecao)
             {
                 throw new Exception(excecao.Message);
             }

@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Model.Usuario;
 using Dapper;
@@ -60,5 +61,6 @@ namespace CrudAugustusFashion.Dao
             colaboradorListaModel.Telefone = telefoneModel;
             return colaboradorListaModel;
         }
+        
     }
 }

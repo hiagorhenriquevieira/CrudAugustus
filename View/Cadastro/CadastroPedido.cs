@@ -3,6 +3,7 @@ using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Pedido;
+using CrudAugustusFashion.Model.Venda;
 using CrudAugustusFashion.Validacoes;
 using System;
 using System.Linq;
@@ -183,23 +184,30 @@ namespace CrudAugustusFashion.View.Cadastro
         }
         private void btnFinalizarPedido_Click(object sender, EventArgs e)
         {
-            try
+           if(_pedidoModel.IdVenda != 0)
             {
-                if (ValidarCamposDeCadastroPedido())
-                {
-                    _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
-                    _pedidoModel.IdColaborador = Convert.ToInt32(lblIdColaborador.Text);
-                    _pedidoModel.FormaDePagamento = comboBoxFormaPagamento.Text;
-                   
-                    _cadastroPedido.CadastrarPedido(_pedidoModel);
-                   
-                    MessageBox.Show("Venda realizada!");
-                    LimparCamposAposCadastro();
-                }
+                new AlteracaoPedidoController().AlterarPedido(_pedidoModel);
             }
-            catch (Exception excecao)
+            else
             {
-                MessageBox.Show("Erro ao finalizar pedido. " + excecao.Message);
+                try
+                {
+                    if (ValidarCamposDeCadastroPedido())
+                    {
+                        _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
+                        _pedidoModel.IdColaborador = Convert.ToInt32(lblIdColaborador.Text);
+                        _pedidoModel.FormaDePagamento = comboBoxFormaPagamento.Text;
+
+                        _cadastroPedido.CadastrarPedido(_pedidoModel);
+
+                        MessageBox.Show("Venda realizada!");
+                        LimparCamposAposCadastro();
+                    }
+                }
+                catch (Exception excecao)
+                {
+                    MessageBox.Show("Erro ao finalizar pedido. " + excecao.Message);
+                }
             }
         }
 
@@ -244,11 +252,19 @@ namespace CrudAugustusFashion.View.Cadastro
             lblIdCliente.Text = _pedidoModel.IdCliente.ToString();
             lblIdColaborador.Text = _pedidoModel.IdColaborador.ToString();
             dataGridViewCarrinhoPedido.DataSource = _pedidoModel.Produtos;
+            comboBoxFormaPagamento.Text = _pedidoModel.FormaDePagamento.ToString();
 
-             
-                var cliente = new CadastroPedidoController().RetornarNomeCliente(Convert.ToInt32(lblIdCliente.Text));
-            lblNomeCliente.Text = cliente.ToString();
+            int idCliente = Convert.ToInt32(lblIdCliente.Text);
+            var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
+            lblNomeCliente.Text = cliente.NomeCompleto.ToString();
 
+            int idColaborador = Convert.ToInt32(lblIdColaborador.Text);
+            var colaborador = new ColaboradorDao().RecuperarDadosColaborador(idColaborador);
+            lblNomeColaborador.Text = colaborador.NomeCompleto.ToString();
+           
+
+            //var cliente = new AlteracaoClienteController
+            /*new CadastroPedidoController().RetornarNomeCliente(Convert.ToInt32(lblIdCliente.Text));*/
         }
 
         private void FrmCadastroPedido_Load(object sender, EventArgs e)
@@ -256,10 +272,11 @@ namespace CrudAugustusFashion.View.Cadastro
             if(_pedidoModel.IdVenda != 0)
             {
                 RetornarDadosDaVenda();
-
-                
-
+                AtualizarCarrinho();
             }
         }
+
+
+       
     }
 }

@@ -3,6 +3,7 @@ using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Produto;
+using CrudAugustusFashion.Model.Venda;
 using CrudAugustusFashion.View.Cadastro;
 using System;
 using System.Collections.Generic;
@@ -48,17 +49,7 @@ namespace CrudAugustusFashion.Controller.PedidoController
             }
             return new List<ProdutoLista>();
         }
-        public string RetornarNomeCliente(int idCliente)
-        {
-            try
-            {
-                return _vendaDao.RecuperarNomeCliente(idCliente);
-            }
-            catch (Exception excecao)
-            {
-                throw new Exception(excecao.Message);
-            }
-        }
+       
 
         public void CadastrarPedido(VendaModel pedido)
         {

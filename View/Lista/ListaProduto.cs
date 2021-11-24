@@ -29,11 +29,22 @@ namespace CrudAugustusFashion.View.Lista
 
         private void btnExibirCadastroProduto_Click(object sender, EventArgs e)
         {
-            int codigoProduto = Convert.ToInt32(dataGridViewListaProduto.SelectedRows[0].Cells[0].Value);
+            try
+            {
+               
+                
+                    int codigoProduto = Convert.ToInt32(dataGridViewListaProduto.SelectedRows[0].Cells[0].Value);
+                    var produto = new ProdutoDao().RecuperarDadosProduto(codigoProduto);
+                    new AlteracaoProdutoController().AbrirAlteracaoProduto(produto);
+                    this.Close();
 
-            var produto = new ProdutoDao().RecuperarDadosProduto(codigoProduto);
-            new AlteracaoProdutoController().AbrirAlteracaoProduto(produto);
-            this.Close();
+                
+
+            }
+            catch (Exception excecao)
+            {
+                MessageBox.Show("Produto Não Selecionado"+ excecao.Message);
+            }
         }
 
         private void dataGridViewListaProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -52,7 +63,7 @@ namespace CrudAugustusFashion.View.Lista
                 FiltrarProduto();
         }
         private void FiltrarProduto()
-        {   
+        {
             dataGridViewListaProduto.DataSource = new ListaProdutoController().
                 MostrarProdutosNaLista((txtFiltrarProduto.Text), checkBoxListaProdutoAtivo.Checked);
         }
