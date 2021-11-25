@@ -1,6 +1,7 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Pedido;
 using System;
+using System.Windows.Forms;
 
 namespace CrudAugustusFashion.Controller.PedidoController
 {
@@ -8,7 +9,25 @@ namespace CrudAugustusFashion.Controller.PedidoController
     {
         internal void AlterarPedido(VendaModel pedidoModel)
         {
+            try
+            {
             new VendaDao().AlterarPedido(pedidoModel);
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
+
+        internal void EliminarPedido(VendaModel vendaModel)
+        {
+            try{
+            new VendaDao().EliminarPedido(vendaModel);
+            }
+            catch(Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
         }
     }
 }

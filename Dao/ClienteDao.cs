@@ -170,7 +170,7 @@ namespace CrudAugustusFashion.Dao
             return clienteModel;
         }
 
-        public List<ClienteListaModel> BuscarListaCliente(string nome)
+        public List<ClienteListaModel> BuscarListaCliente(string nome, bool ativo)
         {
 
             var selectNomeCliente = @"select c.IdCliente, c.Observacao, c.ValorLimite,
@@ -182,7 +182,7 @@ namespace CrudAugustusFashion.Dao
                             Usuarios u inner join Clientes c on u.IdUsuario = c.IdUsuario
                             inner join Endereco e on c.IdUsuario = e.IdUsuario
                             inner join Telefone t on c.IdUsuario = t.IdUsuario
-                            where u.Nome like @Nome + '%';";
+                            where u.Nome like @Nome + '%' and c.Status = @Ativo;";
             try
             {
 
@@ -191,7 +191,7 @@ namespace CrudAugustusFashion.Dao
                     return conexao.Query(
                         selectNomeCliente,
                         (ClienteListaModel clienteListaModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
-                        => MapearListaCliente(clienteListaModel, nomeCompleto, telefoneModel, enderecoModel), new { Nome = nome },
+                        => MapearListaCliente(clienteListaModel, nomeCompleto, telefoneModel, enderecoModel), new { Nome = nome , Ativo = ativo},
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -203,27 +203,17 @@ namespace CrudAugustusFashion.Dao
         }
         internal void ExcluirClientes(ClienteModel clienteModel)
         {
-            var deleteTelefone = @"Delete from Telefone
-                where IdUsuario = @IdUsuario";
-            var deleteEndereco = "Delete from Endereco " +
-                "where IdUsuario = @IdUsuario";
-            var deleteCliente = "Delete from Clientes " +
-                "where IdUsuario = @IdUsuario";
-            var deleteUsuario = "Delete from Usuarios " +
-                "where IdUsuario = @IdUsuario";
+
+            const string updateCliente = @"Update Clientes set Status = 0
+                                           where IdUsuario = @IdUsuario";
 
             try
             {
                 using (var conexao = ConexaoDao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
-                    conexao.Execute(deleteTelefone, new { IdUsuario = clienteModel.IdUsuario }, transacao);
+                    conexao.Execute(updateCliente, new { IdUsuario = clienteModel.IdUsuario}, transacao);
 
-                    conexao.Execute(deleteEndereco, new { IdUsuario = clienteModel.IdUsuario }, transacao);
-
-                    conexao.Execute(deleteCliente, new { IdUsuario = clienteModel.IdUsuario }, transacao);
-
-                    conexao.Execute(deleteUsuario, new { IdUsuario = clienteModel.IdUsuario }, transacao);
                     transacao.Commit();
                 }
 

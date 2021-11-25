@@ -55,10 +55,10 @@ namespace CrudAugustusFashion.View.Lista
             // labelListagemProdutos
             // 
             this.labelListagemProdutos.AutoSize = true;
-            this.labelListagemProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelListagemProdutos.Location = new System.Drawing.Point(2, 13);
+            this.labelListagemProdutos.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelListagemProdutos.Location = new System.Drawing.Point(14, 27);
             this.labelListagemProdutos.Name = "labelListagemProdutos";
-            this.labelListagemProdutos.Size = new System.Drawing.Size(314, 39);
+            this.labelListagemProdutos.Size = new System.Drawing.Size(180, 25);
             this.labelListagemProdutos.TabIndex = 2;
             this.labelListagemProdutos.Text = "Lista de Produtos:";
             // 
@@ -75,18 +75,18 @@ namespace CrudAugustusFashion.View.Lista
             // 
             // txtFiltrarProduto
             // 
-            this.txtFiltrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltrarProduto.Location = new System.Drawing.Point(309, 21);
+            this.txtFiltrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltrarProduto.Location = new System.Drawing.Point(201, 27);
             this.txtFiltrarProduto.Name = "txtFiltrarProduto";
-            this.txtFiltrarProduto.Size = new System.Drawing.Size(204, 31);
+            this.txtFiltrarProduto.Size = new System.Drawing.Size(204, 29);
             this.txtFiltrarProduto.TabIndex = 27;
             // 
             // btnFiltrarProduto
             // 
             this.btnFiltrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarProduto.Location = new System.Drawing.Point(519, 3);
+            this.btnFiltrarProduto.Location = new System.Drawing.Point(411, 27);
             this.btnFiltrarProduto.Name = "btnFiltrarProduto";
-            this.btnFiltrarProduto.Size = new System.Drawing.Size(101, 67);
+            this.btnFiltrarProduto.Size = new System.Drawing.Size(162, 30);
             this.btnFiltrarProduto.TabIndex = 26;
             this.btnFiltrarProduto.Text = "Filtrar produto";
             this.btnFiltrarProduto.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@ namespace CrudAugustusFashion.View.Lista
             this.checkBoxListaProdutoAtivo.Checked = true;
             this.checkBoxListaProdutoAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxListaProdutoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxListaProdutoAtivo.Location = new System.Drawing.Point(626, 23);
+            this.checkBoxListaProdutoAtivo.Location = new System.Drawing.Point(579, 29);
             this.checkBoxListaProdutoAtivo.Name = "checkBoxListaProdutoAtivo";
             this.checkBoxListaProdutoAtivo.Size = new System.Drawing.Size(259, 28);
             this.checkBoxListaProdutoAtivo.TabIndex = 30;

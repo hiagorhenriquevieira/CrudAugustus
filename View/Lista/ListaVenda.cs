@@ -17,12 +17,13 @@ namespace CrudAugustusFashion.View.Lista
             _venda = venda;
             _vendaModel = new VendaModel();
             PreencherCamposComDadosDaVenda();
-            
+
         }
 
         private void ListaVenda_Load(object sender, EventArgs e)
         {
             PreencherCamposComDadosDaVenda();
+            DesativarInteracoesSeStatusEhInativo();
         }
 
         public void PreencherCamposComDadosDaVenda()
@@ -37,6 +38,7 @@ namespace CrudAugustusFashion.View.Lista
             lblTotalLiquido.Text = _venda.TotalLiquido.ToString();
             lblLucroTotal.Text = _venda.Lucro.ToString();
             lblFormaDePagamento.Text = _venda.FormaDePagamento;
+            
 
             dataGridViewConsulta.DataSource = _venda.Produtos;
         }
@@ -49,22 +51,34 @@ namespace CrudAugustusFashion.View.Lista
 
         private void btnAlterarPedido_Click(object sender, EventArgs e)
         {
-            
+
             new CadastroPedidoController().AbrirAlteracaoDePedido(ConverterModels());
         }
         private VendaModel ConverterModels()
         {
-            var venda = new VendaModel();
-            venda.IdVenda = _venda.IdVenda;
-            venda.IdCliente = _venda.IdCliente;
-            venda.IdColaborador = _venda.IdColaborador;
-            venda.FormaDePagamento = _venda.FormaDePagamento;
-            venda.Produtos = _venda.Produtos;
-            venda.IdVenda = _venda.IdVenda;
+            _vendaModel.IdVenda = _venda.IdVenda;
+            _vendaModel.IdCliente = _venda.IdCliente;
+            _vendaModel.IdColaborador = _venda.IdColaborador;
+            _vendaModel.FormaDePagamento = _venda.FormaDePagamento;
+            _vendaModel.Produtos = _venda.Produtos;
+            _vendaModel.IdVenda = _venda.IdVenda;
+            _vendaModel.Ativo = _venda.Ativo;
 
-            return venda;
-            
-            
+            return _vendaModel;
+        }
+
+        private void BtnDesativarPedido_Click(object sender, EventArgs e)
+        {
+            new AlteracaoPedidoController().EliminarPedido(ConverterModels());
+            MessageBox.Show("Venda Eliminada");
+        }
+        private void DesativarInteracoesSeStatusEhInativo()
+        {
+            if (!_venda.Ativo)
+            {
+                btnAlterarPedido.Visible = false;
+                BtnDesativarPedido.Visible = false;
+            }
         }
     }
 }

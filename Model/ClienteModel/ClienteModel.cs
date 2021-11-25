@@ -13,7 +13,7 @@ namespace CrudAugustusFashion.Model.Cliente
         public int IdCliente { get; set; }
         public string Observacao{ get; set; }
         public decimal ValorLimite { get; set; }
-
+        public bool Ativo { get; set; }
         public string ValidarCliente()
         {
             var retorno = new ClienteValidation().Validate(this);

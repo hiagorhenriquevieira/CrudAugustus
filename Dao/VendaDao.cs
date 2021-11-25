@@ -51,7 +51,41 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
-        public List<PedidoListaModel> ListarPedidosCadastrados()
+
+        internal void EliminarPedido(VendaModel vendaModel)
+        {
+            const string updateVenda = @"Update Venda set Status = 0
+                                         where IdVenda = @IdVenda";
+            const string selectProdutosAntigos = @"Select IdProduto, QuantidadeProduto as Quantidade
+                                                   From PedidosProduto
+                                                   where IdVenda = @IdVenda";
+            const string updateQuantidade = @"Update Produtos set QuantidadeEstoque += @Quantidade
+                                                where IdProduto = @IdProduto";
+
+            try
+            {
+                using (var conexao = ConexaoDao.conectar())
+                {
+                    using (SqlTransaction transaction = conexao.BeginTransaction())
+                    {
+                        List<CarrinhoModel> produtosAntigos = conexao.Query<CarrinhoModel>(selectProdutosAntigos, new {vendaModel.IdVenda }, transaction).ToList();
+                        foreach (var update in produtosAntigos)
+                        {
+                            conexao.Execute(updateQuantidade, update, transaction);
+                        }
+                        conexao.Execute(updateVenda, vendaModel, transaction);
+
+                        transaction.Commit();
+                    }
+                }
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
+
+        public List<PedidoListaModel> ListarPedidosCadastrados(string nome, bool ativo)
         {
             var selectPedido = @"select  ven.IdVenda, concat(ucli.Nome,' ',ucli.SobreNome) as NomeCliente,
 				concat(uco.Nome, ' ', uco.SobreNome) as NomeColaborador,
@@ -60,13 +94,14 @@ namespace CrudAugustusFashion.Dao
 				inner join Colaboradores as co on ven.IdColaborador = co.IdColaborador
 				inner join Clientes as c on ven.IdCliente = c.IdCliente				
 				inner join Usuarios ucli on ucli.IdUsuario = c.IdUsuario
-				inner join Usuarios uco on uco.IdUsuario = co.IdUsuario";
+				inner join Usuarios uco on uco.IdUsuario = co.IdUsuario
+                where ucli.Nome Like @NomeCliente + '%' and ven.Status = @Ativo";
             try
             {
                 using (var conexao = ConexaoDao.conectar())
                 {
                     return conexao.Query<PedidoListaModel>(
-                        selectPedido
+                        selectPedido, new {NomeCliente = nome, Ativo = ativo }
                      ).ToList();
                 }
             }
@@ -83,7 +118,7 @@ namespace CrudAugustusFashion.Dao
             const string selectPedido = @"select distinct ven.IdVenda, concat(ucli.Nome,' ',ucli.SobreNome) as NomeCliente,
 				concat(uco.Nome, ' ', uco.SobreNome) as NomeColaborador,
                 co.IdColaborador, c.IdCliente,
-                 ven.FormaDePagamento, ven.TotalBruto, ven.TotalDesconto, ven.TotalLiquido, ven.Lucro
+                 ven.FormaDePagamento, ven.TotalBruto, ven.TotalDesconto, ven.TotalLiquido, ven.Lucro, ven.Status as Ativo
 				from Venda ven
                 inner join PedidosProduto as pp on ven.IdVenda = pp.IdVenda
 				inner join Colaboradores as co on ven.IdColaborador = co.IdColaborador
@@ -132,11 +167,13 @@ namespace CrudAugustusFashion.Dao
                                                 where IdProduto = @IdProduto";
 
             const string updateVenda = @"Update Venda set TotalBruto = @TotalBruto, TotalDesconto = @TotalDesconto, 
-                                        TotalLiquido = @TotalLiquido, Lucro = @LucroTotal, FormaDePagamento = @FormaDePagamento";
+                                        TotalLiquido = @TotalLiquido, Lucro = @LucroTotal, FormaDePagamento = @FormaDePagamento
+                                        where IdVenda = @IdVenda";
 
             const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
                 QuantidadeProduto, Desconto, PrecoLiquido,Total) 
-                values (@IdVenda, @PrecoVenda, @PrecoCusto, @IdProduto, @PrecoVenda, @Quantidade, @Desconto, @PrecoLiquido, @Total)";
+                values (@IdVenda, @PrecoVenda, @PrecoCusto, @IdProduto, @PrecoVenda, @Quantidade, @Desconto, @PrecoLiquido, @Total)
+                ";
 
             const string upQuantidade = @"Update Produtos set QuantidadeEstoque -= @Quantidade 
                                             where IdProduto = @IdProduto";
@@ -161,6 +198,7 @@ namespace CrudAugustusFashion.Dao
                         {
                             conexao.Execute(upQuantidade, update, transaction);
                         }
+                        
 
                         transaction.Commit();
                     }

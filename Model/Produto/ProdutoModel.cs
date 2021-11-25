@@ -10,13 +10,6 @@
         public decimal PrecoVenda{ get; set; }
         public decimal PrecoCusto{ get; set; }
         public int Lucro { get; set; }
-        public Status StatusProduto { get; set; }
-
-
-        public enum Status
-        {
-            inativo = 0,
-            ativo = 1,
-        }
+        public bool Ativo { get; set; }
     }
 }

@@ -48,7 +48,7 @@ namespace CrudAugustusFashion.View
         {
             try
             {
-                dataGrideViewColaboradores.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador(txtFiltrarColaborador.Text);
+                dataGrideViewColaboradores.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador((txtFiltrarColaborador.Text),(CbColaboradoresAtivos.Checked));
             }
             catch(Exception ex)
             {

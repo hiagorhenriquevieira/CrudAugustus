@@ -34,22 +34,24 @@ namespace CrudAugustusFashion.View
             this.btnExibirCadastroCliente = new System.Windows.Forms.Button();
             this.btnFiltrarCliente = new System.Windows.Forms.Button();
             this.txtFiltrarCliente = new System.Windows.Forms.TextBox();
+            this.CbAtivarClientes = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListaClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // labelListagemClientes
             // 
             this.labelListagemClientes.AutoSize = true;
-            this.labelListagemClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelListagemClientes.Location = new System.Drawing.Point(12, 28);
+            this.labelListagemClientes.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelListagemClientes.Location = new System.Drawing.Point(14, 28);
             this.labelListagemClientes.Name = "labelListagemClientes";
-            this.labelListagemClientes.Size = new System.Drawing.Size(304, 39);
+            this.labelListagemClientes.Size = new System.Drawing.Size(199, 29);
             this.labelListagemClientes.TabIndex = 1;
             this.labelListagemClientes.Text = "Lista de clientes :";
             // 
             // dataGridViewListaClientes
             // 
             this.dataGridViewListaClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewListaClientes.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListaClientes.Location = new System.Drawing.Point(19, 70);
             this.dataGridViewListaClientes.MultiSelect = false;
@@ -62,39 +64,58 @@ namespace CrudAugustusFashion.View
             // 
             // btnExibirCadastroCliente
             // 
-            this.btnExibirCadastroCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExibirCadastroCliente.Location = new System.Drawing.Point(465, 458);
+            this.btnExibirCadastroCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.btnExibirCadastroCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExibirCadastroCliente.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExibirCadastroCliente.Location = new System.Drawing.Point(487, 471);
             this.btnExibirCadastroCliente.Name = "btnExibirCadastroCliente";
-            this.btnExibirCadastroCliente.Size = new System.Drawing.Size(388, 55);
+            this.btnExibirCadastroCliente.Size = new System.Drawing.Size(211, 37);
             this.btnExibirCadastroCliente.TabIndex = 21;
             this.btnExibirCadastroCliente.Text = "Exibir cadastro";
-            this.btnExibirCadastroCliente.UseVisualStyleBackColor = true;
+            this.btnExibirCadastroCliente.UseVisualStyleBackColor = false;
             this.btnExibirCadastroCliente.Click += new System.EventHandler(this.btnExibirCadastroCliente_Click);
             // 
             // btnFiltrarCliente
             // 
-            this.btnFiltrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarCliente.Location = new System.Drawing.Point(347, 28);
+            this.btnFiltrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.btnFiltrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFiltrarCliente.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarCliente.Location = new System.Drawing.Point(418, 28);
             this.btnFiltrarCliente.Name = "btnFiltrarCliente";
-            this.btnFiltrarCliente.Size = new System.Drawing.Size(211, 31);
+            this.btnFiltrarCliente.Size = new System.Drawing.Size(211, 34);
             this.btnFiltrarCliente.TabIndex = 22;
             this.btnFiltrarCliente.Text = "Filtrar por nome";
-            this.btnFiltrarCliente.UseVisualStyleBackColor = true;
+            this.btnFiltrarCliente.UseVisualStyleBackColor = false;
             this.btnFiltrarCliente.Click += new System.EventHandler(this.btnFiltrarCliente_Click);
             // 
             // txtFiltrarCliente
             // 
-            this.txtFiltrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltrarCliente.Location = new System.Drawing.Point(564, 28);
+            this.txtFiltrarCliente.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltrarCliente.Location = new System.Drawing.Point(208, 29);
             this.txtFiltrarCliente.Name = "txtFiltrarCliente";
-            this.txtFiltrarCliente.Size = new System.Drawing.Size(204, 31);
+            this.txtFiltrarCliente.Size = new System.Drawing.Size(204, 33);
             this.txtFiltrarCliente.TabIndex = 23;
+            // 
+            // CbAtivarClientes
+            // 
+            this.CbAtivarClientes.AutoSize = true;
+            this.CbAtivarClientes.Checked = true;
+            this.CbAtivarClientes.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CbAtivarClientes.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbAtivarClientes.Location = new System.Drawing.Point(670, 31);
+            this.CbAtivarClientes.Name = "CbAtivarClientes";
+            this.CbAtivarClientes.Size = new System.Drawing.Size(166, 29);
+            this.CbAtivarClientes.TabIndex = 24;
+            this.CbAtivarClientes.Text = "Clientes Ativos";
+            this.CbAtivarClientes.UseVisualStyleBackColor = true;
             // 
             // FrmListaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1282, 539);
+            this.Controls.Add(this.CbAtivarClientes);
             this.Controls.Add(this.txtFiltrarCliente);
             this.Controls.Add(this.btnFiltrarCliente);
             this.Controls.Add(this.btnExibirCadastroCliente);
@@ -115,5 +136,6 @@ namespace CrudAugustusFashion.View
         private System.Windows.Forms.Button btnExibirCadastroCliente;
         private System.Windows.Forms.Button btnFiltrarCliente;
         private System.Windows.Forms.TextBox txtFiltrarCliente;
+        private System.Windows.Forms.CheckBox CbAtivarClientes;
     }
 }

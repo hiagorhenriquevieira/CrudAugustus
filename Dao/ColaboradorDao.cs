@@ -179,7 +179,7 @@ namespace CrudAugustusFashion.Dao
             colaboradorModel.Endereco = enderecoModel;
             return colaboradorModel;
         }
-        public List<ColaboradorListaModel> BuscarListaColaborador(string nome)
+        public List<ColaboradorListaModel> BuscarListaColaborador(string nome, bool ativo)
         {
             var selectNomeColaborador = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
                         co.IdUsuario, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
@@ -192,7 +192,7 @@ namespace CrudAugustusFashion.Dao
                         inner join Endereco e on co.IdUsuario = e.IdUsuario
                         inner join ContasBancarias cb on co.IdColaborador = cb.IdColaborador
                         inner join Telefone t on co.IdUsuario = t.IdUsuario
-                        where u.Nome like @Nome + '%' ";
+                        where u.Nome like @Nome + '%' and co.Status = @Ativo";
             try
             {
                 using (var con = ConexaoDao.conectar())
@@ -201,7 +201,7 @@ namespace CrudAugustusFashion.Dao
                         selectNomeColaborador,
                         (colaboradorListaModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel)
                         => MapearListaColaborador(colaboradorListaModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel),
-                        new { Nome = nome },
+                        new { Nome = nome, Ativo = ativo },
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -214,31 +214,14 @@ namespace CrudAugustusFashion.Dao
         }
         internal void ExcluirColaboradores(ColaboradorModel colaboradorModel)
         {
-            var deleteTelefone = @"Delete from Telefone
-                where IdUsuario = @IdUsuario";
-            var deleteEndereco = "Delete from Endereco " +
-                "where IdUsuario = @IdUsuario";
-            var deleteContaBancaria = @"Delete from ContasBancarias
-                where IdColaborador = @IdColaborador";
-            var deleteColaborador = "Delete from Colaboradores " +
-                "where IdUsuario = @IdUsuario";
-            var deleteUsuario = "Delete from Usuarios " +
-                "where IdUsuario = @IdUsuario";
-
+            const string updateColaborador = @"update Colaboradores set Status = 0
+                                               where IdUsuario = @IdUsuario";
             try
             {
                 using (var conexao = ConexaoDao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
-                    conexao.Execute(deleteTelefone, new { IdUsuario = colaboradorModel.IdUsuario }, transacao);
-
-                    conexao.Execute(deleteEndereco, new { IdUsuario = colaboradorModel.IdUsuario }, transacao);
-
-                    conexao.Execute(deleteContaBancaria, new { IdColaborador = colaboradorModel.IdColaborador }, transacao);
-
-                    conexao.Execute(deleteColaborador, new { IdUsuario = colaboradorModel.IdUsuario }, transacao);
-
-                    conexao.Execute(deleteUsuario, new { IdUsuario = colaboradorModel.IdUsuario }, transacao);
+                    conexao.Execute(updateColaborador, new { IdUsuario = colaboradorModel.IdUsuario }, transacao);
                     transacao.Commit();
                 }
             }
@@ -252,7 +235,6 @@ namespace CrudAugustusFashion.Dao
         {
             var SelectIdColaborador = @"select IdUsuario from Colaboradores 
                                     where IdColaborador = @IdColaborador;";
-
             try
             {
                 using (var conexao = ConexaoDao.conectar())
@@ -298,8 +280,6 @@ namespace CrudAugustusFashion.Dao
             {
                 throw new Exception(ex.Message);
             }
-
-
         }
     }
 }

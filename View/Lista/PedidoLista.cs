@@ -45,20 +45,15 @@ namespace CrudAugustusFashion.View.Lista
         {
             try
             {
-                //_listagemPedido.ListarPedidosRealizados(dataGridViewPedidoLista);
-                dataGridViewPedidoLista.DataSource = new VendaDao().ListarPedidosCadastrados();
+                dataGridViewPedidoLista.DataSource = new ListagemPedidoController().
+                    MostrarProdutosNaLista((txtFiltrarPedido.Text),(CbProdutosAtivos.Checked));
+                
             }
             catch (Exception excecao)
             {
                 MessageBox.Show("Erro ao listar pedidos." + excecao.Message);
             }
         }
-
-        private void txtFiltrarPedido_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private bool VerificarSeUmaVendaFoiSelecionada()
         {
             if (dataGridViewPedidoLista.RowCount == 0)

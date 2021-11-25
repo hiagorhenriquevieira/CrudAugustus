@@ -14,19 +14,11 @@ namespace CrudAugustusFashion.View
 
         private void frmListaCliente_Load(object sender, EventArgs e)
         {
-            try
-            {
-                dataGridViewListaClientes.DataSource = new ClienteDao().ListarClientes();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro ao listar clientes. Erro " + ex.Message);
-            }
         }
 
         private void dataGridViewListaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-             
+
         }
 
         private void btnExibirCadastroCliente_Click(object sender, EventArgs e)
@@ -35,17 +27,18 @@ namespace CrudAugustusFashion.View
 
             var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
 
-           new AlteracaoClienteController().AbrirAlteracaoCliente(cliente);
+            new AlteracaoClienteController().AbrirAlteracaoCliente(cliente);
             this.Close();
         }
 
         private void btnFiltrarCliente_Click(object sender, EventArgs e)
         {
-            try 
-            { 
-                dataGridViewListaClientes.DataSource = new AlteracaoClienteController().BuscarListaCliente(txtFiltrarCliente.Text);
+            try
+            {
+                dataGridViewListaClientes.DataSource = new AlteracaoClienteController().
+                    BuscarListaCliente((txtFiltrarCliente.Text), (CbAtivarClientes.Checked));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro ao buscar usuario. Erro: " + ex.Message);
             }

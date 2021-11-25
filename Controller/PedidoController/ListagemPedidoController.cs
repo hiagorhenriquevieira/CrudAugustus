@@ -4,6 +4,8 @@ using CrudAugustusFashion.Model.Produto.Pedido;
 using CrudAugustusFashion.Model.Venda;
 using CrudAugustusFashion.View.Lista;
 using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace CrudAugustusFashion.Controller.PedidoController
 {
@@ -23,18 +25,19 @@ namespace CrudAugustusFashion.Controller.PedidoController
             frmPedidoLista.Show();
         }
 
-        //public void ListarPedidosRealizados(PedidoListaModel pedidoLista)
-        //{
-        //    try
-        //    {
-        //        _vendaDao.ListarPedidosCadastrados();
-        //    }
-        //    catch (Exception excecao)
-        //    {
-        //        throw new Exception(excecao.Message);
-        //    }
-
-        //}
+        public IList<PedidoListaModel> MostrarProdutosNaLista(string nome, bool ativo)
+        {
+            try
+            {
+                var lista = _vendaDao.ListarPedidosCadastrados(nome, ativo);
+                return lista;
+            }
+            catch (Exception excecao)
+            {
+                MessageBox.Show("Erro." + excecao.Message);
+            }
+            return new List<PedidoListaModel>();
+        }
         public VendaConsulta ExibirListaDeVenda(int idVenda)
         {
             try

@@ -51,6 +51,8 @@ namespace CrudAugustusFashion.View.Lista
             this.lblIdColaborador = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lblIdVenda = new System.Windows.Forms.Label();
+            this.BtnDesativarPedido = new System.Windows.Forms.Button();
+            this.lblStatusPedido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,7 +127,7 @@ namespace CrudAugustusFashion.View.Lista
             // 
             // btnAlterarPedido
             // 
-            this.btnAlterarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(137)))), ((int)(((byte)(239)))));
+            this.btnAlterarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.btnAlterarPedido.FlatAppearance.BorderSize = 0;
             this.btnAlterarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlterarPedido.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -275,11 +277,35 @@ namespace CrudAugustusFashion.View.Lista
             // 
             this.lblIdVenda.BackColor = System.Drawing.Color.White;
             this.lblIdVenda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblIdVenda.Location = new System.Drawing.Point(478, 19);
+            this.lblIdVenda.Location = new System.Drawing.Point(478, 18);
             this.lblIdVenda.Name = "lblIdVenda";
-            this.lblIdVenda.Size = new System.Drawing.Size(47, 35);
+            this.lblIdVenda.Size = new System.Drawing.Size(41, 33);
             this.lblIdVenda.TabIndex = 76;
             this.lblIdVenda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // BtnDesativarPedido
+            // 
+            this.BtnDesativarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
+            this.BtnDesativarPedido.FlatAppearance.BorderSize = 0;
+            this.BtnDesativarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnDesativarPedido.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDesativarPedido.Location = new System.Drawing.Point(563, 463);
+            this.BtnDesativarPedido.Name = "BtnDesativarPedido";
+            this.BtnDesativarPedido.Size = new System.Drawing.Size(150, 31);
+            this.BtnDesativarPedido.TabIndex = 69;
+            this.BtnDesativarPedido.Text = "Eliminar Pedido";
+            this.BtnDesativarPedido.UseVisualStyleBackColor = false;
+            this.BtnDesativarPedido.Click += new System.EventHandler(this.BtnDesativarPedido_Click);
+            // 
+            // lblStatusPedido
+            // 
+            this.lblStatusPedido.BackColor = System.Drawing.Color.White;
+            this.lblStatusPedido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblStatusPedido.Location = new System.Drawing.Point(563, 19);
+            this.lblStatusPedido.Name = "lblStatusPedido";
+            this.lblStatusPedido.Size = new System.Drawing.Size(41, 33);
+            this.lblStatusPedido.TabIndex = 77;
+            this.lblStatusPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FrmListaVenda
             // 
@@ -287,6 +313,7 @@ namespace CrudAugustusFashion.View.Lista
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(953, 524);
+            this.Controls.Add(this.lblStatusPedido);
             this.Controls.Add(this.lblIdVenda);
             this.Controls.Add(this.lblIdColaborador);
             this.Controls.Add(this.label10);
@@ -299,6 +326,7 @@ namespace CrudAugustusFashion.View.Lista
             this.Controls.Add(this.lblTotalDesconto);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.BtnDesativarPedido);
             this.Controls.Add(this.btnAlterarPedido);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label4);
@@ -342,5 +370,7 @@ namespace CrudAugustusFashion.View.Lista
         private System.Windows.Forms.Label lblIdColaborador;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblIdVenda;
+        private System.Windows.Forms.Button BtnDesativarPedido;
+        private System.Windows.Forms.Label lblStatusPedido;
     }
 }

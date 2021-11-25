@@ -1,7 +1,9 @@
 ﻿using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
+using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Carinho;
+using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Venda;
 using CrudAugustusFashion.Validacoes;
@@ -13,24 +15,28 @@ namespace CrudAugustusFashion.View.Cadastro
 {
     public partial class FrmCadastroPedido : Form
     {
-        
+
         private VendaModel _pedidoModel;
         private CadastroPedidoController _cadastroPedido;
+        private ClienteModel _clienteModel;
+        private ColaboradorModel _colaboradorModel;
 
         public FrmCadastroPedido(VendaModel pedidoModel)
         {
             InitializeComponent();
             _pedidoModel = pedidoModel;
             _cadastroPedido = new CadastroPedidoController();
+            _clienteModel = new ClienteModel();
+            _colaboradorModel = new ColaboradorModel();
         }
 
-        private void btnPesquisarProduto_Click(object sender, System.EventArgs e) => 
+        private void btnPesquisarProduto_Click(object sender, System.EventArgs e) =>
             dataGridViewProdutoPedido.DataSource = new CadastroPedidoController().ListarProdutosPedido(txtProcurarProduto.Text);
-        private void btnPesquisarColaborador_Click(object sender, System.EventArgs e) => 
-            dataGridViewColaboradorPedido.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador(txtProcurarColaborador.Text);
+        private void btnPesquisarColaborador_Click(object sender, System.EventArgs e) =>
+            dataGridViewColaboradorPedido.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador((txtProcurarColaborador.Text),(_colaboradorModel.Ativo = true));
 
-        private void btnPesquisarCliente_Click(object sender, System.EventArgs e) => 
-            dataGridViewClientePedido.DataSource = new AlteracaoClienteController().BuscarListaCliente(txtProcurarCliente.Text);
+        private void btnPesquisarCliente_Click(object sender, System.EventArgs e) =>
+            dataGridViewClientePedido.DataSource = new AlteracaoClienteController().BuscarListaCliente((txtProcurarCliente.Text),(_clienteModel.Ativo = true));
 
         private void dataGridViewProdutoPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -41,7 +47,7 @@ namespace CrudAugustusFashion.View.Cadastro
             lblNomeProduto.Text = produto.Nome;
             lblPrecoVenda.Text = produto.PrecoVenda.ToString();
             lblPrecoCusto.Text = produto.PrecoCusto.ToString();
-            
+
             AtualizarPrecos();
         }
 
@@ -64,8 +70,8 @@ namespace CrudAugustusFashion.View.Cadastro
         }
 
 
-        public void AtualizarPrecos() 
-        { 
+        public void AtualizarPrecos()
+        {
             if (!ValidacoesExtencion.NuloOuVazio(lblPrecoVenda))
             {
                 var precoVenda = Convert.ToDecimal(lblPrecoVenda.Text);
@@ -89,7 +95,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private void numericDesconto_ValueChanged(object sender, EventArgs e)
         {
             AtualizarPrecos();
-            
+
         }
 
         private void numericDesconto_KeyPress(object sender, KeyPressEventArgs e)
@@ -103,27 +109,28 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void numericQuantidade_KeyPress(object sender, KeyPressEventArgs e) => AtualizarPrecos();
 
-        
+
         private void btnAdicionarProduto_Click(object sender, EventArgs e)
         {
-            if(lblIdProduto.Text == "")
+            if (lblIdProduto.Text == "")
             {
                 MessageBox.Show("Selecione um produto.");
                 return;
-            }else if (numericQuantidade.Value < 1)
+            }
+            else if (numericQuantidade.Value < 1)
             {
                 MessageBox.Show("Quantidade não pode ser menor que 1.");
                 return;
             }
             else
             {
-                if(ValidarSeIdVendaJaExiste())
+                if (ValidarSeIdVendaJaExiste())
                 {
                     MessageBox.Show("Produto adicionado.");
                 }
 
                 AtualizarCarrinho();
-                
+
             }
             LimparCamposAposAdicionarProdutoNoCarrinho();
 
@@ -154,18 +161,18 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void btnRetirarProdutoCarrinho_Click(object sender, EventArgs e)
         {
-            if(VerificarSeCarrinhoEstaVazio())
+            if (VerificarSeCarrinhoEstaVazio())
             {
-            int id = Convert.ToInt32(dataGridViewCarrinhoPedido.SelectedRows[0].Cells[1].Value);
-            _pedidoModel.Produtos.Remove((from x in _pedidoModel.Produtos
-                                   where x.IdProduto == id
-                                  select x).FirstOrDefault()
-                                  );
+                int id = Convert.ToInt32(dataGridViewCarrinhoPedido.SelectedRows[0].Cells[1].Value);
+                _pedidoModel.Produtos.Remove((from x in _pedidoModel.Produtos
+                                              where x.IdProduto == id
+                                              select x).FirstOrDefault()
+                                      );
                 AtualizarCarrinho();
             };
-        } 
-        
-        public bool VerificarSeCarrinhoEstaVazio() 
+        }
+
+        public bool VerificarSeCarrinhoEstaVazio()
         {
             if (dataGridViewCarrinhoPedido.RowCount == 0)
             {
@@ -173,20 +180,21 @@ namespace CrudAugustusFashion.View.Cadastro
                 return false;
             }
             btnRetirarProdutoCarrinho.Enabled = true;
-           
+
             return true;
         }
         private void btnFinalizarPedido_Click(object sender, EventArgs e)
         {
-           if(_pedidoModel.IdVenda != 0)
+
+            try
             {
-                new AlteracaoPedidoController().AlterarPedido(_pedidoModel);
-                MessageBox.Show("Alteração realizada com sucesso");
-                LimparCamposAposCadastro();
-            }
-            else
-            {
-                try
+                if (_pedidoModel.IdVenda != 0 && ValidarCamposDeCadastroPedido())
+                {
+                    new AlteracaoPedidoController().AlterarPedido(_pedidoModel);
+                    MessageBox.Show("Alteração realizada com sucesso");
+                    LimparCamposAposCadastro();
+                }
+                else
                 {
                     if (ValidarCamposDeCadastroPedido())
                     {
@@ -200,11 +208,11 @@ namespace CrudAugustusFashion.View.Cadastro
                         LimparCamposAposCadastro();
                     }
                 }
-                catch (Exception excecao)
-                {
-                    MessageBox.Show("Erro ao finalizar pedido. " + excecao.Message);
-                }
 
+            }
+            catch (Exception excecao)
+            {
+                MessageBox.Show("Erro ao finalizar pedido. " + excecao.Message);
             }
         }
 
@@ -230,7 +238,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 MessageBox.Show("Selecione um meio de pagamento.");
                 return false;
             }
-            if(dataGridViewCarrinhoPedido.RowCount == 0)
+            if (dataGridViewCarrinhoPedido.RowCount == 0)
             {
                 MessageBox.Show("Não há nenhum produto para ser efetuado o cadastro de pedido");
                 return false;
@@ -261,7 +269,7 @@ namespace CrudAugustusFashion.View.Cadastro
             int idColaborador = Convert.ToInt32(lblIdColaborador.Text);
             var colaborador = new ColaboradorDao().RecuperarDadosColaborador(idColaborador);
             lblNomeColaborador.Text = colaborador.NomeCompleto.ToString();
-           
+
 
             //var cliente = new AlteracaoClienteController
             /*new CadastroPedidoController().RetornarNomeCliente(Convert.ToInt32(lblIdCliente.Text));*/
@@ -269,7 +277,7 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void FrmCadastroPedido_Load(object sender, EventArgs e)
         {
-            if(_pedidoModel.IdVenda != 0)
+            if (_pedidoModel.IdVenda != 0)
             {
                 RetornarDadosDaVenda();
                 AtualizarCarrinho();
@@ -309,6 +317,6 @@ namespace CrudAugustusFashion.View.Cadastro
             }
             return true;
         }
-       
+
     }
 }

@@ -43,11 +43,11 @@ namespace CrudAugustusFashion.Controller
 
         }
 
-        public List<ClienteListaModel> BuscarListaCliente(string nome)
+        public List<ClienteListaModel> BuscarListaCliente(string nome, bool ativo)
         {
             try
             {
-                var lista = _clienteDao.BuscarListaCliente(nome);
+                var lista = _clienteDao.BuscarListaCliente(nome, ativo);
                 return lista;
             }
             catch (Exception excecao)
