@@ -206,13 +206,15 @@ namespace CrudAugustusFashion.View
             // 
             // btnCadastrarColaborador
             // 
+            this.btnCadastrarColaborador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.btnCadastrarColaborador.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrarColaborador.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarColaborador.Location = new System.Drawing.Point(256, 562);
             this.btnCadastrarColaborador.Name = "btnCadastrarColaborador";
             this.btnCadastrarColaborador.Size = new System.Drawing.Size(382, 49);
             this.btnCadastrarColaborador.TabIndex = 23;
             this.btnCadastrarColaborador.Text = "Cadastrar";
-            this.btnCadastrarColaborador.UseVisualStyleBackColor = true;
+            this.btnCadastrarColaborador.UseVisualStyleBackColor = false;
             this.btnCadastrarColaborador.Click += new System.EventHandler(this.btnCadastrarColaborador_Click);
             // 
             // groupBox1
@@ -556,6 +558,7 @@ namespace CrudAugustusFashion.View
             // comboBoxUf
             // 
             this.comboBoxUf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUf.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxUf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxUf.FormattingEnabled = true;
             this.comboBoxUf.Items.AddRange(new object[] {
@@ -594,6 +597,7 @@ namespace CrudAugustusFashion.View
             // comboBoxSexo
             // 
             this.comboBoxSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSexo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSexo.FormattingEnabled = true;
             this.comboBoxSexo.Items.AddRange(new object[] {
@@ -648,7 +652,7 @@ namespace CrudAugustusFashion.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(876, 623);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

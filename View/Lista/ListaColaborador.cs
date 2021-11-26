@@ -23,14 +23,7 @@ namespace CrudAugustusFashion.View
 
         private void FrmListaColaborador_Load(object sender, EventArgs e)
         {
-            try
-            {
-                dataGrideViewColaboradores.DataSource = new ColaboradorDao().ListarColaboradores();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Falha ao listar colaboradores. Erro " + ex.Message);
-            }
+            
         }
 
         private void btnExibirCadastroColaborador_Click(object sender, EventArgs e)

@@ -71,6 +71,8 @@ namespace CrudAugustusFashion.View.Lista
         {
             new AlteracaoPedidoController().EliminarPedido(ConverterModels());
             MessageBox.Show("Venda Eliminada");
+            this.Close();
+            new ListagemPedidoController().AbrirListaPedido();
         }
         private void DesativarInteracoesSeStatusEhInativo()
         {

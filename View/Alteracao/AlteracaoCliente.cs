@@ -12,6 +12,8 @@ namespace CrudAugustusFashion.View.Alteracao
         //variavel de instancia
         private ClienteModel _cliente;
         private ExcluirClienteController _excluircliente;
+        private CadastroClienteController _cadastroclientecontroller;
+
 
         public FrmAlteracaoCliente(ClienteModel cliente)
         {
@@ -19,6 +21,7 @@ namespace CrudAugustusFashion.View.Alteracao
             _cliente = cliente;
             _excluircliente = new ExcluirClienteController();
             PreencherCamposComCliente();
+            _cadastroclientecontroller = new CadastroClienteController();
         }
 
         private void PreencherCamposComCliente()
@@ -65,6 +68,8 @@ namespace CrudAugustusFashion.View.Alteracao
                 _excluircliente.ExcluirClientes(_cliente);
                 MessageBox.Show("Cliente excluído com sucesso.");
                 this.Close();
+                _cadastroclientecontroller.AbrirListaCliente();
+
             }
             catch(Exception ex)
             {
@@ -113,6 +118,7 @@ namespace CrudAugustusFashion.View.Alteracao
                 {
                 MessageBox.Show("Cliente alterado com sucesso.");
                 this.Close();
+                    _cadastroclientecontroller.AbrirListaCliente();
                 }
                 else
                 {

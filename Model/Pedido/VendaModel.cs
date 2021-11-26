@@ -16,12 +16,7 @@ namespace CrudAugustusFashion.Model.Pedido
         public decimal LucroTotal { get => Produtos.Sum(x => x.Total -(x.Quantidade * x.PrecoCusto)); }  
         public string FormaDePagamento { get; set; }
         public bool Ativo { get; set; }
-          
-        //public override string ToString()
-        //{
-        //    return $"Código Venda: {IdVenda} Código Cliente: {IdCliente} Total Bruto: {TotalBruto} Total Líquido: {TotalLiquido} " +
-        //        $"Total Desconto: {TotalDesconto} Lucro: {LucroTotal} Forma de Pagamento:{FormaDePagamento} ";
-        //}
+
         public List<CarrinhoModel> Produtos {get; set;}
         public VendaModel()
         {

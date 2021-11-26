@@ -369,13 +369,15 @@ namespace CrudAugustusFashion
             // 
             // btnCadastrarCliente
             // 
+            this.btnCadastrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.btnCadastrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarCliente.Location = new System.Drawing.Point(198, 551);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
             this.btnCadastrarCliente.Size = new System.Drawing.Size(388, 55);
             this.btnCadastrarCliente.TabIndex = 20;
             this.btnCadastrarCliente.Text = "Cadastrar";
-            this.btnCadastrarCliente.UseVisualStyleBackColor = true;
+            this.btnCadastrarCliente.UseVisualStyleBackColor = false;
             this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click);
             // 
             // txtSobrenome
@@ -473,6 +475,7 @@ namespace CrudAugustusFashion
             // comboBoxUf
             // 
             this.comboBoxUf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUf.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxUf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxUf.FormattingEnabled = true;
             this.comboBoxUf.Items.AddRange(new object[] {
@@ -510,8 +513,11 @@ namespace CrudAugustusFashion
             // 
             // comboBoxSexo
             // 
+            this.comboBoxSexo.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSexo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSexo.ForeColor = System.Drawing.SystemColors.MenuText;
             this.comboBoxSexo.FormattingEnabled = true;
             this.comboBoxSexo.Items.AddRange(new object[] {
             "Feminino",
@@ -526,7 +532,7 @@ namespace CrudAugustusFashion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(817, 622);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCadastrarCliente);

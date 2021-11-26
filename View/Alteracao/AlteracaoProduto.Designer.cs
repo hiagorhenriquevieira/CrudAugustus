@@ -58,22 +58,25 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             // buttonCalcularPrecoProduto
             // 
-            this.buttonCalcularPrecoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalcularPrecoProduto.Location = new System.Drawing.Point(355, 457);
+            this.buttonCalcularPrecoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.buttonCalcularPrecoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCalcularPrecoProduto.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCalcularPrecoProduto.Location = new System.Drawing.Point(343, 461);
             this.buttonCalcularPrecoProduto.Name = "buttonCalcularPrecoProduto";
-            this.buttonCalcularPrecoProduto.Size = new System.Drawing.Size(165, 29);
+            this.buttonCalcularPrecoProduto.Size = new System.Drawing.Size(195, 35);
             this.buttonCalcularPrecoProduto.TabIndex = 8;
             this.buttonCalcularPrecoProduto.Text = "Calcular preço ";
-            this.buttonCalcularPrecoProduto.UseVisualStyleBackColor = true;
+            this.buttonCalcularPrecoProduto.UseVisualStyleBackColor = false;
             this.buttonCalcularPrecoProduto.Click += new System.EventHandler(this.buttonCalcularPrecoProduto_Click);
             // 
             // buttonCadastrarProduto
             // 
-            this.buttonCadastrarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonCadastrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCadastrarProduto.Location = new System.Drawing.Point(61, 548);
+            this.buttonCadastrarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.buttonCadastrarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCadastrarProduto.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCadastrarProduto.Location = new System.Drawing.Point(81, 575);
             this.buttonCadastrarProduto.Name = "buttonCadastrarProduto";
-            this.buttonCadastrarProduto.Size = new System.Drawing.Size(276, 51);
+            this.buttonCadastrarProduto.Size = new System.Drawing.Size(195, 36);
             this.buttonCadastrarProduto.TabIndex = 10;
             this.buttonCadastrarProduto.Text = "Salvar alteração";
             this.buttonCadastrarProduto.UseVisualStyleBackColor = false;
@@ -82,140 +85,141 @@ namespace CrudAugustusFashion.View.Alteracao
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(460, 395);
+            this.label10.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(461, 373);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(120, 24);
+            this.label10.Size = new System.Drawing.Size(127, 25);
             this.label10.TabIndex = 37;
             this.label10.Text = "Lucro em %";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(258, 213);
+            this.label9.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(263, 213);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 24);
+            this.label9.Size = new System.Drawing.Size(110, 25);
             this.label9.TabIndex = 36;
             this.label9.Text = "Fabricante";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(487, 289);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(263, 291);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 24);
+            this.label7.Size = new System.Drawing.Size(93, 25);
             this.label7.TabIndex = 35;
             this.label7.Text = "Estoque ";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(258, 395);
+            this.label6.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(259, 373);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 24);
+            this.label6.Size = new System.Drawing.Size(150, 25);
             this.label6.TabIndex = 34;
             this.label6.Text = "Preço de custo";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(351, 489);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(350, 499);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 24);
+            this.label5.Size = new System.Drawing.Size(160, 25);
             this.label5.TabIndex = 33;
             this.label5.Text = "Preço de Venda";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(258, 144);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(263, 144);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 24);
+            this.label4.Size = new System.Drawing.Size(176, 25);
             this.label4.TabIndex = 32;
             this.label4.Text = "Nome do Produto";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(258, 72);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(263, 72);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 24);
+            this.label3.Size = new System.Drawing.Size(173, 25);
             this.label3.TabIndex = 31;
             this.label3.Text = "Código de Barras";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(269, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(336, 37);
+            this.label1.Size = new System.Drawing.Size(209, 25);
             this.label1.TabIndex = 30;
             this.label1.Text = "Alteração de produto";
             // 
             // txtNomeFabricante
             // 
-            this.txtNomeFabricante.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeFabricante.Location = new System.Drawing.Point(262, 240);
+            this.txtNomeFabricante.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeFabricante.Location = new System.Drawing.Point(263, 240);
             this.txtNomeFabricante.Name = "txtNomeFabricante";
-            this.txtNomeFabricante.Size = new System.Drawing.Size(363, 29);
+            this.txtNomeFabricante.Size = new System.Drawing.Size(363, 33);
             this.txtNomeFabricante.TabIndex = 3;
             // 
             // txtPorcentagemLucro
             // 
-            this.txtPorcentagemLucro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPorcentagemLucro.Location = new System.Drawing.Point(464, 422);
+            this.txtPorcentagemLucro.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcentagemLucro.Location = new System.Drawing.Point(465, 400);
             this.txtPorcentagemLucro.Name = "txtPorcentagemLucro";
-            this.txtPorcentagemLucro.Size = new System.Drawing.Size(165, 29);
+            this.txtPorcentagemLucro.Size = new System.Drawing.Size(165, 33);
             this.txtPorcentagemLucro.TabIndex = 7;
             this.txtPorcentagemLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentagemLucro_KeyPress);
             // 
             // txtPrecoCusto
             // 
-            this.txtPrecoCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecoCusto.Location = new System.Drawing.Point(262, 422);
+            this.txtPrecoCusto.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecoCusto.Location = new System.Drawing.Point(263, 400);
             this.txtPrecoCusto.Name = "txtPrecoCusto";
-            this.txtPrecoCusto.Size = new System.Drawing.Size(165, 29);
+            this.txtPrecoCusto.Size = new System.Drawing.Size(165, 33);
             this.txtPrecoCusto.TabIndex = 6;
             this.txtPrecoCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoCusto_KeyPress);
             // 
             // txtCodigoBarras
             // 
-            this.txtCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoBarras.Location = new System.Drawing.Point(262, 99);
+            this.txtCodigoBarras.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoBarras.Location = new System.Drawing.Point(263, 99);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
-            this.txtCodigoBarras.Size = new System.Drawing.Size(363, 29);
+            this.txtCodigoBarras.Size = new System.Drawing.Size(363, 33);
             this.txtCodigoBarras.TabIndex = 1;
             // 
             // txtPrecoVenda
             // 
-            this.txtPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecoVenda.Location = new System.Drawing.Point(355, 516);
+            this.txtPrecoVenda.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecoVenda.Location = new System.Drawing.Point(354, 526);
             this.txtPrecoVenda.Name = "txtPrecoVenda";
-            this.txtPrecoVenda.Size = new System.Drawing.Size(165, 29);
+            this.txtPrecoVenda.Size = new System.Drawing.Size(165, 33);
             this.txtPrecoVenda.TabIndex = 9;
             // 
             // txtNomeProduto
             // 
-            this.txtNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeProduto.Location = new System.Drawing.Point(262, 171);
+            this.txtNomeProduto.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeProduto.Location = new System.Drawing.Point(263, 171);
             this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(363, 29);
+            this.txtNomeProduto.Size = new System.Drawing.Size(363, 33);
             this.txtNomeProduto.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(588, 560);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(137)))), ((int)(((byte)(239)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(588, 575);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(276, 51);
+            this.button1.Size = new System.Drawing.Size(195, 36);
             this.button1.TabIndex = 12;
             this.button1.Text = "Desativar produto";
             this.button1.UseVisualStyleBackColor = false;
@@ -223,20 +227,21 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             // txtIdProduto
             // 
-            this.txtIdProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProduto.Location = new System.Drawing.Point(649, 17);
+            this.txtIdProduto.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProduto.Location = new System.Drawing.Point(481, 6);
             this.txtIdProduto.Name = "txtIdProduto";
-            this.txtIdProduto.Size = new System.Drawing.Size(38, 29);
+            this.txtIdProduto.Size = new System.Drawing.Size(38, 33);
             this.txtIdProduto.TabIndex = 43;
             this.txtIdProduto.Visible = false;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(588, 489);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(588, 509);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(276, 51);
+            this.button2.Size = new System.Drawing.Size(195, 35);
             this.button2.TabIndex = 11;
             this.button2.Text = "Ativar produto";
             this.button2.UseVisualStyleBackColor = false;
@@ -244,55 +249,61 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             // btnAdicionarEstoque
             // 
-            this.btnAdicionarEstoque.Location = new System.Drawing.Point(262, 281);
+            this.btnAdicionarEstoque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.btnAdicionarEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdicionarEstoque.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionarEstoque.Location = new System.Drawing.Point(551, 328);
             this.btnAdicionarEstoque.Name = "btnAdicionarEstoque";
-            this.btnAdicionarEstoque.Size = new System.Drawing.Size(75, 44);
+            this.btnAdicionarEstoque.Size = new System.Drawing.Size(75, 35);
             this.btnAdicionarEstoque.TabIndex = 45;
             this.btnAdicionarEstoque.Text = "Adicionar";
-            this.btnAdicionarEstoque.UseVisualStyleBackColor = true;
+            this.btnAdicionarEstoque.UseVisualStyleBackColor = false;
             this.btnAdicionarEstoque.Click += new System.EventHandler(this.btnAdicionarEstoque_Click);
             // 
             // btnSubtrairEstoque
             // 
-            this.btnSubtrairEstoque.Location = new System.Drawing.Point(262, 331);
+            this.btnSubtrairEstoque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(137)))), ((int)(((byte)(239)))));
+            this.btnSubtrairEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSubtrairEstoque.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubtrairEstoque.Location = new System.Drawing.Point(470, 328);
             this.btnSubtrairEstoque.Name = "btnSubtrairEstoque";
-            this.btnSubtrairEstoque.Size = new System.Drawing.Size(75, 46);
+            this.btnSubtrairEstoque.Size = new System.Drawing.Size(75, 35);
             this.btnSubtrairEstoque.TabIndex = 46;
             this.btnSubtrairEstoque.Text = "Subtrair";
-            this.btnSubtrairEstoque.UseVisualStyleBackColor = true;
+            this.btnSubtrairEstoque.UseVisualStyleBackColor = false;
             this.btnSubtrairEstoque.Click += new System.EventHandler(this.btnSubtrairEstoque_Click);
             // 
             // numericEstoque
             // 
-            this.numericEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericEstoque.Location = new System.Drawing.Point(467, 331);
+            this.numericEstoque.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericEstoque.Location = new System.Drawing.Point(263, 319);
             this.numericEstoque.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
             this.numericEstoque.Name = "numericEstoque";
-            this.numericEstoque.Size = new System.Drawing.Size(138, 29);
+            this.numericEstoque.Size = new System.Drawing.Size(138, 33);
             this.numericEstoque.TabIndex = 5;
             // 
             // numericEstoqueAdicional
             // 
-            this.numericEstoqueAdicional.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericEstoqueAdicional.Location = new System.Drawing.Point(343, 317);
+            this.numericEstoqueAdicional.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericEstoqueAdicional.Location = new System.Drawing.Point(470, 289);
             this.numericEstoqueAdicional.Maximum = new decimal(new int[] {
             2500,
             0,
             0,
             0});
             this.numericEstoqueAdicional.Name = "numericEstoqueAdicional";
-            this.numericEstoqueAdicional.Size = new System.Drawing.Size(66, 29);
+            this.numericEstoqueAdicional.Size = new System.Drawing.Size(156, 33);
             this.numericEstoqueAdicional.TabIndex = 4;
             // 
             // FrmAlteracaoProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(876, 623);
             this.Controls.Add(this.numericEstoqueAdicional);
             this.Controls.Add(this.numericEstoque);

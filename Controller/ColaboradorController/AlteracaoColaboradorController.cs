@@ -12,10 +12,12 @@ namespace CrudAugustusFashion.Controller
    public class AlteracaoColaboradorController
     {
         private ColaboradorDao _colaboradorDao;
+        
 
         public AlteracaoColaboradorController()
         {
             _colaboradorDao = new ColaboradorDao();
+            
         }
         public void AbrirAlteracaoColaboradores(ColaboradorModel colaboradoreModel)
         {
@@ -29,6 +31,7 @@ namespace CrudAugustusFashion.Controller
             try
             {
                 _colaboradorDao.AlterarColaborador(colaboradorModel);
+                
             }
             catch (Exception excecao)
             {

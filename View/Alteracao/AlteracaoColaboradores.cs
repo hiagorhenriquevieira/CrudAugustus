@@ -10,12 +10,14 @@ namespace CrudAugustusFashion.View.Alteracao
     {
         private ColaboradorModel _colaboradorModel;
         private ColaboradorDao _excluirColaborador;
+        private CadastroColaboradorController _cadastroColaboradorController;
 
         public FrmAlteracaoColaboradores(ColaboradorModel colaboradores)
         {
             InitializeComponent();
             _colaboradorModel = colaboradores;
             _excluirColaborador = new ColaboradorDao();
+            _cadastroColaboradorController = new CadastroColaboradorController();
             PreencherCamposComConsultores();
         }
 
@@ -63,6 +65,8 @@ namespace CrudAugustusFashion.View.Alteracao
                 new AlteracaoColaboradorController().AlterarColaborador(colaborador);
                 MessageBox.Show("Colaborador alterado com sucesso.");
                 this.Close();
+                _cadastroColaboradorController.AbrirListaColaborador();
+                
             }
             catch (Exception ex)
             {
@@ -105,6 +109,7 @@ namespace CrudAugustusFashion.View.Alteracao
                 _excluirColaborador.ExcluirColaboradores(_colaboradorModel);
                 MessageBox.Show("Colaborador excluido com sucesso.");
                 this.Close();
+                _cadastroColaboradorController.AbrirListaColaborador();
             }
             catch (Exception ex)
             {

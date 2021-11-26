@@ -41,7 +41,6 @@ namespace CrudAugustusFashion.Dao
                         {
                             conexao.Execute(updateQuantidade, update, transaction);
                         }
-                        //List<CarrinhoModel> produtosAntigos =  conexao.Query<CarrinhoModel>
                         transaction.Commit();
                     }
                 }

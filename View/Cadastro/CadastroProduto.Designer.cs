@@ -191,6 +191,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // buttonCadastrarProduto
             // 
             this.buttonCadastrarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.buttonCadastrarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCadastrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCadastrarProduto.Location = new System.Drawing.Point(284, 554);
             this.buttonCadastrarProduto.Name = "buttonCadastrarProduto";
@@ -203,6 +204,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // buttonCalcularPrecoProduto
             // 
             this.buttonCalcularPrecoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.buttonCalcularPrecoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCalcularPrecoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCalcularPrecoProduto.Location = new System.Drawing.Point(342, 433);
             this.buttonCalcularPrecoProduto.Name = "buttonCalcularPrecoProduto";
