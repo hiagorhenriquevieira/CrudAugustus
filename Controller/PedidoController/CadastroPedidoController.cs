@@ -1,9 +1,7 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
-using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Produto;
-using CrudAugustusFashion.Model.Venda;
 using CrudAugustusFashion.View.Cadastro;
 using System;
 using System.Collections.Generic;

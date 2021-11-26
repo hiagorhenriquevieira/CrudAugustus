@@ -134,5 +134,10 @@ namespace CrudAugustusFashion.View.Cadastro
                 e.Handled = true;
             }
         }
+
+        private void txtEstoque_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

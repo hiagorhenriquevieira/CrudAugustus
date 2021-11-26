@@ -52,7 +52,6 @@ namespace CrudAugustusFashion.View.Lista
             this.label15 = new System.Windows.Forms.Label();
             this.lblIdVenda = new System.Windows.Forms.Label();
             this.BtnDesativarPedido = new System.Windows.Forms.Button();
-            this.lblStatusPedido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -297,23 +296,12 @@ namespace CrudAugustusFashion.View.Lista
             this.BtnDesativarPedido.UseVisualStyleBackColor = false;
             this.BtnDesativarPedido.Click += new System.EventHandler(this.BtnDesativarPedido_Click);
             // 
-            // lblStatusPedido
-            // 
-            this.lblStatusPedido.BackColor = System.Drawing.Color.White;
-            this.lblStatusPedido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblStatusPedido.Location = new System.Drawing.Point(563, 19);
-            this.lblStatusPedido.Name = "lblStatusPedido";
-            this.lblStatusPedido.Size = new System.Drawing.Size(41, 33);
-            this.lblStatusPedido.TabIndex = 77;
-            this.lblStatusPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // FrmListaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(953, 524);
-            this.Controls.Add(this.lblStatusPedido);
             this.Controls.Add(this.lblIdVenda);
             this.Controls.Add(this.lblIdColaborador);
             this.Controls.Add(this.label10);
@@ -371,6 +359,5 @@ namespace CrudAugustusFashion.View.Lista
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblIdVenda;
         private System.Windows.Forms.Button BtnDesativarPedido;
-        private System.Windows.Forms.Label lblStatusPedido;
     }
 }

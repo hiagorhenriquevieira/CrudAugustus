@@ -197,7 +197,6 @@ namespace CrudAugustusFashion.Dao
                         {
                             conexao.Execute(upQuantidade, update, transaction);
                         }
-                        
 
                         transaction.Commit();
                     }
