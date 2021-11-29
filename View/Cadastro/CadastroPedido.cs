@@ -5,6 +5,7 @@ using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Pedido;
+using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Model.Venda;
 using CrudAugustusFashion.Validacoes;
 using System;
@@ -33,10 +34,10 @@ namespace CrudAugustusFashion.View.Cadastro
         private void btnPesquisarProduto_Click(object sender, System.EventArgs e) =>
             dataGridViewProdutoPedido.DataSource = new CadastroPedidoController().ListarProdutosPedido(txtProcurarProduto.Text);
         private void btnPesquisarColaborador_Click(object sender, System.EventArgs e) =>
-            dataGridViewColaboradorPedido.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador((txtProcurarColaborador.Text),(_colaboradorModel.Ativo = true));
+            dataGridViewColaboradorPedido.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador((txtProcurarColaborador.Text), (_colaboradorModel.Ativo = true));
 
         private void btnPesquisarCliente_Click(object sender, System.EventArgs e) =>
-            dataGridViewClientePedido.DataSource = new AlteracaoClienteController().BuscarListaCliente((txtProcurarCliente.Text),(_clienteModel.Ativo = true));
+            dataGridViewClientePedido.DataSource = new AlteracaoClienteController().BuscarListaCliente((txtProcurarCliente.Text), (_clienteModel.Ativo = true));
 
         private void dataGridViewProdutoPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -45,8 +46,8 @@ namespace CrudAugustusFashion.View.Cadastro
 
             lblIdProduto.Text = produto.IdProduto.ToString();
             lblNomeProduto.Text = produto.Nome;
-            lblPrecoVenda.Text = produto.PrecoVenda.ToString();
-            lblPrecoCusto.Text = produto.PrecoCusto.ToString();
+            lblPrecoVenda.Text = produto.PrecoVenda.DinheiroFormatado;
+            lblPrecoCusto.Text = produto.PrecoCusto.DinheiroFormatado;
 
             AtualizarPrecos();
         }
@@ -69,26 +70,24 @@ namespace CrudAugustusFashion.View.Cadastro
             lblNomeCliente.Text = cliente.NomeCompleto.ToString();
         }
 
-
         public void AtualizarPrecos()
         {
             if (!ValidacoesExtencion.NuloOuVazio(lblPrecoVenda))
             {
-                var precoVenda = Convert.ToDecimal(lblPrecoVenda.Text);
-                var desconto = numericDesconto.Value;
-                var precoLiquido = precoVenda - ((desconto / 100) * precoVenda);
-                lblPrecoLiquido.Text = precoLiquido.ToString("c");
-
+                decimal precoVenda = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoVenda.Text));
+                decimal desconto = numericDesconto.Value;
+                decimal precoLiquido = precoVenda - ((desconto / 100) * precoVenda);
+                lblPrecoLiquido.Text = precoLiquido.ToString();
                 var quantidade = numericQuantidade.Value;
-                var total = precoLiquido * quantidade;
-                lblTotal.Text = total.ToString("c");
+                decimal total = precoLiquido * quantidade;
+                lblTotal.Text = total.ToString();
 
-                var descontoDecimal = precoVenda - precoLiquido;
-                lblDescontoDecimal.Text = descontoDecimal.ToString("c");
-                lblLucro.Text = _pedidoModel.LucroTotal.ToString();
-                lblTotalBruto.Text = _pedidoModel.TotalBruto.ToString();
-                lblTotalDesconto.Text = _pedidoModel.TotalDesconto.ToString();
-                lblTotalLiquido.Text = _pedidoModel.TotalLiquido.ToString();
+                decimal descontoDecimal = precoVenda - precoLiquido;
+                lblDescontoDecimal.Text = descontoDecimal.ToString();
+                lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
+                lblTotalBruto.Text = _pedidoModel.TotalBruto.DinheiroFormatado;
+                lblTotalDesconto.Text = _pedidoModel.TotalDesconto.DinheiroFormatado;
+                lblTotalLiquido.Text = _pedidoModel.TotalLiquido.DinheiroFormatado;
             }
         }
         //Desconto
@@ -124,13 +123,8 @@ namespace CrudAugustusFashion.View.Cadastro
             }
             else
             {
-                if (ValidarSeIdVendaJaExiste())
-                {
-                    MessageBox.Show("Produto adicionado.");
-                }
-
+                AdicionarProdutoCarrinho();
                 AtualizarCarrinho();
-
             }
             LimparCamposAposAdicionarProdutoNoCarrinho();
 
@@ -140,10 +134,10 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             dataGridViewCarrinhoPedido.DataSource = null;
             dataGridViewCarrinhoPedido.DataSource = _pedidoModel.Produtos;
-            lblLucro.Text = _pedidoModel.LucroTotal.ToString();
-            lblTotalBruto.Text = _pedidoModel.TotalBruto.ToString();
-            lblTotalDesconto.Text = _pedidoModel.TotalDesconto.ToString();
-            lblTotalLiquido.Text = _pedidoModel.TotalLiquido.ToString();
+            lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
+            lblTotalBruto.Text = _pedidoModel.TotalBruto.DinheiroFormatado;
+            lblTotalDesconto.Text = _pedidoModel.TotalDesconto.DinheiroFormatado;
+            lblTotalLiquido.Text = _pedidoModel.TotalLiquido.DinheiroFormatado;
 
         }
         public void LimparCamposAposAdicionarProdutoNoCarrinho()
@@ -284,37 +278,20 @@ namespace CrudAugustusFashion.View.Cadastro
             }
         }
 
-        private bool ValidarSeIdVendaJaExiste()
+        private bool AdicionarProdutoCarrinho()
         {
-            if (!ValidacoesExtencion.NuloOuVazio(lblIdVenda) && Convert.ToInt32(lblIdVenda.Text) != 0)
+            _pedidoModel.Produtos.Add(new CarrinhoModel()
             {
-                _pedidoModel.Produtos.Add(new CarrinhoModel()
-                {
-                    IdProduto = Convert.ToInt32(lblIdProduto.Text),
-                    Nome = lblNomeProduto.Text,
-                    IdVenda = Convert.ToInt32(lblIdVenda.Text),
-                    Desconto = Convert.ToDecimal(lblDescontoDecimal.Text.RemoverFormatacaoDoPreco()),
-                    PrecoLiquido = Convert.ToDecimal(lblPrecoLiquido.Text.RemoverFormatacaoDoPreco()),
-                    PrecoVenda = Convert.ToDecimal(lblPrecoVenda.Text.RemoverFormatacaoDoPreco()),
-                    PrecoCusto = Convert.ToDecimal(lblPrecoCusto.Text.RemoverFormatacaoDoPreco()),
-                    Quantidade = Convert.ToInt32(numericQuantidade.Value),
-                    Total = Convert.ToDecimal(lblTotal.Text.RemoverFormatacaoDoPreco())
-                });
-            }
-            else
-            {
-                _pedidoModel.Produtos.Add(new CarrinhoModel()
-                {
-                    IdProduto = Convert.ToInt32(lblIdProduto.Text),
-                    Nome = lblNomeProduto.Text,
-                    Desconto = Convert.ToDecimal(lblDescontoDecimal.Text.RemoverFormatacaoDoPreco()),
-                    PrecoLiquido = Convert.ToDecimal(lblPrecoLiquido.Text.RemoverFormatacaoDoPreco()),
-                    PrecoVenda = Convert.ToDecimal(lblPrecoVenda.Text.RemoverFormatacaoDoPreco()),
-                    PrecoCusto = Convert.ToDecimal(lblPrecoCusto.Text.RemoverFormatacaoDoPreco()),
-                    Quantidade = Convert.ToInt32(numericQuantidade.Value),
-                    Total = Convert.ToDecimal(lblTotal.Text.RemoverFormatacaoDoPreco())
-                });
-            }
+                IdProduto = Convert.ToInt32(lblIdProduto.Text),
+                Nome = lblNomeProduto.Text,
+                IdVenda = _pedidoModel.IdVenda,
+                Desconto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblDescontoDecimal.Text)),
+                PrecoLiquido = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoLiquido.Text)),
+                PrecoVenda = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoVenda.Text)),
+                PrecoCusto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoCusto.Text)),
+                Quantidade = Convert.ToInt32(numericQuantidade.Value),
+                Total = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblTotal.Text))
+            });
             return true;
         }
 

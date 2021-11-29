@@ -123,6 +123,8 @@
     <Compile Include="Model\Pedido\TipoDePagamentoEnum.cs" />
     <Compile Include="Model\Pedido\FormaPagamentoModel.cs" />
     <Compile Include="Model\Pedido\PedidoListaModel.cs" />
+    <Compile Include="Model\Produto\Dinheiro.cs" />
+    <Compile Include="Model\Produto\DinheiroValidation.cs" />
     <Compile Include="Model\Produto\ProdutoLista.cs" />
     <Compile Include="Model\Produto\ProdutoModel.cs" />
     <Compile Include="Model\TelefoneModel\TelefoneValidation.cs" />

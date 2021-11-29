@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using CrudAugustusFashion.Model.Produto;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace CrudAugustusFashion.Validacoes
@@ -42,13 +44,13 @@ namespace CrudAugustusFashion.Validacoes
         public static bool ValidarApenasNumeros(this string numero) =>
             new Regex(@"^[0-9]+$").Match(numero).Success;
 
-        public static bool ValidarApenasLetras(this string texto) =>   
+        public static bool ValidarApenasLetras(this string texto) =>
             new Regex(@"^[a-zA-ZçÇ áÁãÃÂâêÊ.íìÌÍ&!@#$¨*()+|\/?;>`<]+$").Match(texto).Success;
 
-        public static bool ValidarEmail(this string email) => 
+        public static bool ValidarEmail(this string email) =>
             new Regex(@"^[a-zA-Z0-9._-]+[@][a-z]+[.]([a-zA-Z]{2,3})+$").Match(email).Success;
 
-        public static bool ValidarCpf(this string cpf) => 
+        public static bool ValidarCpf(this string cpf) =>
             new Regex(@"^[0-9]{11}$").Match(cpf).Success;
 
         public static bool ValidarTelefone(this string telefone) =>
@@ -56,7 +58,16 @@ namespace CrudAugustusFashion.Validacoes
 
         public static bool ValidarCelular(this string celular) =>
             new Regex(@"^[0-9]{11}$").Match(celular).Success;
+
+
+        public static string RetornarApenasNumeros(string valor)
+        {
+            return new string((from c in valor
+                                where char.IsDigit(c)
+                                select c).ToArray());
+            
+        }
     }
 
-    
+
 }

@@ -1,4 +1,6 @@
 ﻿using CrudAugustusFashion.Model.Carinho;
+using CrudAugustusFashion.Model.Produto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,10 +12,10 @@ namespace CrudAugustusFashion.Model.Pedido
         public int IdVenda { get; set; }
         public int IdCliente { get; set; }  
         public int IdColaborador { get; set; }
-        public decimal TotalBruto { get => Produtos.Sum(x => x.PrecoVenda * x.Quantidade); }
-        public decimal TotalDesconto { get => Produtos.Sum(x => x.Quantidade * x.Desconto);}
-        public decimal TotalLiquido { get => Produtos.Sum(x => x.PrecoLiquido * x.Quantidade); }
-        public decimal LucroTotal { get => Produtos.Sum(x => x.Total -(x.Quantidade * x.PrecoCusto)); }  
+        public Dinheiro TotalBruto { get => Produtos.Sum(x => x.PrecoVenda.Valor * x.Quantidade);}
+        public Dinheiro TotalDesconto { get => Produtos.Sum(x => x.Quantidade * x.Desconto.Valor);}
+        public Dinheiro TotalLiquido { get => Produtos.Sum(x => x.PrecoLiquido.Valor * x.Quantidade);}
+        public Dinheiro LucroTotal { get => Produtos.Sum(x => x.Total.Valor - (x.Quantidade * x.PrecoCusto.Valor));}  
         public string FormaDePagamento { get; set; }
         public bool Ativo { get; set; }
 
