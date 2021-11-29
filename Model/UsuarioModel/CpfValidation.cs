@@ -5,13 +5,17 @@ namespace CrudAugustusFashion.Model.Usuario
 {
     public class CpfValidation : AbstractValidator<Cpf>
     {
+
         public CpfValidation()
         {
             RuleFor(x => x.ToString()).Length(14).WithMessage("Cpf deve ter 11 números.");
-            RuleFor(x => x.ToString()).Must(ValidarSeNumerosNaoSaoIguais).WithMessage("Cpf não pode ser tudo igual.");
+            RuleFor(x => x.RemoverFormatacao()).Must(ValidarSeNumerosNaoSaoIguais).WithMessage("Cpf não pode ser tudo igual.");
+            
         }
 
-        private bool ValidarSeNumerosNaoSaoIguais(string cpf) =>
-            !cpf.All(x => x.Equals(cpf.First()));    
+        private bool ValidarSeNumerosNaoSaoIguais(string cpf)
+        {
+             return !cpf.All(x => x.Equals(cpf.First()));
+        }
     }
 }

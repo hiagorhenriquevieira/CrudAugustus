@@ -330,7 +330,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.Controls.Add(this.txtNomeProduto);
             this.Name = "FrmAlteracaoProduto";
             this.Text = "AlteracaoProduto";
-            this.Load += new System.EventHandler(this.FrmAlteracaoProduto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericEstoque)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericEstoqueAdicional)).EndInit();
             this.ResumeLayout(false);

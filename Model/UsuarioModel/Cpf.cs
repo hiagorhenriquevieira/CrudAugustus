@@ -7,11 +7,8 @@ namespace CrudAugustusFashion.Model.Usuario
     public class Cpf
     {
         private string _valor;
-
-        public string RetornarValor { get => _valor; }
-
-        public string RetornarComFormatacao { get => Convert.ToInt64(_valor).ToString(@"000.000.000-00"); }
-
+        //public string RetornarValor { get => _valor; }
+        //public string RetornarComFormatacao { get => Convert.ToInt64(_valor).ToString(@"000.000.000-00"); }
         public Cpf(string valor)
         {
             _valor = valor;
@@ -21,7 +18,6 @@ namespace CrudAugustusFashion.Model.Usuario
         {
             return new CpfValidation().Validate(this);
         }
-
 
         public string RemoverFormatacao()
         {
@@ -33,11 +29,12 @@ namespace CrudAugustusFashion.Model.Usuario
 
             return cpfSemFormatacao;
         }
+
         public override string ToString()
         {
             return _valor;
         }
-        
+
         public static implicit operator Cpf(string valor) => new Cpf(valor);
     }
 }

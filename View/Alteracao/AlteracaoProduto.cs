@@ -61,8 +61,7 @@ namespace CrudAugustusFashion.View.Alteracao
                     _produto.CodigoDeBarras = txtCodigoBarras.Text;
                     _produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
                     _produto.QuantidadeEstoque = Convert.ToInt32(numericEstoque.Value);
-                    //int estoque = Convert.ToInt32(txtEstoque.Text + txtProdutosAdicionaisEstoque.Text); 
-                    //produto.QuantidadeEstoque = estoque;
+                    
                     if (Convert.ToInt32(numericEstoque.Text) >= 0)
                     {
                     new AlteracaoProdutoController().AlterarProduto(_produto);
@@ -103,19 +102,8 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
                 return false;
             }
-            // if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text))
-            //{
-            //    MessageBox.Show("Campo -Estoque- invalido");
-            //    return false;
-            //}
             return true;
         }
-
-        private void FrmAlteracaoProduto_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtProdutosAdicionaisEstoque_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
@@ -123,15 +111,13 @@ namespace CrudAugustusFashion.View.Alteracao
                 e.Handled = true;
             }
         }
-
         private void txtPrecoCusto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
         }
-
         private void txtPorcentagemLucro_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
@@ -139,7 +125,6 @@ namespace CrudAugustusFashion.View.Alteracao
                 e.Handled = true;
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -153,7 +138,6 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Erro encontrado. " + excecao.Message);
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -166,7 +150,6 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Erro encontrado. " + excecao.Message);
             }
         }
-
         private void btnAdicionarEstoque_Click(object sender, EventArgs e)
         {
             if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
@@ -177,7 +160,6 @@ namespace CrudAugustusFashion.View.Alteracao
                 numericEstoque.Value = _produto.QuantidadeEstoque;
             }
         }
-
         private void btnSubtrairEstoque_Click(object sender, EventArgs e)
         {
 
