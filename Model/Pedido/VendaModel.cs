@@ -1,6 +1,5 @@
 ﻿using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Produto;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,6 +19,7 @@ namespace CrudAugustusFashion.Model.Pedido
         public bool Ativo { get; set; }
 
         public List<CarrinhoModel> Produtos {get; set;}
+
         public VendaModel()
         {
             Produtos = new List<CarrinhoModel>();

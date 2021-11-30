@@ -10,7 +10,6 @@ namespace CrudAugustusFashion.Model.Usuario
             RuleFor(x => x.Endereco).SetValidator(new EnderecoValidation());
             RuleFor(x => x.Cpf).SetValidator(new CpfValidation());
             RuleFor(x => x.Email).EmailAddress().WithMessage("Email é invalido");
-            
         }
     }
 }

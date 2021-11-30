@@ -4,8 +4,5 @@
     {
         public int IdVenda { get; set; }
         public string FormaPagamento { get; set; }
-       // public TipoDePagamentoEnum FormaDePagamento { get; set; }
-
-
     }
 }

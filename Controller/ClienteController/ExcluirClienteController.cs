@@ -7,10 +7,12 @@ namespace CrudAugustusFashion.Controller
     public class ExcluirClienteController
     {
         private ClienteDao _clienteDao;
+
         public ExcluirClienteController()
         {
             _clienteDao = new ClienteDao();
         }
+
         public void ExcluirClientes(ClienteModel clienteModel)
         {
             try

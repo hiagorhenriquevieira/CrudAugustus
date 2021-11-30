@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace CrudAugustusFashion.Controller
 {
-   public class AlteracaoClienteController
+    public class AlteracaoClienteController
     {
         private ClienteDao _clienteDao;
         public AlteracaoClienteController()
@@ -22,7 +22,6 @@ namespace CrudAugustusFashion.Controller
             var frmAlteracaoCliente = new FrmAlteracaoCliente(clienteModel);
             frmAlteracaoCliente.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmAlteracaoCliente.Show();
-
         }
 
         internal string AlterarCliente(ClienteModel clienteModel)
@@ -40,7 +39,6 @@ namespace CrudAugustusFashion.Controller
             {
                 throw new Exception(excecao.Message);
             }
-
         }
 
         public List<ClienteListaModel> BuscarListaCliente(string nome, bool ativo)
@@ -53,7 +51,6 @@ namespace CrudAugustusFashion.Controller
             catch (Exception excecao)
             {
                 throw new Exception(excecao.Message);
-                
             }
         }
     }

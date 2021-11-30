@@ -1,5 +1,4 @@
 ﻿using FluentValidation.Results;
-using System;
 using System.Linq;
 
 namespace CrudAugustusFashion.Model.Usuario
@@ -7,8 +6,7 @@ namespace CrudAugustusFashion.Model.Usuario
     public class Cpf
     {
         private string _valor;
-        //public string RetornarValor { get => _valor; }
-        //public string RetornarComFormatacao { get => Convert.ToInt64(_valor).ToString(@"000.000.000-00"); }
+       
         public Cpf(string valor)
         {
             _valor = valor;

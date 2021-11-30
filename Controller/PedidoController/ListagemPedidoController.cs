@@ -48,7 +48,6 @@ namespace CrudAugustusFashion.Controller.PedidoController
             {
                 throw new Exception(excecao.Message);
             }
-            
         }
         public void AbrirConsultaDeVenda(VendaConsulta venda)
         {

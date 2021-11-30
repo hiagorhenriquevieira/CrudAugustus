@@ -1,64 +1,77 @@
 ﻿using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Usuario;
 using System;
 using System.Windows.Forms;
-using CrudAugustusFashion.Model.Usuario;
 namespace CrudAugustusFashion.View.Alteracao
 {
     public partial class FrmAlteracaoColaboradores : Form
     {
         private ColaboradorModel _colaboradorModel;
-        private ColaboradorDao _excluirColaborador;
+        private ExcluirColaboradorController _excluirColaborador;
         private CadastroColaboradorController _cadastroColaboradorController;
 
         public FrmAlteracaoColaboradores(ColaboradorModel colaboradores)
         {
             InitializeComponent();
             _colaboradorModel = colaboradores;
-            _excluirColaborador = new ColaboradorDao();
+            _excluirColaborador = new ExcluirColaboradorController();
             _cadastroColaboradorController = new CadastroColaboradorController();
             PreencherCamposComConsultores();
         }
 
         private void AlteracaoColaboradores_Load(object sender, EventArgs e)
         {
-             new ColaboradorDao().ListarColaboradores(); 
+            new ColaboradorDao().ListarColaboradores();
         }
 
         private void btnAlteracaoCliente_Click(object sender, EventArgs e)
         {
-            var colaborador = new ColaboradorModel();
-            colaborador.IdColaborador = int.Parse(txtIdColaborador.Text);
-            colaborador.IdUsuario = int.Parse(txtIdUsuario.Text);
-            colaborador.NomeCompleto.Nome = txtNome.Text;
-            colaborador.NomeCompleto.SobreNome = txtSobrenome.Text;
-            colaborador.Cpf = txtCpf.Text;
-            colaborador.Sexo = comboBoxSexo.Text;
-            colaborador.Email = txtEmail.Text;
-            colaborador.DataNascimento = dateTimeNascimento.Value;
-            colaborador.Salario = int.Parse(txtSalario.Text);
-            colaborador.PorcentagemComissao = int.Parse(txtPorcentagemComissao.Text);
+            var colaborador = new ColaboradorModel()
+            {
+                IdColaborador = int.Parse(txtIdColaborador.Text),
+                IdUsuario = int.Parse(txtIdUsuario.Text),
 
-            colaborador.Endereco.IdUsuario = int.Parse(txtIdUsuario.Text);
-            colaborador.Endereco.Cep = txtCep.Text;
-            colaborador.Endereco.Cidade = txtCidade.Text;
-            colaborador.Endereco.Bairro = txtComplemento.Text;
-            colaborador.Endereco.Logradouro = txtLogradouro.Text;
-            colaborador.Endereco.NumeroResidencia = int.Parse(txtNumeroResidencia.Text);
-            colaborador.Endereco.Uf = comboBoxUf.Text;
-            colaborador.Endereco.Complemento = txtComplemento.Text;
+                NomeCompleto = new NomeCompleto
+                {
+                    Nome = txtNome.Text,
+                    SobreNome = txtSobrenome.Text,
+                },
+                Cpf = txtCpf.Text,
+                Sexo = comboBoxSexo.Text,
+                Email = txtEmail.Text,
+                DataNascimento = dateTimeNascimento.Value,
+                Salario = int.Parse(txtSalario.Text),
+                PorcentagemComissao = int.Parse(txtPorcentagemComissao.Text),
 
-            colaborador.Telefone.IdUsuario = int.Parse(txtIdUsuario.Text);
-            colaborador.Telefone.Telefone = maskBoxTelefone.Text;
-            colaborador.Telefone.Celular = maskBoxCelular.Text;
+                Endereco = new EnderecoModel
+                {
+                    IdUsuario = int.Parse(txtIdUsuario.Text),
+                    Cep = txtCep.Text,
+                    Cidade = txtCidade.Text,
+                    Bairro = txtComplemento.Text,
+                    Logradouro = txtLogradouro.Text,
+                    NumeroResidencia = int.Parse(txtNumeroResidencia.Text),
+                    Uf = comboBoxUf.Text,
+                    Complemento = txtComplemento.Text,
+                },
 
-            colaborador.ContasBancarias.IdColaborador = int.Parse(txtIdColaborador.Text);
-            colaborador.ContasBancarias.Agencia = int.Parse(txtAgencia.Text);
-            colaborador.ContasBancarias.Banco = txtBanco.Text;
-            colaborador.ContasBancarias.TipoConta = txtTipoConta.Text;
-            colaborador.ContasBancarias.Conta = int.Parse(txtConta.Text);
-
+                Telefone = new TelefoneModel
+                {
+                    IdUsuario = int.Parse(txtIdUsuario.Text),
+                    Telefone = maskBoxTelefone.Text,
+                    Celular = maskBoxCelular.Text,
+                },
+                ContasBancarias = new ContaBancariaModel
+                {
+                    IdColaborador = int.Parse(txtIdColaborador.Text),
+                    Agencia = int.Parse(txtAgencia.Text),
+                    Banco = txtBanco.Text,
+                    TipoConta = txtTipoConta.Text,
+                    Conta = int.Parse(txtConta.Text),
+                },
+            };
 
             try
             {
@@ -66,7 +79,7 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Colaborador alterado com sucesso.");
                 this.Close();
                 _cadastroColaboradorController.AbrirListaColaborador();
-                
+
             }
             catch (Exception ex)
             {
@@ -99,7 +112,6 @@ namespace CrudAugustusFashion.View.Alteracao
             txtTipoConta.Text = _colaboradorModel.ContasBancarias.TipoConta;
             txtPorcentagemComissao.Text = _colaboradorModel.PorcentagemComissao.ToString();
             txtSalario.Text = _colaboradorModel.Salario.ToString();
-
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -115,11 +127,6 @@ namespace CrudAugustusFashion.View.Alteracao
             {
                 MessageBox.Show("Falha ao excluir colaborador. Erro: " + ex.Message);
             }
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

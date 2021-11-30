@@ -6,6 +6,7 @@ namespace CrudAugustusFashion.Model
     public class EnderecoModel
     {
         List<string> _mensagens;
+
         public EnderecoModel(string cep, string logradouro, int numero, string cidade, string uf, string complemento, string bairro)
         {
             Cep = cep;
@@ -16,10 +17,12 @@ namespace CrudAugustusFashion.Model
             Complemento = complemento;
             Bairro = bairro;
         }
+
         public EnderecoModel()
         {
             _mensagens = new List<string>();
         }
+
         public int IdUsuario { get; set; }
         public int IdEndereco { get; set; }
         public Cep Cep { get; set; }

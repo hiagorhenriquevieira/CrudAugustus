@@ -240,7 +240,6 @@ namespace CrudAugustusFashion.View.Cadastro
             this.Controls.Add(this.txtNomeProduto);
             this.Name = "FrmCadastroProduto";
             this.Text = "CadastroProduto";
-            this.Load += new System.EventHandler(this.CadastroProduto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

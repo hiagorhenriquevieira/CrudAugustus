@@ -16,11 +16,6 @@ namespace CrudAugustusFashion.View.Cadastro
             _produto = new ProdutoModel();
         }
 
-        private void CadastroProduto_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonCadastrarProduto_Click(object sender, EventArgs e)
         {
             if (ValidarCamposDeCadastroProduto()) {

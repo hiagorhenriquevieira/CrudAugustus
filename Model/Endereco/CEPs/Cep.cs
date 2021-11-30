@@ -8,7 +8,6 @@ namespace CrudAugustusFashion.Model.Endereco.CEPs
     {
         private string _valor;
 
-        public string RetornarValor { get => _valor; }
         public string RetornarComFormatacao
         {
             get => Convert.ToUInt32(_valor).ToString(@"00000-000");

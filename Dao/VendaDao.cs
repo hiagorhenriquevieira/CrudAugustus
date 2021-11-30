@@ -12,7 +12,6 @@ namespace CrudAugustusFashion.Dao
 {
     public class VendaDao
     {
-        //ConexaoDao conexao = new ConexaoDao();
         public void CadastrarVendaPedido(VendaModel venda)
         {
             const string insertVenda = @"Insert into Venda (IdCliente, IdColaborador, TotalBruto, TotalDesconto, TotalLiquido, Lucro, FormaDePagamento)  
@@ -24,7 +23,6 @@ namespace CrudAugustusFashion.Dao
                 values (@IdVenda, @PrecoVenda, @PrecoCusto, @IdProduto, @PrecoVenda, @Quantidade, @Desconto, @PrecoLiquido, @Total)";
             const string updateQuantidade = @"Update  Produtos set QuantidadeEstoque -= @Quantidade 
                                             where IdProduto = @IdProduto";
-
 
             try
             {
@@ -223,7 +221,7 @@ namespace CrudAugustusFashion.Dao
                                 LucroTotal = pedidoModel.LucroTotal.Valor,
                                 pedidoModel.FormaDePagamento,
                             },
-                            transaction) ;
+                            transaction);
 
                         foreach (var item in pedidoModel.Produtos)
                         {

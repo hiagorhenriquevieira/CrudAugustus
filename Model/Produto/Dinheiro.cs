@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-
-using FluentValidation.Results;
-
-namespace CrudAugustusFashion.Model.Produto
+﻿namespace CrudAugustusFashion.Model.Produto
 {
     public class Dinheiro
     {

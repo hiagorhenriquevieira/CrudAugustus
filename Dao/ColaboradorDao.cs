@@ -10,10 +10,9 @@ namespace CrudAugustusFashion.Dao
 {
     public class ColaboradorDao
     {
-        //ConexaoDao conexao = new ConexaoDao();
+
         public void CadastrarColaborador(ColaboradorModel colaborador)
         {
-
             var insertUsuario = "insert into Usuarios (Nome, SobreNome, Sexo, DataNascimento, Cpf, Email) output inserted.IdUsuario values (@nome, @sobreNome, @sexo, @dataNascimento, @cpf, @email)";
             var insertColaborador = "insert into Colaboradores (IdUsuario, Salario, PorcentagemComissao) output inserted.IdColaborador values (@IdUsuario, @salario, @porcentagemComissao)";
             var insertEndereco = "insert into Endereco (IdUsuario, Cep, Cidade, Logradouro, Uf, Complemento, Bairro, NumeroResidencia) " +
@@ -35,8 +34,7 @@ namespace CrudAugustusFashion.Dao
                         Sexo = colaborador.Sexo,
                         DataNascimento = colaborador.DataNascimento,
                         Email = colaborador.Email,
-                    }
-                            , transacao);
+                    }, transacao);
 
                     colaborador.IdUsuario = id;
 
@@ -99,8 +97,7 @@ namespace CrudAugustusFashion.Dao
                         Sexo = colaborador.Sexo,
                         DataNascimento = colaborador.DataNascimento,
                         Email = colaborador.Email,
-                    }
-                            , transacao);
+                    }, transacao);
 
                     con.Execute(updateColaborador, colaborador, transacao);
 
@@ -129,8 +126,7 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(ex.Message);
             }
         }
-
-
+    
         public List<ColaboradorListaModel> ListarColaboradores()
         {
             var sqlSelect = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
@@ -160,8 +156,6 @@ namespace CrudAugustusFashion.Dao
             {
                 throw new Exception(ex.Message);
             }
-
-            
         }
 
         private ColaboradorListaModel MapearListaColaborador(ColaboradorListaModel colaboradorModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
@@ -171,7 +165,7 @@ namespace CrudAugustusFashion.Dao
             colaboradorModel.Endereco = enderecoModel;
             return colaboradorModel;
         }
-        private ColaboradorModel MapearColaborador(ColaboradorModel colaboradorModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel )
+        private ColaboradorModel MapearColaborador(ColaboradorModel colaboradorModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel, ContaBancariaModel contaBancariaModel)
         {
             colaboradorModel.NomeCompleto = nomeCompleto;
             colaboradorModel.ContasBancarias = contaBancariaModel;
@@ -179,6 +173,7 @@ namespace CrudAugustusFashion.Dao
             colaboradorModel.Endereco = enderecoModel;
             return colaboradorModel;
         }
+
         public List<ColaboradorListaModel> BuscarListaColaborador(string nome, bool ativo)
         {
             var selectNomeColaborador = @"select co.IdColaborador, co.Salario, co.PorcentagemComissao,
@@ -205,13 +200,13 @@ namespace CrudAugustusFashion.Dao
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
-
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
+
         internal void ExcluirColaboradores(ColaboradorModel colaboradorModel)
         {
             const string updateColaborador = @"update Colaboradores set Status = 0
@@ -231,6 +226,7 @@ namespace CrudAugustusFashion.Dao
             }
 
         }
+
         public int RecuperarIdColaborador(int idColaborador)
         {
             var SelectIdColaborador = @"select IdUsuario from Colaboradores 
@@ -267,10 +263,10 @@ namespace CrudAugustusFashion.Dao
             {
                 using (var con = ConexaoDao.conectar())
                 {
-                    return con.Query<ColaboradorModel, NomeCompleto, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorModel >(
+                    return con.Query<ColaboradorModel, NomeCompleto, TelefoneModel, EnderecoModel, ContaBancariaModel, ColaboradorModel>(
                         selectColaborador,
-                        (colaboradorModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel) 
-                        => MapearColaborador(colaboradorModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel ),
+                        (colaboradorModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel)
+                        => MapearColaborador(colaboradorModel, nomeCompleto, telefoneModel, enderecoModel, contaBancariaModel),
                         new { IdColaborador = idColaborador },
                         splitOn: "IdUsuario"
                         ).FirstOrDefault();

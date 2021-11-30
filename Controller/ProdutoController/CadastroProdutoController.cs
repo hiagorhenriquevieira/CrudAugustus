@@ -31,6 +31,5 @@ namespace CrudAugustusFashion.Controller.ProdutoController
                 throw new Exception(excecao.Message);
             }
         }
-
     }
 }

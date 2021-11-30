@@ -1,12 +1,12 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Cliente;
-using System;
 using CrudAugustusFashion.View;
+using System;
 
 namespace CrudAugustusFashion.Controller
 {
-    
+
     public class CadastroClienteController
     {
         private ClienteDao _clienteDao;
@@ -47,6 +47,5 @@ namespace CrudAugustusFashion.Controller
             frmListaCliente.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmListaCliente.Show();
         } 
-        
     }
 }

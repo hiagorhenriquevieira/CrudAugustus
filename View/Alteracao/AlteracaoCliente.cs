@@ -1,5 +1,6 @@
 ﻿using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Dao;
+using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Usuario;
 using System;
@@ -13,7 +14,6 @@ namespace CrudAugustusFashion.View.Alteracao
         private ClienteModel _cliente;
         private ExcluirClienteController _excluircliente;
         private CadastroClienteController _cadastroclientecontroller;
-
 
         public FrmAlteracaoCliente(ClienteModel cliente)
         {
@@ -57,8 +57,6 @@ namespace CrudAugustusFashion.View.Alteracao
             {
                 MessageBox.Show("Ocorreu um erro ao listar clientes. Erro " + ex.Message);
             }
-           
-
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -75,42 +73,44 @@ namespace CrudAugustusFashion.View.Alteracao
             {
                 MessageBox.Show("Falha ao excluir cliente. Erro: " + ex.Message);
             }
-            
-            
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
         }
 
         private void btnAlteracaoCliente_Click(object sender, EventArgs e)
         {
-            var cliente = new ClienteModel();
-            cliente.IdCliente = int.Parse(txtIdCliente.Text);
-            cliente.IdUsuario = int.Parse(txtIdUsuario.Text);
-            cliente.NomeCompleto.Nome = txtNome.Text;
-            cliente.NomeCompleto.SobreNome = txtSobrenome.Text;
-            cliente.Cpf = txtCpf.Text;
-            cliente.Sexo = comboBoxSexo.Text;
-            cliente.DataNascimento = dateTimeNascimento.Value;
-            cliente.Email = txtEmail.Text;
-            cliente.ValorLimite = int.Parse(txtLimiteCompraPrazo.Text);
-            cliente.Observacao = txtObservacao.Text.ToString();
-
-            cliente.Endereco.IdUsuario = int.Parse(txtIdUsuario.Text);
-            cliente.Endereco.Cidade = txtCidade.Text;
-            cliente.Endereco.Bairro = txtBairro.Text;
-            cliente.Endereco.Cep = txtCep.Text;
-            cliente.Endereco.Uf = comboBoxUf.Text;
-            cliente.Endereco.Complemento = txtComplemento.Text;
-            cliente.Endereco.Logradouro = txtLogradouro.Text;
-            cliente.Endereco.NumeroResidencia = int.Parse(txtNumeroResidencia.Text);
-
-            cliente.Telefone.IdUsuario = int.Parse(txtIdUsuario.Text);
-            cliente.Telefone.Celular = maskBoxCelular.Text;
-            cliente.Telefone.Telefone = maskBoxTelefone.Text;
-
+            var cliente = new ClienteModel
+            {
+                IdCliente = int.Parse(txtIdCliente.Text),
+                IdUsuario = int.Parse(txtIdUsuario.Text),
+                NomeCompleto = new NomeCompleto
+                {
+                    Nome = txtNome.Text,
+                    SobreNome = txtSobrenome.Text
+                },
+                Cpf = txtCpf.Text,
+                Sexo = comboBoxSexo.Text,
+                DataNascimento = dateTimeNascimento.Value,
+                Email = txtEmail.Text,
+                ValorLimite = int.Parse(txtLimiteCompraPrazo.Text),
+                Observacao = txtObservacao.Text.ToString(),
+                Endereco = new EnderecoModel
+                {
+                    IdUsuario = int.Parse(txtIdUsuario.Text),
+                    Cidade = txtCidade.Text,
+                    Bairro = txtBairro.Text,
+                    Cep = txtCep.Text,
+                    Uf = comboBoxUf.Text,
+                    Complemento = txtComplemento.Text,
+                    Logradouro = txtLogradouro.Text,
+                    NumeroResidencia = int.Parse(txtNumeroResidencia.Text),
+                },
+                Telefone = new TelefoneModel
+                {
+                    IdUsuario = int.Parse(txtIdUsuario.Text),
+                    Celular = maskBoxCelular.Text,
+                    Telefone = maskBoxTelefone.Text,
+                }
+            };
+            
             try
             {
                 var retorno = new AlteracaoClienteController().AlterarCliente(cliente);
@@ -129,11 +129,6 @@ namespace CrudAugustusFashion.View.Alteracao
             {
                 MessageBox.Show("Cliente não pode ser alterado. Erro " + ex.Message);
             }
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

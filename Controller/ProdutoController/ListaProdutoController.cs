@@ -27,7 +27,8 @@ namespace CrudAugustusFashion.Controller.ProdutoController
         public IList<ProdutoLista> MostrarProdutosNaLista(string nome, bool status)
         {
             try
-            {   var lista = _produtoDao.BuscarListaProduto(nome ,status);
+            {
+                var lista = _produtoDao.BuscarListaProduto(nome, status);
                 return lista;
             }
             catch (Exception excecao)
@@ -35,6 +36,6 @@ namespace CrudAugustusFashion.Controller.ProdutoController
                 MessageBox.Show("Erro." + excecao.Message);
             }
             return new List<ProdutoLista>();
-        } 
+        }
     }
 }

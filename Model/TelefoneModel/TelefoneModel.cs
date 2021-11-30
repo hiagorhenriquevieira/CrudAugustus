@@ -1,5 +1,4 @@
-﻿
-namespace CrudAugustusFashion.Model
+﻿namespace CrudAugustusFashion.Model
 {
     public class TelefoneModel 
     {

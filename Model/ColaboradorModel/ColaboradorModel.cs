@@ -1,4 +1,4 @@
-﻿using CrudAugustusFashion.Model.Usuario; 
+﻿using CrudAugustusFashion.Model.Usuario;
 
 namespace CrudAugustusFashion.Model
 {
@@ -13,6 +13,5 @@ namespace CrudAugustusFashion.Model
         {
             ContasBancarias = new ContaBancariaModel();
         }
-
     }
 }

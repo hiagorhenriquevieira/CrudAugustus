@@ -1,16 +1,16 @@
 ﻿using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Cliente;
+using CrudAugustusFashion.Model.Usuario;
 using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CrudAugustusFashion.Model.Cliente;
-using CrudAugustusFashion.Model.Usuario;
 
 namespace CrudAugustusFashion.Dao
 {
     public class ClienteDao
     {
-        
+
         public void CadastrarCliente(ClienteModel cliente)
         {
             const string insertUsuario = "insert into Usuarios output inserted.IdUsuario values (@nome, @sobreNome, @cpf, @sexo, @dataNascimento, @email)";
@@ -150,8 +150,6 @@ namespace CrudAugustusFashion.Dao
             {
                 throw new Exception(excecao.Message);
             }
-
-
         }
 
         private ClienteListaModel MapearListaCliente(ClienteListaModel clienteModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
@@ -191,7 +189,7 @@ namespace CrudAugustusFashion.Dao
                     return conexao.Query(
                         selectNomeCliente,
                         (ClienteListaModel clienteListaModel, NomeCompleto nomeCompleto, TelefoneModel telefoneModel, EnderecoModel enderecoModel)
-                        => MapearListaCliente(clienteListaModel, nomeCompleto, telefoneModel, enderecoModel), new { Nome = nome , Ativo = ativo},
+                        => MapearListaCliente(clienteListaModel, nomeCompleto, telefoneModel, enderecoModel), new { Nome = nome, Ativo = ativo },
                         splitOn: "IdUsuario"
                         ).ToList();
                 }
@@ -201,6 +199,7 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
+
         internal void ExcluirClientes(ClienteModel clienteModel)
         {
 
@@ -212,11 +211,10 @@ namespace CrudAugustusFashion.Dao
                 using (var conexao = ConexaoDao.conectar())
                 using (var transacao = conexao.BeginTransaction())
                 {
-                    conexao.Execute(updateCliente, new { IdUsuario = clienteModel.IdUsuario}, transacao);
+                    conexao.Execute(updateCliente, new { IdUsuario = clienteModel.IdUsuario }, transacao);
 
                     transacao.Commit();
                 }
-
             }
             catch (Exception excecao)
             {
@@ -241,7 +239,6 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
-
 
         internal ClienteModel RecuperarDadosCliente(int idCliente)
         {

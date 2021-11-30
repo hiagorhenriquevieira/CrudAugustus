@@ -1,5 +1,4 @@
-﻿using CrudAugustusFashion.Model.Produto;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -18,6 +17,7 @@ namespace CrudAugustusFashion.Validacoes
                 return 0;
             }
         }
+
         public static float ToFloat(this string value)
         {
             try
@@ -63,11 +63,8 @@ namespace CrudAugustusFashion.Validacoes
         public static string RetornarApenasNumeros(string valor)
         {
             return new string((from c in valor
-                                where char.IsDigit(c)
-                                select c).ToArray());
-            
+                               where char.IsDigit(c)
+                               select c).ToArray());
         }
     }
-
-
 }

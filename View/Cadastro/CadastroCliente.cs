@@ -4,6 +4,7 @@ using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Usuario;
 using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Validacoes;
+using CrudAugustusFashion.Model;
 
 namespace CrudAugustusFashion
 {
@@ -15,30 +16,41 @@ namespace CrudAugustusFashion
         }
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
-            
+
             if (ValidarCamposDeCadastroCliente())
             {
-                var cliente = new ClienteModel();
-            cliente.NomeCompleto.Nome = txtNome.Text;
-            cliente.NomeCompleto.SobreNome = txtSobrenome.Text;
-            cliente.Cpf = txtCpf.Text;
-            cliente.Sexo = comboBoxSexo.Text;
-            cliente.DataNascimento = dateTimeNascimento.Value;
-            cliente.Email = txtEmail.Text;
-            cliente.ValorLimite = decimal.Parse(txtLimiteCompraPrazo.Text);
-            cliente.Observacao = txtObservacao.Text;
+                var cliente = new ClienteModel()
+                {
+                    NomeCompleto = new NomeCompleto
+                    {
+                        Nome = txtNome.Text,
+                        SobreNome = txtSobrenome.Text,
 
-            cliente.Endereco.Cep = txtCep.Text;
-            cliente.Endereco.Cidade = txtCidade.Text;
-            cliente.Endereco.Bairro = txtBairro.Text;
-            cliente.Endereco.Logradouro = txtLogradouro.Text;
-            cliente.Endereco.NumeroResidencia = int.Parse(txtNumeroResidencia.Text);
-            cliente.Endereco.Uf = comboBoxUf.Text;
-            cliente.Endereco.Complemento = txtComplemento.Text;
+                    },
+                    Cpf = txtCpf.Text,
+                    Sexo = comboBoxSexo.Text,
+                    DataNascimento = dateTimeNascimento.Value,
+                    Email = txtEmail.Text,
+                    ValorLimite = decimal.Parse(txtLimiteCompraPrazo.Text),
+                    Observacao = txtObservacao.Text,
 
-            cliente.Telefone.Telefone = txtTelefone.Text;
-            cliente.Telefone.Celular = txtCelular.Text;
+                    Endereco = new EnderecoModel
+                    {
+                        Cep = txtCep.Text,
+                        Cidade = txtCidade.Text,
+                        Bairro = txtBairro.Text,
+                        Logradouro = txtLogradouro.Text,
+                        NumeroResidencia = int.Parse(txtNumeroResidencia.Text),
+                        Uf = comboBoxUf.Text,
+                        Complemento = txtComplemento.Text,
+                    },
 
+                    Telefone = new TelefoneModel
+                    {
+                        Telefone = txtTelefone.Text,
+                        Celular = txtCelular.Text,
+                    },
+                };
                 try
                 {
                     var retorno = new CadastroClienteController().CadastrarCliente(cliente);
@@ -51,11 +63,11 @@ namespace CrudAugustusFashion
                     {
                         MessageBox.Show(retorno);
                     }
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Falha ao cadastrar cliente. Erro " + ex.Message);
                 }
-
             }
         }
         private bool ValidarCamposDeCadastroCliente()

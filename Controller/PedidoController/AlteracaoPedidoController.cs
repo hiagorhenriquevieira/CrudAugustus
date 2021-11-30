@@ -1,7 +1,6 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Pedido;
 using System;
-using System.Windows.Forms;
 
 namespace CrudAugustusFashion.Controller.PedidoController
 {

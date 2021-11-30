@@ -9,6 +9,5 @@
         public Dinheiro PrecoCusto { get; set; }
         public Dinheiro PrecoVenda { get; set; }
         public int QuantidadeEstoque { get; set; }
-
     }
 }

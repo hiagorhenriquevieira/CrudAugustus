@@ -7,10 +7,12 @@ namespace CrudAugustusFashion.Controller
    public class ExcluirColaboradorController
     {
         private ColaboradorDao _colaboradorDao;
+
         public ExcluirColaboradorController()
         {
             _colaboradorDao = new ColaboradorDao();
         }
+
         public void ExcluirColaboradores(ColaboradorModel colaboradorModel)
         {
             try

@@ -47,7 +47,6 @@ namespace CrudAugustusFashion.Controller.PedidoController
             }
             return new List<ProdutoLista>();
         }
-       
 
         public void CadastrarPedido(VendaModel pedido)
         {

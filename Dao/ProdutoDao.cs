@@ -8,7 +8,6 @@ namespace CrudAugustusFashion.Dao
 {
     public class ProdutoDao
     {
-        //ConexaoDao conexao = new ConexaoDao();
         public void CadastrarProduto(ProdutoModel produto)
         {
             const string insertProduto = @"insert into Produtos (CodigoDeBarras, Nome, PrecoCusto, PrecoVenda, Lucro, QuantidadeEstoque, Fabricante)
@@ -27,6 +26,7 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(ex.Message);
             }
         }
+
         internal ProdutoModel RecuperarDadosProduto(int IdProduto)
         {
             const string selectProduto = @"select * from Produtos
@@ -45,6 +45,7 @@ namespace CrudAugustusFashion.Dao
             }
 
         }
+
         public void AlterarProduto(ProdutoModel produto)
         {
             const string updateProduto = @"update Produtos set CodigoDeBarras = @CodigoDeBarras, Nome = @Nome,
@@ -80,6 +81,7 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
+
         public void AtivarProduto(ProdutoModel produto)
         {
             const string produtoAtivo = @"update Produtos set Status = 1
@@ -96,6 +98,7 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
+
         public List<ProdutoLista> BuscarListaProduto(string nome, bool status)
         {
             const string selectProduto = @"Select IdProduto, CodigoDeBarras, Nome, Fabricante, PrecoCusto, PrecoVenda, QuantidadeEstoque
@@ -107,9 +110,4 @@ namespace CrudAugustusFashion.Dao
             }
         }
     }
-
-
-    //public void RecuperarDadosProduto(int idProduto)
-    //{
-    //    var selectProdutos = @"Select ";
 }

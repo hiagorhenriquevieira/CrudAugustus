@@ -20,7 +20,6 @@ namespace CrudAugustusFashion.Controller.ProdutoController
             var frmAlteracaoProduto = new FrmAlteracaoProduto(produtoModel);
             frmAlteracaoProduto.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmAlteracaoProduto.Show();
-
         }
 
         public void AlterarProduto(ProdutoModel produto)
@@ -40,7 +39,6 @@ namespace CrudAugustusFashion.Controller.ProdutoController
             }
         }
 
-
         public void DesativarProduto(ProdutoModel produto)
         {
             try
@@ -52,7 +50,5 @@ namespace CrudAugustusFashion.Controller.ProdutoController
                 throw new Exception(excecao.Message);
             }
         }
-
-
     }
 }

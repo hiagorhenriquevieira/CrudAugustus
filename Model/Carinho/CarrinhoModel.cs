@@ -13,12 +13,5 @@ namespace CrudAugustusFashion.Model.Carinho
         public Dinheiro PrecoLiquido { get; set; }
         public Dinheiro Total { get; set; }
         public Dinheiro PrecoCusto { get; set; }
-
-        //public override string ToString()
-        //{
-        //    return $"IdProduto:{IdVenda} Nome:{Nome} Quantidade:{Quantidade} Preço Venda:{PrecoVenda.DinheiroFormatado}" +
-        //        $"Desconto:{Desconto.DinheiroFormatado} Preço Custo:{PrecoCusto.DinheiroFormatado} " +
-        //        $"Preço Liquido:{PrecoLiquido.DinheiroFormatado} Total:{Total.DinheiroFormatado}"; 
-        //}
     }
 }

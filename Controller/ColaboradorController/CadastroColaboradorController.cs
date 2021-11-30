@@ -2,7 +2,6 @@
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.View;
 using System;
-using CrudAugustusFashion.Model.Usuario;
 
 namespace CrudAugustusFashion.Controller
 {
@@ -19,12 +18,14 @@ namespace CrudAugustusFashion.Controller
                 throw new Exception(excecao.Message);
             }
         }
+
         public void AbrirCadastroColaborador()
         {
             var frmCadastroColaborador = new FrmCadastroColaborador();
             frmCadastroColaborador.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmCadastroColaborador.Show();
         }
+
         public void AbrirListaColaborador()
         {
             var frmListaColaborador = new FrmListaColaborador();

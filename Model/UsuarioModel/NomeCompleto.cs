@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CrudAugustusFashion.Model.Usuario
+﻿namespace CrudAugustusFashion.Model.Usuario
 {
     public class NomeCompleto
     {
-        public NomeCompleto (string nome, string sobreNome)
+        public NomeCompleto(string nome, string sobreNome)
         {
             Nome = nome;
             SobreNome = sobreNome;
@@ -21,8 +15,9 @@ namespace CrudAugustusFashion.Model.Usuario
             return $"{Nome} {SobreNome}";
         }
 
-        public NomeCompleto() { 
-        
+        public NomeCompleto()
+        {
+
         }
     }
 }

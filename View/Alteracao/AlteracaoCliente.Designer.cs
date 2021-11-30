@@ -120,7 +120,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.groupBox1.Size = new System.Drawing.Size(793, 542);
             this.groupBox1.TabIndex = 53;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtIdUsuario
             // 
@@ -147,7 +146,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.maskBoxTelefone.Name = "maskBoxTelefone";
             this.maskBoxTelefone.Size = new System.Drawing.Size(203, 29);
             this.maskBoxTelefone.TabIndex = 13;
-            this.maskBoxTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // comboBoxUf
             // 

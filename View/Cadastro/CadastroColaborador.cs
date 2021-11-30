@@ -23,33 +23,46 @@ namespace CrudAugustusFashion.View
         {
             if (ValidarCamposDeCadastroColaborador())
             {
-            var colaborador = new ColaboradorModel();
+                var colaborador = new ColaboradorModel()
+                {
+                    NomeCompleto = new Model.Usuario.NomeCompleto
+                    {
+                        Nome = txtNome.Text,
+                        SobreNome = txtSobrenome.Text,
 
-            colaborador.NomeCompleto.Nome = txtNome.Text;
-            colaborador.NomeCompleto.SobreNome = txtSobrenome.Text;
-            colaborador.Cpf = txtCpf.Text;
-            colaborador.Sexo = comboBoxSexo.Text;
-            colaborador.Email = txtEmail.Text;
-            colaborador.DataNascimento = dateTimeNascimento.Value;
-            colaborador.Salario = int.Parse(txtSalario.Text);
-            colaborador.PorcentagemComissao = int.Parse(txtPorcentagemComissao.Text);
+                    },
+                    Cpf = txtCpf.Text,
+                    Sexo = comboBoxSexo.Text,
+                    Email = txtEmail.Text,
+                    DataNascimento = dateTimeNascimento.Value,
+                    Salario = int.Parse(txtSalario.Text),
+                    PorcentagemComissao = int.Parse(txtPorcentagemComissao.Text),
 
-            colaborador.Endereco.Cep = txtCep.Text;
-            colaborador.Endereco.Cidade = txtCidade.Text;
-            colaborador.Endereco.Bairro = txtComplemento.Text;
-            colaborador.Endereco.Logradouro = txtLogradouro.Text;
-            colaborador.Endereco.NumeroResidencia = int.Parse(txtNumeroResidencia.Text);
-            colaborador.Endereco.Uf = comboBoxUf.Text;
-            colaborador.Endereco.Complemento = txtComplemento.Text;
+                    Endereco = new EnderecoModel
+                    {
+                        Cep = txtCep.Text,
+                        Cidade = txtCidade.Text,
+                        Bairro = txtComplemento.Text,
+                        Logradouro = txtLogradouro.Text,
+                        NumeroResidencia = int.Parse(txtNumeroResidencia.Text),
+                        Uf = comboBoxUf.Text,
+                        Complemento = txtComplemento.Text,
+                    },
 
-            colaborador.Telefone.Telefone = txtTelefone.Text;
-            colaborador.Telefone.Celular = txtCelular.Text;
+                    Telefone = new TelefoneModel
+                    {
+                        Telefone = txtTelefone.Text,
+                        Celular = txtCelular.Text,
+                    },
 
-            colaborador.ContasBancarias.Agencia = int.Parse(txtAgencia.Text);
-            colaborador.ContasBancarias.Banco = txtBanco.Text;
-            colaborador.ContasBancarias.TipoConta = txtBanco.Text;
-            colaborador.ContasBancarias.Conta = int.Parse(txtConta.Text);
-
+                    ContasBancarias = new ContaBancariaModel
+                    {
+                        Agencia = int.Parse(txtAgencia.Text),
+                        Banco = txtBanco.Text,
+                        TipoConta = txtBanco.Text,
+                        Conta = int.Parse(txtConta.Text),
+                    },
+                };
                 try
                 {
                     new CadastroColaboradorController().CadastrarColaborador(colaborador);
@@ -165,7 +178,8 @@ namespace CrudAugustusFashion.View
             {
                 MessageBox.Show("Campo -Porcentagem de Comissão- invalido");
                 return false;
-            }else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtSalario.Text))
+            }
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtSalario.Text))
             {
                 MessageBox.Show("Campo -Salário- invalido");
                 return false;

@@ -181,7 +181,6 @@ namespace CrudAugustusFashion.View.Alteracao
             this.groupBox2.Size = new System.Drawing.Size(852, 353);
             this.groupBox2.TabIndex = 120;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtIdColaborador
             // 
