@@ -114,6 +114,7 @@
     <Compile Include="Dao\VendaDao.cs" />
     <Compile Include="Model\Carinho\CarrinhoModel.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />
+    <Compile Include="Model\ColaboradorModel\ColaboradorValidation.cs" />
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
     <Compile Include="Model\Endereco\EnderecoValidation.cs" />

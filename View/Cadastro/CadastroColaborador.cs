@@ -65,9 +65,16 @@ namespace CrudAugustusFashion.View
                 };
                 try
                 {
-                    new CadastroColaboradorController().CadastrarColaborador(colaborador);
-                    MessageBox.Show("Colaborador cadastrado com sucesso!");
-                    this.Close();
+                    var retorno = new CadastroColaboradorController().CadastrarColaborador(colaborador);
+                    if (retorno == string.Empty)
+                    {
+                        MessageBox.Show("Colaborador cadastrado com sucesso!");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(retorno);
+                    }
                 }
                 catch (Exception ex)
                 {

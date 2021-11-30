@@ -21,12 +21,12 @@ namespace CrudAugustusFashion.Controller
             try
             {
                 var retorno = clienteModel.ValidarCliente();
-                
+
                 if (retorno == string.Empty)
                 {
                     _clienteDao.CadastrarCliente(clienteModel);
-                }               
-                return retorno;                   
+                }
+                return retorno;
             }
             catch (Exception excecao)
             {

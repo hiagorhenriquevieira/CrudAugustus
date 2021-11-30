@@ -53,5 +53,10 @@ namespace CrudAugustusFashion.Controller
                 throw new Exception(excecao.Message);
             }
         }
+
+        public void ExibirIdadeCliente()
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Model.Usuario;
+using System;
 
 namespace CrudAugustusFashion.Model.Cliente
 {
@@ -16,5 +17,21 @@ namespace CrudAugustusFashion.Model.Cliente
              
             return retorno.ToString();
         }
+        public string VerificarSeEhAniversarioDoCliente()
+        {
+            
+            var mensagem = string.Empty;
+
+            if (DataNascimento.Month == DateTime.Now.Month && DataNascimento.Day == DateTime.Now.Day)
+            {
+                TimeSpan result;
+                
+                mensagem = $"{NomeCompleto.Nome} está fazendo aniversário hoje.";
+            }
+
+            
+            return mensagem;
+        }
+        
     }
 }

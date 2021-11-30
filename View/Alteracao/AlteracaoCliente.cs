@@ -57,6 +57,9 @@ namespace CrudAugustusFashion.View.Alteracao
             {
                 MessageBox.Show("Ocorreu um erro ao listar clientes. Erro " + ex.Message);
             }
+            var avisoDeAniversario = _cliente.VerificarSeEhAniversarioDoCliente();
+            if (avisoDeAniversario != string.Empty)
+                MessageBox.Show(avisoDeAniversario, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

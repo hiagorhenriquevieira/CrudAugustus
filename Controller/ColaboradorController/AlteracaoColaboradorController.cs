@@ -17,16 +17,22 @@ namespace CrudAugustusFashion.Controller
 
         public void AbrirAlteracaoColaboradores(ColaboradorModel colaboradoreModel)
         {
-        var frmAlteracaoColaboradores = new FrmAlteracaoColaboradores(colaboradoreModel);
-        frmAlteracaoColaboradores.MdiParent = MdiSingletonModel.InstanciarMDI();
+            var frmAlteracaoColaboradores = new FrmAlteracaoColaboradores(colaboradoreModel);
+            frmAlteracaoColaboradores.MdiParent = MdiSingletonModel.InstanciarMDI();
             frmAlteracaoColaboradores.Show();
         }
 
-        internal void AlterarColaborador(ColaboradorModel colaboradorModel)
+        internal string AlterarColaborador(ColaboradorModel colaboradorModel)
         {
             try
             {
-                _colaboradorDao.AlterarColaborador(colaboradorModel);
+                var retorno = colaboradorModel.ValidarColaborador();
+
+                if (retorno == string.Empty)
+                {
+                    _colaboradorDao.AlterarColaborador(colaboradorModel);
+                }
+                return retorno;
             }
             catch (Exception excecao)
             {
@@ -41,10 +47,10 @@ namespace CrudAugustusFashion.Controller
                 var lista = _colaboradorDao.BuscarListaColaborador(nome, ativo);
                 return lista;
             }
-            catch(Exception excecao)
+            catch (Exception excecao)
             {
                 throw new Exception(excecao.Message);
             }
         }
-    }  
+    }
 }

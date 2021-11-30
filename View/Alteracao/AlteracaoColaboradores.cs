@@ -24,6 +24,9 @@ namespace CrudAugustusFashion.View.Alteracao
         private void AlteracaoColaboradores_Load(object sender, EventArgs e)
         {
             new ColaboradorDao().ListarColaboradores();
+            var avisoDeAniversario = _colaboradorModel.VerificarSeEhAniversarioDoCliente();
+            if (avisoDeAniversario != string.Empty)
+                MessageBox.Show(avisoDeAniversario, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnAlteracaoCliente_Click(object sender, EventArgs e)
@@ -75,11 +78,17 @@ namespace CrudAugustusFashion.View.Alteracao
 
             try
             {
-                new AlteracaoColaboradorController().AlterarColaborador(colaborador);
-                MessageBox.Show("Colaborador alterado com sucesso.");
-                this.Close();
+                var retorno = new AlteracaoColaboradorController().AlterarColaborador(colaborador);
+                if (retorno == string.Empty)
+                {
+                    MessageBox.Show("Colaborador alterado com sucesso!");
+                    this.Close();
                 _cadastroColaboradorController.AbrirListaColaborador();
-
+                }
+                else
+                {
+                    MessageBox.Show(retorno);
+                }
             }
             catch (Exception ex)
             {
