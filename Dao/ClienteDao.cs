@@ -26,13 +26,13 @@ namespace CrudAugustusFashion.Dao
                 {
                     int idUsuario = conexao.ExecuteScalar<int>(insertUsuario, new
                     {
-                        IdUsuario = cliente.IdUsuario,
-                        Nome = cliente.NomeCompleto.Nome,
-                        SobreNome = cliente.NomeCompleto.SobreNome,
+                        cliente.IdUsuario,
+                        cliente.NomeCompleto.Nome,
+                        cliente.NomeCompleto.SobreNome,
                         Cpf = cliente.Cpf.RemoverFormatacao(),
-                        Sexo = cliente.Sexo,
-                        DataNascimento = cliente.DataNascimento,
-                        Email = cliente.Email,
+                        cliente.Sexo,
+                        cliente.DataNascimento,
+                        cliente.Email,
                     }
                             , transacao);
                     cliente.IdUsuario = idUsuario;

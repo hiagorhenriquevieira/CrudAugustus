@@ -74,16 +74,16 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             if (!ValidacoesExtencion.NuloOuVazio(lblPrecoVenda))
             {
-                decimal precoVenda = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoVenda.Text));
+                decimal precoVenda = RetornarPrecoVenda();
                 decimal desconto = numericDesconto.Value;
                 decimal precoLiquido = precoVenda - ((desconto / 100) * precoVenda);
-                lblPrecoLiquido.Text = precoLiquido.ToString();
+                lblPrecoLiquido.Text = precoLiquido.ToString("c");
                 var quantidade = numericQuantidade.Value;
                 decimal total = precoLiquido * quantidade;
-                lblTotal.Text = total.ToString();
+                lblTotal.Text = total.ToString("c");
 
                 decimal descontoDecimal = precoVenda - precoLiquido;
-                lblDescontoDecimal.Text = descontoDecimal.ToString();
+                lblDescontoDecimal.Text = descontoDecimal.ToString("c");
                 lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
                 lblTotalBruto.Text = _pedidoModel.TotalBruto.DinheiroFormatado;
                 lblTotalDesconto.Text = _pedidoModel.TotalDesconto.DinheiroFormatado;
@@ -285,15 +285,17 @@ namespace CrudAugustusFashion.View.Cadastro
                 IdProduto = Convert.ToInt32(lblIdProduto.Text),
                 Nome = lblNomeProduto.Text,
                 IdVenda = _pedidoModel.IdVenda,
-                Desconto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblDescontoDecimal.Text)),
-                PrecoLiquido = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoLiquido.Text)),
-                PrecoVenda = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoVenda.Text)),
-                PrecoCusto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoCusto.Text)),
+                Desconto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblDescontoDecimal.Text))/100,
+                PrecoLiquido = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoLiquido.Text)) / 100,
+                PrecoVenda = RetornarPrecoVenda(),
+                PrecoCusto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoCusto.Text)) / 100,
                 Quantidade = Convert.ToInt32(numericQuantidade.Value),
-                Total = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblTotal.Text))
-            });
+                Total = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblTotal.Text)) / 100,
+            }) ;
             return true;
         }
+
+        private decimal RetornarPrecoVenda() => Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoVenda.Text)) / 100;
 
     }
 }

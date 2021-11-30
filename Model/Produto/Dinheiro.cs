@@ -21,11 +21,11 @@ namespace CrudAugustusFashion.Model.Produto
 
         public decimal Valor { get => _dinheiro; }
 
-        public string DinheiroFormatado { get => (_dinheiro).ToString(@"c"); }
+        public string DinheiroFormatado { get => (_dinheiro).ToString("c"); }
 
         public override string ToString()
         {
-            return _dinheiro.ToString();
+            return _dinheiro.ToString("c");
         }
 
         public static implicit operator Dinheiro(decimal dinheiro) => new Dinheiro(dinheiro);

@@ -32,14 +32,37 @@ namespace CrudAugustusFashion.Dao
                 {
                     using (SqlTransaction transaction = conexao.BeginTransaction())
                     {
-                        venda.IdVenda = conexao.ExecuteScalar<int>(insertVenda, venda, transaction);
+                        venda.IdVenda = conexao.ExecuteScalar<int>(insertVenda,
+                            new
+                            {
+                                venda.IdCliente,
+                                venda.IdColaborador,
+                                TotalBruto = venda.TotalBruto.Valor,
+                                TotalDesconto = venda.TotalDesconto.Valor,
+                                TotalLiquido = venda.TotalLiquido.Valor,
+                                LucroTotal = venda.LucroTotal.Valor,
+                                venda.FormaDePagamento,
+                            },
+                            transaction);
 
                         venda.Produtos.ForEach(x => x.IdVenda = venda.IdVenda);
 
-                        conexao.Execute(insertPedidoProduto, venda.Produtos, transaction);
-                        foreach (var update in venda.Produtos)
+                        foreach (var item in venda.Produtos)
                         {
-                            conexao.Execute(updateQuantidade, update, transaction);
+                            conexao.Execute(insertPedidoProduto,
+                                new
+                                {
+                                    item.IdProduto,
+                                    PrecoCusto = item.PrecoCusto.Valor,
+                                    PrecoVenda = item.PrecoVenda.Valor,
+                                    item.IdVenda,
+                                    item.Quantidade,
+                                    Desconto = item.Desconto.Valor,
+                                    PrecoLiquido = item.PrecoLiquido.Valor,
+                                    Total = item.Total.Valor,
+                                },
+                                transaction);
+                            conexao.Execute(updateQuantidade, item, transaction);
                         }
                         transaction.Commit();
                     }
@@ -67,7 +90,7 @@ namespace CrudAugustusFashion.Dao
                 {
                     using (SqlTransaction transaction = conexao.BeginTransaction())
                     {
-                        List<CarrinhoModel> produtosAntigos = conexao.Query<CarrinhoModel>(selectProdutosAntigos, new {vendaModel.IdVenda }, transaction).ToList();
+                        List<CarrinhoModel> produtosAntigos = conexao.Query<CarrinhoModel>(selectProdutosAntigos, new { vendaModel.IdVenda }, transaction).ToList();
                         foreach (var update in produtosAntigos)
                         {
                             conexao.Execute(updateQuantidade, update, transaction);
@@ -100,7 +123,7 @@ namespace CrudAugustusFashion.Dao
                 using (var conexao = ConexaoDao.conectar())
                 {
                     return conexao.Query<PedidoListaModel>(
-                        selectPedido, new {NomeCliente = nome, Ativo = ativo }
+                        selectPedido, new { NomeCliente = nome, Ativo = ativo }
                      ).ToList();
                 }
             }
@@ -109,7 +132,6 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
-
 
         public VendaConsulta ExibirPedidoSelecionado(int idVenda)
         {
@@ -184,18 +206,41 @@ namespace CrudAugustusFashion.Dao
                     using (SqlTransaction transaction = conexao.BeginTransaction())
                     {
                         List<CarrinhoModel> produtosAntigos = conexao.Query<CarrinhoModel>(selectProdutosAntigos, new { pedidoModel.IdVenda }, transaction).ToList();
-                        foreach (var update in produtosAntigos)
+                        foreach (var item in produtosAntigos)
                         {
-                            conexao.Execute(updateQuantidade, update, transaction);
+                            conexao.Execute(updateQuantidade, item, transaction);
                         }
+
                         conexao.Execute(deletePedidoProduto, pedidoModel, transaction);
 
-                        conexao.Execute(updateVenda, pedidoModel, transaction);
+                        conexao.Execute(updateVenda,
+                            new
+                            {
+                                pedidoModel.IdVenda,
+                                TotalBruto = pedidoModel.TotalBruto.Valor,
+                                TotalDesconto = pedidoModel.TotalDesconto.Valor,
+                                TotalLiquido = pedidoModel.TotalLiquido.Valor,
+                                LucroTotal = pedidoModel.LucroTotal.Valor,
+                                pedidoModel.FormaDePagamento,
+                            },
+                            transaction) ;
 
-                        conexao.Execute(insertPedidoProduto, pedidoModel.Produtos, transaction);
-                        foreach (var update in pedidoModel.Produtos)
+                        foreach (var item in pedidoModel.Produtos)
                         {
-                            conexao.Execute(upQuantidade, update, transaction);
+                            conexao.Execute(insertPedidoProduto,
+                                new
+                                {
+                                    item.IdProduto,
+                                    PrecoCusto = item.PrecoCusto.Valor,
+                                    PrecoVenda = item.PrecoVenda.Valor,
+                                    item.IdVenda,
+                                    item.Quantidade,
+                                    Desconto = item.Desconto.Valor,
+                                    PrecoLiquido = item.PrecoLiquido.Valor,
+                                    Total = item.Total.Valor,
+                                },
+                                transaction);
+                            conexao.Execute(upQuantidade, item, transaction);
                         }
 
                         transaction.Commit();
