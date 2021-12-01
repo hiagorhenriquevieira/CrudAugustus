@@ -1,5 +1,6 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
+using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.View.Cadastro;
@@ -59,5 +60,16 @@ namespace CrudAugustusFashion.Controller.PedidoController
                 throw new Exception(excecao.Message);
             }
         }
+
+        //public string RecuperarValorGastoAPrazo( ClienteModel idCliente, VendaModel venda)
+        //{
+        //    var valorAtualCliente = new ClienteDao().RecuperarValorGastoAPrazo(venda);
+
+        //    var cliente = new ClienteDao().RecuperarDadosCliente(Convert.ToInt32(idCliente));
+
+        //    var valorParaConsumir = Convert.ToDecimal(valorAtualCliente) - cliente.ValorLimite;
+
+        //    return valorParaConsumir.ToString();
+        //}
     }
 }

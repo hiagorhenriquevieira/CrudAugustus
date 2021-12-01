@@ -1,5 +1,6 @@
 ﻿using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Cliente;
+using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Usuario;
 using Dapper;
 using System;
@@ -270,6 +271,24 @@ namespace CrudAugustusFashion.Dao
             catch (Exception excecao)
             {
                 throw new Exception(excecao.Message);
+            }
+        }
+        public decimal RecuperarValorGastoAPrazo(VendaModel venda)
+        {
+            const string selectValorGastoAPrazo = @"SELECT SUM(TotalLiquido) 
+                                                    FROM Venda 
+                                                    where IdCliente = @IdCliente and FormaDePagamento = @FormaDePagamento;";
+
+            try
+            {
+                using(var conexao = ConexaoDao.conectar())
+                {
+                    return conexao.Query<decimal>(selectValorGastoAPrazo, new {venda.IdCliente, venda.FormaDePagamento}).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

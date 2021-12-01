@@ -26,5 +26,9 @@ namespace CrudAugustusFashion.Model.Pedido
         {
             Produtos = new List<CarrinhoModel>();
         }
+        
+        public decimal QuantidadeGasta { get; set; }
+
+       
     }
 }

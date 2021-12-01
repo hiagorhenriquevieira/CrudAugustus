@@ -198,7 +198,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 }
                 else
                 {
-                    if (ValidarCamposDeCadastroPedido())
+                    if (ValidarCamposDeCadastroPedido() && RetornarValorLimiteAtual())
                     {
                         var idCliente = Convert.ToInt32(lblIdCliente.Text);
                         var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
@@ -278,9 +278,6 @@ namespace CrudAugustusFashion.View.Cadastro
             var colaborador = new ColaboradorDao().RecuperarDadosColaborador(idColaborador);
             lblNomeColaborador.Text = colaborador.NomeCompleto.ToString();
 
-
-            //var cliente = new AlteracaoClienteController
-            /*new CadastroPedidoController().RetornarNomeCliente(Convert.ToInt32(lblIdCliente.Text));*/
         }
 
         private void FrmCadastroPedido_Load(object sender, EventArgs e)
@@ -311,5 +308,21 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private decimal RetornarPrecoVenda() => Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoVenda.Text)) / 100;
 
+        private bool RetornarValorLimiteAtual()
+        {
+            _clienteModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
+            _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
+            _pedidoModel.FormaDePagamento = Convert.ToString(comboBoxFormaPagamento.Text);
+            var valorParaConsumir = _clienteModel.RecuperarValorGastoAPrazo(_clienteModel, _pedidoModel);
+            
+            if (Convert.ToDecimal(valorParaConsumir) < _clienteModel.ValorLimite && 
+                Convert.ToDecimal(lblTotalLiquido.Text) <= Convert.ToDecimal(valorParaConsumir)
+                && comboBoxFormaPagamento.Text == "APRAZO")
+            {
+                return true;
+            }
+            MessageBox.Show("Valor Limite inferior ao valor da compra a prazo ");
+            return false;
+        }
     }
 }
