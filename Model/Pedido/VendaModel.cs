@@ -1,5 +1,6 @@
 ﻿using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Produto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,6 +18,7 @@ namespace CrudAugustusFashion.Model.Pedido
         public Dinheiro LucroTotal { get => Produtos.Sum(x => x.Total.Valor - (x.Quantidade * x.PrecoCusto.Valor));}  
         public string FormaDePagamento { get; set; }
         public bool Ativo { get; set; }
+        public DateTime DataEmissao { get; set; }
 
         public List<CarrinhoModel> Produtos {get; set;}
 

@@ -8,9 +8,16 @@ namespace CrudAugustusFashion.Model
         public int IdCliente { get; set; }
         public NomeCompleto NomeCompleto { get; set; }
         public string Sexo { get; set; }
-        public int Idade { get =>
-            DataNascimento.DayOfYear >= DateTime.Now.DayOfYear ?
-                    DateTime.Now.Year - DataNascimento.Year : DateTime.Now.Year - DataNascimento.Year - 1;
+        public int Idade
+        {
+            get
+            {
+                if (DataNascimento.DayOfYear <= DateTime.Now.DayOfYear)
+                    return DateTime.Now.Year - DataNascimento.Year;
+
+                return DateTime.Now.Year - DataNascimento.Year - 1;
+
+            }
         }
 
         public DateTime DataNascimento { get; set; }

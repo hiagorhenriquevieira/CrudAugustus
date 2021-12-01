@@ -1,12 +1,11 @@
 ﻿using CrudAugustusFashion.Controller;
+using CrudAugustusFashion.Controller.EmailController;
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Pedido;
-using CrudAugustusFashion.Model.Produto;
-using CrudAugustusFashion.Model.Venda;
 using CrudAugustusFashion.Validacoes;
 using System;
 using System.Linq;
@@ -33,11 +32,15 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void btnPesquisarProduto_Click(object sender, System.EventArgs e) =>
             dataGridViewProdutoPedido.DataSource = new CadastroPedidoController().ListarProdutosPedido(txtProcurarProduto.Text);
-        private void btnPesquisarColaborador_Click(object sender, System.EventArgs e) =>
+        private void btnPesquisarColaborador_Click(object sender, System.EventArgs e)
+        {
             dataGridViewColaboradorPedido.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador((txtProcurarColaborador.Text), (_colaboradorModel.Ativo = true));
+        }
 
-        private void btnPesquisarCliente_Click(object sender, System.EventArgs e) =>
+        private void btnPesquisarCliente_Click(object sender, System.EventArgs e)
+        {
             dataGridViewClientePedido.DataSource = new AlteracaoClienteController().BuscarListaCliente((txtProcurarCliente.Text), (_clienteModel.Ativo = true));
+        }
 
         private void dataGridViewProdutoPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -65,10 +68,16 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             int idCliente = Convert.ToInt32(dataGridViewClientePedido.SelectedRows[0].Cells[0].Value);
             var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
-
+            _clienteModel.DataNascimento = cliente.DataNascimento;
+            _clienteModel.NomeCompleto.Nome = cliente.NomeCompleto.Nome;
+            _clienteModel.NomeCompleto.SobreNome = cliente.NomeCompleto.SobreNome;
             lblIdCliente.Text = cliente.IdCliente.ToString();
             lblNomeCliente.Text = cliente.NomeCompleto.ToString();
+            var avisoDeAniversario = _clienteModel.VerificarSeEhAniversarioDoCliente();
+            if (avisoDeAniversario != string.Empty)
+                MessageBox.Show(avisoDeAniversario, "Aviso", MessageBoxButtons.OK);
         }
+       
 
         public void AtualizarPrecos()
         {
@@ -179,7 +188,6 @@ namespace CrudAugustusFashion.View.Cadastro
         }
         private void btnFinalizarPedido_Click(object sender, EventArgs e)
         {
-
             try
             {
                 if (_pedidoModel.IdVenda != 0 && ValidarCamposDeCadastroPedido())
@@ -192,13 +200,19 @@ namespace CrudAugustusFashion.View.Cadastro
                 {
                     if (ValidarCamposDeCadastroPedido())
                     {
+                        var idCliente = Convert.ToInt32(lblIdCliente.Text);
+                        var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
+                        _clienteModel.Email = cliente.Email;
+                        _clienteModel.NomeCompleto.Nome = cliente.NomeCompleto.Nome;
+
                         _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
                         _pedidoModel.IdColaborador = Convert.ToInt32(lblIdColaborador.Text);
                         _pedidoModel.FormaDePagamento = comboBoxFormaPagamento.Text;
-
+                        _pedidoModel.DataEmissao = DateTime.Now;
                         _cadastroPedido.CadastrarPedido(_pedidoModel);
 
                         MessageBox.Show("Venda realizada!");
+                        new EnvioDeEmail().EnviarEmail(_pedidoModel, _clienteModel);
                         LimparCamposAposCadastro();
                     }
                 }

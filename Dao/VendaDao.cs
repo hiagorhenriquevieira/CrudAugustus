@@ -14,9 +14,9 @@ namespace CrudAugustusFashion.Dao
     {
         public void CadastrarVendaPedido(VendaModel venda)
         {
-            const string insertVenda = @"Insert into Venda (IdCliente, IdColaborador, TotalBruto, TotalDesconto, TotalLiquido, Lucro, FormaDePagamento)  
+            const string insertVenda = @"Insert into Venda (IdCliente, IdColaborador, TotalBruto, TotalDesconto, TotalLiquido, Lucro, FormaDePagamento, DataEmissao)  
                 output inserted.IdVenda 
-                values (@IdCliente, @IdColaborador, @TotalBruto, @TotalDesconto, @TotalLiquido, @LucroTotal, @FormaDePagamento)";
+                values (@IdCliente, @IdColaborador, @TotalBruto, @TotalDesconto, @TotalLiquido, @LucroTotal, @FormaDePagamento, @DataEmissao)";
 
             const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
                 QuantidadeProduto, Desconto, PrecoLiquido,Total) 
@@ -40,6 +40,7 @@ namespace CrudAugustusFashion.Dao
                                 TotalLiquido = venda.TotalLiquido.Valor,
                                 LucroTotal = venda.LucroTotal.Valor,
                                 venda.FormaDePagamento,
+                                venda.DataEmissao,
                             },
                             transaction);
 
@@ -109,7 +110,7 @@ namespace CrudAugustusFashion.Dao
         {
             var selectPedido = @"select  ven.IdVenda, concat(ucli.Nome,' ',ucli.SobreNome) as NomeCliente,
 				concat(uco.Nome, ' ', uco.SobreNome) as NomeColaborador,
-				 ven.FormaDePagamento, ven.TotalBruto, ven.TotalDesconto, ven.TotalLiquido, ven.Lucro
+				 ven.FormaDePagamento, ven.DataEmissao, ven.TotalBruto, ven.TotalDesconto, ven.TotalLiquido, ven.Lucro
 				from Venda ven
 				inner join Colaboradores as co on ven.IdColaborador = co.IdColaborador
 				inner join Clientes as c on ven.IdCliente = c.IdCliente				

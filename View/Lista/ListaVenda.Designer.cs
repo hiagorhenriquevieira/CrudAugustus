@@ -52,6 +52,7 @@ namespace CrudAugustusFashion.View.Lista
             this.label15 = new System.Windows.Forms.Label();
             this.lblIdVenda = new System.Windows.Forms.Label();
             this.BtnDesativarPedido = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -226,7 +227,7 @@ namespace CrudAugustusFashion.View.Lista
             // 
             this.lblFormaDePagamento.BackColor = System.Drawing.Color.White;
             this.lblFormaDePagamento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFormaDePagamento.Location = new System.Drawing.Point(675, 83);
+            this.lblFormaDePagamento.Location = new System.Drawing.Point(702, 83);
             this.lblFormaDePagamento.Name = "lblFormaDePagamento";
             this.lblFormaDePagamento.Size = new System.Drawing.Size(156, 23);
             this.lblFormaDePagamento.TabIndex = 73;
@@ -236,7 +237,7 @@ namespace CrudAugustusFashion.View.Lista
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(671, 64);
+            this.label12.Location = new System.Drawing.Point(698, 64);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(160, 19);
             this.label12.TabIndex = 74;
@@ -296,12 +297,23 @@ namespace CrudAugustusFashion.View.Lista
             this.BtnDesativarPedido.UseVisualStyleBackColor = false;
             this.BtnDesativarPedido.Click += new System.EventHandler(this.BtnDesativarPedido_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(674, 124);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(213, 19);
+            this.label5.TabIndex = 77;
+            this.label5.Text = "Data da realização do pedido";
+            // 
             // FrmListaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(953, 524);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblIdVenda);
             this.Controls.Add(this.lblIdColaborador);
             this.Controls.Add(this.label10);
@@ -359,5 +371,6 @@ namespace CrudAugustusFashion.View.Lista
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblIdVenda;
         private System.Windows.Forms.Button BtnDesativarPedido;
+        private System.Windows.Forms.Label label5;
     }
 }

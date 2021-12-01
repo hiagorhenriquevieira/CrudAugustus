@@ -9,8 +9,7 @@ using System.Windows.Forms;
 namespace CrudAugustusFashion.View.Alteracao
 {
     public partial class FrmAlteracaoCliente : Form
-    {
-        //variavel de instancia
+    { 
         private ClienteModel _cliente;
         private ExcluirClienteController _excluircliente;
         private CadastroClienteController _cadastroclientecontroller;
@@ -25,8 +24,7 @@ namespace CrudAugustusFashion.View.Alteracao
         }
 
         private void PreencherCamposComCliente()
-        {
-           
+        {  
             txtIdUsuario.Text = _cliente.IdUsuario.ToString();
             txtIdCliente.Text = _cliente.IdCliente.ToString();
             txtNome.Text = _cliente.NomeCompleto.Nome;

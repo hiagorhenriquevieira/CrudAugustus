@@ -100,6 +100,7 @@
     <Compile Include="Controller\ClienteController\CadastroClienteController.cs" />
     <Compile Include="Controller\ClienteController\ExcluirClienteController.cs" />
     <Compile Include="Controller\ColaboradorController\ExcluirColaboradorController.cs" />
+    <Compile Include="Controller\EmailController\EnvioDeEmail.cs" />
     <Compile Include="Controller\PedidoController\AlteracaoPedidoController.cs" />
     <Compile Include="Controller\PedidoController\CadastroPedidoController.cs" />
     <Compile Include="Controller\PedidoController\ListagemPedidoController.cs" />
