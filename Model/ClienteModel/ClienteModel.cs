@@ -33,15 +33,13 @@ namespace CrudAugustusFashion.Model.Cliente
         }
 
 
-        public string RecuperarValorGastoAPrazo(ClienteModel idCliente, VendaModel venda)
+        public string RecuperarValorGastoAPrazo(int idCliente, VendaModel venda)
         {
-            var valorAtualCliente = new ClienteDao().RecuperarValorGastoAPrazo(venda);
+            var saldoAtualCliente = new ClienteDao().RecuperarValorGastoAPrazo(venda);
 
-            var cliente = new ClienteDao().RecuperarDadosCliente(Convert.ToInt32(idCliente));
+            var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
 
-            var valorParaConsumir = Convert.ToDecimal(valorAtualCliente) - cliente.ValorLimite;
-
-            return valorParaConsumir.ToString();
+            return saldoAtualCliente.ToString();
         }
     }
 }

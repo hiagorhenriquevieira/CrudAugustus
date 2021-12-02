@@ -313,16 +313,14 @@ namespace CrudAugustusFashion.View.Cadastro
             _clienteModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
             _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
             _pedidoModel.FormaDePagamento = Convert.ToString(comboBoxFormaPagamento.Text);
-            var valorParaConsumir = _clienteModel.RecuperarValorGastoAPrazo(_clienteModel, _pedidoModel);
-            
-            if (Convert.ToDecimal(valorParaConsumir) < _clienteModel.ValorLimite && 
-                Convert.ToDecimal(lblTotalLiquido.Text) <= Convert.ToDecimal(valorParaConsumir)
-                && comboBoxFormaPagamento.Text == "APRAZO")
+            var valorParaConsumir = _clienteModel.RecuperarValorGastoAPrazo(_clienteModel.IdCliente, _pedidoModel);
+            if (Convert.ToDecimal(_pedidoModel.TotalLiquido.Valor) >= Convert.ToDecimal(valorParaConsumir) &&
+                comboBoxFormaPagamento.Text == "APRAZO")
             {
-                return true;
-            }
-            MessageBox.Show("Valor Limite inferior ao valor da compra a prazo ");
-            return false;
+                MessageBox.Show("Valor Limite inferior ao valor da compra a prazo ");
+                return false;
+            }else 
+           return true;
         }
     }
 }
