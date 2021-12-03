@@ -60,16 +60,5 @@ namespace CrudAugustusFashion.Controller.PedidoController
                 throw new Exception(excecao.Message);
             }
         }
-
-        //public string RecuperarValorGastoAPrazo( ClienteModel idCliente, VendaModel venda)
-        //{
-        //    var valorAtualCliente = new ClienteDao().RecuperarValorGastoAPrazo(venda);
-
-        //    var cliente = new ClienteDao().RecuperarDadosCliente(Convert.ToInt32(idCliente));
-
-        //    var valorParaConsumir = Convert.ToDecimal(valorAtualCliente) - cliente.ValorLimite;
-
-        //    return valorParaConsumir.ToString();
-        //}
     }
 }

@@ -20,6 +20,5 @@ namespace CrudAugustusFashion.Dao
                 return conexao.Query<ProdutoLista>(selectProduto, new { Nome = nome }).ToList();
             }
         }
-        
     }
 }

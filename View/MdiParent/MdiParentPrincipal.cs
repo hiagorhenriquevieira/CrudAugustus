@@ -1,6 +1,7 @@
 ﻿using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Controller.ProdutoController;
+using CrudAugustusFashion.Controller.RelatorioFiltroController;
 using CrudAugustusFashion.Model.Produto;
 using System;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace CrudAugustusFashion.View
         private CadastroPedidoController _cadastroPedidoController;
         private ProdutoModel _produto;
         private ListagemPedidoController _listaPedidoController;
+        private RelatorioVendaController _relatorioVenda;
 
         public MdiParentPrincipal()
         {
@@ -28,6 +30,7 @@ namespace CrudAugustusFashion.View
             _cadastroPedidoController = new CadastroPedidoController();
             _produto = new ProdutoModel();
             _listaPedidoController = new ListagemPedidoController();
+            _relatorioVenda = new RelatorioVendaController();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -116,6 +119,7 @@ namespace CrudAugustusFashion.View
         private void pedidoToolStripMenuItem_Click(object sender, EventArgs e) => _cadastroPedidoController.AbrirCadastroPedido();
 
         private void pedidoToolStripMenuItem1_Click(object sender, EventArgs e) => _listaPedidoController.AbrirListaPedido();
-        
+
+        private void vendaToolStripMenuItem_Click(object sender, EventArgs e) => _relatorioVenda.AbrirRelatorioVendaProduto();
     }
 }

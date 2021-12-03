@@ -107,11 +107,13 @@
     <Compile Include="Controller\ProdutoController\AlteracaoProdutoController.cs" />
     <Compile Include="Controller\ProdutoController\CadastroProdutoController.cs" />
     <Compile Include="Controller\ProdutoController\ListaProdutoController.cs" />
+    <Compile Include="Controller\RelatorioFiltroController\RelatorioVendaController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\ProdutoDao.cs" />
+    <Compile Include="Dao\RelatorioDeVendaProduto.cs" />
     <Compile Include="Dao\VendaDao.cs" />
     <Compile Include="Model\Carinho\CarrinhoModel.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />
@@ -222,6 +224,24 @@
     <Compile Include="View\MdiParent\MdiParentPrincipal.Designer.cs">
       <DependentUpon>MdiParentPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Relatorio\ListaClienteFiltro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\ListaClienteFiltro.Designer.cs">
+      <DependentUpon>ListaClienteFiltro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\ListaProdutoFiltro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\ListaProdutoFiltro.Designer.cs">
+      <DependentUpon>ListaProdutoFiltro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\RelatorioDeVendaProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\RelatorioDeVendaProduto.Designer.cs">
+      <DependentUpon>RelatorioDeVendaProduto.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -269,6 +289,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MdiParent\MdiParentPrincipal.resx">
       <DependentUpon>MdiParentPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\ListaClienteFiltro.resx">
+      <DependentUpon>ListaClienteFiltro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\ListaProdutoFiltro.resx">
+      <DependentUpon>ListaProdutoFiltro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\RelatorioDeVendaProduto.resx">
+      <DependentUpon>RelatorioDeVendaProduto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BDAUGUSTODataSet.xsc">
       <DependentUpon>BDAUGUSTODataSet.xsd</DependentUpon>
