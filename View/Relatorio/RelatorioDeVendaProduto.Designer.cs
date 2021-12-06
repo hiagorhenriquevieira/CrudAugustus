@@ -229,7 +229,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.panelMenu.Controls.Add(this.txtNomeProduto);
             this.panelMenu.Location = new System.Drawing.Point(640, 1);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(201, 613);
+            this.panelMenu.Size = new System.Drawing.Size(201, 503);
             this.panelMenu.TabIndex = 14;
             this.panelMenu.Visible = false;
             // 
@@ -269,7 +269,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // btnMenu
             // 
             this.btnMenu.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Location = new System.Drawing.Point(704, 87);
+            this.btnMenu.Location = new System.Drawing.Point(706, 87);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(102, 37);
             this.btnMenu.TabIndex = 14;
@@ -279,68 +279,58 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             // lblTotalBruto
             // 
-            this.lblTotalBruto.AutoSize = true;
             this.lblTotalBruto.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTotalBruto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTotalBruto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalBruto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotalBruto.Location = new System.Drawing.Point(29, 550);
+            this.lblTotalBruto.Location = new System.Drawing.Point(29, 551);
             this.lblTotalBruto.Name = "lblTotalBruto";
-            this.lblTotalBruto.Size = new System.Drawing.Size(61, 25);
+            this.lblTotalBruto.Size = new System.Drawing.Size(130, 25);
             this.lblTotalBruto.TabIndex = 17;
-            this.lblTotalBruto.Text = "label1";
             // 
             // lblTotalDesconto
             // 
-            this.lblTotalDesconto.AutoSize = true;
             this.lblTotalDesconto.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTotalDesconto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTotalDesconto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalDesconto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotalDesconto.Location = new System.Drawing.Point(188, 550);
+            this.lblTotalDesconto.Location = new System.Drawing.Point(191, 550);
             this.lblTotalDesconto.Name = "lblTotalDesconto";
-            this.lblTotalDesconto.Size = new System.Drawing.Size(61, 25);
+            this.lblTotalDesconto.Size = new System.Drawing.Size(130, 25);
             this.lblTotalDesconto.TabIndex = 18;
-            this.lblTotalDesconto.Text = "label1";
             // 
             // lblTotalLiquido
             // 
-            this.lblTotalLiquido.AutoSize = true;
             this.lblTotalLiquido.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTotalLiquido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTotalLiquido.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalLiquido.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotalLiquido.Location = new System.Drawing.Point(349, 550);
+            this.lblTotalLiquido.Location = new System.Drawing.Point(353, 551);
             this.lblTotalLiquido.Name = "lblTotalLiquido";
-            this.lblTotalLiquido.Size = new System.Drawing.Size(61, 25);
+            this.lblTotalLiquido.Size = new System.Drawing.Size(130, 25);
             this.lblTotalLiquido.TabIndex = 19;
-            this.lblTotalLiquido.Text = "label1";
             // 
             // lblTotalCusto
             // 
-            this.lblTotalCusto.AutoSize = true;
             this.lblTotalCusto.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTotalCusto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTotalCusto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalCusto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotalCusto.Location = new System.Drawing.Point(519, 550);
+            this.lblTotalCusto.Location = new System.Drawing.Point(515, 551);
             this.lblTotalCusto.Name = "lblTotalCusto";
-            this.lblTotalCusto.Size = new System.Drawing.Size(61, 25);
+            this.lblTotalCusto.Size = new System.Drawing.Size(130, 25);
             this.lblTotalCusto.TabIndex = 20;
-            this.lblTotalCusto.Text = "label1";
             // 
             // lblLucroReais
             // 
-            this.lblLucroReais.AutoSize = true;
             this.lblLucroReais.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblLucroReais.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblLucroReais.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLucroReais.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblLucroReais.Location = new System.Drawing.Point(688, 550);
+            this.lblLucroReais.Location = new System.Drawing.Point(677, 550);
             this.lblLucroReais.Name = "lblLucroReais";
-            this.lblLucroReais.Size = new System.Drawing.Size(61, 25);
+            this.lblLucroReais.Size = new System.Drawing.Size(130, 25);
             this.lblLucroReais.TabIndex = 21;
-            this.lblLucroReais.Text = "label1";
             // 
             // labelTotalBruto
             // 
@@ -356,7 +346,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             this.labelTotalDesconto.AutoSize = true;
             this.labelTotalDesconto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalDesconto.Location = new System.Drawing.Point(184, 527);
+            this.labelTotalDesconto.Location = new System.Drawing.Point(187, 527);
             this.labelTotalDesconto.Name = "labelTotalDesconto";
             this.labelTotalDesconto.Size = new System.Drawing.Size(134, 23);
             this.labelTotalDesconto.TabIndex = 23;
@@ -366,7 +356,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             this.labelTotalLiquido.AutoSize = true;
             this.labelTotalLiquido.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalLiquido.Location = new System.Drawing.Point(345, 527);
+            this.labelTotalLiquido.Location = new System.Drawing.Point(349, 527);
             this.labelTotalLiquido.Name = "labelTotalLiquido";
             this.labelTotalLiquido.Size = new System.Drawing.Size(117, 23);
             this.labelTotalLiquido.TabIndex = 24;
@@ -376,7 +366,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             this.labelTotalCusto.AutoSize = true;
             this.labelTotalCusto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalCusto.Location = new System.Drawing.Point(515, 527);
+            this.labelTotalCusto.Location = new System.Drawing.Point(511, 528);
             this.labelTotalCusto.Name = "labelTotalCusto";
             this.labelTotalCusto.Size = new System.Drawing.Size(103, 23);
             this.labelTotalCusto.TabIndex = 25;
@@ -386,7 +376,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             this.labelLucroReais.AutoSize = true;
             this.labelLucroReais.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLucroReais.Location = new System.Drawing.Point(684, 527);
+            this.labelLucroReais.Location = new System.Drawing.Point(673, 527);
             this.labelLucroReais.Name = "labelLucroReais";
             this.labelLucroReais.Size = new System.Drawing.Size(84, 23);
             this.labelLucroReais.TabIndex = 26;
