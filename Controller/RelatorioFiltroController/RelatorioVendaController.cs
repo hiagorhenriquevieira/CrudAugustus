@@ -2,12 +2,10 @@
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Produto;
+using CrudAugustusFashion.Model.RelatorioVendaProduto;
 using CrudAugustusFashion.View.Relatorio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Controller.RelatorioFiltroController
 {
@@ -21,6 +19,7 @@ namespace CrudAugustusFashion.Controller.RelatorioFiltroController
         {
             _clienteModel = new ClienteModel();
             _produtoModel = new ProdutoModel();
+            
         }
 
         public void AbrirRelatorioVendaProduto()
@@ -48,11 +47,11 @@ namespace CrudAugustusFashion.Controller.RelatorioFiltroController
             _frmRelatorioVendaProduto.ReceberClienteSelecionado(cliente);
         }
 
-        internal void FiltrarProdutos(ClienteModel clienteModel, ProdutoModel produtoModel)
+        internal IList<RelatorioVendaProdutoModel>FiltrarProdutos(FiltroRelatorioVendaProdutoModel filtros)
         {
             try
             {
-                new RelatorioDeVendaProduto().FiltrarProdutos(_clienteModel, _produtoModel);
+                return  new RelatorioDeVendaProduto().ListarRelatorioPeloFiltro(filtros);
             }
             catch (Exception excecao)
             {

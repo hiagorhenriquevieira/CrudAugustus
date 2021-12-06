@@ -1,13 +1,26 @@
-﻿using CrudAugustusFashion.Model.Cliente;
-using CrudAugustusFashion.Model.Produto;
+﻿using CrudAugustusFashion.Model.RelatorioVendaProduto;
+using Dapper;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CrudAugustusFashion.Dao
 {
-    class RelatorioDeVendaProduto
+    public class RelatorioDeVendaProduto
     {
-        internal void FiltrarProdutos(ClienteModel clienteModel, ProdutoModel produtoModel)
+        public IList<RelatorioVendaProdutoModel> ListarRelatorioPeloFiltro(FiltroRelatorioVendaProdutoModel filtro)
         {
-           
+            try
+            {
+                using (var conexao = ConexaoDao.conectar())
+                {
+                    return conexao.Query<RelatorioVendaProdutoModel>(filtro.GerarSql(), filtro.RecuperarParametros()).ToList();
+                }
+            }
+            catch (Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
         }
     }
 }

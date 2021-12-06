@@ -81,6 +81,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.dtgVisualizarProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgVisualizarProduto.Location = new System.Drawing.Point(28, 108);
             this.dtgVisualizarProduto.Name = "dtgVisualizarProduto";
+            this.dtgVisualizarProduto.ReadOnly = true;
             this.dtgVisualizarProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgVisualizarProduto.Size = new System.Drawing.Size(685, 216);
             this.dtgVisualizarProduto.TabIndex = 5;

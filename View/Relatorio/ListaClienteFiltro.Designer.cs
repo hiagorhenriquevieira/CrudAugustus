@@ -40,8 +40,9 @@ namespace CrudAugustusFashion.View.Relatorio
             // dtgVisualizarCliente
             // 
             this.dtgVisualizarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgVisualizarCliente.Location = new System.Drawing.Point(27, 114);
+            this.dtgVisualizarCliente.Location = new System.Drawing.Point(26, 113);
             this.dtgVisualizarCliente.Name = "dtgVisualizarCliente";
+            this.dtgVisualizarCliente.ReadOnly = true;
             this.dtgVisualizarCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgVisualizarCliente.Size = new System.Drawing.Size(685, 216);
             this.dtgVisualizarCliente.TabIndex = 0;
