@@ -3,6 +3,8 @@ using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Model.RelatorioVendaProduto;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CrudAugustusFashion.View.Relatorio
@@ -12,6 +14,7 @@ namespace CrudAugustusFashion.View.Relatorio
         private ClienteModel _clienteModel;
         private ProdutoModel _produtoModel;
         private RelatorioVendaController _relatorioVendaController;
+        private RelatorioVendaProdutoModel _relatorioVendaProdutoModel;
         private FiltroRelatorioVendaProdutoModel _filtroRelatorioVendaProdutoModel;
 
         public FrmRelatorioDeVendaProduto(RelatorioVendaController relatorioVendaController)
@@ -20,6 +23,7 @@ namespace CrudAugustusFashion.View.Relatorio
             _clienteModel = new ClienteModel();
             _filtroRelatorioVendaProdutoModel = new FiltroRelatorioVendaProdutoModel();
             _relatorioVendaController = relatorioVendaController;
+            _relatorioVendaProdutoModel = new RelatorioVendaProdutoModel();
         }
         
 
@@ -56,8 +60,18 @@ namespace CrudAugustusFashion.View.Relatorio
         private void btnFiltrarProdutosVendidos_Click(object sender, EventArgs e)
         {
             ReceberDatas();
-           dtgFiltragemDeVendas.DataSource = _relatorioVendaController.FiltrarProdutos(_filtroRelatorioVendaProdutoModel);
+            var lista = _relatorioVendaController.FiltrarProdutos(_filtroRelatorioVendaProdutoModel); ;
+            dtgFiltragemDeVendas.DataSource = lista;
+            AtualizarTotais(lista);
+        }
+        public void AtualizarTotais(IList<RelatorioVendaProdutoModel> lista)
+        {
 
+            lblTotalBruto.Text = lista.Sum(x => x.TotalBruto.Valor).ToString("c");
+            lblTotalCusto.Text = lista.Sum(x => x.TotalCusto.Valor).ToString("c");
+            lblTotalDesconto.Text = lista.Sum(x => x.Desconto.Valor).ToString("c");
+            lblTotalLiquido.Text = lista.Sum(x => x.TotalLiquido.Valor).ToString("c");
+            lblLucroReais.Text = lista.Sum(x => x.LucroReais.Valor).ToString("c");
         }
 
         private void btnLimparCampos_Click(object sender, EventArgs e)
@@ -98,9 +112,6 @@ namespace CrudAugustusFashion.View.Relatorio
             _filtroRelatorioVendaProdutoModel.Nome = "";
         }
 
-        private void FrmRelatorioDeVendaProduto_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
