@@ -55,7 +55,7 @@ namespace CrudAugustusFashion.View
             this.relatórioToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1319, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1008, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -78,7 +78,7 @@ namespace CrudAugustusFashion.View
             this.produtoToolStripMenuItem,
             this.pedidoToolStripMenuItem});
             this.cadastrarNovoUsuarioToolStripMenuItem.Name = "cadastrarNovoUsuarioToolStripMenuItem";
-            this.cadastrarNovoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarNovoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.cadastrarNovoUsuarioToolStripMenuItem.Text = "Cadastrar";
             this.cadastrarNovoUsuarioToolStripMenuItem.Click += new System.EventHandler(this.cadastrarNovoUsuarioToolStripMenuItem_Click);
             // 
@@ -118,7 +118,7 @@ namespace CrudAugustusFashion.View
             this.produtoToolStripMenuItem1,
             this.pedidoToolStripMenuItem1});
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.listarToolStripMenuItem.Text = "Listar";
             // 
             // clienteToolStripMenuItem1
@@ -152,7 +152,7 @@ namespace CrudAugustusFashion.View
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.exitToolStripMenuItem.Text = "Sai&r";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
@@ -177,18 +177,18 @@ namespace CrudAugustusFashion.View
             this.clienteToolStripMenuItem2.Name = "clienteToolStripMenuItem2";
             this.clienteToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem2.Text = "Cliente";
+            this.clienteToolStripMenuItem2.Click += new System.EventHandler(this.clienteToolStripMenuItem2_Click);
             // 
             // MdiParentPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1319, 579);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MdiParentPrincipal";
             this.Text = "Augustu\'s Fashion ";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MDIParent1_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

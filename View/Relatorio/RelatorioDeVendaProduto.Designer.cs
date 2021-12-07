@@ -64,6 +64,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             // dtgFiltragemDeVendas
             // 
+            this.dtgFiltragemDeVendas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgFiltragemDeVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgFiltragemDeVendas.Location = new System.Drawing.Point(29, 130);
             this.dtgFiltragemDeVendas.Name = "dtgFiltragemDeVendas";
@@ -189,7 +190,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.btnFiltrarProdutosVendidos.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnFiltrarProdutosVendidos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFiltrarProdutosVendidos.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarProdutosVendidos.Location = new System.Drawing.Point(53, 396);
+            this.btnFiltrarProdutosVendidos.Location = new System.Drawing.Point(53, 397);
             this.btnFiltrarProdutosVendidos.Name = "btnFiltrarProdutosVendidos";
             this.btnFiltrarProdutosVendidos.Size = new System.Drawing.Size(100, 37);
             this.btnFiltrarProdutosVendidos.TabIndex = 12;

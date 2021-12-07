@@ -2,7 +2,9 @@
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Controller.ProdutoController;
 using CrudAugustusFashion.Controller.RelatorioFiltroController;
+using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Produto;
+using CrudAugustusFashion.View.MdiParent;
 using System;
 using System.Windows.Forms;
 
@@ -18,8 +20,8 @@ namespace CrudAugustusFashion.View
         private CadastroPedidoController _cadastroPedidoController;
         private ProdutoModel _produto;
         private ListagemPedidoController _listaPedidoController;
-        private RelatorioVendaController _relatorioVenda;
-
+        private RelatorioVendaController _relatorioVendaController;
+        private RelatorioClienteController _relatorioClienteController;
         public MdiParentPrincipal()
         {
             InitializeComponent();
@@ -30,7 +32,8 @@ namespace CrudAugustusFashion.View
             _cadastroPedidoController = new CadastroPedidoController();
             _produto = new ProdutoModel();
             _listaPedidoController = new ListagemPedidoController();
-            _relatorioVenda = new RelatorioVendaController();
+            _relatorioVendaController = new RelatorioVendaController();
+            _relatorioClienteController = new RelatorioClienteController();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -98,7 +101,9 @@ namespace CrudAugustusFashion.View
 
         private void MDIParent1_Load(object sender, EventArgs e)
         {
-
+            var frmHome = new FrmHome();
+            frmHome.MdiParent = MdiSingletonModel.InstanciarMDI();
+            frmHome.Show();
         }
 
         private void colaboradorToolStripMenuItem_Click(object sender, EventArgs e) => _cadastroColaboradorController.AbrirCadastroColaborador();
@@ -120,6 +125,8 @@ namespace CrudAugustusFashion.View
 
         private void pedidoToolStripMenuItem1_Click(object sender, EventArgs e) => _listaPedidoController.AbrirListaPedido();
 
-        private void vendaToolStripMenuItem_Click(object sender, EventArgs e) => _relatorioVenda.AbrirRelatorioVendaProduto();
+        private void vendaToolStripMenuItem_Click(object sender, EventArgs e) => _relatorioVendaController.AbrirRelatorioVendaProduto();
+
+        private void clienteToolStripMenuItem2_Click(object sender, EventArgs e) => _relatorioClienteController.AbrirRelatorioCliente();
     }
 }

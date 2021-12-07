@@ -7,36 +7,29 @@ using System.Windows.Forms;
 
 namespace CrudAugustusFashion.View.Relatorio
 {
-    public partial class FrmListaClienteParaFiltro : Form
+    public partial class FrmListaClientesFiltro : Form
     {
         private ClienteModel _clienteModel;
-        private RelatorioVendaController _relatorioVendaController;
-        
-
-        public FrmListaClienteParaFiltro(RelatorioVendaController relatorioVendaController)
+        private ClienteDao _clienteDao;
+        private RelatorioClienteController _relatorioClienteController;
+        public FrmListaClientesFiltro(RelatorioClienteController relatorioClienteController)
         {
             InitializeComponent();
-            _clienteModel = new ClienteModel();           
-            _relatorioVendaController = relatorioVendaController;
-            
+            _clienteModel = new ClienteModel();
+            _relatorioClienteController = relatorioClienteController;
         }
 
         public void RetornarCliente()
         {
-            _relatorioVendaController.ReceberCliente(_clienteModel);
+            _relatorioClienteController.ReceberCliente(_clienteModel);
         }
 
-        private void FrmListaClienteParaFiltro_Load(object sender, EventArgs e)
+        private void btnFiltrar_Click(object sender, System.EventArgs e)
         {
             dtgVisualizarCliente.DataSource = new AlteracaoClienteController().BuscarListaCliente(txtFiltrarPorNome.Text, (_clienteModel.Ativo = true));
         }
 
-        private void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            dtgVisualizarCliente.DataSource = new AlteracaoClienteController().BuscarListaCliente(txtFiltrarPorNome.Text, (_clienteModel.Ativo = true));
-        }
-
-        private void dtgVisualizarCliente_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dtgVisualizarCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var idCliente = Convert.ToInt32(dtgVisualizarCliente.SelectedRows[0].Cells[0].Value);
             var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);

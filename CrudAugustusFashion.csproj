@@ -107,12 +107,14 @@
     <Compile Include="Controller\ProdutoController\AlteracaoProdutoController.cs" />
     <Compile Include="Controller\ProdutoController\CadastroProdutoController.cs" />
     <Compile Include="Controller\ProdutoController\ListaProdutoController.cs" />
+    <Compile Include="Controller\RelatorioFiltroController\RelatorioClienteController.cs" />
     <Compile Include="Controller\RelatorioFiltroController\RelatorioVendaController.cs" />
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\ProdutoDao.cs" />
+    <Compile Include="Dao\RelatorioDeClienteDao.cs" />
     <Compile Include="Dao\RelatorioDeVendaProduto.cs" />
     <Compile Include="Dao\VendaDao.cs" />
     <Compile Include="Model\Carinho\CarrinhoModel.cs" />
@@ -128,6 +130,8 @@
     <Compile Include="Model\Produto\DinheiroValidation.cs" />
     <Compile Include="Model\Produto\ProdutoLista.cs" />
     <Compile Include="Model\Produto\ProdutoModel.cs" />
+    <Compile Include="Model\RelatorioCliente\FiltroRelatorioCliente.cs" />
+    <Compile Include="Model\RelatorioCliente\RelatorioClienteModel.cs" />
     <Compile Include="Model\RelatorioVendaProduto\FiltroRelatorioVendaProdutoModel.cs" />
     <Compile Include="Model\RelatorioVendaProduto\RelatorioVendaProdutoModel.cs" />
     <Compile Include="Model\UsuarioModel\Cpf.cs" />
@@ -220,17 +224,35 @@
     <Compile Include="View\Lista\PedidoLista.Designer.cs">
       <DependentUpon>PedidoLista.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MdiParent\FrmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MdiParent\FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MdiParent\MdiParentPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\MdiParent\MdiParentPrincipal.Designer.cs">
       <DependentUpon>MdiParentPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Relatorio\FrmRelatorioCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\FrmRelatorioCliente.Designer.cs">
+      <DependentUpon>FrmRelatorioCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Relatorio\ListaClienteFiltro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Relatorio\ListaClienteFiltro.Designer.cs">
       <DependentUpon>ListaClienteFiltro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\ListaClientesFiltro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\ListaClientesFiltro.Designer.cs">
+      <DependentUpon>ListaClientesFiltro.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Relatorio\ListaProdutoFiltro.cs">
       <SubType>Form</SubType>
@@ -289,11 +311,20 @@
     <EmbeddedResource Include="View\Lista\PedidoLista.resx">
       <DependentUpon>PedidoLista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MdiParent\FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MdiParent\MdiParentPrincipal.resx">
       <DependentUpon>MdiParentPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\FrmRelatorioCliente.resx">
+      <DependentUpon>FrmRelatorioCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Relatorio\ListaClienteFiltro.resx">
       <DependentUpon>ListaClienteFiltro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\ListaClientesFiltro.resx">
+      <DependentUpon>ListaClientesFiltro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Relatorio\ListaProdutoFiltro.resx">
       <DependentUpon>ListaProdutoFiltro.cs</DependentUpon>
