@@ -11,37 +11,27 @@ namespace CrudAugustusFashion.View.Relatorio
 {
     public partial class FrmRelatorioDeVendaProduto : Form
     {
-        private ClienteModel _clienteModel;
-        private ProdutoModel _produtoModel;
-        private RelatorioVendaController _relatorioVendaController;
-        private RelatorioVendaProdutoModel _relatorioVendaProdutoModel;
+        
+        private RelatorioVendaController _relatorioVendaController;      
         private FiltroRelatorioVendaProdutoModel _filtroRelatorioVendaProdutoModel;
 
         public FrmRelatorioDeVendaProduto(RelatorioVendaController relatorioVendaController)
         {
             InitializeComponent();
-            _clienteModel = new ClienteModel();
+           
             _filtroRelatorioVendaProdutoModel = new FiltroRelatorioVendaProdutoModel();
             _relatorioVendaController = relatorioVendaController;
-            _relatorioVendaProdutoModel = new RelatorioVendaProdutoModel();
-        }
-        
-
-        private void btnFiltrarCliente_Click(object sender, EventArgs e)
-        {
-            _relatorioVendaController.AbrirListaDeClientes();
+           
         }
 
-        private void btnFiltrarProduto_Click(object sender, EventArgs e)
-        {
-            _relatorioVendaController.AbrirListaDeProdutos();
-        }
+        private void btnFiltrarCliente_Click(object sender, EventArgs e) => _relatorioVendaController.AbrirListaDeClientes();
+
+        private void btnFiltrarProduto_Click(object sender, EventArgs e) => _relatorioVendaController.AbrirListaDeProdutos();
 
         public void ReceberClienteSelecionado(ClienteModel cliente)
         {
             txtNomeCliente.Text = cliente.NomeCompleto.Nome;
             _filtroRelatorioVendaProdutoModel.IdCliente = cliente.IdCliente;
-
         }
 
         internal void ReceberProdutoSelecionado(ProdutoModel produto)
@@ -50,12 +40,29 @@ namespace CrudAugustusFashion.View.Relatorio
             _filtroRelatorioVendaProdutoModel.IdProduto = produto.IdProduto;
             _filtroRelatorioVendaProdutoModel.Nome = produto.Nome;
         }
-        internal void ReceberDatas()
+        internal bool ReceberDatas()
         {
+            if(ValidarDatas() == true)
+            {
             _filtroRelatorioVendaProdutoModel.DataEmissao = dtpDataInicial.Value;
             _filtroRelatorioVendaProdutoModel.DataFinal = dtpDataFinal.Value;
+            }
+            return false;
         }
 
+        private bool ValidarDatas()
+        {
+            if(dtpDataInicial.Value > DateTime.Now)
+            {
+                MessageBox.Show("Data inicial não pode ser maior do que a data atual");
+                return false;
+            }
+            if(dtpDataInicial.Value > dtpDataFinal.Value)
+            {
+                MessageBox.Show("Data inicial não pode ser maior do que a data final");
+            }
+            return true;
+        }
 
         private void btnFiltrarProdutosVendidos_Click(object sender, EventArgs e)
         {
@@ -66,7 +73,6 @@ namespace CrudAugustusFashion.View.Relatorio
         }
         public void AtualizarTotais(IList<RelatorioVendaProdutoModel> lista)
         {
-
             lblTotalBruto.Text = lista.Sum(x => x.TotalBruto.Valor).ToString("c");
             lblTotalCusto.Text = lista.Sum(x => x.TotalCusto.Valor).ToString("c");
             lblTotalDesconto.Text = lista.Sum(x => x.Desconto.Valor).ToString("c");
@@ -80,25 +86,13 @@ namespace CrudAugustusFashion.View.Relatorio
             LimparProduto();
         }
 
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            panelMenu.Visible = true;
-        }
+        private void btnMenu_Click(object sender, EventArgs e) => panelMenu.Visible = true;
 
-        private void btnFechar_Click(object sender, EventArgs e)
-        {
-            panelMenu.Visible = false;
-        }
+        private void btnFechar_Click(object sender, EventArgs e) => panelMenu.Visible = false;
 
-        private void btnLimparCliente_Click(object sender, EventArgs e)
-        {
-            LimparCliente();
-        }
+        private void btnLimparCliente_Click(object sender, EventArgs e) => LimparCliente();
 
-        private void btnLimparProduto_Click(object sender, EventArgs e)
-        {
-            LimparProduto();
-        }
+        private void btnLimparProduto_Click(object sender, EventArgs e) => LimparProduto();
 
         private void LimparCliente()
         {
@@ -112,6 +106,10 @@ namespace CrudAugustusFashion.View.Relatorio
             _filtroRelatorioVendaProdutoModel.Nome = "";
         }
 
-        
+        private void FrmRelatorioDeVendaProduto_Load(object sender, EventArgs e)
+        {
+            var data = DateTime.Now;
+            dtpDataInicial.Value = new DateTime(data.Year, data.Month, 1);
+        }
     }
 }

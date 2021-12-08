@@ -405,6 +405,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.Controls.Add(this.labelLucroReais);
             this.Name = "FrmRelatorioDeVendaProduto";
             this.Text = "Relatorio de venda";
+            this.Load += new System.EventHandler(this.FrmRelatorioDeVendaProduto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgFiltragemDeVendas)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();

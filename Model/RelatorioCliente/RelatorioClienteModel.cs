@@ -1,6 +1,4 @@
 ﻿using CrudAugustusFashion.Model.Produto;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace CrudAugustusFashion.Model.RelatorioCliente
 {

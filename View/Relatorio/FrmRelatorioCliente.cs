@@ -3,12 +3,7 @@ using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.RelatorioCliente;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CrudAugustusFashion.View.Relatorio
@@ -31,25 +26,16 @@ namespace CrudAugustusFashion.View.Relatorio
             AtribuirDataAoPrimeiroDiaDoMes();
             AtribuirOrdemCrescente();
         }
-        private void AtribuirOrdemCrescente()
-        {
-            cmbOrdemParaFiltro.SelectedIndex = 0;
-        }
+        private void AtribuirOrdemCrescente() => cmbOrdemParaFiltro.SelectedIndex = 0;
 
         private void AtribuirDataAoPrimeiroDiaDoMes()
         {
             var data = DateTime.Now;
             dtpDataInicial.Value = new DateTime(data.Year, data.Month, 1);
         }
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            panelMenu.Visible = true;
-        }
+        private void btnMenu_Click(object sender, EventArgs e) => panelMenu.Visible = true;
 
-        private void btnFechar_Click(object sender, EventArgs e)
-        {
-            panelMenu.Visible = false;
-        }
+        private void btnFechar_Click(object sender, EventArgs e) => panelMenu.Visible = false;
 
         internal void ReceberClienteSelecionado(ClienteModel clienteModel)
         {
@@ -96,7 +82,6 @@ namespace CrudAugustusFashion.View.Relatorio
 
         public  void AtualizarValor(IList<RelatorioClienteModel> lista)
         {
-
             lblTotalBruto.Text = lista.Sum(x => x.TotalBruto.Valor).ToString("c");
             lblTotalVendas.Text = lista.Sum(x => x.QuantidadeVendas).ToString();
             lblTotalDesconto.Text = lista.Sum(x => x.TotalDesconto.Valor).ToString("c");
@@ -125,8 +110,7 @@ namespace CrudAugustusFashion.View.Relatorio
         private void btnLimparOrdenarPor_Click(object sender, EventArgs e)
         {
             _filtroRelatorioClienteModel.OrdenarPor = -1;
-            cmbOrdemSelecao.Text = "";
-           
+            cmbOrdemSelecao.Text = "";  
         }
 
         private void btnLimparCampos_Click(object sender, EventArgs e)
@@ -135,12 +119,6 @@ namespace CrudAugustusFashion.View.Relatorio
             txtNomeCliente.Text = "";
             _filtroRelatorioClienteModel.OrdenarPor = -1;
             cmbOrdemSelecao.SelectedIndex = -1;
-            _filtroRelatorioClienteModel.Ordem = 0;
-            cmbOrdemParaFiltro.SelectedIndex = 0;
-        }
-
-        private void btnLimparOrdem_Click(object sender, EventArgs e)
-        {
             _filtroRelatorioClienteModel.Ordem = 0;
             cmbOrdemParaFiltro.SelectedIndex = 0;
         }
