@@ -17,11 +17,13 @@ namespace CrudAugustusFashion.View.Relatorio
     {
         private RelatorioClienteController _relatorioClienteController;
         private FiltroRelatorioCliente _filtroRelatorioClienteModel;
+        private RelatorioClienteModel _relatorioClienteModel;
         public FrmRelatorioCliente(RelatorioClienteController relatorioClienteController)
         {
             InitializeComponent();
             _relatorioClienteController = relatorioClienteController;
             _filtroRelatorioClienteModel = new FiltroRelatorioCliente();
+            _relatorioClienteModel = new RelatorioClienteModel();
         }
 
         private void FrmRelatorioCliente_Load(object sender, EventArgs e)
@@ -53,15 +55,14 @@ namespace CrudAugustusFashion.View.Relatorio
         {
             txtNomeCliente.Text = clienteModel.NomeCompleto.Nome;
             _filtroRelatorioClienteModel.IdCliente = clienteModel.IdCliente;
-        }
-        public void RetornarData()
+        } 
+
+        public bool ReceberDadosDoForm()
         {
+            if(ValidarDatas() == true)
+            {
             _filtroRelatorioClienteModel.DataEmissao = dtpDataInicial.Value;
             _filtroRelatorioClienteModel.DataFinal = dtpDataFinal.Value;
-        }
-
-        public void ReceberDadosDoForm()
-        {
             _filtroRelatorioClienteModel.LimiteClientes = Convert.ToInt32(nudLimiteClientes.Value);
             _filtroRelatorioClienteModel.OrdenarPor = cmbOrdemSelecao.SelectedIndex;
             _filtroRelatorioClienteModel.Ordem = cmbOrdemParaFiltro.SelectedIndex;
@@ -70,23 +71,36 @@ namespace CrudAugustusFashion.View.Relatorio
                 _filtroRelatorioClienteModel.ValorMinimo = Convert.ToDecimal(txtValorParaFiltro.Text);
             }
             else _filtroRelatorioClienteModel.ValorMinimo = 0;
+            }
+            return false;
+        }
+
+        private bool ValidarDatas()
+        {
+            if (dtpDataInicial.Value > DateTime.Now || dtpDataInicial.Value > dtpDataFinal.Value)
+            {
+                MessageBox.Show("Data inicial não pode ser superior ao dia atual");
+                return false;
+            }
+            return true;
         }
 
         private void btnFiltrarProdutosVendidos_Click(object sender, EventArgs e)
         {
-            RetornarData();
             ReceberDadosDoForm();
-            var lista = _relatorioClienteController.FiltrarProdutos(_filtroRelatorioClienteModel); ;
+            var lista = _relatorioClienteController.FiltrarProdutos(_filtroRelatorioClienteModel); 
             dtgFiltragemDeClientes.DataSource = lista;
+            
             AtualizarValor(lista);
         }
 
-        private void AtualizarValor(IList<RelatorioClienteModel> lista)
+        public  void AtualizarValor(IList<RelatorioClienteModel> lista)
         {
+
             lblTotalBruto.Text = lista.Sum(x => x.TotalBruto.Valor).ToString("c");
             lblTotalVendas.Text = lista.Sum(x => x.QuantidadeVendas).ToString();
-            lblTotalDesconto.Text = lista.Sum(x => x.Desconto.Valor).ToString("c");
-            lblTotalLiquido.Text = lista.Sum(x => x.TotalLiquido.Valor).ToString("c");
+            lblTotalDesconto.Text = lista.Sum(x => x.TotalDesconto.Valor).ToString("c");
+            lblTotalLiquido.Text = lista.Sum(x => x.TotalLiquido.Valor).ToString("c");             
         }
 
         private void txtValorParaFiltro_KeyPress(object sender, KeyPressEventArgs e)

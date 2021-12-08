@@ -1,4 +1,6 @@
-﻿namespace CrudAugustusFashion.Model.Produto
+﻿using System;
+
+namespace CrudAugustusFashion.Model.Produto
 {
     public class Dinheiro
     {
@@ -7,6 +9,11 @@
         public Dinheiro(decimal dinheiro)
         {
             _dinheiro = dinheiro;
+        }
+
+        internal Dinheiro Sum(Func<object, object> p)
+        {
+            throw new NotImplementedException();
         }
 
         public Dinheiro(string dinheiro)

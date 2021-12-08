@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using CrudAugustusFashion.Model.RelatorioCliente;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -59,7 +61,10 @@ namespace CrudAugustusFashion.Validacoes
         public static bool ValidarCelular(this string celular) =>
             new Regex(@"^[0-9]{11}$").Match(celular).Success;
 
-
+        public static void CalcularTotaisView(IList<RelatorioClienteModel> lista)
+        {
+             lista.Sum(x => x.TotalBruto.Valor).ToString("c");
+        }
         public static string RetornarApenasNumeros(string valor)
         {
             return new string((from c in valor

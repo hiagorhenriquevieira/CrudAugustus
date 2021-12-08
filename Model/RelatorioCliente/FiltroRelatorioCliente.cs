@@ -21,19 +21,17 @@ namespace CrudAugustusFashion.Model.RelatorioCliente
 
     public string GeradorDeSql()
     {
-        var select = @" Select ";   
+        var select = @" Select ";
 
-        var Conteudo = @" u.Nome, count(v.IdVenda) as QuantidadeVendas,sum(pp.PrecoVenda * pp.QuantidadeProduto) as TotalBruto, 
-                        SUM(pp.Desconto * pp.QuantidadeProduto) as Desconto, sum(pp.PrecoLiquido * pp.QuantidadeProduto) as TotalLiquido
+        var Conteudo = @"c.IdCliente, u.Nome, count(v.IdVenda) as QuantidadeVendas, sum(v.TotalBruto) as TotalBruto, 
+                        SUM(v.TotalDesconto) as TotalDesconto, sum(v.TotalLiquido) as TotalLiquido
                         from Clientes c 
                         inner join Venda v on v.IdCliente = c.IdCliente
-                        inner join PedidosProduto pp on pp.IdVenda = v.IdVenda
-                        inner join Usuarios u on u.IdUsuario = c.IdUsuario ";
+                        inner join Usuarios u on u.IdUsuario = c.IdUsuario";
 
-        var Where = @" where v.DataEmissao BETWEEN @DataEmissao and @DataFinal
-                       and v.status = 1 ";
+        var Where = @" where v.DataEmissao BETWEEN @DataEmissao and @DataFinal  ";
 
-        var GroupBy = " Group BY u.Nome ";
+        var GroupBy = " Group BY c.IdCliente, u.Nome ";
 
             if (IdCliente != 0) Where += " and v.IdCliente = @IdCliente ";
         
