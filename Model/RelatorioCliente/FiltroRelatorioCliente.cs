@@ -31,27 +31,38 @@ namespace CrudAugustusFashion.Model.RelatorioCliente
 
             if (IdCliente != 0) Where += " and v.IdCliente = @IdCliente ";
 
-            if (ValorMinimo != 0) GroupBy += " Having sum(pp.PrecoLiquido * pp.QuantidadeProduto) > @ValorMinimo ";
+            if (ValorMinimo != 0) GroupBy += " Having sum(v.TotalLiquido) > @ValorMinimo ";
 
             if (LimiteClientes != 0) select += " top  " + LimiteClientes;
 
-            if (OrdenarPor == 2 && Ordem == 1) GroupBy += " Order by TotalLiquido desc ";
-            else if (OrdenarPor == 2 && Ordem == 0) GroupBy += " Order by TotalLiquido asc ";
-
-
-
-            else if (OrdenarPor == 0 && Ordem == 1) GroupBy += " Order by QuantidadeVendas desc ";
-            else  if (OrdenarPor == 0 && Ordem == 0) GroupBy += " Order by QuantidadeVendas asc ";
-        
-
-        else if (OrdenarPor == 1 && Ordem == 1) GroupBy += " Order by Desconto desc ";
-        else if (OrdenarPor == 1 && Ordem == 0) GroupBy += " Order by Desconto asc ";
+            GroupBy += GerarOrderBy(); 
         
 
 
             return select + Conteudo + Where + GroupBy;
     }
        
+        private string GerarOrderBy()
+        {
+            if (OrdenarPor == 2 && Ordem == 1)
+                return " Order by TotalLiquido desc ";
+
+            if (OrdenarPor == 2 && Ordem == 0)
+                return " Order by TotalLiquido asc ";
+
+            if (OrdenarPor == 0 && Ordem == 1)
+                return " Order by QuantidadeVendas desc ";
+            if (OrdenarPor == 0 && Ordem == 0)
+                return " Order by QuantidadeVendas asc ";
+
+
+            if (OrdenarPor == 1 && Ordem == 1)
+                return " Order by Desconto desc ";
+            if (OrdenarPor == 1 && Ordem == 0)
+                return " Order by Desconto asc ";
+
+            return "";
+        }
 
 
     public DynamicParameters RecuperarParametros()
