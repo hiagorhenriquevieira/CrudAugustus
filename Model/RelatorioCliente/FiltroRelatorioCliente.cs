@@ -1,9 +1,5 @@
 ﻿using Dapper;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Model.RelatorioCliente
 {
@@ -21,31 +17,31 @@ namespace CrudAugustusFashion.Model.RelatorioCliente
 
     public string GeradorDeSql()
     {
-        var select = @" Select ";
+            var select = @" Select ";
 
-        var Conteudo = @"c.IdCliente, u.Nome, count(v.IdVenda) as QuantidadeVendas, sum(v.TotalBruto) as TotalBruto, 
+            var Conteudo = @"c.IdCliente, u.Nome, count(v.IdVenda) as QuantidadeVendas, sum(v.TotalBruto) as TotalBruto, 
                         SUM(v.TotalDesconto) as TotalDesconto, sum(v.TotalLiquido) as TotalLiquido
                         from Clientes c 
                         inner join Venda v on v.IdCliente = c.IdCliente
                         inner join Usuarios u on u.IdUsuario = c.IdUsuario";
 
-        var Where = @" where v.DataEmissao BETWEEN @DataEmissao and @DataFinal  ";
+            var Where = @" where v.DataEmissao BETWEEN @DataEmissao and @DataFinal  ";
 
-        var GroupBy = " Group BY c.IdCliente, u.Nome ";
+            var GroupBy = " Group BY c.IdCliente, u.Nome ";
 
             if (IdCliente != 0) Where += " and v.IdCliente = @IdCliente ";
-        
-        if(ValorMinimo != 0) GroupBy += " Having sum(pp.PrecoLiquido * pp.QuantidadeProduto) > @ValorMinimo ";
 
-        if (LimiteClientes != 0) select += " top  " + LimiteClientes;
+            if (ValorMinimo != 0) GroupBy += " Having sum(pp.PrecoLiquido * pp.QuantidadeProduto) > @ValorMinimo ";
 
-        if (OrdenarPor == 2 && Ordem == 1) GroupBy += " Order by TotalLiquido desc ";
-        else if (OrdenarPor == 2 && Ordem == 0) GroupBy += " Order by TotalLiquido asc ";
-        
-        
+            if (LimiteClientes != 0) select += " top  " + LimiteClientes;
 
-        else if (OrdenarPor == 0 && Ordem == 1) GroupBy += " Order by QuantidadeVendas desc ";
-        else  if (OrdenarPor == 0 && Ordem == 0) GroupBy += " Order by QuantidadeVendas asc ";
+            if (OrdenarPor == 2 && Ordem == 1) GroupBy += " Order by TotalLiquido desc ";
+            else if (OrdenarPor == 2 && Ordem == 0) GroupBy += " Order by TotalLiquido asc ";
+
+
+
+            else if (OrdenarPor == 0 && Ordem == 1) GroupBy += " Order by QuantidadeVendas desc ";
+            else  if (OrdenarPor == 0 && Ordem == 0) GroupBy += " Order by QuantidadeVendas asc ";
         
 
         else if (OrdenarPor == 1 && Ordem == 1) GroupBy += " Order by Desconto desc ";
@@ -54,8 +50,8 @@ namespace CrudAugustusFashion.Model.RelatorioCliente
 
 
             return select + Conteudo + Where + GroupBy;
-        
     }
+       
 
 
     public DynamicParameters RecuperarParametros()
