@@ -13,8 +13,8 @@ namespace CrudAugustusFashion.Model.RelatorioCliente
         public int IdCliente { get; set; }
         public decimal ValorMinimo { get; set; }
         public int LimiteClientes { get; set; }
-        public string OrdenarPor { get; set; }
-        public string Ordem{ get; set; }
+        public int OrdenarPor { get; set; }
+        public int Ordem{ get; set; }
         public DateTime DataEmissao { get; set; }
         public DateTime DataFinal { get; set; }
 
@@ -41,18 +41,18 @@ namespace CrudAugustusFashion.Model.RelatorioCliente
 
         if (LimiteClientes != 0) select += " top  " + LimiteClientes;
 
-        if (OrdenarPor == "Total Liquido" && Ordem == "Decrescente") GroupBy += " Order by TotalLiquido desc ";
-        if (OrdenarPor == "Total Liquido" && Ordem == "Crescente") GroupBy += " Order by TotalLiquido asc ";
-        if (OrdenarPor == "Total Liquido" && Ordem == "") GroupBy += " Order by TotalLiquido ";
+        if (OrdenarPor == 2 && Ordem == 1) GroupBy += " Order by TotalLiquido desc ";
+        else if (OrdenarPor == 2 && Ordem == 0) GroupBy += " Order by TotalLiquido asc ";
+        
         
 
-        if (OrdenarPor == "Quantidade" && Ordem == "Decrescente") GroupBy += " Order by QuantidadeVendas desc ";
-        if (OrdenarPor == "Quantidade" && Ordem == "Crescente") GroupBy += " Order by QuantidadeVendas asc ";
-        if (OrdenarPor == "Quantidade" && Ordem == "") GroupBy += " Order by QuantidadeVendas ";
+        else if (OrdenarPor == 0 && Ordem == 1) GroupBy += " Order by QuantidadeVendas desc ";
+        else  if (OrdenarPor == 0 && Ordem == 0) GroupBy += " Order by QuantidadeVendas asc ";
+        
 
-        if (OrdenarPor == "Total Desconto" && Ordem == "Decrescente") GroupBy += " Order by Desconto desc ";
-        if (OrdenarPor == "Total Desconto" && Ordem == "Crescente") GroupBy += " Order by Desconto asc ";
-        if (OrdenarPor == "Total Desconto" && Ordem == "") GroupBy += " Order by Desconto ";
+        else if (OrdenarPor == 1 && Ordem == 1) GroupBy += " Order by Desconto desc ";
+        else if (OrdenarPor == 1 && Ordem == 0) GroupBy += " Order by Desconto asc ";
+        
 
 
             return select + Conteudo + Where + GroupBy;

@@ -26,11 +26,19 @@ namespace CrudAugustusFashion.View.Relatorio
 
         private void FrmRelatorioCliente_Load(object sender, EventArgs e)
         {
-            var data = DateTime.Now;
-
-            dtpDataInicial.Value = new DateTime(data.Year, data.Month, 1);
+            AtribuirDataAoPrimeiroDiaDoMes();
+            AtribuirOrdemCrescente();
+        }
+        private void AtribuirOrdemCrescente()
+        {
+            cmbOrdemParaFiltro.SelectedIndex = 0;
         }
 
+        private void AtribuirDataAoPrimeiroDiaDoMes()
+        {
+            var data = DateTime.Now;
+            dtpDataInicial.Value = new DateTime(data.Year, data.Month, 1);
+        }
         private void btnMenu_Click(object sender, EventArgs e)
         {
             panelMenu.Visible = true;
@@ -55,8 +63,8 @@ namespace CrudAugustusFashion.View.Relatorio
         public void ReceberDadosDoForm()
         {
             _filtroRelatorioClienteModel.LimiteClientes = Convert.ToInt32(nudLimiteClientes.Value);
-            _filtroRelatorioClienteModel.OrdenarPor = cmbOrdemSelecao.Text;
-            _filtroRelatorioClienteModel.Ordem = cmbOrdemParaFiltro.Text;
+            _filtroRelatorioClienteModel.OrdenarPor = cmbOrdemSelecao.SelectedIndex;
+            _filtroRelatorioClienteModel.Ordem = cmbOrdemParaFiltro.SelectedIndex;
             if (txtValorParaFiltro.Text != "")
             {
                 _filtroRelatorioClienteModel.ValorMinimo = Convert.ToDecimal(txtValorParaFiltro.Text);
@@ -102,7 +110,7 @@ namespace CrudAugustusFashion.View.Relatorio
 
         private void btnLimparOrdenarPor_Click(object sender, EventArgs e)
         {
-            _filtroRelatorioClienteModel.OrdenarPor = "";
+            _filtroRelatorioClienteModel.OrdenarPor = -1;
             cmbOrdemSelecao.Text = "";
            
         }
@@ -111,16 +119,16 @@ namespace CrudAugustusFashion.View.Relatorio
         {
             _filtroRelatorioClienteModel.IdCliente = 0;
             txtNomeCliente.Text = "";
-            _filtroRelatorioClienteModel.OrdenarPor = "";
-            cmbOrdemSelecao.Text = "";
-            _filtroRelatorioClienteModel.Ordem = "";
-            cmbOrdemParaFiltro.Text = "";
+            _filtroRelatorioClienteModel.OrdenarPor = -1;
+            cmbOrdemSelecao.SelectedIndex = -1;
+            _filtroRelatorioClienteModel.Ordem = 0;
+            cmbOrdemParaFiltro.SelectedIndex = 0;
         }
 
         private void btnLimparOrdem_Click(object sender, EventArgs e)
         {
-            _filtroRelatorioClienteModel.Ordem = "";
-            cmbOrdemParaFiltro.Text = "";
+            _filtroRelatorioClienteModel.Ordem = 0;
+            cmbOrdemParaFiltro.SelectedIndex = 0;
         }
     }
 }

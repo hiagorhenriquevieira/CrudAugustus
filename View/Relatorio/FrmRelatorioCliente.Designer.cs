@@ -37,6 +37,15 @@ namespace CrudAugustusFashion.View.Relatorio
             this.lblTotalDesconto = new System.Windows.Forms.Label();
             this.lblTotalBruto = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.cmbOrdemParaFiltro = new System.Windows.Forms.ComboBox();
+            this.labelCrescenteDecrescente = new System.Windows.Forms.Label();
+            this.labelOrdernarPor = new System.Windows.Forms.Label();
+            this.cmbOrdemSelecao = new System.Windows.Forms.ComboBox();
+            this.nudLimiteClientes = new System.Windows.Forms.NumericUpDown();
+            this.labelLimitadorDeClientes = new System.Windows.Forms.Label();
+            this.btnLimparCliente = new System.Windows.Forms.Button();
+            this.btnFechar = new System.Windows.Forms.Button();
+            this.btnFiltrarCliente = new System.Windows.Forms.Button();
             this.dtpDataFinal = new System.Windows.Forms.DateTimePicker();
             this.btnFiltrarProdutosVendidos = new System.Windows.Forms.Button();
             this.dtpDataInicial = new System.Windows.Forms.DateTimePicker();
@@ -52,18 +61,9 @@ namespace CrudAugustusFashion.View.Relatorio
             this.btnMenu = new System.Windows.Forms.Button();
             this.lblTotalVendas = new System.Windows.Forms.Label();
             this.labelTotalVendas = new System.Windows.Forms.Label();
-            this.btnFiltrarCliente = new System.Windows.Forms.Button();
-            this.btnFechar = new System.Windows.Forms.Button();
-            this.btnLimparCliente = new System.Windows.Forms.Button();
-            this.labelLimitadorDeClientes = new System.Windows.Forms.Label();
-            this.nudLimiteClientes = new System.Windows.Forms.NumericUpDown();
-            this.cmbOrdemSelecao = new System.Windows.Forms.ComboBox();
-            this.labelOrdernarPor = new System.Windows.Forms.Label();
-            this.labelCrescenteDecrescente = new System.Windows.Forms.Label();
-            this.cmbOrdemParaFiltro = new System.Windows.Forms.ComboBox();
             this.panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgFiltragemDeClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLimiteClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgFiltragemDeClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRelatorioCliente
@@ -166,6 +166,115 @@ namespace CrudAugustusFashion.View.Relatorio
             this.panelMenu.Size = new System.Drawing.Size(196, 600);
             this.panelMenu.TabIndex = 29;
             this.panelMenu.Visible = false;
+            // 
+            // cmbOrdemParaFiltro
+            // 
+            this.cmbOrdemParaFiltro.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cmbOrdemParaFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOrdemParaFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbOrdemParaFiltro.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbOrdemParaFiltro.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cmbOrdemParaFiltro.FormattingEnabled = true;
+            this.cmbOrdemParaFiltro.Items.AddRange(new object[] {
+            "Crescente",
+            "Decrescente"});
+            this.cmbOrdemParaFiltro.Location = new System.Drawing.Point(13, 359);
+            this.cmbOrdemParaFiltro.Name = "cmbOrdemParaFiltro";
+            this.cmbOrdemParaFiltro.Size = new System.Drawing.Size(136, 27);
+            this.cmbOrdemParaFiltro.TabIndex = 26;
+            // 
+            // labelCrescenteDecrescente
+            // 
+            this.labelCrescenteDecrescente.AutoSize = true;
+            this.labelCrescenteDecrescente.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCrescenteDecrescente.Location = new System.Drawing.Point(11, 336);
+            this.labelCrescenteDecrescente.Name = "labelCrescenteDecrescente";
+            this.labelCrescenteDecrescente.Size = new System.Drawing.Size(64, 19);
+            this.labelCrescenteDecrescente.TabIndex = 24;
+            this.labelCrescenteDecrescente.Text = "Ordem:";
+            // 
+            // labelOrdernarPor
+            // 
+            this.labelOrdernarPor.AutoSize = true;
+            this.labelOrdernarPor.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOrdernarPor.Location = new System.Drawing.Point(11, 269);
+            this.labelOrdernarPor.Name = "labelOrdernarPor";
+            this.labelOrdernarPor.Size = new System.Drawing.Size(108, 19);
+            this.labelOrdernarPor.TabIndex = 21;
+            this.labelOrdernarPor.Text = "Ordernar Por:";
+            // 
+            // cmbOrdemSelecao
+            // 
+            this.cmbOrdemSelecao.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cmbOrdemSelecao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOrdemSelecao.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbOrdemSelecao.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbOrdemSelecao.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cmbOrdemSelecao.FormattingEnabled = true;
+            this.cmbOrdemSelecao.Items.AddRange(new object[] {
+            "Quantidade",
+            "Total Desconto",
+            "Total Liquido",
+            " "});
+            this.cmbOrdemSelecao.Location = new System.Drawing.Point(15, 291);
+            this.cmbOrdemSelecao.Name = "cmbOrdemSelecao";
+            this.cmbOrdemSelecao.Size = new System.Drawing.Size(136, 27);
+            this.cmbOrdemSelecao.TabIndex = 20;
+            // 
+            // nudLimiteClientes
+            // 
+            this.nudLimiteClientes.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudLimiteClientes.Location = new System.Drawing.Point(15, 208);
+            this.nudLimiteClientes.Name = "nudLimiteClientes";
+            this.nudLimiteClientes.Size = new System.Drawing.Size(136, 27);
+            this.nudLimiteClientes.TabIndex = 19;
+            // 
+            // labelLimitadorDeClientes
+            // 
+            this.labelLimitadorDeClientes.AutoSize = true;
+            this.labelLimitadorDeClientes.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLimitadorDeClientes.Location = new System.Drawing.Point(11, 186);
+            this.labelLimitadorDeClientes.Name = "labelLimitadorDeClientes";
+            this.labelLimitadorDeClientes.Size = new System.Drawing.Size(131, 19);
+            this.labelLimitadorDeClientes.TabIndex = 17;
+            this.labelLimitadorDeClientes.Text = "Limite de clientes";
+            // 
+            // btnLimparCliente
+            // 
+            this.btnLimparCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLimparCliente.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimparCliente.Location = new System.Drawing.Point(156, 80);
+            this.btnLimparCliente.Name = "btnLimparCliente";
+            this.btnLimparCliente.Size = new System.Drawing.Size(33, 28);
+            this.btnLimparCliente.TabIndex = 15;
+            this.btnLimparCliente.Text = "🧻";
+            this.btnLimparCliente.UseVisualStyleBackColor = true;
+            this.btnLimparCliente.Click += new System.EventHandler(this.btnLimparCliente_Click);
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFechar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.Location = new System.Drawing.Point(155, 13);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(33, 27);
+            this.btnFechar.TabIndex = 14;
+            this.btnFechar.Text = "❌";
+            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
+            // btnFiltrarCliente
+            // 
+            this.btnFiltrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.btnFiltrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFiltrarCliente.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarCliente.Location = new System.Drawing.Point(118, 80);
+            this.btnFiltrarCliente.Name = "btnFiltrarCliente";
+            this.btnFiltrarCliente.Size = new System.Drawing.Size(33, 27);
+            this.btnFiltrarCliente.TabIndex = 11;
+            this.btnFiltrarCliente.Text = "🔍";
+            this.btnFiltrarCliente.UseVisualStyleBackColor = false;
+            this.btnFiltrarCliente.Click += new System.EventHandler(this.btnFiltrarCliente_Click);
             // 
             // dtpDataFinal
             // 
@@ -324,116 +433,6 @@ namespace CrudAugustusFashion.View.Relatorio
             this.labelTotalVendas.TabIndex = 39;
             this.labelTotalVendas.Text = "Total de Vendas";
             // 
-            // btnFiltrarCliente
-            // 
-            this.btnFiltrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.btnFiltrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFiltrarCliente.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarCliente.Location = new System.Drawing.Point(118, 80);
-            this.btnFiltrarCliente.Name = "btnFiltrarCliente";
-            this.btnFiltrarCliente.Size = new System.Drawing.Size(33, 27);
-            this.btnFiltrarCliente.TabIndex = 11;
-            this.btnFiltrarCliente.Text = "🔍";
-            this.btnFiltrarCliente.UseVisualStyleBackColor = false;
-            this.btnFiltrarCliente.Click += new System.EventHandler(this.btnFiltrarCliente_Click);
-            // 
-            // btnFechar
-            // 
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFechar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.Location = new System.Drawing.Point(155, 13);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(33, 27);
-            this.btnFechar.TabIndex = 14;
-            this.btnFechar.Text = "❌";
-            this.btnFechar.UseVisualStyleBackColor = true;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // btnLimparCliente
-            // 
-            this.btnLimparCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLimparCliente.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimparCliente.Location = new System.Drawing.Point(156, 80);
-            this.btnLimparCliente.Name = "btnLimparCliente";
-            this.btnLimparCliente.Size = new System.Drawing.Size(33, 28);
-            this.btnLimparCliente.TabIndex = 15;
-            this.btnLimparCliente.Text = "🧻";
-            this.btnLimparCliente.UseVisualStyleBackColor = true;
-            this.btnLimparCliente.Click += new System.EventHandler(this.btnLimparCliente_Click);
-            // 
-            // labelLimitadorDeClientes
-            // 
-            this.labelLimitadorDeClientes.AutoSize = true;
-            this.labelLimitadorDeClientes.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLimitadorDeClientes.Location = new System.Drawing.Point(11, 186);
-            this.labelLimitadorDeClientes.Name = "labelLimitadorDeClientes";
-            this.labelLimitadorDeClientes.Size = new System.Drawing.Size(131, 19);
-            this.labelLimitadorDeClientes.TabIndex = 17;
-            this.labelLimitadorDeClientes.Text = "Limite de clientes";
-            // 
-            // nudLimiteClientes
-            // 
-            this.nudLimiteClientes.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudLimiteClientes.Location = new System.Drawing.Point(15, 208);
-            this.nudLimiteClientes.Name = "nudLimiteClientes";
-            this.nudLimiteClientes.Size = new System.Drawing.Size(136, 27);
-            this.nudLimiteClientes.TabIndex = 19;
-            // 
-            // cmbOrdemSelecao
-            // 
-            this.cmbOrdemSelecao.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.cmbOrdemSelecao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbOrdemSelecao.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbOrdemSelecao.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbOrdemSelecao.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cmbOrdemSelecao.FormattingEnabled = true;
-            this.cmbOrdemSelecao.Items.AddRange(new object[] {
-            "Quantidade",
-            "Total Desconto",
-            "Total Liquido",
-            " "});
-            this.cmbOrdemSelecao.Location = new System.Drawing.Point(15, 291);
-            this.cmbOrdemSelecao.Name = "cmbOrdemSelecao";
-            this.cmbOrdemSelecao.Size = new System.Drawing.Size(136, 27);
-            this.cmbOrdemSelecao.TabIndex = 20;
-            // 
-            // labelOrdernarPor
-            // 
-            this.labelOrdernarPor.AutoSize = true;
-            this.labelOrdernarPor.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOrdernarPor.Location = new System.Drawing.Point(11, 269);
-            this.labelOrdernarPor.Name = "labelOrdernarPor";
-            this.labelOrdernarPor.Size = new System.Drawing.Size(108, 19);
-            this.labelOrdernarPor.TabIndex = 21;
-            this.labelOrdernarPor.Text = "Ordernar Por:";
-            // 
-            // labelCrescenteDecrescente
-            // 
-            this.labelCrescenteDecrescente.AutoSize = true;
-            this.labelCrescenteDecrescente.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCrescenteDecrescente.Location = new System.Drawing.Point(11, 336);
-            this.labelCrescenteDecrescente.Name = "labelCrescenteDecrescente";
-            this.labelCrescenteDecrescente.Size = new System.Drawing.Size(64, 19);
-            this.labelCrescenteDecrescente.TabIndex = 24;
-            this.labelCrescenteDecrescente.Text = "Ordem:";
-            // 
-            // cmbOrdemParaFiltro
-            // 
-            this.cmbOrdemParaFiltro.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.cmbOrdemParaFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbOrdemParaFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbOrdemParaFiltro.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbOrdemParaFiltro.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cmbOrdemParaFiltro.FormattingEnabled = true;
-            this.cmbOrdemParaFiltro.Items.AddRange(new object[] {
-            "Crescente",
-            "Decrescente",
-            " "});
-            this.cmbOrdemParaFiltro.Location = new System.Drawing.Point(13, 359);
-            this.cmbOrdemParaFiltro.Name = "cmbOrdemParaFiltro";
-            this.cmbOrdemParaFiltro.Size = new System.Drawing.Size(136, 27);
-            this.cmbOrdemParaFiltro.TabIndex = 26;
-            // 
             // FrmRelatorioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,8 +457,8 @@ namespace CrudAugustusFashion.View.Relatorio
             this.Load += new System.EventHandler(this.FrmRelatorioCliente_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgFiltragemDeClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLimiteClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgFiltragemDeClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

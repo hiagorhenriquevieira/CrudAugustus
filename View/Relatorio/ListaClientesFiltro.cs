@@ -10,7 +10,6 @@ namespace CrudAugustusFashion.View.Relatorio
     public partial class FrmListaClientesFiltro : Form
     {
         private ClienteModel _clienteModel;
-        private ClienteDao _clienteDao;
         private RelatorioClienteController _relatorioClienteController;
         public FrmListaClientesFiltro(RelatorioClienteController relatorioClienteController)
         {
