@@ -12,13 +12,14 @@ namespace CrudAugustusFashion.View.Relatorio
     {
         private RelatorioClienteController _relatorioClienteController;
         private FiltroRelatorioCliente _filtroRelatorioClienteModel;
-        private RelatorioClienteModel _relatorioClienteModel;
+        private RelatorioClienteViewModel _relatorioClienteViewModel;
+
         public FrmRelatorioCliente(RelatorioClienteController relatorioClienteController)
         {
             InitializeComponent();
             _relatorioClienteController = relatorioClienteController;
             _filtroRelatorioClienteModel = new FiltroRelatorioCliente();
-            _relatorioClienteModel = new RelatorioClienteModel();
+            _relatorioClienteViewModel = new RelatorioClienteViewModel();
         }
 
         private void FrmRelatorioCliente_Load(object sender, EventArgs e)
@@ -74,18 +75,18 @@ namespace CrudAugustusFashion.View.Relatorio
         private void btnFiltrarProdutosVendidos_Click(object sender, EventArgs e)
         {
             ReceberDadosDoForm();
-            var lista = _relatorioClienteController.FiltrarProdutos(_filtroRelatorioClienteModel); 
-            dtgFiltragemDeClientes.DataSource = lista;
+            _relatorioClienteViewModel.Relatorio = _relatorioClienteController.FiltrarProdutos(_filtroRelatorioClienteModel); 
+            dtgFiltragemDeClientes.DataSource = _relatorioClienteViewModel.Relatorio;
             
-            AtualizarValor(lista);
+            AtualizarValor();
         }
 
-        public  void AtualizarValor(IList<RelatorioClienteModel> lista)
+        public  void AtualizarValor()
         {
-            lblTotalBruto.Text = lista.Sum(x => x.TotalBruto.Valor).ToString("c");
-            lblTotalVendas.Text = lista.Sum(x => x.QuantidadeVendas).ToString();
-            lblTotalDesconto.Text = lista.Sum(x => x.TotalDesconto.Valor).ToString("c");
-            lblTotalLiquido.Text = lista.Sum(x => x.TotalLiquido.Valor).ToString("c");             
+            lblTotalBruto.Text = _relatorioClienteViewModel.TotalBruto.ToString();
+            lblTotalVendas.Text = _relatorioClienteViewModel.QuantidadeVendas.ToString();
+            lblTotalDesconto.Text = _relatorioClienteViewModel.TotalDesconto.ToString();
+            lblTotalLiquido.Text = _relatorioClienteViewModel.TotalLiquido.ToString();
         }
 
         private void txtValorParaFiltro_KeyPress(object sender, KeyPressEventArgs e)

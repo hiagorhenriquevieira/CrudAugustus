@@ -8,7 +8,7 @@ namespace CrudAugustusFashion.Dao
 {
     class RelatorioDeClienteDao
     {
-        internal IList<RelatorioClienteModel> ListarRelatorioPeloFiltro(FiltroRelatorioCliente filtros)
+        internal List<RelatorioClienteModel> ListarRelatorioPeloFiltro(FiltroRelatorioCliente filtros)
         {
             
             try
