@@ -8,7 +8,7 @@ namespace CrudAugustusFashion.Dao
 {
     public class RelatorioDeVendaProduto
     {
-        public IList<RelatorioVendaProdutoModel> ListarRelatorioPeloFiltro(FiltroRelatorioVendaProdutoModel filtro)
+        public List<RelatorioVendaProdutoModel> ListarRelatorioPeloFiltro(FiltroRelatorioVendaProdutoModel filtro)
         {
             var SelectRelatorio = @"Select p.IdProduto ,p.Nome, sum(pp.QuantidadeProduto) as Quantidade, sum(pp.PrecoVenda * pp.QuantidadeProduto) as TotalBruto, 
                                     SUM(pp.Desconto * pp.QuantidadeProduto)as Desconto, sum(pp.PrecoLiquido * pp.QuantidadeProduto) as TotalLiquido, 

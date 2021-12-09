@@ -14,6 +14,7 @@ namespace CrudAugustusFashion.View.Relatorio
         
         private RelatorioVendaController _relatorioVendaController;      
         private FiltroRelatorioVendaProdutoModel _filtroRelatorioVendaProdutoModel;
+        private RelatorioVendaProdutoViewModel _relatorioVendaProdutoViewModel;
 
         public FrmRelatorioDeVendaProduto(RelatorioVendaController relatorioVendaController)
         {
@@ -21,6 +22,7 @@ namespace CrudAugustusFashion.View.Relatorio
            
             _filtroRelatorioVendaProdutoModel = new FiltroRelatorioVendaProdutoModel();
             _relatorioVendaController = relatorioVendaController;
+            _relatorioVendaProdutoViewModel = new RelatorioVendaProdutoViewModel();
            
         }
 
@@ -67,17 +69,17 @@ namespace CrudAugustusFashion.View.Relatorio
         private void btnFiltrarProdutosVendidos_Click(object sender, EventArgs e)
         {
             ReceberDatas();
-            var lista = _relatorioVendaController.FiltrarProdutos(_filtroRelatorioVendaProdutoModel); ;
-            dtgFiltragemDeVendas.DataSource = lista;
-            AtualizarTotais(lista);
+            _relatorioVendaProdutoViewModel.Relatorio = _relatorioVendaController.FiltrarProdutos(_filtroRelatorioVendaProdutoModel); ;
+            dtgFiltragemDeVendas.DataSource = _relatorioVendaProdutoViewModel.Relatorio;
+            AtualizarTotais();
         }
-        public void AtualizarTotais(IList<RelatorioVendaProdutoModel> lista)
+        public void AtualizarTotais()
         {
-            lblTotalBruto.Text = lista.Sum(x => x.TotalBruto.Valor).ToString("c");
-            lblTotalCusto.Text = lista.Sum(x => x.TotalCusto.Valor).ToString("c");
-            lblTotalDesconto.Text = lista.Sum(x => x.Desconto.Valor).ToString("c");
-            lblTotalLiquido.Text = lista.Sum(x => x.TotalLiquido.Valor).ToString("c");
-            lblLucroReais.Text = lista.Sum(x => x.LucroReais.Valor).ToString("c");
+            lblTotalBruto.Text = _relatorioVendaProdutoViewModel.TotalBruto.ToString();
+            lblTotalCusto.Text = _relatorioVendaProdutoViewModel.TotalCusto.ToString();
+            lblTotalDesconto.Text = _relatorioVendaProdutoViewModel.TotalDesconto.ToString();
+            lblTotalLiquido.Text = _relatorioVendaProdutoViewModel.TotalLiquido.ToString();
+            lblLucroReais.Text = _relatorioVendaProdutoViewModel.LucroReais.ToString();
         }
 
         private void btnLimparCampos_Click(object sender, EventArgs e)

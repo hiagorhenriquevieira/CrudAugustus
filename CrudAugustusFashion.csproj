@@ -138,6 +138,7 @@
     <Compile Include="Model\RelatorioCliente\RelatorioClienteViewModel.cs" />
     <Compile Include="Model\RelatorioVendaProduto\FiltroRelatorioVendaProdutoModel.cs" />
     <Compile Include="Model\RelatorioVendaProduto\RelatorioVendaProdutoModel.cs" />
+    <Compile Include="Model\RelatorioVendaProduto\RelatorioVendaProdutoViewModel.cs" />
     <Compile Include="Model\UsuarioModel\Cpf.cs" />
     <Compile Include="Model\UsuarioModel\CpfValidation.cs" />
     <Compile Include="Model\UsuarioModel\NomeCompleto.cs" />

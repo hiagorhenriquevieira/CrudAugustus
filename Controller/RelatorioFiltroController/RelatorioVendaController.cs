@@ -47,7 +47,7 @@ namespace CrudAugustusFashion.Controller.RelatorioFiltroController
             _frmRelatorioVendaProduto.ReceberClienteSelecionado(cliente);
         }
 
-        internal IList<RelatorioVendaProdutoModel>FiltrarProdutos(FiltroRelatorioVendaProdutoModel filtros)
+        internal List<RelatorioVendaProdutoModel>FiltrarProdutos(FiltroRelatorioVendaProdutoModel filtros)
         {
             try
             {
