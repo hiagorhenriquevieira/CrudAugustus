@@ -185,3 +185,4 @@ C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustu
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Relatorio.FrmRelatorioCliente.resources
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Relatorio.FrmListaClientesFiltro.resources
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.MdiParent.FrmHome.resources
+C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.ContasAReceber.FrmListaDeContasAReceber.resources

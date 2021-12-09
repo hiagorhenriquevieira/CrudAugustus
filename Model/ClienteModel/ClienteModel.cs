@@ -38,8 +38,9 @@ namespace CrudAugustusFashion.Model.Cliente
             var saldoAtualCliente = new ClienteDao().RecuperarValorGastoAPrazo(venda);
 
             var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
-
-            return saldoAtualCliente.ToString();
+            var saldoParaGastar = cliente.ValorLimite;
+           
+            return (saldoParaGastar - saldoAtualCliente).ToString();
         }
     }
 }

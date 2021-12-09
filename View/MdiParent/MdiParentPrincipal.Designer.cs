@@ -45,6 +45,8 @@ namespace CrudAugustusFashion.View
             this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contasPendentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contasPendentesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +54,8 @@ namespace CrudAugustusFashion.View
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
-            this.relatórioToolStripMenuItem});
+            this.relatórioToolStripMenuItem,
+            this.contasPendentesToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1008, 24);
@@ -168,16 +171,31 @@ namespace CrudAugustusFashion.View
             // vendaToolStripMenuItem
             // 
             this.vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
-            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.vendaToolStripMenuItem.Text = "Venda";
             this.vendaToolStripMenuItem.Click += new System.EventHandler(this.vendaToolStripMenuItem_Click);
             // 
             // clienteToolStripMenuItem2
             // 
             this.clienteToolStripMenuItem2.Name = "clienteToolStripMenuItem2";
-            this.clienteToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem2.Size = new System.Drawing.Size(111, 22);
             this.clienteToolStripMenuItem2.Text = "Cliente";
             this.clienteToolStripMenuItem2.Click += new System.EventHandler(this.clienteToolStripMenuItem2_Click);
+            // 
+            // contasPendentesToolStripMenuItem
+            // 
+            this.contasPendentesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contasPendentesToolStripMenuItem1});
+            this.contasPendentesToolStripMenuItem.Name = "contasPendentesToolStripMenuItem";
+            this.contasPendentesToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.contasPendentesToolStripMenuItem.Text = "Contas";
+            // 
+            // contasPendentesToolStripMenuItem1
+            // 
+            this.contasPendentesToolStripMenuItem1.Name = "contasPendentesToolStripMenuItem1";
+            this.contasPendentesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.contasPendentesToolStripMenuItem1.Text = "Contas Pendentes";
+            this.contasPendentesToolStripMenuItem1.Click += new System.EventHandler(this.contasPendentesToolStripMenuItem1_Click);
             // 
             // MdiParentPrincipal
             // 
@@ -215,6 +233,8 @@ namespace CrudAugustusFashion.View
         private System.Windows.Forms.ToolStripMenuItem relatórioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem contasPendentesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contasPendentesToolStripMenuItem1;
     }
 }
 

@@ -20,6 +20,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private CadastroPedidoController _cadastroPedido;
         private ClienteModel _clienteModel;
         private ColaboradorModel _colaboradorModel;
+        //private ContasAReceberModel _contasAReceberModel;
 
         public FrmCadastroPedido(VendaModel pedidoModel)
         {
@@ -28,6 +29,7 @@ namespace CrudAugustusFashion.View.Cadastro
             _cadastroPedido = new CadastroPedidoController();
             _clienteModel = new ClienteModel();
             _colaboradorModel = new ColaboradorModel();
+            //_contasAReceberModel = new ContasAReceberModel();
         }
 
         private void btnPesquisarProduto_Click(object sender, System.EventArgs e) =>
@@ -209,8 +211,11 @@ namespace CrudAugustusFashion.View.Cadastro
                         _pedidoModel.IdColaborador = Convert.ToInt32(lblIdColaborador.Text);
                         _pedidoModel.FormaDePagamento = comboBoxFormaPagamento.Text;
                         _pedidoModel.DataEmissao = DateTime.Now;
+                        if(_pedidoModel.FormaDePagamento == "APRAZO")
+                        {
+                            _pedidoModel.Conta.ValorAPagar = lblTotalLiquido.Text;
+                        }
                         _cadastroPedido.CadastrarPedido(_pedidoModel);
-
                         MessageBox.Show("Venda realizada!");
                         new EnvioDeEmail().EnviarEmail(_pedidoModel, _clienteModel);
                         LimparCamposAposCadastro();

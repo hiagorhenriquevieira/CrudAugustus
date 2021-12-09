@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Controller;
+using CrudAugustusFashion.Controller.ContasController;
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Controller.ProdutoController;
 using CrudAugustusFashion.Controller.RelatorioFiltroController;
@@ -22,6 +23,8 @@ namespace CrudAugustusFashion.View
         private ListagemPedidoController _listaPedidoController;
         private RelatorioVendaController _relatorioVendaController;
         private RelatorioClienteController _relatorioClienteController;
+        //private ContasAReceberController _contasAReceberController;
+
         public MdiParentPrincipal()
         {
             InitializeComponent();
@@ -128,5 +131,7 @@ namespace CrudAugustusFashion.View
         private void vendaToolStripMenuItem_Click(object sender, EventArgs e) => _relatorioVendaController.AbrirRelatorioVendaProduto();
 
         private void clienteToolStripMenuItem2_Click(object sender, EventArgs e) => _relatorioClienteController.AbrirRelatorioCliente();
+
+        private void contasPendentesToolStripMenuItem1_Click(object sender, EventArgs e) => new ContasAReceberController().AbrirListaDeContasAReceber();
     }
 }

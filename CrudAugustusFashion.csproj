@@ -100,6 +100,7 @@
     <Compile Include="Controller\ClienteController\CadastroClienteController.cs" />
     <Compile Include="Controller\ClienteController\ExcluirClienteController.cs" />
     <Compile Include="Controller\ColaboradorController\ExcluirColaboradorController.cs" />
+    <Compile Include="Controller\ContasController\ContasAReceberController.cs" />
     <Compile Include="Controller\EmailController\EnvioDeEmail.cs" />
     <Compile Include="Controller\PedidoController\AlteracaoPedidoController.cs" />
     <Compile Include="Controller\PedidoController\CadastroPedidoController.cs" />
@@ -120,9 +121,11 @@
     <Compile Include="Model\Carinho\CarrinhoModel.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />
     <Compile Include="Model\ColaboradorModel\ColaboradorValidation.cs" />
+    <Compile Include="Model\ContasAReceberModel\ListaDeContasAReceberModel.cs" />
     <Compile Include="Model\Endereco\CEPs\Cep.cs" />
     <Compile Include="Model\Endereco\CEPs\CepValidation.cs" />
     <Compile Include="Model\Endereco\EnderecoValidation.cs" />
+    <Compile Include="Model\Pedido\ContasAReceberModel.cs" />
     <Compile Include="Model\Pedido\VendaModel.cs" />
     <Compile Include="Model\Pedido\FormaPagamentoModel.cs" />
     <Compile Include="Model\Pedido\PedidoListaModel.cs" />
@@ -194,6 +197,12 @@
     </Compile>
     <Compile Include="View\Cadastro\CadastroProduto.Designer.cs">
       <DependentUpon>CadastroProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ContasAReceber\ListaDeContasAReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ContasAReceber\ListaDeContasAReceber.Designer.cs">
+      <DependentUpon>ListaDeContasAReceber.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Lista\ListaCliente.cs">
       <SubType>Form</SubType>
@@ -296,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cadastro\CadastroProduto.resx">
       <DependentUpon>CadastroProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ContasAReceber\ListaDeContasAReceber.resx">
+      <DependentUpon>ListaDeContasAReceber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Lista\ListaCliente.resx">
       <DependentUpon>ListaCliente.cs</DependentUpon>

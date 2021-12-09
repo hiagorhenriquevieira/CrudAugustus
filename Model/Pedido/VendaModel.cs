@@ -20,11 +20,14 @@ namespace CrudAugustusFashion.Model.Pedido
         public bool Ativo { get; set; }
         public DateTime DataEmissao { get; set; }
 
+        public ContasAReceberModel Conta { get; set; }
         public List<CarrinhoModel> Produtos {get; set;}
 
+        
         public VendaModel()
         {
             Produtos = new List<CarrinhoModel>();
+            Conta = new ContasAReceberModel();
         }
         
         public decimal QuantidadeGasta { get; set; }
