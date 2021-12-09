@@ -28,5 +28,17 @@ namespace CrudAugustusFashion.Controller.ContasController
                 throw new Exception(excecao.Message);
             }
         }
+
+        internal void PagarContaAPrazo(int idVenda)
+        {
+            try
+            {
+                 new PedidoDao().PagarContaAPrazo(idVenda);
+            }
+            catch(Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
     }
 }

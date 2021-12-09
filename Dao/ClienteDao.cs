@@ -275,17 +275,18 @@ namespace CrudAugustusFashion.Dao
         }
         public decimal RecuperarValorGastoAPrazo(VendaModel venda)
         {
-            const string selectValorGastoAPrazo = @"SELECT c.ValorLimite - sum(v.TotalLiquido)
-                                                    FROM  Venda v
-                                                    inner join Clientes c on v.IdCliente = c.IdCliente
-                                                    WHERE v.IdCliente = @IdCliente and FormaDePagamento = @FormaDePagamento
-                                                    GROUP BY ValorLimite;";
+            const string selectValorGastoAPrazo = @"Select sum(cr.ValorAPagar) as 'Valor A Pagar'
+                                                    from ContasAReceber cr
+                                                    inner join Venda v on v.IdVenda = cr.IdVenda
+                                                    inner join Clientes c on c.IdCliente = v.IdCliente
+                                                    where c.IdCliente = @IdCliente and Ativo = 1";
+                                                    
 
             try
             {
                 using(var conexao = ConexaoDao.conectar())
                 {
-                    return conexao.Query<decimal>(selectValorGastoAPrazo, new {venda.IdCliente, venda.FormaDePagamento}).FirstOrDefault();
+                    return conexao.Query<decimal>(selectValorGastoAPrazo, new {venda.IdCliente}).FirstOrDefault();
                 }
             }
             catch (Exception ex)

@@ -6,7 +6,7 @@ namespace CrudAugustusFashion.Model.ContasAReceberModel
 {
     public class ListaDeContasAReceberModel
     {
-        public int IdCliente { get; set; }
+        public int IdVenda { get; set; }
         public string NomeCompleto { get; set; }
         
         public Dinheiro ValorAPagar { get; set; }

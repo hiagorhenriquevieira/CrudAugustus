@@ -41,10 +41,13 @@ namespace CrudAugustusFashion.View.ContasAReceber
             // 
             // dataGridViewConsulta
             // 
+            this.dataGridViewConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewConsulta.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewConsulta.Location = new System.Drawing.Point(46, 136);
             this.dataGridViewConsulta.Name = "dataGridViewConsulta";
+            this.dataGridViewConsulta.ReadOnly = true;
+            this.dataGridViewConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewConsulta.Size = new System.Drawing.Size(825, 253);
             this.dataGridViewConsulta.TabIndex = 1;
             // 
@@ -60,6 +63,7 @@ namespace CrudAugustusFashion.View.ContasAReceber
             this.btnPagarConta.TabIndex = 71;
             this.btnPagarConta.Text = "Pagar Conta";
             this.btnPagarConta.UseVisualStyleBackColor = false;
+            this.btnPagarConta.Click += new System.EventHandler(this.btnPagarConta_Click);
             // 
             // btnVoltar
             // 
