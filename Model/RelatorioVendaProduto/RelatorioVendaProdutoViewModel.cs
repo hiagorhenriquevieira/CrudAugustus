@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CrudAugustusFashion.Model.RelatorioVendaProduto
 {
-    class RelatorioVendaProdutoViewModel
+    public class RelatorioVendaProdutoViewModel
     {
         public RelatorioVendaProdutoViewModel()
         {
