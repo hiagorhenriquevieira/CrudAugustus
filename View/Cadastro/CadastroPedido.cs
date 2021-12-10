@@ -6,6 +6,7 @@ using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.Pedido;
+using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Validacoes;
 using System;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace CrudAugustusFashion.View.Cadastro
 {
     public partial class FrmCadastroPedido : Form
     {
-
+        private ProdutoModel _produtoModel;
         private VendaModel _pedidoModel;
         private CadastroPedidoController _cadastroPedido;
         private ClienteModel _clienteModel;
@@ -29,6 +30,7 @@ namespace CrudAugustusFashion.View.Cadastro
             _cadastroPedido = new CadastroPedidoController();
             _clienteModel = new ClienteModel();
             _colaboradorModel = new ColaboradorModel();
+            _produtoModel = new ProdutoModel();
             //_contasAReceberModel = new ContasAReceberModel();
         }
 
@@ -42,6 +44,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private void btnPesquisarCliente_Click(object sender, System.EventArgs e)
         {
             dataGridViewClientePedido.DataSource = new AlteracaoClienteController().BuscarListaCliente((txtProcurarCliente.Text), (_clienteModel.Ativo = true));
+            
         }
 
         private void dataGridViewProdutoPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -49,6 +52,8 @@ namespace CrudAugustusFashion.View.Cadastro
             int codigoProduto = Convert.ToInt32(dataGridViewProdutoPedido.SelectedRows[0].Cells[0].Value);
             var produto = new ProdutoDao().RecuperarDadosProduto(codigoProduto);
 
+            _produtoModel.QuantidadeEstoque = produto.QuantidadeEstoque;
+            _produtoModel.IdProduto = produto.IdProduto;
             lblIdProduto.Text = produto.IdProduto.ToString();
             lblNomeProduto.Text = produto.Nome;
             lblPrecoVenda.Text = produto.PrecoVenda.DinheiroFormatado;
@@ -69,8 +74,10 @@ namespace CrudAugustusFashion.View.Cadastro
         private void dataGridViewClientePedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int idCliente = Convert.ToInt32(dataGridViewClientePedido.SelectedRows[0].Cells[0].Value);
-            var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
+            var cliente = new AlteracaoClienteController().RecuperarDadosDoCliente(idCliente);
             _clienteModel.DataNascimento = cliente.DataNascimento;
+            _clienteModel.ValorConsumido = cliente.ValorConsumido;
+            _clienteModel.ValorLimite = cliente.ValorLimite;
             _clienteModel.NomeCompleto.Nome = cliente.NomeCompleto.Nome;
             _clienteModel.NomeCompleto.SobreNome = cliente.NomeCompleto.SobreNome;
             lblIdCliente.Text = cliente.IdCliente.ToString();
@@ -101,7 +108,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 lblTotalLiquido.Text = _pedidoModel.TotalLiquido.DinheiroFormatado;
             }
         }
-        //Desconto
+        
         private void numericDesconto_ValueChanged(object sender, EventArgs e)
         {
             AtualizarPrecos();
@@ -111,10 +118,9 @@ namespace CrudAugustusFashion.View.Cadastro
         private void numericDesconto_KeyPress(object sender, KeyPressEventArgs e)
         {
             AtualizarPrecos();
-            //CalcularDescontoEmDecimal();
+            
         }
-
-        //Quantidade
+        
         private void numericQuantidade_ValueChanged(object sender, EventArgs e) => AtualizarPrecos();
 
         private void numericQuantidade_KeyPress(object sender, KeyPressEventArgs e) => AtualizarPrecos();
@@ -122,6 +128,11 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void btnAdicionarProduto_Click(object sender, EventArgs e)
         {
+            if (numericQuantidade.Value > _produtoModel.QuantidadeEstoque)
+            {
+                MessageBox.Show("Quantidade de produtos é maior do que a quantidade em estoque");
+                return;
+            }
             if (lblIdProduto.Text == "")
             {
                 MessageBox.Show("Selecione um produto.");
@@ -138,7 +149,6 @@ namespace CrudAugustusFashion.View.Cadastro
                 AtualizarCarrinho();
             }
             LimparCamposAposAdicionarProdutoNoCarrinho();
-
         }
 
         private void AtualizarCarrinho()
@@ -200,7 +210,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 }
                 else
                 {
-                    if (ValidarCamposDeCadastroPedido() && RetornarValorLimiteAtual())
+                    if (ValidarCamposDeCadastroPedido() && RetornarSaldoDoCliente())
                     {
                         var idCliente = Convert.ToInt32(lblIdCliente.Text);
                         var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
@@ -294,38 +304,55 @@ namespace CrudAugustusFashion.View.Cadastro
             }
         }
 
-        private bool AdicionarProdutoCarrinho()
+        private void AdicionarProdutoCarrinho()
         {
-            _pedidoModel.Produtos.Add(new CarrinhoModel()
+           var produto = new CarrinhoModel()
             {
                 IdProduto = Convert.ToInt32(lblIdProduto.Text),
                 Nome = lblNomeProduto.Text,
                 IdVenda = _pedidoModel.IdVenda,
                 Desconto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblDescontoDecimal.Text))/100,
-                PrecoLiquido = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoLiquido.Text)) / 100,
                 PrecoVenda = RetornarPrecoVenda(),
                 PrecoCusto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoCusto.Text)) / 100,
                 Quantidade = Convert.ToInt32(numericQuantidade.Value),
-                Total = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblTotal.Text)) / 100,
-            }) ;
-            return true;
+            };
+
+            _pedidoModel.AdicionarProdutoCarrinho(produto);
+            AtualizarCarrinho();
         }
 
         private decimal RetornarPrecoVenda() => Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoVenda.Text)) / 100;
 
-        private bool RetornarValorLimiteAtual()
+        public bool RetornarSaldoDoCliente()
         {
-            _clienteModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
-            _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
-            _pedidoModel.FormaDePagamento = Convert.ToString(comboBoxFormaPagamento.Text);
-            var valorParaConsumir = _clienteModel.RecuperarValorGastoAPrazo(_clienteModel.IdCliente, _pedidoModel);
-            if (Convert.ToDecimal(_pedidoModel.TotalLiquido.Valor) >= Convert.ToDecimal(valorParaConsumir) &&
-                comboBoxFormaPagamento.Text == "APRAZO")
+            if (comboBoxFormaPagamento.Text == "APRAZO" && 
+                _clienteModel.RetornarSaldoDoCliente() < _pedidoModel.TotalLiquido.Valor)
             {
-                MessageBox.Show("Valor Limite inferior ao valor da compra a prazo ");
+                MessageBox.Show("Valor limite atual é inferior ao valor da compra a prazo");
                 return false;
-            }else 
-           return true;
+            }
+            return true;
+        }
+
+        public void RetornarProdutosDoCarrinho(CarrinhoModel produto)
+        {
+            _pedidoModel.RetornarProdutoCarrinho(produto);
+            lblIdProduto.Text = produto.IdProduto.ToString();
+            lblNomeProduto.Text = produto.Nome;
+            lblPrecoCusto.Text = produto.PrecoCusto.ToString();
+            lblPrecoLiquido.Text = produto.PrecoLiquido.ToString();
+            lblTotal.Text = produto.Total.ToString();
+            lblDescontoDecimal.Text = produto.Desconto.ToString();
+            numericQuantidade.Value = produto.Quantidade;
+            lblPrecoVenda.Text = produto.PrecoVenda.ToString();
+
+        }
+
+        private void dataGridViewCarrinhoPedido_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var produto = dataGridViewCarrinhoPedido.CurrentRow.DataBoundItem as CarrinhoModel;
+           
+            RetornarProdutosDoCarrinho(produto);
         }
     }
 }

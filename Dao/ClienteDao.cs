@@ -244,7 +244,7 @@ namespace CrudAugustusFashion.Dao
         internal ClienteModel RecuperarDadosCliente(int idCliente)
         {
             int IdUsuario = RecuperarIdUsuario(idCliente);
-
+            
             var selectUsuario = @"select c.IdCliente, c.Observacao, c.ValorLimite,
                             c.IdUsuario, u.IdUsuario, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
                             c.IdUsuario, u.Nome, u.SobreNome,
@@ -255,6 +255,8 @@ namespace CrudAugustusFashion.Dao
                             inner join Endereco e on u.IdUsuario = e.IdUsuario
                             inner join Telefone t on u.IdUsuario = t.IdUsuario
                             where c.IdUsuario = @IdUsuario;";
+
+            
             try
             {
                 using (var conexao = ConexaoDao.conectar())
@@ -273,20 +275,21 @@ namespace CrudAugustusFashion.Dao
                 throw new Exception(excecao.Message);
             }
         }
-        public decimal RecuperarValorGastoAPrazo(VendaModel venda)
+        public decimal RecuperarValorGastoAPrazo(int cliente)
         {
-            const string selectValorGastoAPrazo = @"Select sum(cr.ValorAPagar) as 'Valor A Pagar'
+            const string selectValorGastoAPrazo = @"Select (c.ValorLimite - c.ValorLimite)+ sum(cr.ValorAPagar) as ValorConsumido
                                                     from ContasAReceber cr
                                                     inner join Venda v on v.IdVenda = cr.IdVenda
                                                     inner join Clientes c on c.IdCliente = v.IdCliente
-                                                    where c.IdCliente = @IdCliente and Ativo = 1";
+                                                    where c.IdCliente = @IdCliente and Ativo = 1
+													group by c.ValorLimite";
                                                     
 
             try
             {
                 using(var conexao = ConexaoDao.conectar())
                 {
-                    return conexao.Query<decimal>(selectValorGastoAPrazo, new {venda.IdCliente}).FirstOrDefault();
+                    return conexao.Query<decimal>(selectValorGastoAPrazo, new {IdCliente = cliente}).FirstOrDefault();
                 }
             }
             catch (Exception ex)

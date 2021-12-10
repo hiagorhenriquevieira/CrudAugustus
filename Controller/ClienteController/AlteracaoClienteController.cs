@@ -58,5 +58,20 @@ namespace CrudAugustusFashion.Controller
         {
 
         }
+
+        internal ClienteModel RecuperarDadosDoCliente(int idCliente)
+        {
+            try
+            {
+                var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
+                cliente.ValorConsumido = new ClienteDao().RecuperarValorGastoAPrazo(idCliente);
+
+                return cliente;
+            }
+            catch(Exception excecao)
+            {
+                throw new Exception(excecao.Message);
+            }
+        }
     }
 }

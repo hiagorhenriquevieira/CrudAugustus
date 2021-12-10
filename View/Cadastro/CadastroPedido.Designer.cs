@@ -440,6 +440,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.dataGridViewCarrinhoPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCarrinhoPedido.Size = new System.Drawing.Size(368, 138);
             this.dataGridViewCarrinhoPedido.TabIndex = 59;
+            this.dataGridViewCarrinhoPedido.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewCarrinhoPedido_CellMouseDoubleClick);
             // 
             // btnFinalizarPedido
             // 

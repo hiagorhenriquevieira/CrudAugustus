@@ -9,9 +9,9 @@ namespace CrudAugustusFashion.Model.RelatorioVendaProduto
         public int Quantidade { get; set; }
         public Dinheiro TotalBruto { get; set; }
         public Dinheiro Desconto  { get; set; }
-        public Dinheiro TotalLiquido { get; set; }
+        public Dinheiro TotalLiquido { get => TotalBruto.Valor - Desconto.Valor; }
         public Dinheiro TotalCusto { get; set; }
-        public Dinheiro LucroReais { get; set; }
+        public Dinheiro LucroReais { get => TotalLiquido.Valor - TotalCusto.Valor; }
         public decimal LucroPorcentagem { get; set; }
         
     }

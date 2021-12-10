@@ -10,6 +10,7 @@ namespace CrudAugustusFashion.Model.Cliente
         public int IdCliente { get; set; }
         public string Observacao{ get; set; }
         public decimal ValorLimite { get; set; }
+        public decimal ValorConsumido { get; set; }
         public bool Ativo { get; set; }
         public string ValidarCliente()
         {
@@ -32,15 +33,6 @@ namespace CrudAugustusFashion.Model.Cliente
             return mensagem;
         }
 
-
-        public string RecuperarValorGastoAPrazo(int idCliente, VendaModel venda)
-        {
-            var saldoAtualCliente = new ClienteDao().RecuperarValorGastoAPrazo(venda);
-
-            var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
-            var saldoParaGastar = cliente.ValorLimite;
-           
-            return (saldoParaGastar - saldoAtualCliente).ToString();
-        }
+        public decimal RetornarSaldoDoCliente() => ValorLimite - ValorConsumido;
     }
 }

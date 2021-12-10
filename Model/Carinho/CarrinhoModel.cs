@@ -10,8 +10,8 @@ namespace CrudAugustusFashion.Model.Carinho
         public int Quantidade { get; set; }
         public Dinheiro PrecoVenda { get; set; }
         public Dinheiro Desconto { get; set; }
-        public Dinheiro PrecoLiquido { get; set; }
-        public Dinheiro Total { get; set; }
+        public Dinheiro PrecoLiquido { get => PrecoVenda.Valor - Desconto.Valor; }
+        public Dinheiro Total { get => Quantidade * PrecoLiquido.Valor; }
         public Dinheiro PrecoCusto { get; set; }
     }
 }

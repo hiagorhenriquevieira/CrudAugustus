@@ -14,7 +14,7 @@ namespace CrudAugustusFashion.Model.RelatorioVendaProduto
             Relatorio = new List<RelatorioVendaProdutoModel>();
         }
         public List<RelatorioVendaProdutoModel> Relatorio { get; set; }
-        
+        public int Quantidade { get => Relatorio.Sum(x => x.Quantidade); }
         public Dinheiro TotalBruto { get => Relatorio.Sum(x => x.TotalBruto.Valor); }
         public Dinheiro TotalCusto { get => Relatorio.Sum(x => x.TotalCusto.Valor); }
         public Dinheiro TotalDesconto { get => Relatorio.Sum(x => x.Desconto.Valor); }
