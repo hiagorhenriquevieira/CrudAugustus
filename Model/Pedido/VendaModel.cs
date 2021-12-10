@@ -39,11 +39,7 @@ namespace CrudAugustusFashion.Model.Pedido
             else
                 Produtos.Add(produto);
         }
-
-        public void AlterarProdutoCarrinho()
-        {
-
-        }
+        
 
         public CarrinhoModel RetornarProdutoCarrinho(CarrinhoModel produto)
         {
