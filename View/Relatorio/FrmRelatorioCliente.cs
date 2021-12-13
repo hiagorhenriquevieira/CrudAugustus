@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Controller.RelatorioFiltroController;
+using CrudAugustusFashion.Enums;
 using CrudAugustusFashion.Model.Cliente;
 using CrudAugustusFashion.Model.RelatorioCliente;
 using System;
@@ -25,9 +26,14 @@ namespace CrudAugustusFashion.View.Relatorio
         private void FrmRelatorioCliente_Load(object sender, EventArgs e)
         {
             AtribuirDataAoPrimeiroDiaDoMes();
-            AtribuirOrdemCrescente();
+            AtribuirOrdemAoFormLoad();
         }
-        private void AtribuirOrdemCrescente() => cmbOrdemParaFiltro.SelectedIndex = 0;
+        private void AtribuirOrdemAoFormLoad()
+        {
+            cmbFiltrarPor.SelectedIndex = 2;
+            cmbOrdemSelecao.SelectedIndex = 0;
+            cmbOrdemParaFiltro.SelectedIndex = 0;
+        }
 
         private void AtribuirDataAoPrimeiroDiaDoMes()
         {
@@ -42,22 +48,23 @@ namespace CrudAugustusFashion.View.Relatorio
         {
             txtNomeCliente.Text = clienteModel.NomeCompleto.Nome;
             _filtroRelatorioClienteModel.IdCliente = clienteModel.IdCliente;
-        } 
+        }
 
         public bool ReceberDadosDoForm()
         {
-            if(ValidarDatas() == true)
+            if (ValidarDatas() == true)
             {
-            _filtroRelatorioClienteModel.DataEmissao = dtpDataInicial.Value;
-            _filtroRelatorioClienteModel.DataFinal = dtpDataFinal.Value;
-            _filtroRelatorioClienteModel.LimiteClientes = Convert.ToInt32(nudLimiteClientes.Value);
-            _filtroRelatorioClienteModel.OrdenarPor = cmbOrdemSelecao.SelectedIndex;
-            _filtroRelatorioClienteModel.Ordem = cmbOrdemParaFiltro.SelectedIndex;
-            if (txtValorParaFiltro.Text != "")
-            {
-                _filtroRelatorioClienteModel.ValorMinimo = Convert.ToDecimal(txtValorParaFiltro.Text);
-            }
-            else _filtroRelatorioClienteModel.ValorMinimo = 0;
+                _filtroRelatorioClienteModel.DataEmissao = dtpDataInicial.Value;
+                _filtroRelatorioClienteModel.DataFinal = dtpDataFinal.Value;
+                _filtroRelatorioClienteModel.LimiteClientes = Convert.ToInt32(nudLimiteClientes.Value);
+                _filtroRelatorioClienteModel.FiltrarPor = (EFiltrarPor)cmbFiltrarPor.SelectedIndex;
+                _filtroRelatorioClienteModel.OrdenarPor = (EOrdenarPor)cmbOrdemSelecao.SelectedIndex;
+                _filtroRelatorioClienteModel.Ordem = cmbOrdemParaFiltro.SelectedIndex;
+                if (txtValorParaFiltro.Text != "" || Convert.ToInt32(txtValorParaFiltro.Text) < 1)
+                {
+                    _filtroRelatorioClienteModel.ValorMinimo = Convert.ToDecimal(txtValorParaFiltro.Text);
+                }
+                else _filtroRelatorioClienteModel.ValorMinimo = 0;
             }
             return false;
         }
@@ -75,13 +82,13 @@ namespace CrudAugustusFashion.View.Relatorio
         private void btnFiltrarProdutosVendidos_Click(object sender, EventArgs e)
         {
             ReceberDadosDoForm();
-            _relatorioClienteViewModel.Relatorio = _relatorioClienteController.FiltrarProdutos(_filtroRelatorioClienteModel); 
+            _relatorioClienteViewModel.Relatorio = _relatorioClienteController.FiltrarProdutos(_filtroRelatorioClienteModel);
             dtgFiltragemDeClientes.DataSource = _relatorioClienteViewModel.Relatorio;
-            
+
             AtualizarValor();
         }
 
-        public  void AtualizarValor()
+        public void AtualizarValor()
         {
             lblTotalBruto.Text = _relatorioClienteViewModel.TotalBruto.ToString();
             lblTotalVendas.Text = _relatorioClienteViewModel.QuantidadeVendas.ToString();
@@ -110,15 +117,13 @@ namespace CrudAugustusFashion.View.Relatorio
 
         private void btnLimparOrdenarPor_Click(object sender, EventArgs e)
         {
-            _filtroRelatorioClienteModel.OrdenarPor = -1;
-            cmbOrdemSelecao.Text = "";  
+            cmbOrdemSelecao.Text = "";
         }
 
         private void btnLimparCampos_Click(object sender, EventArgs e)
         {
             _filtroRelatorioClienteModel.IdCliente = 0;
             txtNomeCliente.Text = "";
-            _filtroRelatorioClienteModel.OrdenarPor = -1;
             cmbOrdemSelecao.SelectedIndex = -1;
             _filtroRelatorioClienteModel.Ordem = 0;
             cmbOrdemParaFiltro.SelectedIndex = 0;

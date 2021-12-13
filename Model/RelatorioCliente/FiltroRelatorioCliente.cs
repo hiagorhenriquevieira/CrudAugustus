@@ -1,5 +1,9 @@
-﻿using Dapper;
+﻿using CrudAugustusFashion.Enums;
+using Dapper;
 using System;
+using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
 
 namespace CrudAugustusFashion.Model.RelatorioCliente
 {
@@ -8,8 +12,9 @@ namespace CrudAugustusFashion.Model.RelatorioCliente
 
         public int IdCliente { get; set; }
         public decimal ValorMinimo { get; set; }
+        public EFiltrarPor FiltrarPor { get; set; }
         public int LimiteClientes { get; set; }
-        public int OrdenarPor { get; set; }
+        public EOrdenarPor OrdenarPor { get; set; }
         public int Ordem{ get; set; }
         public DateTime DataEmissao { get; set; }
         public DateTime DataFinal { get; set; }
@@ -31,7 +36,7 @@ namespace CrudAugustusFashion.Model.RelatorioCliente
 
             if (IdCliente != 0) Where += " and v.IdCliente = @IdCliente ";
 
-            if (ValorMinimo != 0) GroupBy += " Having sum(v.TotalLiquido) > @ValorMinimo ";
+            if (ValorMinimo != 0) GroupBy += $" Having sum({GetEnumDescription(FiltrarPor)}) > @ValorMinimo ";
 
             if (LimiteClientes != 0) select += " top  " + LimiteClientes;
 
@@ -41,31 +46,33 @@ namespace CrudAugustusFashion.Model.RelatorioCliente
 
             return select + Conteudo + Where + GroupBy;
     }
-       
-        private string GerarOrderBy()
+
+        public static string GetEnumDescription<T>(T value) where T : Enum
         {
-            if (OrdenarPor == 2 && Ordem == 1)
-                return " Order by TotalLiquido desc ";
+            FieldInfo fi = value.GetType().GetField(value.ToString());
 
-            if (OrdenarPor == 2 && Ordem == 0)
-                return " Order by TotalLiquido asc ";
+            DescriptionAttribute[] attributes = fi.GetCustomAttributes(typeof(DescriptionAttribute), false) as DescriptionAttribute[];
 
-            if (OrdenarPor == 0 && Ordem == 1)
-                return " Order by QuantidadeVendas desc ";
-            if (OrdenarPor == 0 && Ordem == 0)
-                return " Order by QuantidadeVendas asc ";
+            if (attributes != null && attributes.Any())
+            {
+                return attributes.First().Description;
+            }
 
+            return value.ToString();
+        }
+        
 
-            if (OrdenarPor == 1 && Ordem == 1)
-                return " Order by Desconto desc ";
-            if (OrdenarPor == 1 && Ordem == 0)
-                return " Order by Desconto asc ";
-
-            return "";
+        public string GerarOrderBy()
+        {
+            var orderBy = GetEnumDescription(OrdenarPor);
+            if (Ordem == 1)
+            {
+                orderBy += " desc ";
+            }
+            return orderBy;
         }
 
-
-    public DynamicParameters RecuperarParametros()
+        public DynamicParameters RecuperarParametros()
     {
         var parameters = new DynamicParameters();
 

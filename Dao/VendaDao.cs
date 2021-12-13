@@ -18,8 +18,6 @@ namespace CrudAugustusFashion.Dao
                 output inserted.IdVenda 
                 values (@IdCliente, @IdColaborador, @TotalBruto, @TotalDesconto, @TotalLiquido, @LucroTotal, @FormaDePagamento, @DataEmissao)";
             
-            const string insertContasAReceber = @"Insert into ContasAReceber ( IdVenda, ValorAPagar) 
-                                                 values ( @IdVenda, @ValorAPagar)";
 
             const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
                 QuantidadeProduto, Desconto, PrecoLiquido,Total) 
@@ -47,12 +45,7 @@ namespace CrudAugustusFashion.Dao
                             },
                             transaction);
 
-                         conexao.Execute(insertContasAReceber, new
-                        {
-                            venda.IdVenda,
-                            ValorAPagar = venda.TotalLiquido.Valor
-                         }, 
-                            transaction);
+                         conexao.Query<VendaModel>(venda.GerarSql(), venda.RecuperarParametros(), transaction);
 
                         venda.Produtos.ForEach(x => x.IdVenda = venda.IdVenda);
 

@@ -118,6 +118,8 @@
     <Compile Include="Dao\RelatorioDeClienteDao.cs" />
     <Compile Include="Dao\RelatorioDeVendaProduto.cs" />
     <Compile Include="Dao\VendaDao.cs" />
+    <Compile Include="Enums\EFiltrarPor.cs" />
+    <Compile Include="Enums\EOrdenarPor.cs" />
     <Compile Include="Model\Carinho\CarrinhoModel.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />
     <Compile Include="Model\ColaboradorModel\ColaboradorValidation.cs" />

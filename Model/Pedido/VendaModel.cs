@@ -1,5 +1,6 @@
 ﻿using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Produto;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,18 +33,51 @@ namespace CrudAugustusFashion.Model.Pedido
 
         public void AdicionarProdutoCarrinho(CarrinhoModel produto)
         {
-            if (Produtos.Any(x => x.IdProduto == produto.IdProduto))
-            {
-                return;
-            }
+            var indice = RetornarValorIndexCarrinho(produto.IdProduto);
+
+            if (indice != -1)
+                AlterarProduto(indice, produto);
             else
                 Produtos.Add(produto);
         }
-        
+        public void AlterarProduto(int index, CarrinhoModel produtoComDadosNovos)
+        {
+            Produtos[index].Quantidade = produtoComDadosNovos.Quantidade;
+            Produtos[index].Desconto = produtoComDadosNovos.Desconto.Valor;
+        }
 
         public CarrinhoModel RetornarProdutoCarrinho(CarrinhoModel produto)
         {
             return produto;
         }
+        
+        public string GerarSql()
+        { var select = " ";
+
+            var selectContas = @" Insert into ContasAReceber(IdVenda, ValorAPagar)
+                                                 values(@IdVenda, @ValorAPagar) ";
+
+            if (FormaDePagamento == "APRAZO")
+                return select + selectContas;
+            return select;
+        }
+        public DynamicParameters RecuperarParametros()
+        {
+            var parameters = new DynamicParameters();
+
+            parameters.AddDynamicParams(
+                new
+                {
+                    FormaDePagamento,
+                }
+                );
+
+            return parameters;
+        }
+
+            public int RetornarValorIndexCarrinho(int id)
+            => Produtos.FindIndex(x => x.IdProduto == id);
+
+
     }
 }

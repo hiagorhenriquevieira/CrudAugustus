@@ -1,6 +1,5 @@
 ﻿using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Cliente;
-using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Usuario;
 using Dapper;
 using System;
