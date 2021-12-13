@@ -1,5 +1,6 @@
 ﻿using CrudAugustusFashion.Dao;
 using CrudAugustusFashion.Model.Pedido;
+using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Model.Usuario;
 using System;
 

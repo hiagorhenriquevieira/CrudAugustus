@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CrudAugustusFashion.Model.RelatorioCliente
 {
-    class RelatorioClienteViewModel
+   public class RelatorioClienteViewModel
     {
         public RelatorioClienteViewModel()
         {

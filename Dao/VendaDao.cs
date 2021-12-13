@@ -192,6 +192,7 @@ namespace CrudAugustusFashion.Dao
             const string updateVenda = @"Update Venda set TotalBruto = @TotalBruto, TotalDesconto = @TotalDesconto, 
                                         TotalLiquido = @TotalLiquido, Lucro = @LucroTotal, FormaDePagamento = @FormaDePagamento
                                         where IdVenda = @IdVenda";
+            
 
             const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
                 QuantidadeProduto, Desconto, PrecoLiquido,Total) 
@@ -214,6 +215,8 @@ namespace CrudAugustusFashion.Dao
                         }
 
                         conexao.Execute(deletePedidoProduto, pedidoModel, transaction);
+
+                        conexao.Query<VendaModel>(pedidoModel.GerarSql(), pedidoModel.RecuperarParametros(), transaction);
 
                         conexao.Execute(updateVenda,
                             new

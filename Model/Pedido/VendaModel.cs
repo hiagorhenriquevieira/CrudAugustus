@@ -20,6 +20,7 @@ namespace CrudAugustusFashion.Model.Pedido
         public string FormaDePagamento { get; set; }
         public bool Ativo { get; set; }
         public DateTime DataEmissao { get; set; }
+        public Dinheiro LiquidoPreAlteracao { get; set; }
 
         public ContasAReceberModel Conta { get; set; }
         public List<CarrinhoModel> Produtos { get; set; }
@@ -68,7 +69,9 @@ namespace CrudAugustusFashion.Model.Pedido
             parameters.AddDynamicParams(
                 new
                 {
+                    IdVenda,
                     FormaDePagamento,
+                    ValorAPagar = Conta.ValorAPagar.Valor,
                 }
                 );
 

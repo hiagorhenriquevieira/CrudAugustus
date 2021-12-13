@@ -21,7 +21,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private CadastroPedidoController _cadastroPedido;
         private ClienteModel _clienteModel;
         private ColaboradorModel _colaboradorModel;
-        //private ContasAReceberModel _contasAReceberModel;
+
 
         public FrmCadastroPedido(VendaModel pedidoModel)
         {
@@ -31,7 +31,7 @@ namespace CrudAugustusFashion.View.Cadastro
             _clienteModel = new ClienteModel();
             _colaboradorModel = new ColaboradorModel();
             _produtoModel = new ProdutoModel();
-            //_contasAReceberModel = new ContasAReceberModel();
+
         }
 
         private void btnPesquisarProduto_Click(object sender, System.EventArgs e) =>
@@ -44,7 +44,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private void btnPesquisarCliente_Click(object sender, System.EventArgs e)
         {
             dataGridViewClientePedido.DataSource = new AlteracaoClienteController().BuscarListaCliente((txtProcurarCliente.Text), (_clienteModel.Ativo = true));
-            
+
         }
 
         private void dataGridViewProdutoPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -71,22 +71,31 @@ namespace CrudAugustusFashion.View.Cadastro
             lblNomeColaborador.Text = colaborador.NomeCompleto.ToString();
         }
 
-        private void dataGridViewClientePedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void RecuperarDadosDoCliente(int id)
         {
-            int idCliente = Convert.ToInt32(dataGridViewClientePedido.SelectedRows[0].Cells[0].Value);
-            var cliente = new AlteracaoClienteController().RecuperarDadosDoCliente(idCliente);
+            var cliente = new AlteracaoClienteController().RecuperarDadosDoCliente(id);
+            _clienteModel.IdCliente = cliente.IdCliente;
             _clienteModel.DataNascimento = cliente.DataNascimento;
             _clienteModel.ValorConsumido = cliente.ValorConsumido;
             _clienteModel.ValorLimite = cliente.ValorLimite;
             _clienteModel.NomeCompleto.Nome = cliente.NomeCompleto.Nome;
             _clienteModel.NomeCompleto.SobreNome = cliente.NomeCompleto.SobreNome;
-            lblIdCliente.Text = cliente.IdCliente.ToString();
-            lblNomeCliente.Text = cliente.NomeCompleto.ToString();
+            _clienteModel.Email = cliente.Email;
+        }
+
+        private void dataGridViewClientePedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int idCliente = Convert.ToInt32(dataGridViewClientePedido.SelectedRows[0].Cells[0].Value);
+            RecuperarDadosDoCliente(idCliente);
+
+            lblIdCliente.Text = _clienteModel.IdCliente.ToString();
+            lblNomeCliente.Text = _clienteModel.NomeCompleto.ToString();
+
             var avisoDeAniversario = _clienteModel.VerificarSeEhAniversarioDoCliente();
             if (avisoDeAniversario != string.Empty)
                 MessageBox.Show(avisoDeAniversario, "Aviso", MessageBoxButtons.OK);
         }
-       
+
 
         public void AtualizarPrecos()
         {
@@ -95,12 +104,12 @@ namespace CrudAugustusFashion.View.Cadastro
                 decimal precoVenda = RetornarPrecoVenda();
                 decimal desconto = numericDesconto.Value;
                 decimal precoLiquido = precoVenda - ((desconto / 100) * precoVenda);
-                lblPrecoLiquido.Text = precoLiquido.ToString("c");
                 var quantidade = numericQuantidade.Value;
                 decimal total = precoLiquido * quantidade;
-                lblTotal.Text = total.ToString("c");
-
                 decimal descontoDecimal = precoVenda - precoLiquido;
+
+                lblPrecoLiquido.Text = precoLiquido.ToString("c");
+                lblTotal.Text = total.ToString("c");
                 lblDescontoDecimal.Text = descontoDecimal.ToString("c");
                 lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
                 lblTotalBruto.Text = _pedidoModel.TotalBruto.DinheiroFormatado;
@@ -108,7 +117,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 lblTotalLiquido.Text = _pedidoModel.TotalLiquido.DinheiroFormatado;
             }
         }
-        
+
         private void numericDesconto_ValueChanged(object sender, EventArgs e)
         {
             AtualizarPrecos();
@@ -118,9 +127,9 @@ namespace CrudAugustusFashion.View.Cadastro
         private void numericDesconto_KeyPress(object sender, KeyPressEventArgs e)
         {
             AtualizarPrecos();
-            
+
         }
-        
+
         private void numericQuantidade_ValueChanged(object sender, EventArgs e) => AtualizarPrecos();
 
         private void numericQuantidade_KeyPress(object sender, KeyPressEventArgs e) => AtualizarPrecos();
@@ -202,41 +211,60 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             try
             {
-                if (_pedidoModel.IdVenda != 0 && ValidarCamposDeCadastroPedido())
+                if (!ValidarCamposDeCadastroPedido())
+                    return;
+
+                if (_pedidoModel.IdVenda != 0)
                 {
-                    new AlteracaoPedidoController().AlterarPedido(_pedidoModel);
-                    MessageBox.Show("Alteração realizada com sucesso");
-                    LimparCamposAposCadastro();
+                    SetarDadosDoPedido();
+                    if (ValidacaoDeCampoVendaAhPrazo())
+                        AlterarVenda();
+                    return;
                 }
+
                 else
                 {
-                    if (ValidarCamposDeCadastroPedido() && RetornarSaldoDoCliente())
+                    if (RetornarSaldoDoCliente())
                     {
-                        var idCliente = Convert.ToInt32(lblIdCliente.Text);
-                        var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
-                        _clienteModel.Email = cliente.Email;
-                        _clienteModel.NomeCompleto.Nome = cliente.NomeCompleto.Nome;
+                        SetarDadosDoPedido();
 
-                        _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
-                        _pedidoModel.IdColaborador = Convert.ToInt32(lblIdColaborador.Text);
-                        _pedidoModel.FormaDePagamento = comboBoxFormaPagamento.Text;
-                        _pedidoModel.DataEmissao = DateTime.Now;
-                        if(_pedidoModel.FormaDePagamento == "APRAZO")
-                        {
-                            _pedidoModel.Conta.ValorAPagar = lblTotalLiquido.Text;
-                        }
-                        _cadastroPedido.CadastrarPedido(_pedidoModel);
-                        MessageBox.Show("Venda realizada!");
-                        new EnvioDeEmail().EnviarEmail(_pedidoModel, _clienteModel);
-                        LimparCamposAposCadastro();
+                        CadastrarVenda();
                     }
                 }
-
+                LimparCamposAposCadastro();
             }
             catch (Exception excecao)
             {
                 MessageBox.Show("Erro ao finalizar pedido. " + excecao.Message);
             }
+        }
+
+        private void CadastrarVenda()
+        {
+            _cadastroPedido.CadastrarPedido(_pedidoModel);
+            MessageBox.Show("Venda realizada!");
+            new EnvioDeEmail().EnviarEmail(_pedidoModel, _clienteModel);
+        }
+
+
+        private void SetarDadosDoPedido()
+        {
+            _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
+            _pedidoModel.IdColaborador = Convert.ToInt32(lblIdColaborador.Text);
+            _pedidoModel.FormaDePagamento = comboBoxFormaPagamento.Text;
+            _pedidoModel.DataEmissao = DateTime.Now;
+
+            if (_pedidoModel.FormaDePagamento == "APRAZO")
+            {
+               
+                _pedidoModel.Conta.ValorAPagar = Convert.ToDecimal(lblTotalLiquido.Text);
+            }
+        }
+
+        private void AlterarVenda()
+        {
+            new AlteracaoPedidoController().AlterarPedido(_pedidoModel);
+            MessageBox.Show("Alteração realizada com sucesso");
         }
 
         private bool ValidarCamposDeCadastroPedido()
@@ -301,17 +329,36 @@ namespace CrudAugustusFashion.View.Cadastro
             {
                 RetornarDadosDaVenda();
                 AtualizarCarrinho();
+                _pedidoModel.LiquidoPreAlteracao = lblPrecoLiquido.Text;
             }
+        }
+        private bool ValidacaoDeCampoVendaAhPrazo()
+        {
+            if (comboBoxFormaPagamento.Text == "APRAZO")
+            {
+                var id = Convert.ToInt32(lblIdCliente.Text);
+                RecuperarDadosDoCliente(id);
+                var resultado = _pedidoModel.LiquidoPreAlteracao.Valor - _clienteModel.RetornarSaldoDoCliente();
+                if (resultado >= Convert.ToDecimal(_pedidoModel.TotalLiquido.Valor))
+                    return true;
+                else
+                {
+                MessageBox.Show($"Alteração não pode ser realizada, seu saldo para consumo nessa compra a prazo é de " +
+                    $"{_clienteModel.ValorLimite - _pedidoModel.Conta.ValorAPagar}");
+                return false;
+                }
+            }
+            return true; ;
         }
 
         private void AdicionarProdutoCarrinho()
         {
-           var produto = new CarrinhoModel()
+            var produto = new CarrinhoModel()
             {
                 IdProduto = Convert.ToInt32(lblIdProduto.Text),
                 Nome = lblNomeProduto.Text,
                 IdVenda = _pedidoModel.IdVenda,
-                Desconto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblDescontoDecimal.Text))/100,
+                Desconto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblDescontoDecimal.Text)) / 100,
                 PrecoVenda = RetornarPrecoVenda(),
                 PrecoCusto = Convert.ToDecimal(ValidacoesExtencion.RetornarApenasNumeros(lblPrecoCusto.Text)) / 100,
                 Quantidade = Convert.ToInt32(numericQuantidade.Value),
@@ -325,7 +372,7 @@ namespace CrudAugustusFashion.View.Cadastro
 
         public bool RetornarSaldoDoCliente()
         {
-            if (comboBoxFormaPagamento.Text == "APRAZO" && 
+            if (comboBoxFormaPagamento.Text == "APRAZO" &&
                 _clienteModel.RetornarSaldoDoCliente() < _pedidoModel.TotalLiquido.Valor)
             {
                 MessageBox.Show("Valor limite atual é inferior ao valor da compra a prazo");
@@ -351,7 +398,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private void dataGridViewCarrinhoPedido_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var produto = dataGridViewCarrinhoPedido.CurrentRow.DataBoundItem as CarrinhoModel;
-           
+
             RetornarProdutosDoCarrinho(produto);
         }
     }
