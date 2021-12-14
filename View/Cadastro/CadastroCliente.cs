@@ -117,7 +117,7 @@ namespace CrudAugustusFashion
                 MessageBox.Show("Campo -Logradouro- invalido");
                 return false;
             }
-            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtNumeroResidencia.Text))
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtNumeroResidencia.Text) || txtNumeroResidencia.Text == "S/N")
             {
                 MessageBox.Show("Campo -Numero- invalido");
                 return false;
