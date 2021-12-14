@@ -113,12 +113,14 @@
     <Compile Include="Dao\ClienteDao.cs" />
     <Compile Include="Dao\ColaboradorDao.cs" />
     <Compile Include="Dao\ConexaoDao.cs" />
+    <Compile Include="Dao\ContasDao.cs" />
     <Compile Include="Dao\PedidoDao.cs" />
     <Compile Include="Dao\ProdutoDao.cs" />
     <Compile Include="Dao\RelatorioDeClienteDao.cs" />
     <Compile Include="Dao\RelatorioDeVendaProduto.cs" />
     <Compile Include="Dao\VendaDao.cs" />
     <Compile Include="Enums\EFiltrarPor.cs" />
+    <Compile Include="Enums\EFormaDePagamento.cs" />
     <Compile Include="Enums\EOrdenarPor.cs" />
     <Compile Include="Model\Carinho\CarrinhoModel.cs" />
     <Compile Include="Model\ClienteModel\ClienteValidation.cs" />

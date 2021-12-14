@@ -42,6 +42,7 @@ namespace CrudAugustusFashion.View.Lista
             // 
             this.dataGridViewListaProduto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewListaProduto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewListaProduto.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewListaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListaProduto.Location = new System.Drawing.Point(19, 76);
             this.dataGridViewListaProduto.MultiSelect = false;

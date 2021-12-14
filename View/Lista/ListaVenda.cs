@@ -1,4 +1,5 @@
 ﻿using CrudAugustusFashion.Controller.PedidoController;
+using CrudAugustusFashion.Enums;
 using CrudAugustusFashion.Model.Pedido;
 using CrudAugustusFashion.Model.Venda;
 using System;
@@ -37,7 +38,7 @@ namespace CrudAugustusFashion.View.Lista
             lblTotalDesconto.Text = _venda.TotalDesconto.ToString();
             lblTotalLiquido.Text = _venda.TotalLiquido.ToString();
             lblLucroTotal.Text = _venda.Lucro.ToString();
-            lblFormaDePagamento.Text = _venda.FormaDePagamento;
+            lblFormaDePagamento.Text =_vendaModel.GetEnumDescription(_venda.FormaDePagamento);
             
 
             dataGridViewConsulta.DataSource = _venda.Produtos;
@@ -69,6 +70,7 @@ namespace CrudAugustusFashion.View.Lista
 
         private void BtnDesativarPedido_Click(object sender, EventArgs e)
         {
+            
             new AlteracaoPedidoController().EliminarPedido(ConverterModels());
             MessageBox.Show("Venda Eliminada");
             this.Close();

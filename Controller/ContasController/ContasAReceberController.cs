@@ -21,7 +21,7 @@ namespace CrudAugustusFashion.Controller.ContasController
         {
             try
             {
-               return new PedidoDao().ListarComprasAPrazo(text, ativo);
+               return new ContasDao().ListarComprasAPrazo(text, ativo);
             }
             catch (Exception excecao)
             {
@@ -33,7 +33,7 @@ namespace CrudAugustusFashion.Controller.ContasController
         {
             try
             {
-                 new PedidoDao().PagarContaAPrazo(idVenda);
+                 new ContasDao().PagarContaAPrazo(idVenda);
             }
             catch(Exception excecao)
             {

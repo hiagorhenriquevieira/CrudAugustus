@@ -40,12 +40,12 @@ namespace CrudAugustusFashion.Dao
                                 TotalDesconto = venda.TotalDesconto.Valor,
                                 TotalLiquido = venda.TotalLiquido.Valor,
                                 LucroTotal = venda.LucroTotal.Valor,
-                                venda.FormaDePagamento,
+                                FormaDePagamento = venda.FormaDePagamento,
                                 venda.DataEmissao,
                             },
                             transaction);
-
                          conexao.Query<VendaModel>(venda.GerarSql(), venda.RecuperarParametros(), transaction);
+
 
                         venda.Produtos.ForEach(x => x.IdVenda = venda.IdVenda);
 
@@ -78,6 +78,8 @@ namespace CrudAugustusFashion.Dao
 
         internal void EliminarPedido(VendaModel vendaModel)
         {
+            const string updateContas = @"Update ContasAReceber set Ativo = 0
+                                            where IdVenda = @IdVenda";
             const string updateVenda = @"Update Venda set Status = 0
                                          where IdVenda = @IdVenda";
             const string selectProdutosAntigos = @"Select IdProduto, QuantidadeProduto as Quantidade
@@ -98,6 +100,8 @@ namespace CrudAugustusFashion.Dao
                             conexao.Execute(updateQuantidade, update, transaction);
                         }
                         conexao.Execute(updateVenda, vendaModel, transaction);
+
+                        conexao.Execute(updateContas, vendaModel, transaction);
 
                         transaction.Commit();
                     }
@@ -226,7 +230,7 @@ namespace CrudAugustusFashion.Dao
                                 TotalDesconto = pedidoModel.TotalDesconto.Valor,
                                 TotalLiquido = pedidoModel.TotalLiquido.Valor,
                                 LucroTotal = pedidoModel.LucroTotal.Valor,
-                                pedidoModel.FormaDePagamento,
+                                FormaDePagamento = pedidoModel.FormaDePagamento,
                             },
                             transaction);
 

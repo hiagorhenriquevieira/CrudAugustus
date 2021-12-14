@@ -276,11 +276,12 @@ namespace CrudAugustusFashion.Dao
         }
         public decimal RecuperarValorGastoAPrazo(int cliente)
         {
-            const string selectValorGastoAPrazo = @"Select (c.ValorLimite - c.ValorLimite)+ sum(cr.ValorAPagar) as ValorConsumido
+            const string selectValorGastoAPrazo = @"Select sum(v.TotalLiquido) as ValorConsumido
                                                     from ContasAReceber cr
                                                     inner join Venda v on v.IdVenda = cr.IdVenda
                                                     inner join Clientes c on c.IdCliente = v.IdCliente
                                                     where c.IdCliente = @IdCliente and Ativo = 1
+                                                    and v.FormaDePagamento = 'APRAZO'
 													group by c.ValorLimite";
                                                     
 

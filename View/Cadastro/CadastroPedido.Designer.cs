@@ -274,9 +274,7 @@ namespace CrudAugustusFashion.View.Cadastro
             "AVISTA",
             "APRAZO",
             "DEBITO",
-            "CREDITO",
-            "PIX",
-            "CHEQUE"});
+            "CREDITO"});
             this.comboBoxFormaPagamento.Location = new System.Drawing.Point(852, 311);
             this.comboBoxFormaPagamento.Name = "comboBoxFormaPagamento";
             this.comboBoxFormaPagamento.Size = new System.Drawing.Size(268, 24);

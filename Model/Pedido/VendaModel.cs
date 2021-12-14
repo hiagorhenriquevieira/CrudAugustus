@@ -1,9 +1,13 @@
-﻿using CrudAugustusFashion.Model.Carinho;
+﻿using CrudAugustusFashion.Dao;
+using CrudAugustusFashion.Enums;
+using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Produto;
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 
 namespace CrudAugustusFashion.Model.Pedido
 {
@@ -17,14 +21,14 @@ namespace CrudAugustusFashion.Model.Pedido
         public Dinheiro TotalDesconto { get => Produtos.Sum(x => x.Quantidade * x.Desconto.Valor); }
         public Dinheiro TotalLiquido { get => Produtos.Sum(x => x.PrecoLiquido.Valor * x.Quantidade); }
         public Dinheiro LucroTotal { get => Produtos.Sum(x => x.Total.Valor - (x.Quantidade * x.PrecoCusto.Valor)); }
-        public string FormaDePagamento { get; set; }
+        public EFormaDePagamento FormaDePagamento { get; set; }
         public bool Ativo { get; set; }
         public DateTime DataEmissao { get; set; }
         public Dinheiro LiquidoPreAlteracao { get; set; }
 
         public ContasAReceberModel Conta { get; set; }
         public List<CarrinhoModel> Produtos { get; set; }
-
+        public EFormaDePagamento PagamentoPreAlteracao { get; set; }
 
         public VendaModel()
         {
@@ -51,16 +55,32 @@ namespace CrudAugustusFashion.Model.Pedido
         {
             return produto;
         }
-        
-        public string GerarSql()
-        { var select = " ";
 
-            var selectContas = @" Insert into ContasAReceber(IdVenda, ValorAPagar)
+        public string GerarSql()
+        {
+            if (PagamentoPreAlteracao == EFormaDePagamento.APRAZO)
+                return " ";
+
+            var select = @" Insert into ContasAReceber(IdVenda, ValorAPagar)
                                                  values(@IdVenda, @ValorAPagar) ";
 
-            if (FormaDePagamento == "APRAZO")
-                return select + selectContas;
-            return select;
+            if (FormaDePagamento == EFormaDePagamento.APRAZO)
+                return select;
+            return " ";
+        }
+
+        public  string GetEnumDescription<T>(T value) where T : Enum
+        {
+            FieldInfo fi = value.GetType().GetField(value.ToString());
+
+            DescriptionAttribute[] attributes = fi.GetCustomAttributes(typeof(DescriptionAttribute), false) as DescriptionAttribute[];
+
+            if (attributes != null && attributes.Any())
+            {
+                return attributes.First().Description;
+            }
+
+            return value.ToString();
         }
         public DynamicParameters RecuperarParametros()
         {
@@ -78,8 +98,16 @@ namespace CrudAugustusFashion.Model.Pedido
             return parameters;
         }
 
-            public int RetornarValorIndexCarrinho(int id)
-            => Produtos.FindIndex(x => x.IdProduto == id);
+        //public void RetornarFormaDePagamentoOriginal()
+        //{
+        //    if (FormaDePagamento == PagamentoPreAlteracao)
+        //    {
+        //        new PedidoDao().AlterarConta()
+        //    }
+        //}
+
+        public int RetornarValorIndexCarrinho(int id)
+        => Produtos.FindIndex(x => x.IdProduto == id);
 
 
     }

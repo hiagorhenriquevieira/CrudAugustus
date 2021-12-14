@@ -62,6 +62,7 @@ namespace CrudAugustusFashion.View.Lista
             this.dataGridViewConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewConsulta.Location = new System.Drawing.Point(62, 184);
             this.dataGridViewConsulta.Name = "dataGridViewConsulta";
+            this.dataGridViewConsulta.ReadOnly = true;
             this.dataGridViewConsulta.Size = new System.Drawing.Size(825, 253);
             this.dataGridViewConsulta.TabIndex = 0;
             // 

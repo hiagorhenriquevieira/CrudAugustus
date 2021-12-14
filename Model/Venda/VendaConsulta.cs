@@ -1,4 +1,5 @@
-﻿using CrudAugustusFashion.Model.Carinho;
+﻿using CrudAugustusFashion.Enums;
+using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Produto;
 using System.Collections.Generic;
 
@@ -15,7 +16,7 @@ namespace CrudAugustusFashion.Model.Venda
         public Dinheiro TotalDesconto { get; }
         public Dinheiro TotalLiquido { get; }
         public Dinheiro Lucro { get; }
-        public string FormaDePagamento { get; set; }
+        public EFormaDePagamento FormaDePagamento { get; set; }
         public bool Ativo { get; set; }
        
         public List<CarrinhoModel> Produtos { get; set; }

@@ -57,9 +57,7 @@ namespace CrudAugustusFashion.View.Lista
         }
         private void btnFiltrarProduto_Click(object sender, EventArgs e)
         {
-            if (txtFiltrarProduto.Text == string.Empty)
-                MessageBox.Show("DIgite algo");
-            else
+            
                 FiltrarProduto();
         }
         private void FiltrarProduto()

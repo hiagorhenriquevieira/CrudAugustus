@@ -18,7 +18,6 @@ namespace CrudAugustusFashion.Dao
                 using (var conexao = ConexaoDao.conectar())
                 {
                     conexao.Execute(insertProduto, produto);
-
                 }
             }
             catch (Exception ex)

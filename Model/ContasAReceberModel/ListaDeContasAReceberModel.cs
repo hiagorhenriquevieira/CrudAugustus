@@ -1,6 +1,7 @@
-﻿using CrudAugustusFashion.Model.Produto;
-using CrudAugustusFashion.Model.Usuario;
+﻿using CrudAugustusFashion.Enums;
+using CrudAugustusFashion.Model.Produto;
 using System;
+using System.ComponentModel;
 
 namespace CrudAugustusFashion.Model.ContasAReceberModel
 {
@@ -10,7 +11,9 @@ namespace CrudAugustusFashion.Model.ContasAReceberModel
         public string NomeCompleto { get; set; }
         
         public Dinheiro ValorAPagar { get; set; }
-        public string FormaDePagamento { get; set; }
+        public EFormaDePagamento FormaDePagamento { get; set; }
+        [Browsable (false)]
+        public string FormaPagamento { get; set; }
         public DateTime DataEmissao { get; set; }
         public bool Ativo { get; set; }
 

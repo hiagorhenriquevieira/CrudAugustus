@@ -2,6 +2,7 @@
 using CrudAugustusFashion.Controller.EmailController;
 using CrudAugustusFashion.Controller.PedidoController;
 using CrudAugustusFashion.Dao;
+using CrudAugustusFashion.Enums;
 using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Carinho;
 using CrudAugustusFashion.Model.Cliente;
@@ -16,6 +17,7 @@ namespace CrudAugustusFashion.View.Cadastro
 {
     public partial class FrmCadastroPedido : Form
     {
+
         private ProdutoModel _produtoModel;
         private VendaModel _pedidoModel;
         private CadastroPedidoController _cadastroPedido;
@@ -111,7 +113,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 lblPrecoLiquido.Text = precoLiquido.ToString("c");
                 lblTotal.Text = total.ToString("c");
                 lblDescontoDecimal.Text = descontoDecimal.ToString("c");
-                lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
+                //lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
                 lblTotalBruto.Text = _pedidoModel.TotalBruto.DinheiroFormatado;
                 lblTotalDesconto.Text = _pedidoModel.TotalDesconto.DinheiroFormatado;
                 lblTotalLiquido.Text = _pedidoModel.TotalLiquido.DinheiroFormatado;
@@ -164,7 +166,7 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             dataGridViewCarrinhoPedido.DataSource = null;
             dataGridViewCarrinhoPedido.DataSource = _pedidoModel.Produtos;
-            lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
+            //lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
             lblTotalBruto.Text = _pedidoModel.TotalBruto.DinheiroFormatado;
             lblTotalDesconto.Text = _pedidoModel.TotalDesconto.DinheiroFormatado;
             lblTotalLiquido.Text = _pedidoModel.TotalLiquido.DinheiroFormatado;
@@ -213,12 +215,17 @@ namespace CrudAugustusFashion.View.Cadastro
             {
                 if (!ValidarCamposDeCadastroPedido())
                     return;
-
                 if (_pedidoModel.IdVenda != 0)
                 {
                     SetarDadosDoPedido();
+
+
                     if (ValidacaoDeCampoVendaAhPrazo())
-                        AlterarVenda();
+
+                        //if (_pedidoModel.FormaDePagamento == _pedidoModel.PagamentoPreAlteracao)
+                            //AlteracaoDeContaAReceber();
+
+                    AlterarVenda();
                     return;
                 }
 
@@ -251,20 +258,30 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             _pedidoModel.IdCliente = Convert.ToInt32(lblIdCliente.Text);
             _pedidoModel.IdColaborador = Convert.ToInt32(lblIdColaborador.Text);
-            _pedidoModel.FormaDePagamento = comboBoxFormaPagamento.Text;
+            _pedidoModel.FormaDePagamento = (EFormaDePagamento)comboBoxFormaPagamento.SelectedIndex;
             _pedidoModel.DataEmissao = DateTime.Now;
 
-            if (_pedidoModel.FormaDePagamento == "APRAZO")
+
+            if (comboBoxFormaPagamento.SelectedIndex == 1)
             {
-               
-                _pedidoModel.Conta.ValorAPagar = Convert.ToDecimal(lblTotalLiquido.Text);
+
+                _pedidoModel.Conta.ValorAPagar = _pedidoModel.TotalLiquido;
             }
         }
 
         private void AlterarVenda()
         {
-            new AlteracaoPedidoController().AlterarPedido(_pedidoModel);
-            MessageBox.Show("Alteração realizada com sucesso");
+
+            try
+            {
+                new AlteracaoPedidoController().AlterarPedido(_pedidoModel);
+                MessageBox.Show("Alteração realizada com sucesso");
+                LimparCamposAposCadastro();
+            }
+            catch (Exception excecao)
+            {
+                MessageBox.Show("Erro encontrado ao alterar pedido" + excecao.Message);
+            }
         }
 
         private bool ValidarCamposDeCadastroPedido()
@@ -329,23 +346,38 @@ namespace CrudAugustusFashion.View.Cadastro
             {
                 RetornarDadosDaVenda();
                 AtualizarCarrinho();
-                _pedidoModel.LiquidoPreAlteracao = lblPrecoLiquido.Text;
+                _pedidoModel.LiquidoPreAlteracao = _pedidoModel.TotalLiquido;
+                _pedidoModel.PagamentoPreAlteracao = _pedidoModel.FormaDePagamento;
             }
         }
+
+        //public void AlteracaoDeContaAReceber()
+        //{
+
+        //    //try
+        //    //{
+        //    //    new PedidoDao().AlterarContaAReceber(_pedidoModel);
+
+        //    //}
+        //    //catch (Exception excecao)
+        //    //{
+        //    //    MessageBox.Show("Erro encontrado." + excecao.Message);
+        //    //}
+        //}
+
         private bool ValidacaoDeCampoVendaAhPrazo()
         {
             if (comboBoxFormaPagamento.Text == "APRAZO")
             {
                 var id = Convert.ToInt32(lblIdCliente.Text);
                 RecuperarDadosDoCliente(id);
-                var resultado = _pedidoModel.LiquidoPreAlteracao.Valor - _clienteModel.RetornarSaldoDoCliente();
+                var resultado = _pedidoModel.LiquidoPreAlteracao.Valor + _clienteModel.RetornarSaldoDoCliente();
                 if (resultado >= Convert.ToDecimal(_pedidoModel.TotalLiquido.Valor))
                     return true;
                 else
                 {
-                MessageBox.Show($"Alteração não pode ser realizada, seu saldo para consumo nessa compra a prazo é de " +
-                    $"{_clienteModel.ValorLimite - _pedidoModel.Conta.ValorAPagar}");
-                return false;
+                    MessageBox.Show($"Alteração não pode ser realizada, seu saldo está a baixo do valor da compra");
+                    return false;
                 }
             }
             return true; ;
