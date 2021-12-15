@@ -186,3 +186,5 @@ C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustu
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.Relatorio.FrmListaClientesFiltro.resources
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.MdiParent.FrmHome.resources
 C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\obj\Debug\CrudAugustusFashion.View.ContasAReceber.FrmListaDeContasAReceber.resources
+C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\ESTÁGIO\Desktop\CrudAugustusFashion\CrudAugustus\bin\Debug\DocumentFormat.OpenXml.xml

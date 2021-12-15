@@ -68,7 +68,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.dtgFiltragemDeVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgFiltragemDeVendas.Location = new System.Drawing.Point(29, 130);
             this.dtgFiltragemDeVendas.Name = "dtgFiltragemDeVendas";
-            this.dtgFiltragemDeVendas.Size = new System.Drawing.Size(779, 374);
+            this.dtgFiltragemDeVendas.Size = new System.Drawing.Size(938, 374);
             this.dtgFiltragemDeVendas.TabIndex = 0;
             // 
             // lblProduto
@@ -224,13 +224,14 @@ namespace CrudAugustusFashion.View.Relatorio
             this.panelMenu.Controls.Add(this.btnLimparCampos);
             this.panelMenu.Controls.Add(this.lblCliente);
             this.panelMenu.Controls.Add(this.txtNomeCliente);
+            this.panelMenu.Controls.Add(this.btnMenu);
             this.panelMenu.Controls.Add(this.lblDataInicial);
             this.panelMenu.Controls.Add(this.btnFiltrarProduto);
             this.panelMenu.Controls.Add(this.lblProduto);
             this.panelMenu.Controls.Add(this.txtNomeProduto);
-            this.panelMenu.Location = new System.Drawing.Point(640, 1);
+            this.panelMenu.Location = new System.Drawing.Point(805, 1);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(201, 503);
+            this.panelMenu.Size = new System.Drawing.Size(201, 685);
             this.panelMenu.TabIndex = 14;
             this.panelMenu.Visible = false;
             // 
@@ -270,7 +271,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // btnMenu
             // 
             this.btnMenu.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Location = new System.Drawing.Point(706, 87);
+            this.btnMenu.Location = new System.Drawing.Point(59, 85);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(102, 37);
             this.btnMenu.TabIndex = 14;
@@ -388,7 +389,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(837, 607);
+            this.ClientSize = new System.Drawing.Size(1008, 709);
             this.Controls.Add(this.labelTotalCusto);
             this.Controls.Add(this.labelTotalLiquido);
             this.Controls.Add(this.labelTotalDesconto);
@@ -400,7 +401,6 @@ namespace CrudAugustusFashion.View.Relatorio
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.lblRelatorioVendaProduto);
             this.Controls.Add(this.dtgFiltragemDeVendas);
-            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.lblLucroReais);
             this.Controls.Add(this.labelLucroReais);
             this.Name = "FrmRelatorioDeVendaProduto";

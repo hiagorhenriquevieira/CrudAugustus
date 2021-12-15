@@ -281,7 +281,7 @@ namespace CrudAugustusFashion.Dao
                                                     inner join Venda v on v.IdVenda = cr.IdVenda
                                                     inner join Clientes c on c.IdCliente = v.IdCliente
                                                     where c.IdCliente = @IdCliente and Ativo = 1
-                                                    and v.FormaDePagamento = 'APRAZO'
+                                                    and v.FormaDePagamento = 1
 													group by c.ValorLimite";
                                                     
 

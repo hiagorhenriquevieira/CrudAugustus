@@ -1,5 +1,6 @@
 ﻿using CrudAugustusFashion.Controller;
 using CrudAugustusFashion.Dao;
+using CrudAugustusFashion.Model.Pedido;
 using System;
 using System.Windows.Forms;
 
@@ -24,8 +25,9 @@ namespace CrudAugustusFashion.View
         private void btnExibirCadastroCliente_Click(object sender, EventArgs e)
         {
             int idCliente = Convert.ToInt32(dataGridViewListaClientes.SelectedRows[0].Cells[0].Value);
-
-            var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
+            
+             var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);
+            cliente.ValorConsumido = new ClienteDao().RecuperarValorGastoAPrazo(idCliente);
 
             new AlteracaoClienteController().AbrirAlteracaoCliente(cliente);
             this.Close();

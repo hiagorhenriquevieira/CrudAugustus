@@ -60,7 +60,7 @@ namespace CrudAugustusFashion.View.Relatorio
                 _filtroRelatorioClienteModel.FiltrarPor = (EFiltrarPor)cmbFiltrarPor.SelectedIndex;
                 _filtroRelatorioClienteModel.OrdenarPor = (EOrdenarPor)cmbOrdemSelecao.SelectedIndex;
                 _filtroRelatorioClienteModel.Ordem = cmbOrdemParaFiltro.SelectedIndex;
-                if (txtValorParaFiltro.Text != "" || Convert.ToInt32(txtValorParaFiltro.Text) < 1)
+                if (txtValorParaFiltro.Text != "" /*|| Convert.ToInt32(txtValorParaFiltro.Text) < 1*/)
                 {
                     _filtroRelatorioClienteModel.ValorMinimo = Convert.ToDecimal(txtValorParaFiltro.Text);
                 }

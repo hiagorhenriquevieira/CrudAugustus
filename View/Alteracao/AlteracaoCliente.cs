@@ -18,9 +18,16 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             InitializeComponent();
             _cliente = cliente;
+            
             _excluircliente = new ExcluirClienteController();
             PreencherCamposComCliente();
             _cadastroclientecontroller = new CadastroClienteController();
+        }
+
+        private decimal RetornarValorLimiteAtual()
+        {
+            var resultado = _cliente.ValorLimite - _cliente.ValorConsumido;
+            return resultado;
         }
 
         private void PreencherCamposComCliente()
@@ -37,7 +44,7 @@ namespace CrudAugustusFashion.View.Alteracao
             comboBoxUf.Text = _cliente.Endereco.Uf;
             txtNumeroResidencia.Text = _cliente.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _cliente.Sexo;
-            txtLimiteCompraPrazo.Text = _cliente.ValorLimite.ToString();
+            txtLimiteCompraPrazo.Text = RetornarValorLimiteAtual().ToString();
             txtObservacao.Text = _cliente.Observacao;
             txtEmail.Text = _cliente.Email;
             maskBoxTelefone.Text = _cliente.Telefone.Telefone;

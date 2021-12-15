@@ -98,14 +98,6 @@ namespace CrudAugustusFashion.Model.Pedido
             return parameters;
         }
 
-        //public void RetornarFormaDePagamentoOriginal()
-        //{
-        //    if (FormaDePagamento == PagamentoPreAlteracao)
-        //    {
-        //        new PedidoDao().AlterarConta()
-        //    }
-        //}
-
         public int RetornarValorIndexCarrinho(int id)
         => Produtos.FindIndex(x => x.IdProduto == id);
 
