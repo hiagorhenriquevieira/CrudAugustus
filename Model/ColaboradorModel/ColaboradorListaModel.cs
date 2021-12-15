@@ -1,13 +1,18 @@
 ﻿using CrudAugustusFashion.Model.Usuario;
 using System;
+using System.ComponentModel;
 
 namespace CrudAugustusFashion.Model
 {
     public class ColaboradorListaModel
     {
+        [DisplayName("Código colaborador")]
         public int IdColaborador { get; set; }
+        [DisplayName ("Nome")]
         public NomeCompleto NomeCompleto { get; set; }
+        [DisplayName ("Sexo")]
         public string Sexo { get; set; }
+        [DisplayName ("Idade")]
         public int Idade
         {
             get
@@ -19,8 +24,11 @@ namespace CrudAugustusFashion.Model
 
             }
         }
+        [DisplayName ("Data nascimento ")]
         public DateTime DataNascimento { get; set; }
+        [DisplayName ("Endereço")]
         public EnderecoModel Endereco { get; set; }
+        [DisplayName ("Telefone")]
         public TelefoneModel Telefone { get; set; }
     }
 }

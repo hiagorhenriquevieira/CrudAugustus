@@ -41,23 +41,27 @@ namespace CrudAugustusFashion.View.ContasAReceber
             // 
             // dataGridViewConsulta
             // 
+            this.dataGridViewConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewConsulta.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewConsulta.Location = new System.Drawing.Point(46, 136);
+            this.dataGridViewConsulta.Location = new System.Drawing.Point(81, 136);
             this.dataGridViewConsulta.Name = "dataGridViewConsulta";
             this.dataGridViewConsulta.ReadOnly = true;
             this.dataGridViewConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewConsulta.Size = new System.Drawing.Size(825, 253);
+            this.dataGridViewConsulta.Size = new System.Drawing.Size(847, 485);
             this.dataGridViewConsulta.TabIndex = 1;
             // 
             // btnPagarConta
             // 
+            this.btnPagarConta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPagarConta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.btnPagarConta.FlatAppearance.BorderSize = 0;
             this.btnPagarConta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPagarConta.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagarConta.Location = new System.Drawing.Point(721, 404);
+            this.btnPagarConta.Location = new System.Drawing.Point(778, 627);
             this.btnPagarConta.Name = "btnPagarConta";
             this.btnPagarConta.Size = new System.Drawing.Size(150, 31);
             this.btnPagarConta.TabIndex = 71;
@@ -67,11 +71,12 @@ namespace CrudAugustusFashion.View.ContasAReceber
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.btnVoltar.FlatAppearance.BorderSize = 0;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVoltar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(46, 404);
+            this.btnVoltar.Location = new System.Drawing.Point(81, 627);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(150, 31);
             this.btnVoltar.TabIndex = 70;
@@ -80,11 +85,12 @@ namespace CrudAugustusFashion.View.ContasAReceber
             // 
             // CbContasPendentes
             // 
+            this.CbContasPendentes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CbContasPendentes.AutoSize = true;
             this.CbContasPendentes.Checked = true;
             this.CbContasPendentes.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CbContasPendentes.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbContasPendentes.Location = new System.Drawing.Point(708, 88);
+            this.CbContasPendentes.Location = new System.Drawing.Point(730, 97);
             this.CbContasPendentes.Name = "CbContasPendentes";
             this.CbContasPendentes.Size = new System.Drawing.Size(198, 29);
             this.CbContasPendentes.TabIndex = 76;
@@ -94,21 +100,21 @@ namespace CrudAugustusFashion.View.ContasAReceber
             // txtFiltrarCliente
             // 
             this.txtFiltrarCliente.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltrarCliente.Location = new System.Drawing.Point(246, 86);
+            this.txtFiltrarCliente.Location = new System.Drawing.Point(81, 97);
             this.txtFiltrarCliente.Name = "txtFiltrarCliente";
             this.txtFiltrarCliente.Size = new System.Drawing.Size(204, 33);
-            this.txtFiltrarCliente.TabIndex = 75;
+            this.txtFiltrarCliente.TabIndex = 1;
             // 
             // btnFiltrarCliente
             // 
             this.btnFiltrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.btnFiltrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFiltrarCliente.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarCliente.Location = new System.Drawing.Point(456, 85);
+            this.btnFiltrarCliente.Location = new System.Drawing.Point(291, 96);
             this.btnFiltrarCliente.Name = "btnFiltrarCliente";
-            this.btnFiltrarCliente.Size = new System.Drawing.Size(211, 34);
-            this.btnFiltrarCliente.TabIndex = 74;
-            this.btnFiltrarCliente.Text = "Filtrar por nome";
+            this.btnFiltrarCliente.Size = new System.Drawing.Size(110, 34);
+            this.btnFiltrarCliente.TabIndex = 2;
+            this.btnFiltrarCliente.Text = "Filtrar";
             this.btnFiltrarCliente.UseVisualStyleBackColor = false;
             this.btnFiltrarCliente.Click += new System.EventHandler(this.btnFiltrarCliente_Click);
             // 
@@ -117,7 +123,7 @@ namespace CrudAugustusFashion.View.ContasAReceber
             this.labelListagemClientes.AutoSize = true;
             this.labelListagemClientes.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelListagemClientes.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.labelListagemClientes.Location = new System.Drawing.Point(41, 88);
+            this.labelListagemClientes.Location = new System.Drawing.Point(76, 65);
             this.labelListagemClientes.Name = "labelListagemClientes";
             this.labelListagemClientes.Size = new System.Drawing.Size(199, 29);
             this.labelListagemClientes.TabIndex = 73;
@@ -128,7 +134,7 @@ namespace CrudAugustusFashion.View.ContasAReceber
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(953, 524);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.CbContasPendentes);
             this.Controls.Add(this.txtFiltrarCliente);
             this.Controls.Add(this.btnFiltrarCliente);

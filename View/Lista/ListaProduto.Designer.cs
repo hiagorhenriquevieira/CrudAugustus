@@ -65,32 +65,36 @@ namespace CrudAugustusFashion.View.Lista
             // 
             // btnExibirCadastroProduto
             // 
-            this.btnExibirCadastroProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExibirCadastroProduto.Location = new System.Drawing.Point(201, 345);
+            this.btnExibirCadastroProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.btnExibirCadastroProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExibirCadastroProduto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExibirCadastroProduto.Location = new System.Drawing.Point(349, 355);
             this.btnExibirCadastroProduto.Name = "btnExibirCadastroProduto";
-            this.btnExibirCadastroProduto.Size = new System.Drawing.Size(388, 55);
+            this.btnExibirCadastroProduto.Size = new System.Drawing.Size(204, 35);
             this.btnExibirCadastroProduto.TabIndex = 22;
             this.btnExibirCadastroProduto.Text = "Exibir Produto";
-            this.btnExibirCadastroProduto.UseVisualStyleBackColor = true;
+            this.btnExibirCadastroProduto.UseVisualStyleBackColor = false;
             this.btnExibirCadastroProduto.Click += new System.EventHandler(this.btnExibirCadastroProduto_Click);
             // 
             // txtFiltrarProduto
             // 
-            this.txtFiltrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltrarProduto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltrarProduto.Location = new System.Drawing.Point(201, 27);
             this.txtFiltrarProduto.Name = "txtFiltrarProduto";
-            this.txtFiltrarProduto.Size = new System.Drawing.Size(204, 29);
+            this.txtFiltrarProduto.Size = new System.Drawing.Size(204, 30);
             this.txtFiltrarProduto.TabIndex = 27;
             // 
             // btnFiltrarProduto
             // 
-            this.btnFiltrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.btnFiltrarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFiltrarProduto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrarProduto.Location = new System.Drawing.Point(411, 27);
             this.btnFiltrarProduto.Name = "btnFiltrarProduto";
             this.btnFiltrarProduto.Size = new System.Drawing.Size(162, 30);
             this.btnFiltrarProduto.TabIndex = 26;
             this.btnFiltrarProduto.Text = "Filtrar produto";
-            this.btnFiltrarProduto.UseVisualStyleBackColor = true;
+            this.btnFiltrarProduto.UseVisualStyleBackColor = false;
             this.btnFiltrarProduto.Click += new System.EventHandler(this.btnFiltrarProduto_Click);
             // 
             // checkBoxListaProdutoAtivo
@@ -98,10 +102,10 @@ namespace CrudAugustusFashion.View.Lista
             this.checkBoxListaProdutoAtivo.AutoSize = true;
             this.checkBoxListaProdutoAtivo.Checked = true;
             this.checkBoxListaProdutoAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxListaProdutoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxListaProdutoAtivo.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxListaProdutoAtivo.Location = new System.Drawing.Point(579, 29);
             this.checkBoxListaProdutoAtivo.Name = "checkBoxListaProdutoAtivo";
-            this.checkBoxListaProdutoAtivo.Size = new System.Drawing.Size(259, 28);
+            this.checkBoxListaProdutoAtivo.Size = new System.Drawing.Size(236, 27);
             this.checkBoxListaProdutoAtivo.TabIndex = 30;
             this.checkBoxListaProdutoAtivo.Text = "Somente produtos ativos";
             this.checkBoxListaProdutoAtivo.UseVisualStyleBackColor = true;

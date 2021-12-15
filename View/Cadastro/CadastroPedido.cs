@@ -51,6 +51,13 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void dataGridViewProdutoPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            var lista = dataGridViewProdutoPedido.SelectedRows.Count;
+            if(lista == 0)
+            {
+                MessageBox.Show("Nenhum produto foi selecionado");
+                return;
+            }
+
             int codigoProduto = Convert.ToInt32(dataGridViewProdutoPedido.SelectedRows[0].Cells[0].Value);
             var produto = new ProdutoDao().RecuperarDadosProduto(codigoProduto);
 
@@ -66,6 +73,12 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void dataGridViewColaboradorPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            var lista = dataGridViewColaboradorPedido.SelectedRows.Count;
+            if(lista == 0)
+            {
+                MessageBox.Show("Nenhum colaborador foi selecionado");
+                return;
+            }
             int idColaborador = Convert.ToInt32(dataGridViewColaboradorPedido.SelectedRows[0].Cells[0].Value);
             var colaborador = new ColaboradorDao().RecuperarDadosColaborador(idColaborador);
 
@@ -87,6 +100,12 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void dataGridViewClientePedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            var lista = dataGridViewClientePedido.SelectedRows.Count;
+            if(lista == 0)
+            {
+                MessageBox.Show("Nenhum cliente foi selecionado");
+                return;
+            }
             int idCliente = Convert.ToInt32(dataGridViewClientePedido.SelectedRows[0].Cells[0].Value);
             RecuperarDadosDoCliente(idCliente);
 
@@ -113,24 +132,15 @@ namespace CrudAugustusFashion.View.Cadastro
                 lblPrecoLiquido.Text = precoLiquido.ToString("c");
                 lblTotal.Text = total.ToString("c");
                 lblDescontoDecimal.Text = descontoDecimal.ToString("c");
-                //lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
                 lblTotalBruto.Text = _pedidoModel.TotalBruto.DinheiroFormatado;
                 lblTotalDesconto.Text = _pedidoModel.TotalDesconto.DinheiroFormatado;
                 lblTotalLiquido.Text = _pedidoModel.TotalLiquido.DinheiroFormatado;
             }
         }
 
-        private void numericDesconto_ValueChanged(object sender, EventArgs e)
-        {
-            AtualizarPrecos();
+        private void numericDesconto_ValueChanged(object sender, EventArgs e) => AtualizarPrecos();
 
-        }
-
-        private void numericDesconto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            AtualizarPrecos();
-
-        }
+        private void numericDesconto_KeyPress(object sender, KeyPressEventArgs e) => AtualizarPrecos();
 
         private void numericQuantidade_ValueChanged(object sender, EventArgs e) => AtualizarPrecos();
 
@@ -166,7 +176,6 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             dataGridViewCarrinhoPedido.DataSource = null;
             dataGridViewCarrinhoPedido.DataSource = _pedidoModel.Produtos;
-            //lblLucro.Text = _pedidoModel.LucroTotal.DinheiroFormatado;
             lblTotalBruto.Text = _pedidoModel.TotalBruto.DinheiroFormatado;
             lblTotalDesconto.Text = _pedidoModel.TotalDesconto.DinheiroFormatado;
             lblTotalLiquido.Text = _pedidoModel.TotalLiquido.DinheiroFormatado;
@@ -219,11 +228,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 {
                     SetarDadosDoPedido();
 
-
                     if (ValidacaoDeCampoVendaAhPrazo())
-
-                        //if (_pedidoModel.FormaDePagamento == _pedidoModel.PagamentoPreAlteracao)
-                            //AlteracaoDeContaAReceber();
 
                     AlterarVenda();
                     return;
@@ -351,20 +356,6 @@ namespace CrudAugustusFashion.View.Cadastro
             }
         }
 
-        //public void AlteracaoDeContaAReceber()
-        //{
-
-        //    //try
-        //    //{
-        //    //    new PedidoDao().AlterarContaAReceber(_pedidoModel);
-
-        //    //}
-        //    //catch (Exception excecao)
-        //    //{
-        //    //    MessageBox.Show("Erro encontrado." + excecao.Message);
-        //    //}
-        //}
-
         private bool ValidacaoDeCampoVendaAhPrazo()
         {
             if (comboBoxFormaPagamento.Text == "APRAZO")
@@ -424,7 +415,6 @@ namespace CrudAugustusFashion.View.Cadastro
             lblDescontoDecimal.Text = produto.Desconto.ToString();
             numericQuantidade.Value = produto.Quantidade;
             lblPrecoVenda.Text = produto.PrecoVenda.ToString();
-
         }
 
         private void dataGridViewCarrinhoPedido_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

@@ -289,6 +289,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\Alteracao\AlteracaoCliente.resx">
       <DependentUpon>AlteracaoCliente.cs</DependentUpon>
@@ -397,6 +398,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\shirts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undraw_web_shopping_re_owap.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

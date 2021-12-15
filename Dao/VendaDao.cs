@@ -78,7 +78,7 @@ namespace CrudAugustusFashion.Dao
 
         internal void EliminarPedido(VendaModel vendaModel)
         {
-            const string updateContas = @"Update ContasAReceber set Ativo = 0
+            const string deleteContas = @"delete ContasAReceber
                                             where IdVenda = @IdVenda";
             const string updateVenda = @"Update Venda set Status = 0
                                          where IdVenda = @IdVenda";
@@ -101,7 +101,7 @@ namespace CrudAugustusFashion.Dao
                         }
                         conexao.Execute(updateVenda, vendaModel, transaction);
 
-                        conexao.Execute(updateContas, vendaModel, transaction);
+                        conexao.Execute(deleteContas, vendaModel, transaction);
 
                         transaction.Commit();
                     }

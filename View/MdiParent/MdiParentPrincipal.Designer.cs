@@ -193,7 +193,7 @@ namespace CrudAugustusFashion.View
             // contasPendentesToolStripMenuItem1
             // 
             this.contasPendentesToolStripMenuItem1.Name = "contasPendentesToolStripMenuItem1";
-            this.contasPendentesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.contasPendentesToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
             this.contasPendentesToolStripMenuItem1.Text = "Contas Pendentes";
             this.contasPendentesToolStripMenuItem1.Click += new System.EventHandler(this.contasPendentesToolStripMenuItem1_Click);
             // 
@@ -201,11 +201,13 @@ namespace CrudAugustusFashion.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MdiParentPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Augustu\'s Fashion ";
             this.Load += new System.EventHandler(this.MDIParent1_Load);
             this.menuStrip.ResumeLayout(false);

@@ -40,7 +40,7 @@ namespace CrudAugustusFashion.View
             // 
             // dataGrideViewColaboradores
             // 
-            this.dataGrideViewColaboradores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGrideViewColaboradores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGrideViewColaboradores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGrideViewColaboradores.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGrideViewColaboradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

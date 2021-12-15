@@ -10,7 +10,8 @@ namespace CrudAugustusFashion.Dao
     {
         internal List<ListaDeContasAReceberModel> ListarComprasAPrazo(string text, bool ativo)
         {
-            const string selectPedido = @"select v.IdVenda, Concat (u.Nome, ' ', u.SobreNome) as NomeCompleto ,v.TotalLiquido as ValorAPagar , v.FormaDePagamento, v.DataEmissao, cr.Ativo
+            const string selectPedido = @"select v.IdVenda, Concat (u.Nome, ' ', u.SobreNome) as NomeCompleto ,v.TotalLiquido as ValorAPagar , v.FormaDePagamento,
+                                            v.DataEmissao, cr.Ativo, cr.DataPagamento
                                             from venda v
                                             inner join Clientes c on v.IdCliente = c.IdCliente
                                             inner join Usuarios u on c.IdUsuario = u.IdUsuario
@@ -24,13 +25,13 @@ namespace CrudAugustusFashion.Dao
         }
         internal void PagarContaAPrazo(int idVenda)
         {
-            const string update = @"Update ContasAReceber set Ativo = 0
-                                    where IdVenda = @IdVenda";
+            const string update = @"Update ContasAReceber set Ativo = 0, DataPagamento = @dataPagamento
+                                     where IdVenda = @IdVenda";
 
             using (var conexao = ConexaoDao.conectar())
                 try
                 {
-                    conexao.Query(update, new { IdVenda = idVenda }).ToString();
+                    conexao.Query(update, new { IdVenda = idVenda, dataPagamento = DateTime.Now }).ToString();      
                 }
                 catch (Exception excecao)
                 {

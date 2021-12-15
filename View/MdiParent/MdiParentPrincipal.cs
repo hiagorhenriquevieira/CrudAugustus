@@ -23,7 +23,7 @@ namespace CrudAugustusFashion.View
         private ListagemPedidoController _listaPedidoController;
         private RelatorioVendaController _relatorioVendaController;
         private RelatorioClienteController _relatorioClienteController;
-        //private ContasAReceberController _contasAReceberController;
+        
 
         public MdiParentPrincipal()
         {

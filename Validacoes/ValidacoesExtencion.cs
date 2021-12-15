@@ -44,7 +44,7 @@ namespace CrudAugustusFashion.Validacoes
            string.IsNullOrEmpty(comboBox.Text);
 
         public static bool ValidarApenasNumeros(this string numero) =>
-            new Regex(@"^[0-9aA-zZ]+$").Match(numero).Success;
+            new Regex(@"^[0-9aA-zZ/ ]+$").Match(numero).Success;
 
         public static bool ValidarApenasLetras(this string texto) =>
             new Regex(@"^[a-zA-ZçÇ áÁãÃÂâêÊ.íìÌÍ&!@#$¨*()+|\/?;>`<]+$").Match(texto).Success;

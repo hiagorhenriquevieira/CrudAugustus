@@ -29,7 +29,7 @@ namespace CrudAugustusFashion.View
         private void btnExibirCadastroColaborador_Click(object sender, EventArgs e)
         {
             
-            int idColaborador = Convert.ToInt32(dataGrideViewColaboradores.SelectedRows[0].Cells[0].Value);
+                int idColaborador = Convert.ToInt32(dataGrideViewColaboradores.SelectedRows[0].Cells[0].Value);
 
             var colaborador = new ColaboradorDao().RecuperarDadosColaborador(idColaborador);
 
