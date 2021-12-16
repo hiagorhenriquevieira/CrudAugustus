@@ -34,10 +34,11 @@ namespace CrudAugustusFashion.Controller.EmailController
                 mensagem.AppendLine();
                 foreach (var item in venda.Produtos)
                 {
-                    mensagem.Append($"\t {item.Quantidade}u  {item.Nome}: {item.PrecoLiquido}");
+                    mensagem.Append($"\t {item.Quantidade}x  {item.Nome}: {item.PrecoLiquido}");
                     mensagem.AppendLine();
                 }
                 mensagem.Append($"Valor total da compra = {venda.TotalLiquido}");
+                mensagem.AppendLine();
                 mensagem.Append("Agradecemos por comprar com AugustusFashion, Volte sempre.");
                 mensagem.AppendLine();
                 mensagem.AppendLine();

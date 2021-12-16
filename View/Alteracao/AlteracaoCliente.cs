@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace CrudAugustusFashion.View.Alteracao
 {
     public partial class FrmAlteracaoCliente : Form
-    { 
+    {
         private ClienteModel _cliente;
         private ExcluirClienteController _excluircliente;
         private CadastroClienteController _cadastroclientecontroller;
@@ -18,22 +18,15 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             InitializeComponent();
             _cliente = cliente;
-            
+
             _excluircliente = new ExcluirClienteController();
             PreencherCamposComCliente();
             _cadastroclientecontroller = new CadastroClienteController();
         }
 
-        private decimal RetornarValorLimiteAtual()
-        {
-            var resultado = _cliente.ValorLimite - _cliente.ValorConsumido;
-            return resultado;
-        }
 
         private void PreencherCamposComCliente()
-        {  
-            txtIdUsuario.Text = _cliente.IdUsuario.ToString();
-            txtIdCliente.Text = _cliente.IdCliente.ToString();
+        {
             txtNome.Text = _cliente.NomeCompleto.Nome;
             txtSobrenome.Text = _cliente.NomeCompleto.SobreNome;
             txtLogradouro.Text = _cliente.Endereco.Logradouro;
@@ -44,13 +37,14 @@ namespace CrudAugustusFashion.View.Alteracao
             comboBoxUf.Text = _cliente.Endereco.Uf;
             txtNumeroResidencia.Text = _cliente.Endereco.NumeroResidencia.ToString();
             comboBoxSexo.Text = _cliente.Sexo;
-            txtLimiteCompraPrazo.Text = RetornarValorLimiteAtual().ToString();
+            txtLimiteCompraPrazo.Text = _cliente.ValorLimite.ToString();
             txtObservacao.Text = _cliente.Observacao;
             txtEmail.Text = _cliente.Email;
             maskBoxTelefone.Text = _cliente.Telefone.Telefone;
-            maskBoxCelular.Text = _cliente.Telefone.Celular; 
+            maskBoxCelular.Text = _cliente.Telefone.Celular;
             txtCpf.Text = _cliente.Cpf.ToString();
             dateTimeNascimento.Value = _cliente.DataNascimento;
+            lblSaldoDisponivel.Text = RetornarValorLimiteAtual().ToString("c");
         }
 
         private void FrmAlteracaoCliente_Load(object sender, EventArgs e)
@@ -58,7 +52,8 @@ namespace CrudAugustusFashion.View.Alteracao
             try
             {
                 new ClienteDao().ListarClientes();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro ao listar clientes. Erro " + ex.Message);
             }
@@ -77,18 +72,21 @@ namespace CrudAugustusFashion.View.Alteracao
                 _cadastroclientecontroller.AbrirListaCliente();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Falha ao excluir cliente. Erro: " + ex.Message);
             }
         }
 
+
+
         private void btnAlteracaoCliente_Click(object sender, EventArgs e)
         {
+
             var cliente = new ClienteModel
             {
-                IdCliente = int.Parse(txtIdCliente.Text),
-                IdUsuario = int.Parse(txtIdUsuario.Text),
+                IdCliente = _cliente.IdCliente,
+                IdUsuario = _cliente.IdUsuario,
                 NomeCompleto = new NomeCompleto
                 {
                     Nome = txtNome.Text,
@@ -98,11 +96,11 @@ namespace CrudAugustusFashion.View.Alteracao
                 Sexo = comboBoxSexo.Text,
                 DataNascimento = dateTimeNascimento.Value,
                 Email = txtEmail.Text,
-                ValorLimite = int.Parse(txtLimiteCompraPrazo.Text),
+                ValorLimite = Convert.ToDecimal(RetornarValorDeLimiteDoCliente(_cliente)),
                 Observacao = txtObservacao.Text.ToString(),
                 Endereco = new EnderecoModel
                 {
-                    IdUsuario = int.Parse(txtIdUsuario.Text),
+                    IdUsuario = _cliente.IdUsuario,
                     Cidade = txtCidade.Text,
                     Bairro = txtBairro.Text,
                     Cep = txtCep.Text,
@@ -113,19 +111,18 @@ namespace CrudAugustusFashion.View.Alteracao
                 },
                 Telefone = new TelefoneModel
                 {
-                    IdUsuario = int.Parse(txtIdUsuario.Text),
+                    IdUsuario = _cliente.IdUsuario,
                     Celular = maskBoxCelular.Text,
                     Telefone = maskBoxTelefone.Text,
                 }
             };
-            
             try
             {
                 var retorno = new AlteracaoClienteController().AlterarCliente(cliente);
-                if(retorno == string.Empty)
+                if (retorno == string.Empty)
                 {
-                MessageBox.Show("Cliente alterado com sucesso.");
-                this.Close();
+                    MessageBox.Show("Cliente alterado com sucesso.");
+                    this.Close();
                     _cadastroclientecontroller.AbrirListaCliente();
                 }
                 else
@@ -133,10 +130,31 @@ namespace CrudAugustusFashion.View.Alteracao
                     MessageBox.Show(retorno);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Cliente não pode ser alterado. Erro " + ex.Message);
             }
+        }
+
+        public string RetornarValorDeLimiteDoCliente(ClienteModel cliente)
+        {
+
+            string str = txtLimiteCompraPrazo.Text;
+            string[] charsToRemove = new string[] { "R", "$", };
+            foreach (var c in charsToRemove)
+            {
+                str = str.Replace(c, string.Empty);
+            }
+
+           cliente.ValorLimite = Convert.ToDecimal(str);
+            return cliente.ValorLimite.ToString();
+
+        }
+
+
+        private decimal RetornarValorLimiteAtual()
+        {
+            return _cliente.ValorLimite.Valor - _cliente.ValorConsumido.Valor;
         }
     }
 }

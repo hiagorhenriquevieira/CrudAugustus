@@ -52,6 +52,11 @@ namespace CrudAugustusFashion.View.Relatorio
             return false;
         }
 
+        public void ReceberStatusDaVenda()
+        {
+            _filtroRelatorioVendaProdutoModel.Ativo = cbVendaAtivas.Checked;
+        }
+
         private bool ValidarDatas()
         {
             if(dtpDataInicial.Value > DateTime.Now)
@@ -68,6 +73,7 @@ namespace CrudAugustusFashion.View.Relatorio
 
         private void btnFiltrarProdutosVendidos_Click(object sender, EventArgs e)
         {
+            ReceberStatusDaVenda();
             ReceberDatas();
             _relatorioVendaProdutoViewModel.Relatorio = _relatorioVendaController.FiltrarProdutos(_filtroRelatorioVendaProdutoModel); ;
             dtgFiltragemDeVendas.DataSource = _relatorioVendaProdutoViewModel.Relatorio;

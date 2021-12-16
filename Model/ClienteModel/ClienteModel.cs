@@ -1,6 +1,4 @@
-﻿using CrudAugustusFashion.Dao;
-using CrudAugustusFashion.Model.Pedido;
-using CrudAugustusFashion.Model.Produto;
+﻿using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Model.Usuario;
 using System;
 
@@ -10,8 +8,8 @@ namespace CrudAugustusFashion.Model.Cliente
     {
         public int IdCliente { get; set; }
         public string Observacao{ get; set; }
-        public decimal  ValorLimite { get; set; }
-        public decimal ValorConsumido { get; set; }
+        public Dinheiro  ValorLimite { get; set; }
+        public Dinheiro ValorConsumido { get; set; }
         public bool Ativo { get; set; }
         public string ValidarCliente()
         {
@@ -36,7 +34,7 @@ namespace CrudAugustusFashion.Model.Cliente
 
         public decimal RetornarSaldoDoCliente()
         {
-            var resultado = ValorLimite - ValorConsumido;
+            var resultado = ValorLimite.Valor - ValorConsumido.Valor;
             return resultado;
         }
     }

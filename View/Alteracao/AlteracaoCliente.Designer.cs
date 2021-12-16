@@ -30,8 +30,7 @@ namespace CrudAugustusFashion.View.Alteracao
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.maskBoxTelefone = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxUf = new System.Windows.Forms.ComboBox();
             this.comboBoxSexo = new System.Windows.Forms.ComboBox();
@@ -70,15 +69,16 @@ namespace CrudAugustusFashion.View.Alteracao
             this.label1 = new System.Windows.Forms.Label();
             this.btnAlteracaoCliente = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.txtCep = new System.Windows.Forms.MaskedTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblSaldoDisponivel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblSaldoDisponivel);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtCep);
-            this.groupBox1.Controls.Add(this.txtIdUsuario);
-            this.groupBox1.Controls.Add(this.txtIdCliente);
             this.groupBox1.Controls.Add(this.maskBoxTelefone);
             this.groupBox1.Controls.Add(this.comboBoxUf);
             this.groupBox1.Controls.Add(this.comboBoxSexo);
@@ -121,21 +121,15 @@ namespace CrudAugustusFashion.View.Alteracao
             this.groupBox1.TabIndex = 53;
             this.groupBox1.TabStop = false;
             // 
-            // txtIdUsuario
+            // txtCep
             // 
-            this.txtIdUsuario.Location = new System.Drawing.Point(507, 44);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(100, 20);
-            this.txtIdUsuario.TabIndex = 52;
-            this.txtIdUsuario.Visible = false;
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Location = new System.Drawing.Point(656, 44);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtIdCliente.TabIndex = 51;
-            this.txtIdCliente.Visible = false;
+            this.txtCep.AccessibleName = "";
+            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCep.Location = new System.Drawing.Point(469, 168);
+            this.txtCep.Mask = "00000-000";
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(178, 29);
+            this.txtCep.TabIndex = 53;
             // 
             // maskBoxTelefone
             // 
@@ -180,9 +174,9 @@ namespace CrudAugustusFashion.View.Alteracao
             "SP",
             "SE",
             "TO"});
-            this.comboBoxUf.Location = new System.Drawing.Point(614, 171);
+            this.comboBoxUf.Location = new System.Drawing.Point(653, 168);
             this.comboBoxUf.Name = "comboBoxUf";
-            this.comboBoxUf.Size = new System.Drawing.Size(142, 28);
+            this.comboBoxUf.Size = new System.Drawing.Size(95, 28);
             this.comboBoxUf.TabIndex = 8;
             // 
             // comboBoxSexo
@@ -194,9 +188,9 @@ namespace CrudAugustusFashion.View.Alteracao
             "Feminino",
             "Masculino",
             "Outros"});
-            this.comboBoxSexo.Location = new System.Drawing.Point(614, 108);
+            this.comboBoxSexo.Location = new System.Drawing.Point(653, 108);
             this.comboBoxSexo.Name = "comboBoxSexo";
-            this.comboBoxSexo.Size = new System.Drawing.Size(142, 28);
+            this.comboBoxSexo.Size = new System.Drawing.Size(95, 28);
             this.comboBoxSexo.TabIndex = 4;
             // 
             // label24
@@ -234,7 +228,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtCpf.Location = new System.Drawing.Point(470, 108);
             this.txtCpf.Mask = "000,000,000-00";
             this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(137, 29);
+            this.txtCpf.Size = new System.Drawing.Size(177, 29);
             this.txtCpf.TabIndex = 3;
             // 
             // maskBoxCelular
@@ -244,7 +238,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.maskBoxCelular.Location = new System.Drawing.Point(469, 298);
             this.maskBoxCelular.Mask = "00000000000";
             this.maskBoxCelular.Name = "maskBoxCelular";
-            this.maskBoxCelular.Size = new System.Drawing.Size(137, 29);
+            this.maskBoxCelular.Size = new System.Drawing.Size(178, 29);
             this.maskBoxCelular.TabIndex = 16;
             // 
             // label20
@@ -262,7 +256,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtObservacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObservacao.Location = new System.Drawing.Point(18, 417);
             this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(654, 93);
+            this.txtObservacao.Size = new System.Drawing.Size(446, 93);
             this.txtObservacao.TabIndex = 19;
             this.txtObservacao.Text = "";
             // 
@@ -301,7 +295,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtLimiteCompraPrazo.Location = new System.Drawing.Point(470, 357);
             this.txtLimiteCompraPrazo.MaxLength = 15;
             this.txtLimiteCompraPrazo.Name = "txtLimiteCompraPrazo";
-            this.txtLimiteCompraPrazo.Size = new System.Drawing.Size(253, 29);
+            this.txtLimiteCompraPrazo.Size = new System.Drawing.Size(177, 29);
             this.txtLimiteCompraPrazo.TabIndex = 18;
             // 
             // txtNumeroResidencia
@@ -310,7 +304,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtNumeroResidencia.Location = new System.Drawing.Point(470, 235);
             this.txtNumeroResidencia.MaxLength = 9;
             this.txtNumeroResidencia.Name = "txtNumeroResidencia";
-            this.txtNumeroResidencia.Size = new System.Drawing.Size(137, 29);
+            this.txtNumeroResidencia.Size = new System.Drawing.Size(177, 29);
             this.txtNumeroResidencia.TabIndex = 11;
             // 
             // txtLogradouro
@@ -388,7 +382,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(609, 80);
+            this.label14.Location = new System.Drawing.Point(648, 80);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 25);
             this.label14.TabIndex = 13;
@@ -437,7 +431,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(608, 140);
+            this.label8.Location = new System.Drawing.Point(648, 140);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 25);
             this.label8.TabIndex = 7;
@@ -534,15 +528,25 @@ namespace CrudAugustusFashion.View.Alteracao
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // txtCep
+            // label13
             // 
-            this.txtCep.AccessibleName = "";
-            this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCep.Location = new System.Drawing.Point(469, 168);
-            this.txtCep.Mask = "00000-000";
-            this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(137, 29);
-            this.txtCep.TabIndex = 53;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(470, 390);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(186, 25);
+            this.label13.TabIndex = 55;
+            this.label13.Text = "Saldo disponível";
+            // 
+            // lblSaldoDisponivel
+            // 
+            this.lblSaldoDisponivel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSaldoDisponivel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lblSaldoDisponivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaldoDisponivel.Location = new System.Drawing.Point(470, 420);
+            this.lblSaldoDisponivel.Name = "lblSaldoDisponivel";
+            this.lblSaldoDisponivel.Size = new System.Drawing.Size(177, 25);
+            this.lblSaldoDisponivel.TabIndex = 56;
             // 
             // FrmAlteracaoCliente
             // 
@@ -603,8 +607,8 @@ namespace CrudAugustusFashion.View.Alteracao
         private System.Windows.Forms.Button btnAlteracaoCliente;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.MaskedTextBox maskBoxTelefone;
-        private System.Windows.Forms.TextBox txtIdCliente;
-        private System.Windows.Forms.TextBox txtIdUsuario;
         private System.Windows.Forms.MaskedTextBox txtCep;
+        private System.Windows.Forms.Label lblSaldoDisponivel;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -44,8 +44,7 @@ namespace CrudAugustusFashion.Dao
                                 venda.DataEmissao,
                             },
                             transaction);
-                         conexao.Query<VendaModel>(venda.GerarSql(), venda.RecuperarParametros(), transaction);
-
+                        InserirContaAPagar(venda, conexao, transaction);
 
                         venda.Produtos.ForEach(x => x.IdVenda = venda.IdVenda);
 
@@ -74,6 +73,12 @@ namespace CrudAugustusFashion.Dao
             {
                 throw new Exception(excecao.Message);
             }
+        }
+
+        private static void InserirContaAPagar(VendaModel venda, SqlConnection conexao, SqlTransaction transaction)
+        {
+            if (venda.FormaDePagamento == Enums.EFormaDePagamento.APRAZO)
+                conexao.Query<VendaModel>(venda.GerarSql(), venda.RecuperarParametros(), transaction);
         }
 
         internal void EliminarPedido(VendaModel vendaModel)

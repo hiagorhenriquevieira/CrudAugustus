@@ -10,14 +10,14 @@ namespace CrudAugustusFashion.Model.RelatorioVendaProduto
         public DateTime DataEmissao { get; set; }
         public DateTime DataFinal { get; set; }
         public string Nome { get; set; }
-
+        public bool Ativo { get; set; }
 
 
         public string GerarSql()
         {
             var GroupBy = "GROUP BY p.IdProduto, p.Nome ";
 
-            var Where = " where v.DataEmissao BETWEEN @DataEmissao and @DataFinal ";
+            var Where = " where v.DataEmissao BETWEEN @DataEmissao and @DataFinal and v.status = @Ativo ";
 
             if (IdCliente != 0) Where += " and v.IdCliente = @IdCliente ";
 
@@ -25,7 +25,7 @@ namespace CrudAugustusFashion.Model.RelatorioVendaProduto
 
             return Where + GroupBy;
         }
-        
+
         public DynamicParameters RecuperarParametros()
         {
             var parameters = new DynamicParameters();
@@ -38,6 +38,7 @@ namespace CrudAugustusFashion.Model.RelatorioVendaProduto
                     IdProduto,
                     DataEmissao,
                     DataFinal,
+                    Ativo,
                 }
                 );
 
