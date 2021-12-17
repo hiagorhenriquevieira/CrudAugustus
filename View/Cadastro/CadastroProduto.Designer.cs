@@ -96,7 +96,6 @@ namespace CrudAugustusFashion.View.Cadastro
             this.txtEstoque.Name = "txtEstoque";
             this.txtEstoque.Size = new System.Drawing.Size(363, 29);
             this.txtEstoque.TabIndex = 4;
-            this.txtEstoque.TextChanged += new System.EventHandler(this.txtEstoque_TextChanged);
             this.txtEstoque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstoque_KeyPress);
             // 
             // txtNomeFabricante

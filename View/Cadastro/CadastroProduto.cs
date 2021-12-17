@@ -29,7 +29,7 @@ namespace CrudAugustusFashion.View.Cadastro
                 _produto.PrecoVenda = Convert.ToDecimal(txtPrecoVenda.Text);
                 _produto.CodigoDeBarras = txtCodigoBarras.Text;
                 _produto.QuantidadeEstoque = Convert.ToInt32(txtEstoque.Text);
-                _produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
+                _produto.Lucro = Convert.ToDecimal(txtPorcentagemLucro.Text);
             }
             if (ValidarPrecoCustoVenda())
             {
@@ -157,14 +157,17 @@ namespace CrudAugustusFashion.View.Cadastro
             }
         }
 
-        private void txtEstoque_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtPrecoCusto_Leave(object sender, EventArgs e)
         {
             CalcularPrecoCusto();
+        }
+        private void txtPorcentagemLucro_Leave(object sender, EventArgs e)
+        {
+            CalcularPorcentagemLucro();
+        }
+        private void txtPrecoVenda_Leave(object sender, EventArgs e)
+        {
+            CalcularPrecoVenda();
         }
 
         private void CalcularPrecoCusto()
@@ -180,10 +183,6 @@ namespace CrudAugustusFashion.View.Cadastro
             txtPrecoVenda.Text = retorno.ToString();
         }
 
-        private void txtPorcentagemLucro_Leave(object sender, EventArgs e)
-        {
-            CalcularPorcentagemLucro();
-        }
 
         private void CalcularPorcentagemLucro()
         {
@@ -208,10 +207,6 @@ namespace CrudAugustusFashion.View.Cadastro
             var venda = txtPrecoVenda.Text.ToFloat();
             var lucro = ((venda * 100) / custo) - 100;
             txtPorcentagemLucro.Text = lucro.ToString();
-        }
-        private void txtPrecoVenda_Leave(object sender, EventArgs e)
-        {
-            CalcularPrecoVenda();
         }
     }
 }

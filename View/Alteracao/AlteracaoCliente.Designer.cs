@@ -80,7 +80,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.btnAlteracaoCliente.Location = new System.Drawing.Point(79, 559);
             this.btnAlteracaoCliente.Name = "btnAlteracaoCliente";
             this.btnAlteracaoCliente.Size = new System.Drawing.Size(104, 33);
-            this.btnAlteracaoCliente.TabIndex = 52;
+            this.btnAlteracaoCliente.TabIndex = 18;
             this.btnAlteracaoCliente.Text = "Alterar";
             this.btnAlteracaoCliente.UseVisualStyleBackColor = false;
             this.btnAlteracaoCliente.Click += new System.EventHandler(this.btnAlteracaoCliente_Click);
@@ -93,7 +93,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.btnExcluir.Location = new System.Drawing.Point(820, 559);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(104, 33);
-            this.btnExcluir.TabIndex = 54;
+            this.btnExcluir.TabIndex = 19;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -126,7 +126,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtCep.Mask = "00000-000";
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(178, 27);
-            this.txtCep.TabIndex = 93;
+            this.txtCep.TabIndex = 7;
             // 
             // maskBoxTelefone
             // 
@@ -136,11 +136,12 @@ namespace CrudAugustusFashion.View.Alteracao
             this.maskBoxTelefone.Mask = "000000000";
             this.maskBoxTelefone.Name = "maskBoxTelefone";
             this.maskBoxTelefone.Size = new System.Drawing.Size(203, 27);
-            this.maskBoxTelefone.TabIndex = 80;
+            this.maskBoxTelefone.TabIndex = 13;
             // 
             // comboBoxUf
             // 
             this.comboBoxUf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUf.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxUf.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxUf.FormattingEnabled = true;
             this.comboBoxUf.Items.AddRange(new object[] {
@@ -174,11 +175,12 @@ namespace CrudAugustusFashion.View.Alteracao
             this.comboBoxUf.Location = new System.Drawing.Point(829, 177);
             this.comboBoxUf.Name = "comboBoxUf";
             this.comboBoxUf.Size = new System.Drawing.Size(95, 27);
-            this.comboBoxUf.TabIndex = 71;
+            this.comboBoxUf.TabIndex = 8;
             // 
             // comboBoxSexo
             // 
             this.comboBoxSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSexo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSexo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSexo.FormattingEnabled = true;
             this.comboBoxSexo.Items.AddRange(new object[] {
@@ -188,7 +190,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.comboBoxSexo.Location = new System.Drawing.Point(829, 117);
             this.comboBoxSexo.Name = "comboBoxSexo";
             this.comboBoxSexo.Size = new System.Drawing.Size(95, 27);
-            this.comboBoxSexo.TabIndex = 65;
+            this.comboBoxSexo.TabIndex = 4;
             // 
             // label24
             // 
@@ -216,7 +218,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtSobrenome.Location = new System.Drawing.Point(382, 117);
             this.txtSobrenome.Name = "txtSobrenome";
             this.txtSobrenome.Size = new System.Drawing.Size(204, 27);
-            this.txtSobrenome.TabIndex = 61;
+            this.txtSobrenome.TabIndex = 2;
             // 
             // txtCpf
             // 
@@ -226,7 +228,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtCpf.Mask = "000,000,000-00";
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(177, 27);
-            this.txtCpf.TabIndex = 62;
+            this.txtCpf.TabIndex = 3;
             // 
             // maskBoxCelular
             // 
@@ -236,7 +238,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.maskBoxCelular.Mask = "00000000000";
             this.maskBoxCelular.Name = "maskBoxCelular";
             this.maskBoxCelular.Size = new System.Drawing.Size(178, 27);
-            this.maskBoxCelular.TabIndex = 84;
+            this.maskBoxCelular.TabIndex = 14;
             // 
             // label20
             // 
@@ -254,7 +256,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtObservacao.Location = new System.Drawing.Point(80, 426);
             this.txtObservacao.Name = "txtObservacao";
             this.txtObservacao.Size = new System.Drawing.Size(505, 93);
-            this.txtObservacao.TabIndex = 88;
+            this.txtObservacao.TabIndex = 17;
             this.txtObservacao.Text = "";
             // 
             // label18
@@ -275,7 +277,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.dateTimeNascimento.Location = new System.Drawing.Point(80, 306);
             this.dateTimeNascimento.Name = "dateTimeNascimento";
             this.dateTimeNascimento.Size = new System.Drawing.Size(236, 27);
-            this.dateTimeNascimento.TabIndex = 79;
+            this.dateTimeNascimento.TabIndex = 12;
             this.dateTimeNascimento.Value = new System.DateTime(2021, 10, 19, 0, 0, 0, 0);
             // 
             // txtEmail
@@ -284,7 +286,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtEmail.Location = new System.Drawing.Point(80, 366);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(506, 27);
-            this.txtEmail.TabIndex = 85;
+            this.txtEmail.TabIndex = 15;
             // 
             // txtLimiteCompraPrazo
             // 
@@ -293,7 +295,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtLimiteCompraPrazo.MaxLength = 15;
             this.txtLimiteCompraPrazo.Name = "txtLimiteCompraPrazo";
             this.txtLimiteCompraPrazo.Size = new System.Drawing.Size(177, 27);
-            this.txtLimiteCompraPrazo.TabIndex = 87;
+            this.txtLimiteCompraPrazo.TabIndex = 16;
             // 
             // txtNumeroResidencia
             // 
@@ -302,7 +304,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtNumeroResidencia.MaxLength = 9;
             this.txtNumeroResidencia.Name = "txtNumeroResidencia";
             this.txtNumeroResidencia.Size = new System.Drawing.Size(177, 27);
-            this.txtNumeroResidencia.TabIndex = 78;
+            this.txtNumeroResidencia.TabIndex = 11;
             // 
             // txtLogradouro
             // 
@@ -310,7 +312,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtLogradouro.Location = new System.Drawing.Point(382, 242);
             this.txtLogradouro.Name = "txtLogradouro";
             this.txtLogradouro.Size = new System.Drawing.Size(204, 27);
-            this.txtLogradouro.TabIndex = 75;
+            this.txtLogradouro.TabIndex = 10;
             // 
             // txtComplemento
             // 
@@ -319,7 +321,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtComplemento.Location = new System.Drawing.Point(80, 242);
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(236, 27);
-            this.txtComplemento.TabIndex = 74;
+            this.txtComplemento.TabIndex = 9;
             // 
             // txtBairro
             // 
@@ -327,7 +329,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtBairro.Location = new System.Drawing.Point(381, 177);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(204, 27);
-            this.txtBairro.TabIndex = 69;
+            this.txtBairro.TabIndex = 6;
             // 
             // txtCidade
             // 
@@ -335,7 +337,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtCidade.Location = new System.Drawing.Point(80, 177);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(236, 27);
-            this.txtCidade.TabIndex = 67;
+            this.txtCidade.TabIndex = 5;
             // 
             // txtNome
             // 
@@ -343,7 +345,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtNome.Location = new System.Drawing.Point(80, 117);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(236, 27);
-            this.txtNome.TabIndex = 58;
+            this.txtNome.TabIndex = 1;
             // 
             // label19
             // 

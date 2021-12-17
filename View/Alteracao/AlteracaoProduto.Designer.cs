@@ -61,12 +61,13 @@ namespace CrudAugustusFashion.View.Alteracao
             this.buttonCalcularPrecoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.buttonCalcularPrecoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCalcularPrecoProduto.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalcularPrecoProduto.Location = new System.Drawing.Point(343, 461);
+            this.buttonCalcularPrecoProduto.Location = new System.Drawing.Point(373, 464);
             this.buttonCalcularPrecoProduto.Name = "buttonCalcularPrecoProduto";
-            this.buttonCalcularPrecoProduto.Size = new System.Drawing.Size(195, 35);
+            this.buttonCalcularPrecoProduto.Size = new System.Drawing.Size(172, 35);
             this.buttonCalcularPrecoProduto.TabIndex = 8;
             this.buttonCalcularPrecoProduto.Text = "Calcular preço ";
             this.buttonCalcularPrecoProduto.UseVisualStyleBackColor = false;
+            this.buttonCalcularPrecoProduto.Visible = false;
             this.buttonCalcularPrecoProduto.Click += new System.EventHandler(this.buttonCalcularPrecoProduto_Click);
             // 
             // buttonCadastrarProduto

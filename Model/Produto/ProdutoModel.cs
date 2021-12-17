@@ -9,7 +9,7 @@
         public string Fabricante { get; set; }
         public Dinheiro PrecoVenda{ get; set; }
         public Dinheiro PrecoCusto{ get; set; }
-        public int Lucro { get; set; }
+        public decimal Lucro { get; set; }
         public bool Ativo { get; set; }
     }
 }

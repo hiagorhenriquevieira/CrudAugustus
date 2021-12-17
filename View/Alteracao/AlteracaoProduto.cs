@@ -169,5 +169,43 @@ namespace CrudAugustusFashion.View.Alteracao
             _produto.QuantidadeEstoque = (Convert.ToInt32(estoque) - Convert.ToInt32(estoqueAdicional));
             numericEstoque.Value = _produto.QuantidadeEstoque;       
         }
+        private void CalcularPrecoCusto()
+        {
+            if (txtPrecoCusto.Text == " " || txtPorcentagemLucro.Text == "")
+            {
+                return;
+            }
+            var lucro = txtPorcentagemLucro.Text.ToFloat();
+            var precoCusto = txtPrecoCusto.Text.ToFloat();
+            var retorno = ((lucro / 100) + 1) * precoCusto;
+
+            txtPrecoVenda.Text = retorno.ToString();
+        }
+
+
+        private void CalcularPorcentagemLucro()
+        {
+            if (txtPrecoCusto.Text == " " || txtPorcentagemLucro.Text == "")
+            {
+                return;
+            }
+            var lucro = txtPorcentagemLucro.Text.ToFloat();
+            var precoCusto = txtPrecoCusto.Text.ToFloat();
+            var retorno = ((lucro / 100) + 1) * precoCusto;
+
+            txtPrecoVenda.Text = retorno.ToString();
+        }
+
+        public void CalcularPrecoVenda()
+        {
+            if (txtPrecoVenda.Text == "" || txtPrecoCusto.Text == "")
+            {
+                return;
+            }
+            var custo = txtPrecoCusto.Text.ToFloat();
+            var venda = txtPrecoVenda.Text.ToFloat();
+            var lucro = ((venda * 100) / custo) - 100;
+            txtPorcentagemLucro.Text = lucro.ToString();
+        }
     }
 }

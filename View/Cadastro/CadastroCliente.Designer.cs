@@ -272,6 +272,7 @@ namespace CrudAugustusFashion
             this.txtLimiteCompraPrazo.Name = "txtLimiteCompraPrazo";
             this.txtLimiteCompraPrazo.Size = new System.Drawing.Size(151, 27);
             this.txtLimiteCompraPrazo.TabIndex = 81;
+            this.txtLimiteCompraPrazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLimiteCompraPrazo_KeyPress);
             // 
             // txtNumeroResidencia
             // 
@@ -530,7 +531,7 @@ namespace CrudAugustusFashion
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FrmCadastroCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de cliente";
+            this.Text = " ";
             this.ResumeLayout(false);
             this.PerformLayout();
 
