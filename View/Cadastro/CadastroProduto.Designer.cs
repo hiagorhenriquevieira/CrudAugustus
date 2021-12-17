@@ -51,60 +51,68 @@ namespace CrudAugustusFashion.View.Cadastro
             // txtNomeProduto
             // 
             this.txtNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeProduto.Location = new System.Drawing.Point(289, 237);
+            this.txtNomeProduto.Location = new System.Drawing.Point(331, 227);
+            this.txtNomeProduto.MaxLength = 50;
             this.txtNomeProduto.Name = "txtNomeProduto";
             this.txtNomeProduto.Size = new System.Drawing.Size(363, 29);
-            this.txtNomeProduto.TabIndex = 1;
+            this.txtNomeProduto.TabIndex = 2;
             // 
             // txtPrecoVenda
             // 
             this.txtPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecoVenda.Location = new System.Drawing.Point(385, 544);
+            this.txtPrecoVenda.Location = new System.Drawing.Point(427, 534);
+            this.txtPrecoVenda.MaxLength = 15;
             this.txtPrecoVenda.Name = "txtPrecoVenda";
             this.txtPrecoVenda.Size = new System.Drawing.Size(165, 29);
-            this.txtPrecoVenda.TabIndex = 3;
+            this.txtPrecoVenda.TabIndex = 7;
+            this.txtPrecoVenda.Leave += new System.EventHandler(this.txtPrecoVenda_Leave);
             // 
             // txtCodigoBarras
             // 
             this.txtCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoBarras.Location = new System.Drawing.Point(289, 165);
+            this.txtCodigoBarras.Location = new System.Drawing.Point(331, 155);
+            this.txtCodigoBarras.MaxLength = 15;
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(363, 29);
-            this.txtCodigoBarras.TabIndex = 5;
+            this.txtCodigoBarras.TabIndex = 1;
             this.txtCodigoBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarras_KeyPress);
             // 
             // txtPrecoCusto
             // 
             this.txtPrecoCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecoCusto.Location = new System.Drawing.Point(289, 450);
+            this.txtPrecoCusto.Location = new System.Drawing.Point(331, 440);
+            this.txtPrecoCusto.MaxLength = 10;
             this.txtPrecoCusto.Name = "txtPrecoCusto";
             this.txtPrecoCusto.Size = new System.Drawing.Size(165, 29);
-            this.txtPrecoCusto.TabIndex = 6;
+            this.txtPrecoCusto.TabIndex = 5;
             this.txtPrecoCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoCusto_KeyPress);
+            this.txtPrecoCusto.Leave += new System.EventHandler(this.txtPrecoCusto_Leave);
             // 
             // txtEstoque
             // 
             this.txtEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstoque.Location = new System.Drawing.Point(289, 375);
+            this.txtEstoque.Location = new System.Drawing.Point(331, 365);
+            this.txtEstoque.MaxLength = 25;
             this.txtEstoque.Name = "txtEstoque";
             this.txtEstoque.Size = new System.Drawing.Size(363, 29);
-            this.txtEstoque.TabIndex = 7;
+            this.txtEstoque.TabIndex = 4;
             this.txtEstoque.TextChanged += new System.EventHandler(this.txtEstoque_TextChanged);
             this.txtEstoque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstoque_KeyPress);
             // 
             // txtNomeFabricante
             // 
             this.txtNomeFabricante.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeFabricante.Location = new System.Drawing.Point(289, 306);
+            this.txtNomeFabricante.Location = new System.Drawing.Point(331, 296);
+            this.txtNomeFabricante.MaxLength = 50;
             this.txtNomeFabricante.Name = "txtNomeFabricante";
             this.txtNomeFabricante.Size = new System.Drawing.Size(363, 29);
-            this.txtNomeFabricante.TabIndex = 10;
+            this.txtNomeFabricante.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(296, 75);
+            this.label1.Location = new System.Drawing.Point(338, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(330, 37);
             this.label1.TabIndex = 11;
@@ -114,7 +122,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(285, 138);
+            this.label3.Location = new System.Drawing.Point(327, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(172, 24);
             this.label3.TabIndex = 13;
@@ -124,7 +132,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(285, 210);
+            this.label4.Location = new System.Drawing.Point(327, 200);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(175, 24);
             this.label4.TabIndex = 14;
@@ -134,7 +142,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(381, 517);
+            this.label5.Location = new System.Drawing.Point(423, 507);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 24);
             this.label5.TabIndex = 15;
@@ -144,7 +152,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(285, 423);
+            this.label6.Location = new System.Drawing.Point(327, 413);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(151, 24);
             this.label6.TabIndex = 16;
@@ -154,7 +162,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(285, 348);
+            this.label7.Location = new System.Drawing.Point(327, 338);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(211, 24);
             this.label7.TabIndex = 17;
@@ -164,7 +172,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(285, 279);
+            this.label9.Location = new System.Drawing.Point(327, 269);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(109, 24);
             this.label9.TabIndex = 19;
@@ -173,17 +181,19 @@ namespace CrudAugustusFashion.View.Cadastro
             // txtPorcentagemLucro
             // 
             this.txtPorcentagemLucro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPorcentagemLucro.Location = new System.Drawing.Point(487, 450);
+            this.txtPorcentagemLucro.Location = new System.Drawing.Point(529, 440);
+            this.txtPorcentagemLucro.MaxLength = 4;
             this.txtPorcentagemLucro.Name = "txtPorcentagemLucro";
             this.txtPorcentagemLucro.Size = new System.Drawing.Size(165, 29);
-            this.txtPorcentagemLucro.TabIndex = 8;
+            this.txtPorcentagemLucro.TabIndex = 6;
             this.txtPorcentagemLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentagemLucro_KeyPress);
+            this.txtPorcentagemLucro.Leave += new System.EventHandler(this.txtPorcentagemLucro_Leave);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(483, 423);
+            this.label10.Location = new System.Drawing.Point(525, 413);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(120, 24);
             this.label10.TabIndex = 20;
@@ -194,10 +204,10 @@ namespace CrudAugustusFashion.View.Cadastro
             this.buttonCadastrarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.buttonCadastrarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCadastrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCadastrarProduto.Location = new System.Drawing.Point(327, 606);
+            this.buttonCadastrarProduto.Location = new System.Drawing.Point(367, 594);
             this.buttonCadastrarProduto.Name = "buttonCadastrarProduto";
             this.buttonCadastrarProduto.Size = new System.Drawing.Size(276, 51);
-            this.buttonCadastrarProduto.TabIndex = 21;
+            this.buttonCadastrarProduto.TabIndex = 8;
             this.buttonCadastrarProduto.Text = "Cadastrar";
             this.buttonCadastrarProduto.UseVisualStyleBackColor = false;
             this.buttonCadastrarProduto.Click += new System.EventHandler(this.buttonCadastrarProduto_Click);
@@ -207,12 +217,13 @@ namespace CrudAugustusFashion.View.Cadastro
             this.buttonCalcularPrecoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.buttonCalcularPrecoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCalcularPrecoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalcularPrecoProduto.Location = new System.Drawing.Point(385, 485);
+            this.buttonCalcularPrecoProduto.Location = new System.Drawing.Point(427, 475);
             this.buttonCalcularPrecoProduto.Name = "buttonCalcularPrecoProduto";
             this.buttonCalcularPrecoProduto.Size = new System.Drawing.Size(165, 29);
             this.buttonCalcularPrecoProduto.TabIndex = 22;
             this.buttonCalcularPrecoProduto.Text = "Calcular preço ";
             this.buttonCalcularPrecoProduto.UseVisualStyleBackColor = false;
+            this.buttonCalcularPrecoProduto.Visible = false;
             this.buttonCalcularPrecoProduto.Click += new System.EventHandler(this.buttonCalcularPrecoProduto_Click);
             // 
             // FrmCadastroProduto

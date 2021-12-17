@@ -54,6 +54,7 @@ namespace CrudAugustusFashion.View.Lista
         {
 
             new CadastroPedidoController().AbrirAlteracaoDePedido(ConverterModels());
+            this.Close();
         }
         private VendaModel ConverterModels()
         {

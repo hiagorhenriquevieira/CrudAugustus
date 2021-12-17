@@ -18,8 +18,11 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void buttonCadastrarProduto_Click(object sender, EventArgs e)
         {
-            if (ValidarCamposDeCadastroProduto()) {
-                
+            CorrigirCampos();
+
+            if (ValidarCamposDeCadastroProduto())
+            {
+
                 _produto.Nome = txtNomeProduto.Text;
                 _produto.Fabricante = txtNomeFabricante.Text;
                 _produto.PrecoCusto = Convert.ToDecimal(txtPrecoCusto.Text);
@@ -28,9 +31,10 @@ namespace CrudAugustusFashion.View.Cadastro
                 _produto.QuantidadeEstoque = Convert.ToInt32(txtEstoque.Text);
                 _produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
             }
-            if (ValidarPrecoCustoVenda()) {
-            new CadastroProdutoController().CadastrarProduto(_produto);
-            MessageBox.Show("Produto cadastrado com sucesso!");
+            if (ValidarPrecoCustoVenda())
+            {
+                new CadastroProdutoController().CadastrarProduto(_produto);
+                MessageBox.Show("Produto cadastrado com sucesso!");
                 this.Close();
             }
             else
@@ -39,15 +43,25 @@ namespace CrudAugustusFashion.View.Cadastro
             }
         }
 
+        private void CorrigirCampos()
+        {
+            CalcularPorcentagemLucro();
+            CalcularPrecoCusto();
+            CalcularPrecoVenda();
+            MessageBox.Show("Os valores foram corrigidos para serem cadastrados.");
+        }
+
         private void buttonCalcularPrecoProduto_Click(object sender, EventArgs e)
         {
-            if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda)){ 
+            if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
+            {
                 var lucro = txtPorcentagemLucro.Text.ToFloat();
                 var precoCusto = txtPrecoCusto.Text.ToFloat();
-                var retorno = ((lucro / 100) +1) * precoCusto;
+                var retorno = ((lucro / 100) + 1) * precoCusto;
 
                 txtPrecoVenda.Text = retorno.ToString();
-            }else
+            }
+            else
             {
                 MessageBox.Show("Porcentagem de lucro invalida");
                 return;
@@ -56,29 +70,39 @@ namespace CrudAugustusFashion.View.Cadastro
         }
         private bool ValidarCamposDeCadastroProduto()
         {
-            if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNomeProduto.Text))
+            if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNomeProduto.Text) || txtNomeProduto.Text == "")
             {
                 MessageBox.Show("Campo -Nome do Produto- invalido ");
                 return false;
             }
-             if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNomeFabricante.Text))
+            if (ValidacoesCadastros.ValidarSeStringNaoPossuiNumeros(txtNomeFabricante.Text) || txtNomeFabricante.Text == "")
             {
                 MessageBox.Show("Campo -Nome do Fabricante- invalido ");
                 return false;
             }
-            if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtCodigoBarras.Text))
+            if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtCodigoBarras.Text) || txtCodigoBarras.Text == "")
             {
                 MessageBox.Show("Campo - Codigo de Barras- obrigatorio");
                 return false;
             }
-            if (ValidacoesExtencion.NuloOuVazio(txtPrecoCusto))
+            if (txtPrecoCusto.Text == "")
             {
                 MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
                 return false;
             }
-            if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text))
+            if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtEstoque.Text) || txtEstoque.Text == "")
             {
                 MessageBox.Show("Campo -Estoque- invalido");
+                return false;
+            }
+            if (txtPrecoVenda.Text == "")
+            {
+                MessageBox.Show("Campo -PrecoVenda- não pode ser vazio");
+                return false;
+            }
+            if (txtPorcentagemLucro.Text == "")
+            {
+                MessageBox.Show("Campo - Lucro - não pode ser vazio ");
                 return false;
             }
 
@@ -110,6 +134,9 @@ namespace CrudAugustusFashion.View.Cadastro
         }
         private bool ValidarPrecoCustoVenda()
         {
+            if (txtPrecoVenda.Text == "" || txtPrecoCusto.Text == "")
+                return false;
+
             if (Convert.ToDecimal(txtPrecoVenda.Text) >= Convert.ToDecimal(txtPrecoCusto.Text))
             {
                 return true;
@@ -133,6 +160,58 @@ namespace CrudAugustusFashion.View.Cadastro
         private void txtEstoque_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPrecoCusto_Leave(object sender, EventArgs e)
+        {
+            CalcularPrecoCusto();
+        }
+
+        private void CalcularPrecoCusto()
+        {
+            if (txtPrecoCusto.Text == " " || txtPorcentagemLucro.Text == "")
+            {
+                return;
+            }
+            var lucro = txtPorcentagemLucro.Text.ToFloat();
+            var precoCusto = txtPrecoCusto.Text.ToFloat();
+            var retorno = ((lucro / 100) + 1) * precoCusto;
+
+            txtPrecoVenda.Text = retorno.ToString();
+        }
+
+        private void txtPorcentagemLucro_Leave(object sender, EventArgs e)
+        {
+            CalcularPorcentagemLucro();
+        }
+
+        private void CalcularPorcentagemLucro()
+        {
+            if (txtPrecoCusto.Text == " " || txtPorcentagemLucro.Text == "")
+            {
+                return;
+            }
+            var lucro = txtPorcentagemLucro.Text.ToFloat();
+            var precoCusto = txtPrecoCusto.Text.ToFloat();
+            var retorno = ((lucro / 100) + 1) * precoCusto;
+
+            txtPrecoVenda.Text = retorno.ToString();
+        }
+
+        public void CalcularPrecoVenda()
+        {
+            if (txtPrecoVenda.Text == "" || txtPrecoCusto.Text == "")
+            {
+                return;
+            }
+            var custo = txtPrecoCusto.Text.ToFloat();
+            var venda = txtPrecoVenda.Text.ToFloat();
+            var lucro = ((venda * 100) / custo) - 100;
+            txtPorcentagemLucro.Text = lucro.ToString();
+        }
+        private void txtPrecoVenda_Leave(object sender, EventArgs e)
+        {
+            CalcularPrecoVenda();
         }
     }
 }

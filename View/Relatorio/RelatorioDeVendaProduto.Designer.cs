@@ -69,6 +69,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.dtgFiltragemDeVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgFiltragemDeVendas.Location = new System.Drawing.Point(29, 130);
             this.dtgFiltragemDeVendas.Name = "dtgFiltragemDeVendas";
+            this.dtgFiltragemDeVendas.ReadOnly = true;
             this.dtgFiltragemDeVendas.Size = new System.Drawing.Size(938, 374);
             this.dtgFiltragemDeVendas.TabIndex = 0;
             // 

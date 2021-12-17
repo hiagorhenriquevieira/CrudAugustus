@@ -52,7 +52,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private void dataGridViewProdutoPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var lista = dataGridViewProdutoPedido.SelectedRows.Count;
-            if(lista == 0)
+            if (lista == 0)
             {
                 MessageBox.Show("Nenhum produto foi selecionado");
                 return;
@@ -74,7 +74,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private void dataGridViewColaboradorPedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var lista = dataGridViewColaboradorPedido.SelectedRows.Count;
-            if(lista == 0)
+            if (lista == 0)
             {
                 MessageBox.Show("Nenhum colaborador foi selecionado");
                 return;
@@ -101,7 +101,7 @@ namespace CrudAugustusFashion.View.Cadastro
         private void dataGridViewClientePedido_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var lista = dataGridViewClientePedido.SelectedRows.Count;
-            if(lista == 0)
+            if (lista == 0)
             {
                 MessageBox.Show("Nenhum cliente foi selecionado");
                 return;
@@ -149,10 +149,11 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void btnAdicionarProduto_Click(object sender, EventArgs e)
         {
+
             if (numericQuantidade.Value > _produtoModel.QuantidadeEstoque)
             {
                 MessageBox.Show("Quantidade de produtos é maior do que a quantidade em estoque");
-                numericQuantidade.Value = _produtoModel.QuantidadeEstoque;
+                //numericQuantidade.Value = _produtoModel.QuantidadeEstoque;
                 return;
             }
             if (lblIdProduto.Text == "")
@@ -171,6 +172,8 @@ namespace CrudAugustusFashion.View.Cadastro
                 AtualizarCarrinho();
             }
             LimparCamposAposAdicionarProdutoNoCarrinho();
+
+
         }
 
         private void AtualizarCarrinho()
@@ -231,7 +234,7 @@ namespace CrudAugustusFashion.View.Cadastro
 
                     if (ValidacaoDeCampoVendaAhPrazo())
 
-                    AlterarVenda();
+                        AlterarVenda();
                     return;
                 }
 
@@ -255,9 +258,9 @@ namespace CrudAugustusFashion.View.Cadastro
         private void CadastrarVenda()
         {
             _cadastroPedido.CadastrarPedido(_pedidoModel);
-            MessageBox.Show("Venda realizada!"); 
-            if(cbEnviarEmail.Checked == true)
-            new EnvioDeEmail().EnviarEmail(_pedidoModel, _clienteModel);
+            MessageBox.Show("Venda realizada!");
+            if (cbEnviarEmail.Checked == true)
+                new EnvioDeEmail().EnviarEmail(_pedidoModel, _clienteModel);
         }
 
 
