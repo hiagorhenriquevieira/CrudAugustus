@@ -40,7 +40,7 @@ namespace CrudAugustusFashion
                         Cidade = txtCidade.Text,
                         Bairro = txtBairro.Text,
                         Logradouro = txtLogradouro.Text,
-                        NumeroResidencia = int.Parse(txtNumeroResidencia.Text),
+                        NumeroResidencia = txtNumeroResidencia.Text,
                         Uf = comboBoxUf.Text,
                         Complemento = txtComplemento.Text,
                     },
@@ -117,7 +117,7 @@ namespace CrudAugustusFashion
                 MessageBox.Show("Campo -Logradouro- invalido");
                 return false;
             }
-            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtNumeroResidencia.Text) || txtNumeroResidencia.Text == "S/N")
+            else if (ValidacoesCadastros.ValidarSeIntNaoPossuiLetras(txtNumeroResidencia.Text))
             {
                 MessageBox.Show("Campo -Numero- invalido");
                 return false;

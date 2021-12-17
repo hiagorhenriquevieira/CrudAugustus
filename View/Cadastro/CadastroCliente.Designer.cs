@@ -529,6 +529,7 @@ namespace CrudAugustusFashion
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FrmCadastroCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de cliente";
             this.ResumeLayout(false);
             this.PerformLayout();

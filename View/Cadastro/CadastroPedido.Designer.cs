@@ -94,6 +94,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.lblPrecoCusto = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.lblIdVenda = new System.Windows.Forms.Label();
+            this.cbEnviarEmail = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutoPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewColaboradorPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientePedido)).BeginInit();
@@ -582,7 +583,7 @@ namespace CrudAugustusFashion.View.Cadastro
             // 
             // btnRetirarProdutoCarrinho
             // 
-            this.btnRetirarProdutoCarrinho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(137)))), ((int)(((byte)(239)))));
+            this.btnRetirarProdutoCarrinho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.btnRetirarProdutoCarrinho.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRetirarProdutoCarrinho.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRetirarProdutoCarrinho.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -763,12 +764,24 @@ namespace CrudAugustusFashion.View.Cadastro
             this.lblIdVenda.TabIndex = 61;
             this.lblIdVenda.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cbEnviarEmail
+            // 
+            this.cbEnviarEmail.AutoSize = true;
+            this.cbEnviarEmail.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEnviarEmail.Location = new System.Drawing.Point(528, 631);
+            this.cbEnviarEmail.Name = "cbEnviarEmail";
+            this.cbEnviarEmail.Size = new System.Drawing.Size(242, 23);
+            this.cbEnviarEmail.TabIndex = 82;
+            this.cbEnviarEmail.Text = "Enviar comprovante por Email";
+            this.cbEnviarEmail.UseVisualStyleBackColor = true;
+            // 
             // FrmCadastroPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.cbEnviarEmail);
             this.Controls.Add(this.lblPrecoCusto);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label18);
@@ -822,6 +835,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lbRealizarPedido);
             this.Name = "FrmCadastroPedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastroPedido";
             this.Load += new System.EventHandler(this.FrmCadastroPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutoPedido)).EndInit();
@@ -890,5 +904,6 @@ namespace CrudAugustusFashion.View.Cadastro
         private System.Windows.Forms.Label lblPrecoCusto;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblIdVenda;
+        private System.Windows.Forms.CheckBox cbEnviarEmail;
     }
 }

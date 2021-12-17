@@ -74,7 +74,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.buttonCadastrarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.buttonCadastrarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCadastrarProduto.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCadastrarProduto.Location = new System.Drawing.Point(81, 575);
+            this.buttonCadastrarProduto.Location = new System.Drawing.Point(88, 623);
             this.buttonCadastrarProduto.Name = "buttonCadastrarProduto";
             this.buttonCadastrarProduto.Size = new System.Drawing.Size(195, 36);
             this.buttonCadastrarProduto.TabIndex = 10;
@@ -126,7 +126,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(350, 499);
+            this.label5.Location = new System.Drawing.Point(369, 529);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(160, 25);
             this.label5.TabIndex = 33;
@@ -156,7 +156,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(269, 9);
+            this.label1.Location = new System.Drawing.Point(324, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(209, 25);
             this.label1.TabIndex = 30;
@@ -199,7 +199,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // txtPrecoVenda
             // 
             this.txtPrecoVenda.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecoVenda.Location = new System.Drawing.Point(354, 526);
+            this.txtPrecoVenda.Location = new System.Drawing.Point(373, 556);
             this.txtPrecoVenda.Name = "txtPrecoVenda";
             this.txtPrecoVenda.Size = new System.Drawing.Size(165, 33);
             this.txtPrecoVenda.TabIndex = 9;
@@ -214,10 +214,10 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(137)))), ((int)(((byte)(239)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(588, 575);
+            this.button1.Location = new System.Drawing.Point(722, 623);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(195, 36);
             this.button1.TabIndex = 12;
@@ -228,7 +228,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // txtIdProduto
             // 
             this.txtIdProduto.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProduto.Location = new System.Drawing.Point(481, 6);
+            this.txtIdProduto.Location = new System.Drawing.Point(536, 1);
             this.txtIdProduto.Name = "txtIdProduto";
             this.txtIdProduto.Size = new System.Drawing.Size(38, 33);
             this.txtIdProduto.TabIndex = 43;
@@ -239,7 +239,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(588, 509);
+            this.button2.Location = new System.Drawing.Point(722, 556);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(195, 35);
             this.button2.TabIndex = 11;
@@ -262,7 +262,7 @@ namespace CrudAugustusFashion.View.Alteracao
             // 
             // btnSubtrairEstoque
             // 
-            this.btnSubtrairEstoque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(137)))), ((int)(((byte)(239)))));
+            this.btnSubtrairEstoque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(94)))), ((int)(((byte)(94)))));
             this.btnSubtrairEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSubtrairEstoque.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubtrairEstoque.Location = new System.Drawing.Point(470, 328);
@@ -304,7 +304,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(876, 623);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.numericEstoqueAdicional);
             this.Controls.Add(this.numericEstoque);
             this.Controls.Add(this.btnSubtrairEstoque);
@@ -329,6 +329,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.Controls.Add(this.txtPrecoVenda);
             this.Controls.Add(this.txtNomeProduto);
             this.Name = "FrmAlteracaoProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AlteracaoProduto";
             ((System.ComponentModel.ISupportInitialize)(this.numericEstoque)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericEstoqueAdicional)).EndInit();

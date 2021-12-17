@@ -7,7 +7,7 @@ namespace CrudAugustusFashion.Model
     {
         List<string> _mensagens;
 
-        public EnderecoModel(string cep, string logradouro, int numero, string cidade, string uf, string complemento, string bairro)
+        public EnderecoModel(string cep, string logradouro, string numero, string cidade, string uf, string complemento, string bairro)
         {
             Cep = cep;
             Logradouro = logradouro;
@@ -30,7 +30,7 @@ namespace CrudAugustusFashion.Model
         public string Uf { get; set; }
         public string Complemento { get; set; }
         public string Bairro { get; set; }
-        public int NumeroResidencia { get; set; }
+        public string NumeroResidencia { get; set; }
         public string Cidade{ get; set; }
         public override string ToString()
         {

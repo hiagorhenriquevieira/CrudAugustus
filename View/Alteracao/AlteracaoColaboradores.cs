@@ -55,7 +55,7 @@ namespace CrudAugustusFashion.View.Alteracao
                     Cidade = txtCidade.Text,
                     Bairro = txtComplemento.Text,
                     Logradouro = txtLogradouro.Text,
-                    NumeroResidencia = int.Parse(txtNumeroResidencia.Text),
+                    NumeroResidencia = txtNumeroResidencia.Text,
                     Uf = comboBoxUf.Text,
                     Complemento = txtComplemento.Text,
                 },
@@ -135,6 +135,38 @@ namespace CrudAugustusFashion.View.Alteracao
             catch (Exception ex)
             {
                 MessageBox.Show("Falha ao excluir colaborador. Erro: " + ex.Message);
+            }
+        }
+
+        private void txtAgencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtConta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPorcentagemComissao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
             }
         }
     }

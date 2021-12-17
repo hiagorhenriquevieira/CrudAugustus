@@ -1,5 +1,6 @@
 ﻿using CrudAugustusFashion.Model;
 using CrudAugustusFashion.Model.Cliente;
+using CrudAugustusFashion.Model.Produto;
 using CrudAugustusFashion.Model.Usuario;
 using Dapper;
 using System;
@@ -41,7 +42,12 @@ namespace CrudAugustusFashion.Dao
 
                     cliente.Telefone.IdUsuario = idUsuario;
 
-                    conexao.Execute(insertCliente, cliente, transacao);
+                    conexao.Execute(insertCliente, new
+                    {
+                        cliente.IdUsuario,
+                        ValorLimite = cliente.ValorLimite.Valor,
+                        cliente.Observacao,
+                    }, transacao);
 
                     conexao.Execute(insertEndereco, new
                     {
@@ -84,28 +90,33 @@ namespace CrudAugustusFashion.Dao
                 {
                     conexao.Execute(updateUsuario, new
                     {
-                        IdUsuario = cliente.IdUsuario,
-                        Nome = cliente.NomeCompleto.Nome,
-                        SobreNome = cliente.NomeCompleto.SobreNome,
+                        cliente.IdUsuario,
+                        cliente.NomeCompleto.Nome,
+                        cliente.NomeCompleto.SobreNome,
                         Cpf = cliente.Cpf.RemoverFormatacao(),
-                        Sexo = cliente.Sexo,
-                        DataNascimento = cliente.DataNascimento,
-                        Email = cliente.Email,
+                        cliente.Sexo,
+                        cliente.DataNascimento,
+                        cliente.Email,
                     }
                             , transacao);
 
-                    conexao.Execute(updateCliente, cliente, transacao);
+                    conexao.Execute(updateCliente, new
+                    {
+                        cliente.IdUsuario,
+                        ValorLimite = cliente.ValorLimite.Valor,
+                        cliente.Observacao,
+                    }, transacao);
 
                     conexao.Execute(updateEndereco, new
                     {
-                        IdUsuario = cliente.Endereco.IdUsuario,
+                        cliente.Endereco.IdUsuario,
                         Cep = cliente.Endereco.Cep.RemoverFormatacao(),
-                        Cidade = cliente.Endereco.Cidade,
-                        Logradouro = cliente.Endereco.Logradouro,
-                        Uf = cliente.Endereco.Uf,
-                        Complemento = cliente.Endereco.Complemento,
-                        Bairro = cliente.Endereco.Bairro,
-                        NumeroResidencia = cliente.Endereco.NumeroResidencia
+                        cliente.Endereco.Cidade,
+                        cliente.Endereco.Logradouro,
+                        cliente.Endereco.Uf,
+                        cliente.Endereco.Complemento,
+                        cliente.Endereco.Bairro,
+                        cliente.Endereco.NumeroResidencia
                     }, transacao);
 
                     conexao.Execute(updateTelefone, cliente.Telefone, transacao);
@@ -243,7 +254,7 @@ namespace CrudAugustusFashion.Dao
         internal ClienteModel RecuperarDadosCliente(int idCliente)
         {
             int IdUsuario = RecuperarIdUsuario(idCliente);
-            
+
             var selectUsuario = @"select c.IdCliente, c.Observacao, c.ValorLimite,
                             c.IdUsuario, u.IdUsuario, u.Sexo, u.DataNascimento, u.Cpf, u.Email,
                             c.IdUsuario, u.Nome, u.SobreNome,
@@ -255,7 +266,7 @@ namespace CrudAugustusFashion.Dao
                             inner join Telefone t on u.IdUsuario = t.IdUsuario
                             where c.IdUsuario = @IdUsuario;";
 
-            
+
             try
             {
                 using (var conexao = ConexaoDao.conectar())
@@ -283,13 +294,13 @@ namespace CrudAugustusFashion.Dao
                                                     where c.IdCliente = @IdCliente and Ativo = 1
                                                     and v.FormaDePagamento = 1
 													group by c.ValorLimite";
-                                                    
+
 
             try
             {
-                using(var conexao = ConexaoDao.conectar())
+                using (var conexao = ConexaoDao.conectar())
                 {
-                    return conexao.Query<decimal>(selectValorGastoAPrazo, new {IdCliente = cliente}).FirstOrDefault();
+                    return conexao.Query<decimal>(selectValorGastoAPrazo, new { IdCliente = cliente }).FirstOrDefault();
                 }
             }
             catch (Exception ex)

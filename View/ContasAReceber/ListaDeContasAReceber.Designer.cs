@@ -144,6 +144,7 @@ namespace CrudAugustusFashion.View.ContasAReceber
             this.Controls.Add(this.dataGridViewConsulta);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "FrmListaDeContasAReceber";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListaDeContasAReceber";
             this.Load += new System.EventHandler(this.ListaDeContasAReceber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulta)).EndInit();

@@ -44,6 +44,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.btnFiltrarProdutosVendidos = new System.Windows.Forms.Button();
             this.btnLimparCampos = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.cbVendaAtivas = new System.Windows.Forms.CheckBox();
             this.btnLimparProduto = new System.Windows.Forms.Button();
             this.btnLimparCliente = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@ namespace CrudAugustusFashion.View.Relatorio
             this.labelTotalLiquido = new System.Windows.Forms.Label();
             this.labelTotalCusto = new System.Windows.Forms.Label();
             this.labelLucroReais = new System.Windows.Forms.Label();
-            this.cbVendaAtivas = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFiltragemDeVendas)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
@@ -236,6 +236,19 @@ namespace CrudAugustusFashion.View.Relatorio
             this.panelMenu.TabIndex = 14;
             this.panelMenu.Visible = false;
             // 
+            // cbVendaAtivas
+            // 
+            this.cbVendaAtivas.AutoSize = true;
+            this.cbVendaAtivas.Checked = true;
+            this.cbVendaAtivas.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbVendaAtivas.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVendaAtivas.Location = new System.Drawing.Point(14, 364);
+            this.cbVendaAtivas.Name = "cbVendaAtivas";
+            this.cbVendaAtivas.Size = new System.Drawing.Size(144, 27);
+            this.cbVendaAtivas.TabIndex = 17;
+            this.cbVendaAtivas.Text = "Vendas Ativas";
+            this.cbVendaAtivas.UseVisualStyleBackColor = true;
+            // 
             // btnLimparProduto
             // 
             this.btnLimparProduto.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -385,19 +398,6 @@ namespace CrudAugustusFashion.View.Relatorio
             this.labelLucroReais.TabIndex = 26;
             this.labelLucroReais.Text = "Lucro R$";
             // 
-            // cbVendaAtivas
-            // 
-            this.cbVendaAtivas.AutoSize = true;
-            this.cbVendaAtivas.Checked = true;
-            this.cbVendaAtivas.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbVendaAtivas.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbVendaAtivas.Location = new System.Drawing.Point(14, 364);
-            this.cbVendaAtivas.Name = "cbVendaAtivas";
-            this.cbVendaAtivas.Size = new System.Drawing.Size(144, 27);
-            this.cbVendaAtivas.TabIndex = 17;
-            this.cbVendaAtivas.Text = "Vendas Ativas";
-            this.cbVendaAtivas.UseVisualStyleBackColor = true;
-            // 
             // FrmRelatorioDeVendaProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,6 +419,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.Controls.Add(this.lblLucroReais);
             this.Controls.Add(this.labelLucroReais);
             this.Name = "FrmRelatorioDeVendaProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatorio de venda";
             this.Load += new System.EventHandler(this.FrmRelatorioDeVendaProduto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgFiltragemDeVendas)).EndInit();

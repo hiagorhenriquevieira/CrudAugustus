@@ -44,7 +44,7 @@ namespace CrudAugustusFashion.View
                         Cidade = txtCidade.Text,
                         Bairro = txtComplemento.Text,
                         Logradouro = txtLogradouro.Text,
-                        NumeroResidencia = int.Parse(txtNumeroResidencia.Text),
+                        NumeroResidencia = txtNumeroResidencia.Text,
                         Uf = comboBoxUf.Text,
                         Complemento = txtComplemento.Text,
                     },
@@ -192,6 +192,22 @@ namespace CrudAugustusFashion.View
                 return false;
             }
             return true;
+        }
+
+        private void txtAgencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtConta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

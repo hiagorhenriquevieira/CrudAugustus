@@ -98,6 +98,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.Controls.Add(this.txtFiltrarPorNome);
             this.Controls.Add(this.dtgVisualizarCliente);
             this.Name = "FrmListaClientesFiltro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListaClientesFiltro";
             ((System.ComponentModel.ISupportInitialize)(this.dtgVisualizarCliente)).EndInit();
             this.ResumeLayout(false);

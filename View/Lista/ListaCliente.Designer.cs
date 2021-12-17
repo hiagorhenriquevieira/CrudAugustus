@@ -134,6 +134,7 @@ namespace CrudAugustusFashion.View
             this.Controls.Add(this.labelListagemClientes);
             this.Controls.Add(this.dataGridViewListaClientes);
             this.Name = "FrmListaCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listagem de clientes";
             this.Load += new System.EventHandler(this.frmListaCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListaClientes)).EndInit();

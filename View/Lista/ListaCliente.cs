@@ -24,6 +24,9 @@ namespace CrudAugustusFashion.View
 
         private void btnExibirCadastroCliente_Click(object sender, EventArgs e)
         {
+            var clientes = dataGridViewListaClientes.SelectedRows.Count;
+            if (clientes == 0)
+                return;
             int idCliente = Convert.ToInt32(dataGridViewListaClientes.SelectedRows[0].Cells[0].Value);
             
              var cliente = new ClienteDao().RecuperarDadosCliente(idCliente);

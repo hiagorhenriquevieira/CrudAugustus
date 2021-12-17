@@ -239,6 +239,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.Controls.Add(this.txtPrecoVenda);
             this.Controls.Add(this.txtNomeProduto);
             this.Name = "FrmCadastroProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastroProduto";
             this.ResumeLayout(false);
             this.PerformLayout();

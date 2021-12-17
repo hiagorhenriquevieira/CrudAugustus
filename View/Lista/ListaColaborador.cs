@@ -23,13 +23,15 @@ namespace CrudAugustusFashion.View
 
         private void FrmListaColaborador_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnExibirCadastroColaborador_Click(object sender, EventArgs e)
         {
-            
-                int idColaborador = Convert.ToInt32(dataGrideViewColaboradores.SelectedRows[0].Cells[0].Value);
+            var colaboradores = dataGrideViewColaboradores.SelectedRows.Count;
+            if (colaboradores == 0)
+                return;
+            int idColaborador = Convert.ToInt32(dataGrideViewColaboradores.SelectedRows[0].Cells[0].Value);
 
             var colaborador = new ColaboradorDao().RecuperarDadosColaborador(idColaborador);
 
@@ -41,9 +43,9 @@ namespace CrudAugustusFashion.View
         {
             try
             {
-                dataGrideViewColaboradores.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador((txtFiltrarColaborador.Text),(CbColaboradoresAtivos.Checked));
+                dataGrideViewColaboradores.DataSource = new AlteracaoColaboradorController().BuscarListaColaborador((txtFiltrarColaborador.Text), (CbColaboradoresAtivos.Checked));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro ao buscar colaborador. Erro:" + ex.Message);
             }

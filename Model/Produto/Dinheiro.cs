@@ -18,7 +18,7 @@ namespace CrudAugustusFashion.Model.Produto
 
         public Dinheiro(string dinheiro)
         {
-
+            _dinheiro = Convert.ToDecimal(dinheiro.Replace("R$", ""));
         }
 
         public decimal Valor { get => _dinheiro; }

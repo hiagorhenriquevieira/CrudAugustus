@@ -452,6 +452,7 @@ namespace CrudAugustusFashion.View
             this.txtConta.Name = "txtConta";
             this.txtConta.Size = new System.Drawing.Size(137, 27);
             this.txtConta.TabIndex = 161;
+            this.txtConta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConta_KeyPress);
             // 
             // txtAgencia
             // 
@@ -461,6 +462,7 @@ namespace CrudAugustusFashion.View
             this.txtAgencia.Name = "txtAgencia";
             this.txtAgencia.Size = new System.Drawing.Size(137, 27);
             this.txtAgencia.TabIndex = 159;
+            this.txtAgencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAgencia_KeyPress);
             // 
             // txtTipoConta
             // 
@@ -624,6 +626,7 @@ namespace CrudAugustusFashion.View
             this.Controls.Add(this.txtBairro);
             this.Controls.Add(this.txtComplemento);
             this.Name = "FrmCadastroColaborador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCadastroColaborador";
             this.Load += new System.EventHandler(this.CadastroColaborador_Load);
             this.ResumeLayout(false);

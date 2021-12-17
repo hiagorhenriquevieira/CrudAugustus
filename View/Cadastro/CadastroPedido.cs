@@ -255,7 +255,8 @@ namespace CrudAugustusFashion.View.Cadastro
         private void CadastrarVenda()
         {
             _cadastroPedido.CadastrarPedido(_pedidoModel);
-            MessageBox.Show("Venda realizada!");         
+            MessageBox.Show("Venda realizada!"); 
+            if(cbEnviarEmail.Checked == true)
             new EnvioDeEmail().EnviarEmail(_pedidoModel, _clienteModel);
         }
 

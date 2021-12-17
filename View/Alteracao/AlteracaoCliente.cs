@@ -82,7 +82,7 @@ namespace CrudAugustusFashion.View.Alteracao
 
         private void btnAlteracaoCliente_Click(object sender, EventArgs e)
         {
-
+            _cliente.ValorLimite = txtLimiteCompraPrazo.Text;
             var cliente = new ClienteModel
             {
                 IdCliente = _cliente.IdCliente,
@@ -96,7 +96,7 @@ namespace CrudAugustusFashion.View.Alteracao
                 Sexo = comboBoxSexo.Text,
                 DataNascimento = dateTimeNascimento.Value,
                 Email = txtEmail.Text,
-                ValorLimite = Convert.ToDecimal(RetornarValorDeLimiteDoCliente(_cliente)),
+                ValorLimite = _cliente.ValorLimite.Valor,
                 Observacao = txtObservacao.Text.ToString(),
                 Endereco = new EnderecoModel
                 {
@@ -107,7 +107,7 @@ namespace CrudAugustusFashion.View.Alteracao
                     Uf = comboBoxUf.Text,
                     Complemento = txtComplemento.Text,
                     Logradouro = txtLogradouro.Text,
-                    NumeroResidencia = int.Parse(txtNumeroResidencia.Text),
+                    NumeroResidencia = txtNumeroResidencia.Text,
                 },
                 Telefone = new TelefoneModel
                 {

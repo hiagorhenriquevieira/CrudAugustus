@@ -19,7 +19,7 @@ namespace CrudAugustusFashion.View.Lista
         {
             try
             {
-                //dataGridViewListaProduto.DataSource = new ListaProdutoController().MostrarProdutosNaLista();
+
             }
             catch (Exception ex)
             {
@@ -31,19 +31,19 @@ namespace CrudAugustusFashion.View.Lista
         {
             try
             {
-               
-                
-                    int codigoProduto = Convert.ToInt32(dataGridViewListaProduto.SelectedRows[0].Cells[0].Value);
-                    var produto = new ProdutoDao().RecuperarDadosProduto(codigoProduto);
-                    new AlteracaoProdutoController().AbrirAlteracaoProduto(produto);
-                    this.Close();
 
-                
+                var produtos = dataGridViewListaProduto.SelectedRows.Count;
+                if (produtos == 0)
+                    return;
+                int codigoProduto = Convert.ToInt32(dataGridViewListaProduto.SelectedRows[0].Cells[0].Value);
+                var produto = new ProdutoDao().RecuperarDadosProduto(codigoProduto);
+                new AlteracaoProdutoController().AbrirAlteracaoProduto(produto);
+                this.Close();
 
             }
             catch (Exception excecao)
             {
-                MessageBox.Show("Produto Não Selecionado"+ excecao.Message);
+                MessageBox.Show("Produto Não Selecionado" + excecao.Message);
             }
         }
 
@@ -57,8 +57,8 @@ namespace CrudAugustusFashion.View.Lista
         }
         private void btnFiltrarProduto_Click(object sender, EventArgs e)
         {
-            
-                FiltrarProduto();
+
+            FiltrarProduto();
         }
         private void FiltrarProduto()
         {

@@ -91,13 +91,14 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 364);
+            this.ClientSize = new System.Drawing.Size(735, 364);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.lblFiltroDeCliente);
             this.Controls.Add(this.lblNomeDoProduto);
             this.Controls.Add(this.txtFiltrarPorProduto);
             this.Controls.Add(this.dtgVisualizarProduto);
             this.Name = "FrmListaProdutoFiltro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListaProdutoFiltro";
             this.Load += new System.EventHandler(this.ListaProdutoFiltro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgVisualizarProduto)).EndInit();
