@@ -494,6 +494,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtConta.Name = "txtConta";
             this.txtConta.Size = new System.Drawing.Size(137, 27);
             this.txtConta.TabIndex = 19;
+            this.txtConta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConta_KeyPress_1);
             // 
             // txtAgencia
             // 
@@ -503,6 +504,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtAgencia.Name = "txtAgencia";
             this.txtAgencia.Size = new System.Drawing.Size(137, 27);
             this.txtAgencia.TabIndex = 17;
+            this.txtAgencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAgencia_KeyPress_1);
             // 
             // txtTipoConta
             // 
@@ -600,6 +602,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(163, 27);
             this.txtSalario.TabIndex = 21;
+            this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalario_KeyPress_1);
             // 
             // label13
             // 

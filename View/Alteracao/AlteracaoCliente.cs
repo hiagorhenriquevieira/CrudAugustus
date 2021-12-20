@@ -156,5 +156,13 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             return _cliente.ValorLimite.Valor - _cliente.ValorConsumido.Valor;
         }
+
+        private void txtLimiteCompraPrazo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

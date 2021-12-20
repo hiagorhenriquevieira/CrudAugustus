@@ -25,8 +25,8 @@ namespace CrudAugustusFashion.View.Alteracao
             txtNomeProduto.Text = _produto.Nome;
             txtNomeFabricante.Text = _produto.Fabricante;
             numericEstoque.Text = _produto.QuantidadeEstoque.ToString();
-            txtPrecoCusto.Text = _produto.PrecoCusto.ToString();
-            txtPrecoVenda.Text = _produto.PrecoVenda.ToString();
+            txtPrecoCusto.Text = _produto.PrecoCusto.Valor.ToString();
+            txtPrecoVenda.Text = _produto.PrecoVenda.Valor.ToString();
             txtPorcentagemLucro.Text = _produto.Lucro.ToString();
         }
 
@@ -49,6 +49,7 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             try
             {
+                CorrigirCampos();
 
                 if (ValidarCamposDeAlteracaoProduto())
                 {
@@ -61,7 +62,6 @@ namespace CrudAugustusFashion.View.Alteracao
                     _produto.CodigoDeBarras = txtCodigoBarras.Text;
                     _produto.Lucro = Convert.ToInt32(txtPorcentagemLucro.Text);
                     _produto.QuantidadeEstoque = Convert.ToInt32(numericEstoque.Value);
-                    
                     if (Convert.ToInt32(numericEstoque.Text) >= 0)
                     {
                     new AlteracaoProdutoController().AlterarProduto(_produto);
@@ -97,11 +97,22 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Campo - Codigo de Barras- invalido");
                 return false;
             }
-             if (ValidacoesExtencion.NuloOuVazio(txtPrecoCusto))
+             if (txtPrecoCusto.Text == "")
             {
                 MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
                 return false;
             }
+            if (txtPrecoVenda.Text == "")
+            {
+                MessageBox.Show("Campo -PrecoVenda- não pode ser vazio");
+                return false;
+            }
+            if (txtPorcentagemLucro.Text == "")
+            {
+                MessageBox.Show("Campo - Lucro - não pode ser vazio ");
+                return false;
+            }
+
             return true;
         }
         private void txtProdutosAdicionaisEstoque_KeyPress(object sender, KeyPressEventArgs e)
@@ -120,7 +131,7 @@ namespace CrudAugustusFashion.View.Alteracao
         }
         private void txtPorcentagemLucro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
@@ -152,7 +163,7 @@ namespace CrudAugustusFashion.View.Alteracao
         }
         private void btnAdicionarEstoque_Click(object sender, EventArgs e)
         {
-            if (!ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro) || !ValidacoesExtencion.NuloOuVazio(txtPrecoVenda))
+            if (numericEstoqueAdicional.Value > 0 )
             {
                 var estoque = numericEstoque.Value;
                 var estoqueAdicional = numericEstoqueAdicional.Value;
@@ -163,11 +174,14 @@ namespace CrudAugustusFashion.View.Alteracao
         private void btnSubtrairEstoque_Click(object sender, EventArgs e)
         {
 
-            if (ValidacoesExtencion.NuloOuVazio(txtPorcentagemLucro)) return;
+            if (numericEstoque.Value >= numericEstoqueAdicional.Value)
+            {
             var estoque = numericEstoque.Value;
             var estoqueAdicional = numericEstoqueAdicional.Value;
             _produto.QuantidadeEstoque = (Convert.ToInt32(estoque) - Convert.ToInt32(estoqueAdicional));
             numericEstoque.Value = _produto.QuantidadeEstoque;       
+
+            }
         }
         private void CalcularPrecoCusto()
         {
@@ -206,6 +220,36 @@ namespace CrudAugustusFashion.View.Alteracao
             var venda = txtPrecoVenda.Text.ToFloat();
             var lucro = ((venda * 100) / custo) - 100;
             txtPorcentagemLucro.Text = lucro.ToString();
+        }
+
+        private void txtPrecoCusto_Leave(object sender, EventArgs e)
+        {
+            CalcularPrecoCusto();
+        }
+
+        private void txtPorcentagemLucro_Leave(object sender, EventArgs e)
+        {
+            CalcularPorcentagemLucro();
+        }
+
+        private void txtPrecoVenda_Leave(object sender, EventArgs e)
+        {
+            CalcularPrecoVenda();
+        }
+        private void CorrigirCampos()
+        {
+            CalcularPorcentagemLucro();
+            CalcularPrecoCusto();
+            CalcularPrecoVenda();
+            MessageBox.Show("Os valores foram corrigidos para serem alterados.");
+        }
+
+        private void txtPrecoVenda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

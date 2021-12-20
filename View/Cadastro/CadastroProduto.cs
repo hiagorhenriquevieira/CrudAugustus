@@ -43,13 +43,13 @@ namespace CrudAugustusFashion.View.Cadastro
             }
         }
 
-        private void CorrigirCampos()
-        {
-            CalcularPorcentagemLucro();
-            CalcularPrecoCusto();
-            CalcularPrecoVenda();
-            MessageBox.Show("Os valores foram corrigidos para serem cadastrados.");
-        }
+            private void CorrigirCampos()
+            {
+                CalcularPorcentagemLucro();
+                CalcularPrecoCusto();
+                CalcularPrecoVenda();
+                MessageBox.Show("Os valores foram corrigidos para serem cadastrados.");
+            }
 
         private void buttonCalcularPrecoProduto_Click(object sender, EventArgs e)
         {

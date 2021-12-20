@@ -59,7 +59,7 @@ namespace CrudAugustusFashion.View
                     {
                         Agencia = int.Parse(txtAgencia.Text),
                         Banco = txtBanco.Text,
-                        TipoConta = txtBanco.Text,
+                        TipoConta = txtTipoConta.Text,
                         Conta = int.Parse(txtConta.Text),
                     },
                 };
@@ -203,6 +203,22 @@ namespace CrudAugustusFashion.View
         }
 
         private void txtConta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPorcentagemComissao_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {

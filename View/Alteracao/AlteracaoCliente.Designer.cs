@@ -296,6 +296,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtLimiteCompraPrazo.Name = "txtLimiteCompraPrazo";
             this.txtLimiteCompraPrazo.Size = new System.Drawing.Size(177, 27);
             this.txtLimiteCompraPrazo.TabIndex = 16;
+            this.txtLimiteCompraPrazo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLimiteCompraPrazo_KeyPress);
             // 
             // txtNumeroResidencia
             // 

@@ -541,6 +541,7 @@ namespace CrudAugustusFashion.View
             this.txtPorcentagemComissao.Name = "txtPorcentagemComissao";
             this.txtPorcentagemComissao.Size = new System.Drawing.Size(163, 27);
             this.txtPorcentagemComissao.TabIndex = 167;
+            this.txtPorcentagemComissao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentagemComissao_KeyPress);
             // 
             // label17
             // 
@@ -560,6 +561,7 @@ namespace CrudAugustusFashion.View
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(163, 27);
             this.txtSalario.TabIndex = 168;
+            this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalario_KeyPress);
             // 
             // label13
             // 

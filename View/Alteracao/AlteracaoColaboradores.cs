@@ -169,5 +169,29 @@ namespace CrudAugustusFashion.View.Alteracao
                 e.Handled = true;
             }
         }
+
+        private void txtSalario_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtAgencia_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtConta_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

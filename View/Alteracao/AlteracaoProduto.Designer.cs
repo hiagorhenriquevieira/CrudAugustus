@@ -179,6 +179,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPorcentagemLucro.Size = new System.Drawing.Size(165, 33);
             this.txtPorcentagemLucro.TabIndex = 7;
             this.txtPorcentagemLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentagemLucro_KeyPress);
+            this.txtPorcentagemLucro.Leave += new System.EventHandler(this.txtPorcentagemLucro_Leave);
             // 
             // txtPrecoCusto
             // 
@@ -188,6 +189,7 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPrecoCusto.Size = new System.Drawing.Size(165, 33);
             this.txtPrecoCusto.TabIndex = 6;
             this.txtPrecoCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoCusto_KeyPress);
+            this.txtPrecoCusto.Leave += new System.EventHandler(this.txtPrecoCusto_Leave);
             // 
             // txtCodigoBarras
             // 
@@ -204,6 +206,8 @@ namespace CrudAugustusFashion.View.Alteracao
             this.txtPrecoVenda.Name = "txtPrecoVenda";
             this.txtPrecoVenda.Size = new System.Drawing.Size(165, 33);
             this.txtPrecoVenda.TabIndex = 9;
+            this.txtPrecoVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoVenda_KeyPress);
+            this.txtPrecoVenda.Leave += new System.EventHandler(this.txtPrecoVenda_Leave);
             // 
             // txtNomeProduto
             // 
