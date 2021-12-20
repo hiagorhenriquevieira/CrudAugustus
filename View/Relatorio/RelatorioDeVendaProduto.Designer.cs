@@ -117,7 +117,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             this.lblRelatorioVendaProduto.AutoSize = true;
             this.lblRelatorioVendaProduto.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRelatorioVendaProduto.Location = new System.Drawing.Point(305, 25);
+            this.lblRelatorioVendaProduto.Location = new System.Drawing.Point(362, 52);
             this.lblRelatorioVendaProduto.Name = "lblRelatorioVendaProduto";
             this.lblRelatorioVendaProduto.Size = new System.Drawing.Size(221, 29);
             this.lblRelatorioVendaProduto.TabIndex = 5;
@@ -129,7 +129,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.txtNomeProduto.Location = new System.Drawing.Point(14, 163);
             this.txtNomeProduto.Name = "txtNomeProduto";
             this.txtNomeProduto.ReadOnly = true;
-            this.txtNomeProduto.Size = new System.Drawing.Size(100, 27);
+            this.txtNomeProduto.Size = new System.Drawing.Size(163, 27);
             this.txtNomeProduto.TabIndex = 6;
             // 
             // txtNomeCliente
@@ -138,7 +138,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.txtNomeCliente.Location = new System.Drawing.Point(14, 97);
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.ReadOnly = true;
-            this.txtNomeCliente.Size = new System.Drawing.Size(100, 27);
+            this.txtNomeCliente.Size = new System.Drawing.Size(164, 27);
             this.txtNomeCliente.TabIndex = 7;
             // 
             // dtpDataInicial
@@ -147,7 +147,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.dtpDataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataInicial.Location = new System.Drawing.Point(14, 241);
             this.dtpDataInicial.Name = "dtpDataInicial";
-            this.dtpDataInicial.Size = new System.Drawing.Size(139, 27);
+            this.dtpDataInicial.Size = new System.Drawing.Size(234, 27);
             this.dtpDataInicial.TabIndex = 8;
             this.dtpDataInicial.Value = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             // 
@@ -157,7 +157,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.dtpDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataFinal.Location = new System.Drawing.Point(14, 320);
             this.dtpDataFinal.Name = "dtpDataFinal";
-            this.dtpDataFinal.Size = new System.Drawing.Size(139, 27);
+            this.dtpDataFinal.Size = new System.Drawing.Size(234, 27);
             this.dtpDataFinal.TabIndex = 9;
             // 
             // btnFiltrarProduto
@@ -165,7 +165,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.btnFiltrarProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.btnFiltrarProduto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFiltrarProduto.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarProduto.Location = new System.Drawing.Point(120, 163);
+            this.btnFiltrarProduto.Location = new System.Drawing.Point(176, 163);
             this.btnFiltrarProduto.Name = "btnFiltrarProduto";
             this.btnFiltrarProduto.Size = new System.Drawing.Size(33, 27);
             this.btnFiltrarProduto.TabIndex = 10;
@@ -178,7 +178,7 @@ namespace CrudAugustusFashion.View.Relatorio
             this.btnFiltrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.btnFiltrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFiltrarCliente.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarCliente.Location = new System.Drawing.Point(120, 96);
+            this.btnFiltrarCliente.Location = new System.Drawing.Point(177, 97);
             this.btnFiltrarCliente.Name = "btnFiltrarCliente";
             this.btnFiltrarCliente.Size = new System.Drawing.Size(33, 27);
             this.btnFiltrarCliente.TabIndex = 11;
@@ -192,9 +192,9 @@ namespace CrudAugustusFashion.View.Relatorio
             this.btnFiltrarProdutosVendidos.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnFiltrarProdutosVendidos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFiltrarProdutosVendidos.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrarProdutosVendidos.Location = new System.Drawing.Point(53, 408);
+            this.btnFiltrarProdutosVendidos.Location = new System.Drawing.Point(53, 430);
             this.btnFiltrarProdutosVendidos.Name = "btnFiltrarProdutosVendidos";
-            this.btnFiltrarProdutosVendidos.Size = new System.Drawing.Size(100, 37);
+            this.btnFiltrarProdutosVendidos.Size = new System.Drawing.Size(192, 37);
             this.btnFiltrarProdutosVendidos.TabIndex = 12;
             this.btnFiltrarProdutosVendidos.Text = "Filtrar";
             this.btnFiltrarProdutosVendidos.UseVisualStyleBackColor = false;
@@ -204,7 +204,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             this.btnLimparCampos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLimparCampos.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimparCampos.Location = new System.Drawing.Point(14, 408);
+            this.btnLimparCampos.Location = new System.Drawing.Point(14, 430);
             this.btnLimparCampos.Name = "btnLimparCampos";
             this.btnLimparCampos.Size = new System.Drawing.Size(33, 37);
             this.btnLimparCampos.TabIndex = 13;
@@ -231,9 +231,9 @@ namespace CrudAugustusFashion.View.Relatorio
             this.panelMenu.Controls.Add(this.btnFiltrarProduto);
             this.panelMenu.Controls.Add(this.lblProduto);
             this.panelMenu.Controls.Add(this.txtNomeProduto);
-            this.panelMenu.Location = new System.Drawing.Point(813, 1);
+            this.panelMenu.Location = new System.Drawing.Point(744, 1);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(193, 685);
+            this.panelMenu.Size = new System.Drawing.Size(263, 708);
             this.panelMenu.TabIndex = 14;
             this.panelMenu.Visible = false;
             // 
@@ -253,7 +253,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // btnLimparProduto
             // 
             this.btnLimparProduto.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimparProduto.Location = new System.Drawing.Point(155, 161);
+            this.btnLimparProduto.Location = new System.Drawing.Point(215, 163);
             this.btnLimparProduto.Name = "btnLimparProduto";
             this.btnLimparProduto.Size = new System.Drawing.Size(33, 28);
             this.btnLimparProduto.TabIndex = 16;
@@ -264,7 +264,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // btnLimparCliente
             // 
             this.btnLimparCliente.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimparCliente.Location = new System.Drawing.Point(155, 95);
+            this.btnLimparCliente.Location = new System.Drawing.Point(212, 96);
             this.btnLimparCliente.Name = "btnLimparCliente";
             this.btnLimparCliente.Size = new System.Drawing.Size(33, 28);
             this.btnLimparCliente.TabIndex = 15;
@@ -296,8 +296,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             // lblTotalBruto
             // 
-            this.lblTotalBruto.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTotalBruto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalBruto.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalBruto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalBruto.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblTotalBruto.Location = new System.Drawing.Point(29, 551);
@@ -307,8 +306,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             // lblTotalDesconto
             // 
-            this.lblTotalDesconto.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTotalDesconto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalDesconto.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalDesconto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalDesconto.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblTotalDesconto.Location = new System.Drawing.Point(191, 550);
@@ -318,8 +316,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             // lblTotalLiquido
             // 
-            this.lblTotalLiquido.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTotalLiquido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalLiquido.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalLiquido.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalLiquido.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblTotalLiquido.Location = new System.Drawing.Point(353, 551);
@@ -329,8 +326,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             // lblTotalCusto
             // 
-            this.lblTotalCusto.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTotalCusto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalCusto.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalCusto.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalCusto.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblTotalCusto.Location = new System.Drawing.Point(515, 551);
@@ -340,8 +336,7 @@ namespace CrudAugustusFashion.View.Relatorio
             // 
             // lblLucroReais
             // 
-            this.lblLucroReais.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblLucroReais.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLucroReais.BackColor = System.Drawing.Color.Transparent;
             this.lblLucroReais.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLucroReais.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblLucroReais.Location = new System.Drawing.Point(677, 550);

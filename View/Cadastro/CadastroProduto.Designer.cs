@@ -65,6 +65,7 @@ namespace CrudAugustusFashion.View.Cadastro
             this.txtPrecoVenda.Name = "txtPrecoVenda";
             this.txtPrecoVenda.Size = new System.Drawing.Size(165, 29);
             this.txtPrecoVenda.TabIndex = 7;
+            this.txtPrecoVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoVenda_KeyPress);
             this.txtPrecoVenda.Leave += new System.EventHandler(this.txtPrecoVenda_Leave);
             // 
             // txtCodigoBarras

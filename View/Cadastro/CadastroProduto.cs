@@ -43,13 +43,13 @@ namespace CrudAugustusFashion.View.Cadastro
             }
         }
 
-            private void CorrigirCampos()
-            {
-                CalcularPorcentagemLucro();
-                CalcularPrecoCusto();
-                CalcularPrecoVenda();
-                MessageBox.Show("Os valores foram corrigidos para serem cadastrados.");
-            }
+        private void CorrigirCampos()
+        {
+            CalcularPorcentagemLucro();
+
+            CalcularPrecoVenda();
+            MessageBox.Show("Os valores foram corrigidos para serem cadastrados.");
+        }
 
         private void buttonCalcularPrecoProduto_Click(object sender, EventArgs e)
         {
@@ -95,12 +95,12 @@ namespace CrudAugustusFashion.View.Cadastro
                 MessageBox.Show("Campo -Estoque- invalido");
                 return false;
             }
-            if (txtPrecoVenda.Text == "")
+            if (txtPrecoVenda.Text == "" || txtPrecoVenda.Text == "NaN")
             {
                 MessageBox.Show("Campo -PrecoVenda- não pode ser vazio");
                 return false;
             }
-            if (txtPorcentagemLucro.Text == "")
+            if (txtPorcentagemLucro.Text == "" || txtPorcentagemLucro.Text == "NaN")
             {
                 MessageBox.Show("Campo - Lucro - não pode ser vazio ");
                 return false;
@@ -136,7 +136,10 @@ namespace CrudAugustusFashion.View.Cadastro
         {
             if (txtPrecoVenda.Text == "" || txtPrecoCusto.Text == "")
                 return false;
-
+            if (txtPorcentagemLucro.Text == "" || txtPorcentagemLucro.Text == "NaN")
+                return false;
+            if (txtPrecoVenda.Text == "" || txtPrecoVenda.Text == "NaN")
+                return false;
             if (Convert.ToDecimal(txtPrecoVenda.Text) >= Convert.ToDecimal(txtPrecoCusto.Text))
             {
                 return true;
@@ -159,7 +162,7 @@ namespace CrudAugustusFashion.View.Cadastro
 
         private void txtPrecoCusto_Leave(object sender, EventArgs e)
         {
-            CalcularPrecoCusto();
+
         }
         private void txtPorcentagemLucro_Leave(object sender, EventArgs e)
         {
@@ -207,6 +210,14 @@ namespace CrudAugustusFashion.View.Cadastro
             var venda = txtPrecoVenda.Text.ToFloat();
             var lucro = ((venda * 100) / custo) - 100;
             txtPorcentagemLucro.Text = lucro.ToString();
+        }
+
+        private void txtPrecoVenda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

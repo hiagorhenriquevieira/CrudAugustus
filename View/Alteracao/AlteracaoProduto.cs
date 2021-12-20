@@ -97,22 +97,22 @@ namespace CrudAugustusFashion.View.Alteracao
                 MessageBox.Show("Campo - Codigo de Barras- invalido");
                 return false;
             }
-             if (txtPrecoCusto.Text == "")
-            {
+             if (txtPrecoCusto.Text == "" || txtPrecoCusto.Text == "NaN")
                 MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
+            {
                 return false;
             }
-            if (txtPrecoVenda.Text == "")
+            
+            if (txtPrecoVenda.Text == "" || txtPrecoVenda.Text == "NaN")
             {
                 MessageBox.Show("Campo -PrecoVenda- não pode ser vazio");
                 return false;
             }
-            if (txtPorcentagemLucro.Text == "")
+            if (txtPorcentagemLucro.Text == "" || txtPorcentagemLucro.Text == "NaN")
             {
                 MessageBox.Show("Campo - Lucro - não pode ser vazio ");
                 return false;
             }
-
             return true;
         }
         private void txtProdutosAdicionaisEstoque_KeyPress(object sender, KeyPressEventArgs e)
@@ -185,6 +185,10 @@ namespace CrudAugustusFashion.View.Alteracao
         }
         private void CalcularPrecoCusto()
         {
+            if(txtPrecoCusto.Text == ",")
+            {
+                txtPrecoCusto.Text = "0";
+            }
             if (txtPrecoCusto.Text == " " || txtPorcentagemLucro.Text == "")
             {
                 return;
@@ -199,6 +203,10 @@ namespace CrudAugustusFashion.View.Alteracao
 
         private void CalcularPorcentagemLucro()
         {
+            if (txtPorcentagemLucro.Text == ",")
+            {
+                txtPorcentagemLucro.Text = "0";
+            }
             if (txtPrecoCusto.Text == " " || txtPorcentagemLucro.Text == "")
             {
                 return;
@@ -212,6 +220,14 @@ namespace CrudAugustusFashion.View.Alteracao
 
         public void CalcularPrecoVenda()
         {
+            if(txtPrecoVenda.Text == ",")
+            {
+                txtPrecoVenda.Text = "0";
+            }
+            if (txtPrecoVenda.Text == " ,")
+            {
+                txtPrecoVenda.Text = "0";
+            }
             if (txtPrecoVenda.Text == "" || txtPrecoCusto.Text == "")
             {
                 return;
@@ -249,7 +265,7 @@ namespace CrudAugustusFashion.View.Alteracao
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
             {
                 e.Handled = true;
-            }
+            } 
         }
     }
 }
