@@ -31,7 +31,6 @@ namespace CrudAugustusFashion.View.ContasAReceber
         {
             this.dataGridViewConsulta = new System.Windows.Forms.DataGridView();
             this.btnPagarConta = new System.Windows.Forms.Button();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.CbContasPendentes = new System.Windows.Forms.CheckBox();
             this.txtFiltrarCliente = new System.Windows.Forms.TextBox();
             this.btnFiltrarCliente = new System.Windows.Forms.Button();
@@ -61,27 +60,13 @@ namespace CrudAugustusFashion.View.ContasAReceber
             this.btnPagarConta.FlatAppearance.BorderSize = 0;
             this.btnPagarConta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPagarConta.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagarConta.Location = new System.Drawing.Point(778, 627);
+            this.btnPagarConta.Location = new System.Drawing.Point(81, 627);
             this.btnPagarConta.Name = "btnPagarConta";
             this.btnPagarConta.Size = new System.Drawing.Size(150, 31);
             this.btnPagarConta.TabIndex = 71;
             this.btnPagarConta.Text = "Pagar Conta";
             this.btnPagarConta.UseVisualStyleBackColor = false;
             this.btnPagarConta.Click += new System.EventHandler(this.btnPagarConta_Click);
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.btnVoltar.FlatAppearance.BorderSize = 0;
-            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVoltar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(81, 627);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(150, 31);
-            this.btnVoltar.TabIndex = 70;
-            this.btnVoltar.Text = "Voltar ";
-            this.btnVoltar.UseVisualStyleBackColor = false;
             // 
             // CbContasPendentes
             // 
@@ -140,7 +125,6 @@ namespace CrudAugustusFashion.View.ContasAReceber
             this.Controls.Add(this.btnFiltrarCliente);
             this.Controls.Add(this.labelListagemClientes);
             this.Controls.Add(this.btnPagarConta);
-            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dataGridViewConsulta);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "FrmListaDeContasAReceber";
@@ -157,7 +141,6 @@ namespace CrudAugustusFashion.View.ContasAReceber
 
         private System.Windows.Forms.DataGridView dataGridViewConsulta;
         private System.Windows.Forms.Button btnPagarConta;
-        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.CheckBox CbContasPendentes;
         private System.Windows.Forms.TextBox txtFiltrarCliente;
         private System.Windows.Forms.Button btnFiltrarCliente;

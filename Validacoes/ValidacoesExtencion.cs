@@ -1,6 +1,4 @@
-﻿using CrudAugustusFashion.Model.RelatorioCliente;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -50,7 +48,7 @@ namespace CrudAugustusFashion.Validacoes
             new Regex(@"^[a-zA-ZçÇ áÁãÃÂâêÊÉéóòÀà.íìÌÍ&!@#$¨*()+|\/?;>`<]+$").Match(texto).Success;
 
         public static bool ValidarEmail(this string email) =>
-            new Regex(@"^[a-zA-Z0-9._-]+[@][a-z]+[.]([a-zA-Z]{2,3})+$").Match(email).Success;
+            new Regex(@"^[a-zA-Z0-9._-]+[@][a-z]+[.]([a-zA-Z.]{2,3})+$").Match(email).Success;
 
         public static bool ValidarCpf(this string cpf) =>
             new Regex(@"^[0-9]{11}$").Match(cpf).Success;

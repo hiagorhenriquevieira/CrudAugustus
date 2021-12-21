@@ -98,11 +98,10 @@ namespace CrudAugustusFashion.View.Alteracao
                 return false;
             }
              if (txtPrecoCusto.Text == "" || txtPrecoCusto.Text == "NaN")
-                MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
             {
+                MessageBox.Show("Campo -Preço de custo- não pdoe ser vazio");
                 return false;
             }
-            
             if (txtPrecoVenda.Text == "" || txtPrecoVenda.Text == "NaN")
             {
                 MessageBox.Show("Campo -PrecoVenda- não pode ser vazio");

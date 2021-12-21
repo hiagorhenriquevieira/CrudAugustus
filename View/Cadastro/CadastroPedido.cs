@@ -152,8 +152,7 @@ namespace CrudAugustusFashion.View.Cadastro
 
             if (numericQuantidade.Value > _produtoModel.QuantidadeEstoque)
             {
-                MessageBox.Show("Quantidade de produtos é maior do que a quantidade em estoque");
-                //numericQuantidade.Value = _produtoModel.QuantidadeEstoque;
+                MessageBox.Show("Quantidade de produtos é maior do que a quantidade em estoque");   
                 return;
             }
             if (lblIdProduto.Text == "")
@@ -233,8 +232,9 @@ namespace CrudAugustusFashion.View.Cadastro
                     SetarDadosDoPedido();
 
                     if (ValidacaoDeCampoVendaAhPrazo())
-
                         AlterarVenda();
+
+                    LimparCamposAposCadastro();
                     return;
                 }
 
@@ -246,8 +246,8 @@ namespace CrudAugustusFashion.View.Cadastro
 
                         CadastrarVenda();
                     }
+                    LimparCamposAposCadastro();
                 }
-                LimparCamposAposCadastro();
             }
             catch (Exception excecao)
             {

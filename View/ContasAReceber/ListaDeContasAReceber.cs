@@ -63,6 +63,10 @@ namespace CrudAugustusFashion.View.ContasAReceber
                     MessageBox.Show("Nenhuma conta foi selecionada");
                     return; 
                 }
+                DialogResult OpcaoDoUsuario = new DialogResult();
+                OpcaoDoUsuario = MessageBox.Show("Você está prestes a pagar uma conta, deseja continuar? ", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(OpcaoDoUsuario == DialogResult.Yes)
+                {
 
                 var idVenda = Convert.ToInt32(dataGridViewConsulta.SelectedRows[0].Cells[0].Value);
                 
@@ -70,6 +74,7 @@ namespace CrudAugustusFashion.View.ContasAReceber
                 MessageBox.Show("A conta foi paga");
                 var lista = _contasAReceberController.ListarComprasAPrazo(txtFiltrarCliente.Text, CbContasPendentes.Checked);
                 dataGridViewConsulta.DataSource = lista;
+                }
             }
             catch (Exception excecao)
             {

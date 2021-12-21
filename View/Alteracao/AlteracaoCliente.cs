@@ -66,10 +66,17 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             try
             {
+                DialogResult OpcaoDoUsuario = new DialogResult();
+
+                OpcaoDoUsuario = MessageBox.Show("Você está prestes a Excluir um cliente, deseja continuar? ", 
+                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(OpcaoDoUsuario == DialogResult.Yes)
+                {
                 _excluircliente.ExcluirClientes(_cliente);
                 MessageBox.Show("Cliente excluído com sucesso.");
                 this.Close();
                 _cadastroclientecontroller.AbrirListaCliente();
+                }
 
             }
             catch (Exception ex)

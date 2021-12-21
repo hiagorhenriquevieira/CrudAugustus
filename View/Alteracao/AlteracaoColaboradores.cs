@@ -83,7 +83,7 @@ namespace CrudAugustusFashion.View.Alteracao
                 {
                     MessageBox.Show("Colaborador alterado com sucesso!");
                     this.Close();
-                _cadastroColaboradorController.AbrirListaColaborador();
+                    _cadastroColaboradorController.AbrirListaColaborador();
                 }
                 else
                 {
@@ -127,10 +127,15 @@ namespace CrudAugustusFashion.View.Alteracao
         {
             try
             {
-                _excluirColaborador.ExcluirColaboradores(_colaboradorModel);
-                MessageBox.Show("Colaborador excluido com sucesso.");
-                this.Close();
-                _cadastroColaboradorController.AbrirListaColaborador();
+                DialogResult OpcaoDoUsuario = new DialogResult();
+                OpcaoDoUsuario = MessageBox.Show("Você está prestes a pagar uma conta, deseja continuar? ", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (OpcaoDoUsuario == DialogResult.Yes)
+                {
+                    _excluirColaborador.ExcluirColaboradores(_colaboradorModel);
+                    MessageBox.Show("Colaborador excluido com sucesso.");
+                    this.Close();
+                    _cadastroColaboradorController.AbrirListaColaborador();
+                }
             }
             catch (Exception ex)
             {
