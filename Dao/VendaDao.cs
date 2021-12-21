@@ -17,7 +17,7 @@ namespace CrudAugustusFashion.Dao
             const string insertVenda = @"Insert into Venda (IdCliente, IdColaborador, TotalBruto, TotalDesconto, TotalLiquido, Lucro, FormaDePagamento, DataEmissao)  
                 output inserted.IdVenda 
                 values (@IdCliente, @IdColaborador, @TotalBruto, @TotalDesconto, @TotalLiquido, @LucroTotal, @FormaDePagamento, @DataEmissao)";
-            
+
 
             const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
                 QuantidadeProduto, Desconto, PrecoLiquido,Total) 
@@ -79,6 +79,9 @@ namespace CrudAugustusFashion.Dao
         {
             if (venda.FormaDePagamento == Enums.EFormaDePagamento.APRAZO)
                 conexao.Query<VendaModel>(venda.GerarSql(), venda.RecuperarParametros(), transaction);
+
+            conexao.Query<VendaModel>(venda.GerarSql(), venda.PassarParametros(), transaction);
+
         }
 
         internal void EliminarPedido(VendaModel vendaModel)
@@ -201,7 +204,7 @@ namespace CrudAugustusFashion.Dao
             const string updateVenda = @"Update Venda set TotalBruto = @TotalBruto, TotalDesconto = @TotalDesconto, 
                                         TotalLiquido = @TotalLiquido, Lucro = @LucroTotal, FormaDePagamento = @FormaDePagamento
                                         where IdVenda = @IdVenda";
-            
+
 
             const string insertPedidoProduto = @"Insert into PedidosProduto (IdVenda, PrecoBruto, PrecoCusto, IdProduto, PrecoVenda,
                 QuantidadeProduto, Desconto, PrecoLiquido,Total) 
@@ -225,7 +228,7 @@ namespace CrudAugustusFashion.Dao
 
                         conexao.Execute(deletePedidoProduto, pedidoModel, transaction);
 
-                        conexao.Query<VendaModel>(pedidoModel.GerarSql(), pedidoModel.RecuperarParametros(), transaction);
+                        InserirContaAPagar(pedidoModel, conexao, transaction);
 
                         conexao.Execute(updateVenda,
                             new

@@ -58,18 +58,19 @@ namespace CrudAugustusFashion.Model.Pedido
 
         public string GerarSql()
         {
-            if (PagamentoPreAlteracao == EFormaDePagamento.APRAZO)
-                return " ";
-
-            var select = @" Insert into ContasAReceber(IdVenda, ValorAPagar)
+           
+            if (VerificarFormaDePagamentoCompra())
+                return @" Insert into ContasAReceber(IdVenda, ValorAPagar)
                                                  values(@IdVenda, @ValorAPagar) ";
-
-            if (FormaDePagamento == EFormaDePagamento.APRAZO)
-                return select;
-            return " ";
+            return " delete ContasAReceber  where IdVenda = @IdVenda ";
         }
 
-        public  string GetEnumDescription<T>(T value) where T : Enum
+        private bool VerificarFormaDePagamentoCompra()
+        {
+            return FormaDePagamento == EFormaDePagamento.APRAZO && PagamentoPreAlteracao != EFormaDePagamento.APRAZO;             
+        }
+
+        public string GetEnumDescription<T>(T value) where T : Enum
         {
             FieldInfo fi = value.GetType().GetField(value.ToString());
 
@@ -84,6 +85,7 @@ namespace CrudAugustusFashion.Model.Pedido
         }
         public DynamicParameters RecuperarParametros()
         {
+            
             var parameters = new DynamicParameters();
 
             parameters.AddDynamicParams(
@@ -96,7 +98,22 @@ namespace CrudAugustusFashion.Model.Pedido
                 );
 
             return parameters;
+        }public DynamicParameters PassarParametros()
+        {
+            
+            var parameters = new DynamicParameters();
+
+            parameters.AddDynamicParams(
+                new
+                {
+                    IdVenda,
+                }
+                );
+
+            return parameters;
         }
+
+
 
         public int RetornarValorIndexCarrinho(int id)
         => Produtos.FindIndex(x => x.IdProduto == id);
