@@ -198,5 +198,11 @@ namespace CrudAugustusFashion.View.Alteracao
                 e.Handled = true;
             }
         }
+
+        private void BtnVoltar_Click(object sender, EventArgs e)
+        {
+            Close();
+            new CadastroColaboradorController().AbrirListaColaborador();
+        }
     }
 }

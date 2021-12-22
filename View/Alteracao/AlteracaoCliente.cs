@@ -171,5 +171,10 @@ namespace CrudAugustusFashion.View.Alteracao
                 e.Handled = true;
             }
         }
+
+        private void txtSobrenome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
