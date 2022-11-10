@@ -9,7 +9,7 @@ namespace CrudAugustusFashion.Dao
             var con = new SqlConnection();
             if (con.State == ConnectionState.Closed)
             {
-                con.ConnectionString = "Data Source=DESKTOP-IETNHSD;Initial Catalog=BDAUGUSTO;User ID=sa;Password=123";
+                con.ConnectionString = "Data Source=;Initial Catalog=;User ID=;";
                 con.Open();
             }
             return con;
